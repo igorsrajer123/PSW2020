@@ -1,1 +1,0 @@
-Projektovanje softvera 2020/2021
