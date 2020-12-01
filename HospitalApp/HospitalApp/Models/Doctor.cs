@@ -7,10 +7,28 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Models
 {
+    public enum DoctorType
+    {
+        Specialist,
+        GeneralPractitioner
+    }
+
+    [Table("Doctor")]
     public class Doctor
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        [MaxLength(25)]
+        public string FirstName { get; set; }
+
+        [MaxLength(25)]
+        public string LastName { get; set; }
+
+        public DoctorType Type { get; set; }
+
+        public bool IsDeleted { get; set; } 
+
+        public virtual ICollection<Examination> Examinations { get; set; }
     }
 }

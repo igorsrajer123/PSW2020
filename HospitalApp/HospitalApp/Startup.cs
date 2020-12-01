@@ -21,6 +21,7 @@ namespace HospitalApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddDbContext<MyDbContext>(options =>
                      options.UseSqlServer(ConfigurationExtensions.GetConnectionString(Configuration, "MyDbContextConnectionString")).UseLazyLoadingProxies());
         }
