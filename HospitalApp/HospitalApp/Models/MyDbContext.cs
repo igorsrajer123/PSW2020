@@ -8,9 +8,9 @@ namespace HospitalApp.Models
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Administrator> Administrators { get; set; }
-
         public DbSet<Patient> Patients { get; set; }
+
+        public DbSet<Administrator> Administrators { get; set; }
 
         public DbSet<Examination> Examinations { get; set; }
 
@@ -22,13 +22,31 @@ namespace HospitalApp.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*
-            modelBuilder.Entity<Doctor>().HasData(
-                new Doctor { Id=1, FirstName = "Šilja", LastName = "Pajić", Type = DoctorType.Specialist},
-                new Doctor { Id=5, FirstName = "Konan", LastName = "Varvarin", Type = DoctorType.Specialist }
-            );*/
-
             
+            modelBuilder.Entity<Administrator>().HasData(
+                new Administrator { Id = 5, FirstName = "admin", LastName = "administratovic", Username = "admin", Password = "admin", BlockedUsers = null, IsDeleted = false}
+            );
+
+            modelBuilder.Entity<Doctor>().HasData(
+                new Doctor { Id = 1, FirstName = "Misa", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Examinations = null, IsDeleted = false}
+                );
+
+            modelBuilder.Entity<Doctor>()
+                        .HasMany(e => e.Examinations)
+                        .WithOne(d => d.Doctor);
+
+            modelBuilder.Entity<Patient>()
+                        .HasMany(e => e.Examinations)
+                        .WithOne(p => p.Patient);
+
+            modelBuilder.Entity<Administrator>()
+                        .HasMany(p => p.BlockedUsers)
+                        .WithOne(b => b.BlockedBy);
+
+            modelBuilder.Entity<Patient>()
+                        .HasOne(f => f.Feedback)
+                        .WithOne(p => p.Patient)
+                        .HasForeignKey<Feedback>(f => f.PatientId);
         }
 
     }

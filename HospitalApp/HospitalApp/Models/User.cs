@@ -10,7 +10,7 @@ namespace HospitalApp.Models
     [Table("User")]
     public class User
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [MaxLength(25)]

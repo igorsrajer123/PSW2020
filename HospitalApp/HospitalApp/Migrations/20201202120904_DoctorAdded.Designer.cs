@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20201201195608_migracija1235221")]
-    partial class migracija1235221
+    [Migration("20201202120904_DoctorAdded")]
+    partial class DoctorAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,16 +20,6 @@ namespace HospitalApp.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
-
-            modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Administrator");
-                });
 
             modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
                 {
@@ -55,6 +45,16 @@ namespace HospitalApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Doctor");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Šilja",
+                            IsDeleted = false,
+                            LastName = "Pajić",
+                            Type = 0
+                        });
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Examination", b =>
@@ -104,7 +104,7 @@ namespace HospitalApp.Migrations
                     b.Property<bool>("IsVisible")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("PatientId")
+                    b.Property<int>("PatientId")
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
@@ -113,41 +113,18 @@ namespace HospitalApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientId");
+                    b.HasIndex("PatientId")
+                        .IsUnique();
 
                     b.ToTable("Feedback");
-                });
-
-            modelBuilder.Entity("HospitalApp.Models.Patient", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AdministratorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Age")
-                        .HasMaxLength(3)
-                        .HasColumnType("int");
-
-                    b.Property<string>("Gender")
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
-
-                    b.Property<bool>("IsBlocked")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdministratorId");
-
-                    b.ToTable("Patient");
                 });
 
             modelBuilder.Entity("HospitalApp.Models.User", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(25)
@@ -175,13 +152,32 @@ namespace HospitalApp.Migrations
 
             modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
                 {
-                    b.HasOne("HospitalApp.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("HospitalApp.Models.User");
 
-                    b.Navigation("User");
+                    b.ToTable("Administrator");
+                });
+
+            modelBuilder.Entity("HospitalApp.Models.Patient", b =>
+                {
+                    b.HasBaseType("HospitalApp.Models.User");
+
+                    b.Property<int>("AdministratorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Age")
+                        .HasMaxLength(3)
+                        .HasColumnType("int");
+
+                    b.Property<string>("Gender")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
+
+                    b.HasIndex("AdministratorId");
+
+                    b.ToTable("Patient");
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Examination", b =>
@@ -206,10 +202,21 @@ namespace HospitalApp.Migrations
             modelBuilder.Entity("HospitalApp.Models.Feedback", b =>
                 {
                     b.HasOne("HospitalApp.Models.Patient", "Patient")
-                        .WithMany()
-                        .HasForeignKey("PatientId");
+                        .WithOne("Feedback")
+                        .HasForeignKey("HospitalApp.Models.Feedback", "PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
+                {
+                    b.HasOne("HospitalApp.Models.User", null)
+                        .WithOne()
+                        .HasForeignKey("HospitalApp.Models.Administrator", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>
@@ -220,20 +227,13 @@ namespace HospitalApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HospitalApp.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("HospitalApp.Models.User", null)
+                        .WithOne()
+                        .HasForeignKey("HospitalApp.Models.Patient", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.Navigation("BlockedBy");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
-                {
-                    b.Navigation("BlockedUsers");
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
@@ -241,9 +241,16 @@ namespace HospitalApp.Migrations
                     b.Navigation("Examinations");
                 });
 
+            modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
+                {
+                    b.Navigation("BlockedUsers");
+                });
+
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>
                 {
                     b.Navigation("Examinations");
+
+                    b.Navigation("Feedback");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,14 +4,16 @@ using HospitalApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HospitalApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201202120826_Model")]
+    partial class Model
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,16 +45,6 @@ namespace HospitalApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Doctor");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Misa",
-                            IsDeleted = false,
-                            LastName = "Simonovic",
-                            Type = 1
-                        });
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Examination", b =>
@@ -153,17 +145,6 @@ namespace HospitalApp.Migrations
                     b.HasBaseType("HospitalApp.Models.User");
 
                     b.ToTable("Administrator");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 5,
-                            FirstName = "admin",
-                            IsDeleted = false,
-                            LastName = "administratovic",
-                            Password = "admin",
-                            Username = "admin"
-                        });
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>

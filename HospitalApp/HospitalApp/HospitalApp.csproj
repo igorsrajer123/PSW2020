@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\js\site.js" />
   </ItemGroup>
 
   <ItemGroup>

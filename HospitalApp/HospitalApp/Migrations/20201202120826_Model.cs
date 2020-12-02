@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HospitalApp.Migrations
 {
-    public partial class migracija1235221 : Migration
+    public partial class Model : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,8 @@ namespace HospitalApp.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     Password = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
@@ -53,7 +54,7 @@ namespace HospitalApp.Migrations
                         column: x => x.Id,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -80,7 +81,7 @@ namespace HospitalApp.Migrations
                         column: x => x.Id,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -120,7 +121,7 @@ namespace HospitalApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PatientId = table.Column<int>(type: "int", nullable: true),
+                    PatientId = table.Column<int>(type: "int", nullable: false),
                     IsVisible = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -132,7 +133,7 @@ namespace HospitalApp.Migrations
                         column: x => x.PatientId,
                         principalTable: "Patient",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -148,7 +149,8 @@ namespace HospitalApp.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Feedback_PatientId",
                 table: "Feedback",
-                column: "PatientId");
+                column: "PatientId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Patient_AdministratorId",

@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 namespace HospitalApp.Models
 {
     [Table("Administrator")]
-    public class Administrator
+    public class Administrator : User
     {
-        [ForeignKey(nameof(User))]
-        public int Id { get; set; }
-
-        public virtual User User { get; set; }
-
-        public virtual ICollection<Patient> BlockedUsers { get; set; }
+        public virtual ICollection<Patient>? BlockedUsers { get; set; }
     }
 }

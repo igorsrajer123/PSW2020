@@ -18,12 +18,10 @@ namespace HospitalApp.Models
 
         public int DoctorId { get; set; }
 
-        [ForeignKey("DoctorId")]
         public virtual Doctor Doctor { get; set; }
 
         public int PatientId { get; set; }
 
-        [ForeignKey("PatientId")]
         public virtual Patient Patient { get; set; }
 
         public bool IsDeleted { get; set; }

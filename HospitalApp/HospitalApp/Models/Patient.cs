@@ -8,13 +8,8 @@ using System.Threading.Tasks;
 namespace HospitalApp.Models
 {
     [Table("Patient")]
-    public class Patient
+    public class Patient : User
     {
-        [ForeignKey(nameof(User))]
-        public int Id { get; set; }
-
-        public virtual User User { get; set; }
-
         [MaxLength(3)]
         public int Age { get; set; }
 
@@ -27,7 +22,8 @@ namespace HospitalApp.Models
 
         public int AdministratorId { get; set; }
 
-        [ForeignKey("AdministratorId")]
         public virtual Administrator BlockedBy { get; set; }
+
+        public virtual Feedback? Feedback { get; set; }
     }
 }

@@ -11,13 +11,14 @@ namespace HospitalApp.Models
     public class Feedback
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [ForeignKey("PatientId")]
         public int Id { get; set; }
 
         [MaxLength(150)]
         public string Text { get; set; }
 
         public DateTime Date { get; set; }
+
+        public int PatientId { get; set; }
 
         public virtual Patient Patient { get; set; }
 

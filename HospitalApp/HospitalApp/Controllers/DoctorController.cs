@@ -1,4 +1,7 @@
-﻿using HospitalApp.Models;
+﻿using HospitalApp.Adapters;
+using HospitalApp.Dtos;
+using HospitalApp.Models;
+using HospitalApp.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,18 +16,70 @@ namespace HospitalApp.Controllers
     {
         private readonly MyDbContext _dbContext;
 
-        public DoctorController(MyDbContext context)
+        private IDoctorService _doctorService;
+
+        public DoctorController(MyDbContext context, IDoctorService doctorService)
         {
-            _dbContext = context;
+            this._dbContext = context;
+            this._doctorService = doctorService;
         }
 
-        [HttpGet("/getAllDoctors")]
-        public IActionResult Get()
+        [HttpGet]
+        [Route("/getAllDoctors")]
+        public IActionResult GetAll()
         {
-            List<Doctor> result = new List<Doctor>();
-            _dbContext.Doctors.ToList().ForEach(doctor => result.Add(doctor));
-
-            return Ok(result);
+            return Ok(_doctorService.GetAll());
         }
+
+        [HttpGet]
+        [Route("/getDoctorById/{id}")]
+        public IActionResult GetById(int id)
+        {
+            if (_doctorService.GetById(id) == null)
+                return NotFound();
+
+            return Ok(_doctorService.GetById(id));
+        }
+
+        [HttpGet]
+        [Route("/getDoctorByType/{type}")]
+        public IActionResult GetByType(DoctorType type)
+        {
+            if (_doctorService.GetByType(type) == null)
+                return NotFound();
+
+            return Ok(_doctorService.GetByType(type));
+        }
+
+        [HttpPost]
+        [Route("/addDoctor")]
+        public IActionResult Add(DoctorDto doctor)
+        {
+            if (_doctorService.Add(doctor) == null)
+                return NotFound();
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("/deleteDoctor/{id}")]
+        public IActionResult Delete(int id)
+        { 
+            if (_doctorService.DeleteById(id) == null)
+                return NotFound();
+
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("/updateDoctor/{id}")]
+        public IActionResult Update(int id, DoctorDto doctorDto)
+        {
+            if (_doctorService.UpdateById(id, doctorDto) == null)
+                return NotFound();
+
+            return Ok();
+        }
+
     }
 }

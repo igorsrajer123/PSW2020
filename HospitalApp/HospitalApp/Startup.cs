@@ -1,4 +1,6 @@
 using HospitalApp.Models;
+using HospitalApp.Repositories;
+using HospitalApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,8 @@ namespace HospitalApp
 
             services.AddDbContext<MyDbContext>(options =>
                      options.UseSqlServer(ConfigurationExtensions.GetConnectionString(Configuration, "MyDbContextConnectionString")).UseLazyLoadingProxies());
+
+            services.AddScoped<IDoctorService, DoctorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +39,9 @@ namespace HospitalApp
             }
 
             app.UseRouting();
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
