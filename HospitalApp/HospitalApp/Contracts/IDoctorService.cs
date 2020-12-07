@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Repositories
 {
-    public interface IDoctorService : IBaseService<DoctorDto>
+    public interface IDoctorService
     {
         new List<DoctorDto> GetAll();
 

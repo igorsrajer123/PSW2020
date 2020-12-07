@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Registration</title>
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="css/registration.css">
+    <script src="js/jquery-3.3.1.min.js"></script>"
+    <script src="js/registration.js"></script>
+</head>
+<body>
+    <nav>
+        <label class="logo">DesignX</label>
+    </nav>
+
+    <div class="registration-form">
+        <h1>Registration Form</h1>
+        <form action="http://localhost:50324/addPatient" method="post">
+            <p>Username:</p>
+            <input type="text" name="username" placeholder="Username" id="username">
+
+            <p>Password:</p>
+            <input type="password" name="username" placeholder="Password" id="password">
+
+            <p>Confirm Password:</p>
+            <input type="password" name="username" placeholder="Password">
+
+            <p>First Name:</p>
+            <input type="text" name="username" placeholder="First name" id="firstname">
+
+            <p>Last Name:</p>
+            <input type="text" name="username" placeholder="Last name" id="lastname">
+
+            <p>Age:</p>
+            <input type="text" name="username" placeholder="Age" id="age">
+            
+            <p>Gender:</p>
+            
+            <div>
+                <input type="checkbox" value="Male"> 
+                <label>Male</label>
+                <input type="checkbox" value="Female">
+                <label>Female</label> </br>    
+            </div>
+
+            <button type="submit" id="register">Registration</button>
+
+
+        </form>
+    </div>
+
+</body>
+</html>

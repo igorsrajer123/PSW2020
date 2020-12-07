@@ -19,7 +19,7 @@ namespace HospitalApp.Models
         [MaxLength(25)]
         public string Password { get; set; }
 
-        [StringLength(25)]
+        [MaxLength(25)]
         public string FirstName { get; set; }
 
         [MaxLength(25)]

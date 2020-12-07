@@ -13,6 +13,7 @@ namespace HospitalApp.Adapters
         {
             Doctor doctor = new Doctor
             {
+                Id = doctorDto.Id,
                 FirstName = doctorDto.FirstName,
                 LastName = doctorDto.LastName,
                 Type = doctorDto.Type,
@@ -27,6 +28,7 @@ namespace HospitalApp.Adapters
         {
             DoctorDto doctorDto = new DoctorDto
             {
+                Id = doctor.Id,
                 FirstName = doctor.FirstName,
                 LastName = doctor.LastName,
                 Type = doctor.Type,

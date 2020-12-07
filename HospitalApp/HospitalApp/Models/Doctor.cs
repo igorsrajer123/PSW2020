@@ -29,6 +29,6 @@ namespace HospitalApp.Models
 
         public bool IsDeleted { get; set; } 
 
-        public virtual ICollection<Examination> Examinations { get; set; }
+        public virtual List<Examination> Examinations { get; set; }
     }
 }

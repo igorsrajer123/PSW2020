@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HospitalApp.Models
 {
     [Table("Administrator")]
     public class Administrator : User
     {
-        public virtual ICollection<Patient>? BlockedUsers { get; set; }
+        public virtual List<Patient>? BlockedUsers { get; set; }
     }
 }

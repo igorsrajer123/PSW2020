@@ -1,3 +1,4 @@
+using HospitalApp.Contracts;
 using HospitalApp.Models;
 using HospitalApp.Repositories;
 using HospitalApp.Services;
@@ -28,6 +29,8 @@ namespace HospitalApp
                      options.UseSqlServer(ConfigurationExtensions.GetConnectionString(Configuration, "MyDbContextConnectionString")).UseLazyLoadingProxies());
 
             services.AddScoped<IDoctorService, DoctorService>();
+            services.AddScoped<IAdministratorService, AdministratorService>();
+            services.AddScoped<IPatientService, PatientService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

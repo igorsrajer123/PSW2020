@@ -14,14 +14,11 @@ namespace HospitalApp.Controllers
     [Route("api/[controller]")]
     public class DoctorController : Controller
     {
-        private readonly MyDbContext _dbContext;
-
         private IDoctorService _doctorService;
 
-        public DoctorController(MyDbContext context, IDoctorService doctorService)
+        public DoctorController(IDoctorService doctorService)
         {
-            this._dbContext = context;
-            this._doctorService = doctorService;
+            _doctorService = doctorService;
         }
 
         [HttpGet]
@@ -53,9 +50,9 @@ namespace HospitalApp.Controllers
 
         [HttpPost]
         [Route("/addDoctor")]
-        public IActionResult Add(DoctorDto doctor)
+        public IActionResult Add(DoctorDto doctorDto)
         {
-            if (_doctorService.Add(doctor) == null)
+            if (_doctorService.Add(doctorDto) == null)
                 return NotFound();
 
             return Ok();
@@ -80,6 +77,5 @@ namespace HospitalApp.Controllers
 
             return Ok();
         }
-
     }
 }

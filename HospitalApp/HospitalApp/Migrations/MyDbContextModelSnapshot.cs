@@ -170,11 +170,10 @@ namespace HospitalApp.Migrations
                 {
                     b.HasBaseType("HospitalApp.Models.User");
 
-                    b.Property<int>("AdministratorId")
+                    b.Property<int?>("AdministratorId")
                         .HasColumnType("int");
 
                     b.Property<int>("Age")
-                        .HasMaxLength(3)
                         .HasColumnType("int");
 
                     b.Property<string>("Gender")
@@ -187,6 +186,20 @@ namespace HospitalApp.Migrations
                     b.HasIndex("AdministratorId");
 
                     b.ToTable("Patient");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Marko",
+                            IsDeleted = false,
+                            LastName = "Simonovic",
+                            Password = "123",
+                            Username = "maki",
+                            Age = 15,
+                            Gender = "male",
+                            IsBlocked = false
+                        });
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Examination", b =>
@@ -232,9 +245,7 @@ namespace HospitalApp.Migrations
                 {
                     b.HasOne("HospitalApp.Models.Administrator", "BlockedBy")
                         .WithMany("BlockedUsers")
-                        .HasForeignKey("AdministratorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AdministratorId");
 
                     b.HasOne("HospitalApp.Models.User", null)
                         .WithOne()

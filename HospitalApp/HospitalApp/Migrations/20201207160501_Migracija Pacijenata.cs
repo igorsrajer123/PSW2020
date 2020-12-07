@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HospitalApp.Migrations
 {
-    public partial class Model : Migration
+    public partial class MigracijaPacijenata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -65,7 +65,7 @@ namespace HospitalApp.Migrations
                     Age = table.Column<int>(type: "int", maxLength: 3, nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     IsBlocked = table.Column<bool>(type: "bit", nullable: false),
-                    AdministratorId = table.Column<int>(type: "int", nullable: false)
+                    AdministratorId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -75,7 +75,7 @@ namespace HospitalApp.Migrations
                         column: x => x.AdministratorId,
                         principalTable: "Administrator",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Patient_User_Id",
                         column: x => x.Id,
@@ -135,6 +135,31 @@ namespace HospitalApp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Doctor",
+                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Type" },
+                values: new object[] { 1, "Misa", false, "Simonovic", 1 });
+
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Password", "Username" },
+                values: new object[] { 5, "admin", false, "administratovic", "admin", "admin" });
+
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Password", "Username" },
+                values: new object[] { 1, "Marko", false, "Simonovic", "123", "maki" });
+
+            migrationBuilder.InsertData(
+                table: "Administrator",
+                column: "Id",
+                value: 5);
+
+            migrationBuilder.InsertData(
+                table: "Patient",
+                columns: new[] { "Id", "AdministratorId", "Age", "Gender", "IsBlocked" },
+                values: new object[] { 1, null, 15, "male", false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Examination_DoctorId",

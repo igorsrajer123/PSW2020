@@ -31,6 +31,11 @@ namespace HospitalApp.Models
                 new Doctor { Id = 1, FirstName = "Misa", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Examinations = null, IsDeleted = false}
                 );
 
+            modelBuilder.Entity<Patient>().HasData(
+                new Patient { Id = 1, FirstName = "Marko", LastName = "Simonovic", IsDeleted = false, Username = "maki",
+                              Password = "123", Age = 15, Gender = "male", IsBlocked = false, AdministratorId = null}
+                );
+
             modelBuilder.Entity<Doctor>()
                         .HasMany(e => e.Examinations)
                         .WithOne(d => d.Doctor);
@@ -47,6 +52,10 @@ namespace HospitalApp.Models
                         .HasOne(f => f.Feedback)
                         .WithOne(p => p.Patient)
                         .HasForeignKey<Feedback>(f => f.PatientId);
+
+            modelBuilder.Entity<Patient>()
+                        .Property(b => b.AdministratorId)
+                        .IsRequired(false);
         }
 
     }

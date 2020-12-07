@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20201202120904_DoctorAdded")]
-    partial class DoctorAdded
+    [Migration("20201207160950_Migracija Pacijenata2")]
+    partial class MigracijaPacijenata2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,10 +50,10 @@ namespace HospitalApp.Migrations
                         new
                         {
                             Id = 1,
-                            FirstName = "Šilja",
+                            FirstName = "Misa",
                             IsDeleted = false,
-                            LastName = "Pajić",
-                            Type = 0
+                            LastName = "Simonovic",
+                            Type = 1
                         });
                 });
 
@@ -155,17 +155,27 @@ namespace HospitalApp.Migrations
                     b.HasBaseType("HospitalApp.Models.User");
 
                     b.ToTable("Administrator");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 5,
+                            FirstName = "admin",
+                            IsDeleted = false,
+                            LastName = "administratovic",
+                            Password = "admin",
+                            Username = "admin"
+                        });
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>
                 {
                     b.HasBaseType("HospitalApp.Models.User");
 
-                    b.Property<int>("AdministratorId")
+                    b.Property<int?>("AdministratorId")
                         .HasColumnType("int");
 
                     b.Property<int>("Age")
-                        .HasMaxLength(3)
                         .HasColumnType("int");
 
                     b.Property<string>("Gender")
@@ -178,6 +188,20 @@ namespace HospitalApp.Migrations
                     b.HasIndex("AdministratorId");
 
                     b.ToTable("Patient");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Marko",
+                            IsDeleted = false,
+                            LastName = "Simonovic",
+                            Password = "123",
+                            Username = "maki",
+                            Age = 15,
+                            Gender = "male",
+                            IsBlocked = false
+                        });
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Examination", b =>
@@ -223,9 +247,7 @@ namespace HospitalApp.Migrations
                 {
                     b.HasOne("HospitalApp.Models.Administrator", "BlockedBy")
                         .WithMany("BlockedUsers")
-                        .HasForeignKey("AdministratorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AdministratorId");
 
                     b.HasOne("HospitalApp.Models.User", null)
                         .WithOne()
