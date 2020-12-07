@@ -126,3 +126,4 @@ C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debu
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.pdb
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.genruntimeconfig.cache
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.csprojAssemblyReference.cache
+C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\HospitalApp.Views.dll
