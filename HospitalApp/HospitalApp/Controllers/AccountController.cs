@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HospitalApp.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace HospitalApp.Controllers
@@ -12,11 +14,11 @@ namespace HospitalApp.Controllers
     [ApiController]
     public class AccountController : Controller
     {
-        private readonly SignInManager<IdentityUser> signInManager;
+        private MyDbContext _dbContext;
 
-        public AccountController(SignInManager<IdentityUser> signInManager)
+        public AccountController(MyDbContext context)
         {
-            this.signInManager = signInManager;
+            this._dbContext = context;
         }
 
         [HttpGet]
@@ -27,33 +29,17 @@ namespace HospitalApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Logout()
+        [Route("/login/{username}/{password}")]
+        public IActionResult Login(string username, string password)
         {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("index");
-        }
-
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-        
-        /*
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
-        {
-            if (ModelState.IsValid)
+            User myUser = _dbContext.Users.SingleOrDefault(b => b.Username == username);
+            if (myUser != null && myUser.Password.Equals(password))
             {
-                var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
-
-                if (result.Succeeded)
-                    return RedirectToAction("index");
-
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                HttpContext.Session.SetString("username", myUser.Username);
+                HttpContext.Session.SetString("id", myUser.Id.ToString());
             }
 
-            return View(model);
-        }*/
+            return Ok();
+        }
     }
 }

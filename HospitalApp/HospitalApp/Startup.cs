@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace HospitalApp
 {
@@ -31,6 +32,12 @@ namespace HospitalApp
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IAdministratorService, AdministratorService>();
             services.AddScoped<IPatientService, PatientService>();
+
+            services.AddRazorPages().WithRazorPagesRoot("/Views");
+
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,9 +55,12 @@ namespace HospitalApp
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }

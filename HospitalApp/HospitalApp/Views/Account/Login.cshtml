@@ -1,0 +1,31 @@
+﻿@page
+@using System.Security.Claims
+@model HospitalApp.Models.User;
+@{
+    Layout = "_Layout";
+}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Registration</title>
+</head>
+<body>
+    <nav>
+        <label class="logo">DesignX</label>
+    </nav>
+
+    <div class="registration-form">
+        <h1>Login Form</h1>
+        <form method="post">
+            <p>Username:</p>
+            <input type="text" name="username" placeholder="Username" id="username" />
+
+            <p>Password:</p>
+            <input type="password" name="username" placeholder="Password" id="password" />
+            </br>
+            <button value="Login" id="login">Login</button>
+        </form>
+    </div>
+</body>
+</html>
