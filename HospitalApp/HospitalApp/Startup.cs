@@ -32,6 +32,7 @@ namespace HospitalApp
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IAdministratorService, AdministratorService>();
             services.AddScoped<IPatientService, PatientService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddRazorPages().WithRazorPagesRoot("/Views");
 

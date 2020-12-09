@@ -1,22 +1,16 @@
 ﻿$(document).ready(function(){
 
-    alert("AAAA");
-
     $('#login').click(function (event) {
         event.preventDefault();
-        Login();
+        login();
     });
 });
 
-function Login() {
+function login() {
 
     var username = $("#username").val();
     var password = $("#password").val();
    
-
-   // var transformedData = JSON.stringify(data);
-    alert(username);
-
     $.ajax({
         url: 'http://localhost:50324/login/' + username + '/' + password,
         type: 'POST',
@@ -26,7 +20,7 @@ function Login() {
                 window.location.href = "../index.html";
             }
             else
-                alert(data.message);
+                alert("Neuspeh!");
         }
     });
 }

@@ -24,7 +24,7 @@ namespace HospitalApp.Models
         {
             
             modelBuilder.Entity<Administrator>().HasData(
-                new Administrator { Id = 5, FirstName = "admin", LastName = "administratovic", Username = "admin", Password = "admin", BlockedUsers = null, IsDeleted = false}
+                new Administrator { Id = 5, FirstName = "admin", LastName = "administratovic", Username = "admin", Password = "admin", BlockedUsers = null, Type = UserType.Administrator, IsDeleted = false}
             );
 
             modelBuilder.Entity<Doctor>().HasData(

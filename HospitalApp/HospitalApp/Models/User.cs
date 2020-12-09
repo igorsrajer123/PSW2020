@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Models
 {
+    public enum UserType
+    {
+        Administrator,
+        Patient
+    }
+
     [Table("User")]
     public class User
     {
@@ -24,6 +30,8 @@ namespace HospitalApp.Models
 
         [MaxLength(25)]
         public string LastName { get; set; }
+
+        public UserType Type { get; set; }
 
         public bool IsDeleted { get; set; }
     }

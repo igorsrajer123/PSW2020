@@ -14,6 +14,7 @@ namespace HospitalApp.Adapters
             User user = new User
             {
                 Id = userDto.Id,
+                Username = userDto.Username,
                 FirstName = userDto.FirstName,
                 LastName = userDto.LastName,
                 IsDeleted = userDto.IsDeleted
@@ -27,6 +28,7 @@ namespace HospitalApp.Adapters
             UserDto userDto = new UserDto
             {
                 Id = user.Id,
+                Username = user.Username,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 IsDeleted = user.IsDeleted

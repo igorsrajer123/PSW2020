@@ -203,13 +203,3 @@ C:\Users\Super User\Desktop\PSW2020-master\HospitalApp\HospitalApp\obj\Debug\net
 C:\Users\Super User\Desktop\PSW2020-master\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.genruntimeconfig.cache
 C:\Users\Super User\Desktop\PSW2020-master\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.csprojAssemblyReference.cache
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.csprojAssemblyReference.cache
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.RazorAssemblyInfo.cache
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.RazorAssemblyInfo.cs
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\HospitalApp.Views.pdb
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.TagHelpers.input.cache
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.TagHelpers.output.cache
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.RazorCoreGenerate.cache
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\_Layout.cshtml.g.cs
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.RazorTargetAssemblyInfo.cs
-C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.Views.pdb
