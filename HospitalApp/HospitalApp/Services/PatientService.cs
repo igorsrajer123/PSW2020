@@ -42,7 +42,7 @@ namespace HospitalApp.Services
             if (patient == null)
                 return null;
 
-            patient.Type = UserType.Patient;
+            patient.Role = "Patient";
             _dbContext.Patients.Add(patient);
             _dbContext.SaveChanges();
 

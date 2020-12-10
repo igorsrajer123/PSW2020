@@ -6,6 +6,7 @@
         complete: function (data) {
             welcomeMessage(data.responseJSON);
             userOptions(data.responseJSON);
+            redirectUser(data.responseJSON);
         }
     });
 });
@@ -23,13 +24,37 @@ function welcomeMessage(user){
 
 function userOptions(user){
     if(user == undefined){
+        $("#appointment").show();
         $("#login").show();
         $("#register").show();
         $("#logout").hide();
         $("#profile").hide();
         $("#users").hide();
+    }else if(user.role == "Patient"){
+        $("#appointment").show();
+        $("#logout").show();
+        $("#users").hide();
+        $("#login").hide();
+        $("#register").hide();
     }else {
+        $("#appointment").hide();
+        $("#logout").show();
+        $("#users").show();
         $("#login").hide();
         $("#register").hide();
     }
+}
+
+function redirectUser(user){
+
+    $("#appointment").click(function(event){
+        event.preventDefault();
+
+        if(user == undefined){
+            alert("Please login first!");
+            window.location.href = "login.html";
+        }else {
+            window.location.href = "appointments.html";
+        }   
+    });
 }

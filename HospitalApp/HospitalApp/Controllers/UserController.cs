@@ -1,4 +1,5 @@
 ﻿using HospitalApp.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,6 +20,7 @@ namespace HospitalApp.Controllers
             _userService = userService;
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         [Route("/getAllUsers")]
         public IActionResult GetAll()

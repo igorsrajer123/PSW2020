@@ -24,7 +24,7 @@ namespace HospitalApp.Models
         {
             
             modelBuilder.Entity<Administrator>().HasData(
-                new Administrator { Id = 5, FirstName = "admin", LastName = "administratovic", Username = "admin", Password = "admin", BlockedUsers = null, Type = UserType.Administrator, IsDeleted = false}
+                new Administrator { Id = 5, FirstName = "admin", LastName = "administratovic", Username = "admin", Password = "admin", BlockedUsers = null, Role = "Administrator", IsDeleted = false}
             );
 
             modelBuilder.Entity<Doctor>().HasData(
@@ -32,7 +32,7 @@ namespace HospitalApp.Models
                 );
 
             modelBuilder.Entity<Patient>().HasData(
-                new Patient { Id = 1, FirstName = "Marko", LastName = "Simonovic", IsDeleted = false, Username = "maki",
+                new Patient { Id = 1, FirstName = "Marko", LastName = "Simonovic", Role = "Patient", IsDeleted = false, Username = "maki",
                               Password = "123", Age = 15, Gender = "male", IsBlocked = false, AdministratorId = null}
                 );
 

@@ -1,27 +1,30 @@
 ﻿<html>
 <head>
     <meta charset="UTF-8">
-    <title>Patient Registration</title>
+    <title>User Log In</title>
     <link href="css/navbar.css" rel="stylesheet" type="text/css" />
-    <link href="css/registration.css" rel="stylesheet" type="text/css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/login.js"></script>
 </head>
 <body>
     <nav>
-        <label class="logo">DesignX</label>
+        <label class="logo"></label>
     </nav>
 
     <div class="registration-form">
-        <h1>Login Form</h1>
         <form method="post" asp-controller="AccountController">
-            <p>Username:</p>
-            <input type="text" name="username" placeholder="Username" id="username" />
+            <p class="p1">Username:</p>
+            <input type="text" placeholder="Username" id="username"/>
 
-            <p>Password:</p>
-            <input type="password" name="username" placeholder="Password" id="password" />
+            <p class="p1">Password:</p>
+            <input type="password" placeholder="Password" id="password"/>
+            <p style="color: red;" id="error" class="p2"> Wrong Username or Password! </p>
+            </br></br>
+            <button value="Login" id="login" name="login"><b>Log In</b></button>
             </br>
-            <button value="Login" id="login">Login</button>
+
+            <button value="Register" id="registration" class="registration" name="registration"><b>Create New Account</b></button>
         </form>
     </div>
 </body>

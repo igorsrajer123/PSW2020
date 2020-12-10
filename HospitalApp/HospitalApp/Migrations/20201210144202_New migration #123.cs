@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HospitalApp.Migrations
 {
-    public partial class MigracijaPacijenata : Migration
+    public partial class Newmigration123 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,6 +33,7 @@ namespace HospitalApp.Migrations
                     Password = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -62,7 +63,7 @@ namespace HospitalApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    Age = table.Column<int>(type: "int", maxLength: 3, nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     IsBlocked = table.Column<bool>(type: "bit", nullable: false),
                     AdministratorId = table.Column<int>(type: "int", nullable: true)
@@ -143,13 +144,13 @@ namespace HospitalApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Password", "Username" },
-                values: new object[] { 5, "admin", false, "administratovic", "admin", "admin" });
+                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Password", "Role", "Username" },
+                values: new object[] { 5, "admin", false, "administratovic", "admin", "Administrator", "admin" });
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Password", "Username" },
-                values: new object[] { 1, "Marko", false, "Simonovic", "123", "maki" });
+                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Password", "Role", "Username" },
+                values: new object[] { 1, "Marko", false, "Simonovic", "123", null, "maki" });
 
             migrationBuilder.InsertData(
                 table: "Administrator",

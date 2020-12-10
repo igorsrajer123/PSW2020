@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20201207160950_Migracija Pacijenata2")]
-    partial class MigracijaPacijenata2
+    [Migration("20201210144300_New migration #1234")]
+    partial class Newmigration1234
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -141,6 +141,9 @@ namespace HospitalApp.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Username")
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
@@ -164,6 +167,7 @@ namespace HospitalApp.Migrations
                             IsDeleted = false,
                             LastName = "administratovic",
                             Password = "admin",
+                            Role = "Administrator",
                             Username = "admin"
                         });
                 });
@@ -197,6 +201,7 @@ namespace HospitalApp.Migrations
                             IsDeleted = false,
                             LastName = "Simonovic",
                             Password = "123",
+                            Role = "Patient",
                             Username = "maki",
                             Age = 15,
                             Gender = "male",

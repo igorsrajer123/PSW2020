@@ -139,8 +139,8 @@ namespace HospitalApp.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
                         .HasMaxLength(25)
@@ -165,7 +165,7 @@ namespace HospitalApp.Migrations
                             IsDeleted = false,
                             LastName = "administratovic",
                             Password = "admin",
-                            Type = 0,
+                            Role = "Administrator",
                             Username = "admin"
                         });
                 });
@@ -199,7 +199,7 @@ namespace HospitalApp.Migrations
                             IsDeleted = false,
                             LastName = "Simonovic",
                             Password = "123",
-                            Type = 0,
+                            Role = "Patient",
                             Username = "maki",
                             Age = 15,
                             Gender = "male",

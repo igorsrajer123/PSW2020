@@ -1,9 +1,12 @@
 using HospitalApp.Contracts;
+using HospitalApp.Handlers;
 using HospitalApp.Models;
 using HospitalApp.Repositories;
 using HospitalApp.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,6 +42,9 @@ namespace HospitalApp
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(1);
             });
+
+            services.AddAuthentication("BasicAuthentication")
+                    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +60,9 @@ namespace HospitalApp
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCookiePolicy();
 
             app.UseSession();
 

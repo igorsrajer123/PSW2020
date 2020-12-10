@@ -17,6 +17,7 @@ namespace HospitalApp.Adapters
                 Username = userDto.Username,
                 FirstName = userDto.FirstName,
                 LastName = userDto.LastName,
+                Role = userDto.Role,
                 IsDeleted = userDto.IsDeleted
             };
 
@@ -31,6 +32,7 @@ namespace HospitalApp.Adapters
                 Username = user.Username,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Role = user.Role,
                 IsDeleted = user.IsDeleted
             };
 
