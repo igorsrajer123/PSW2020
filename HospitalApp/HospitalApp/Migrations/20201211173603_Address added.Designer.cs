@@ -4,14 +4,16 @@ using HospitalApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HospitalApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201211173603_Address added")]
+    partial class Addressadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,9 +144,6 @@ namespace HospitalApp.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
@@ -167,12 +166,10 @@ namespace HospitalApp.Migrations
                         new
                         {
                             Id = 5,
-                            Address = "Visnjiceva 32, Beograd",
                             FirstName = "admin",
                             IsDeleted = false,
                             LastName = "administratovic",
                             Password = "admin",
-                            PhoneNumber = "+3811233212",
                             Role = "Administrator",
                             Username = "admin"
                         });
@@ -203,12 +200,10 @@ namespace HospitalApp.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "Tomiceva 22, Zrenjanin",
                             FirstName = "Marko",
                             IsDeleted = false,
                             LastName = "Simonovic",
                             Password = "123",
-                            PhoneNumber = "+38122555333",
                             Role = "Patient",
                             Username = "maki",
                             Age = 15,

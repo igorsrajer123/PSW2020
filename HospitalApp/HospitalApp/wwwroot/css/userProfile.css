@@ -2,7 +2,7 @@ body{
     background: url(4.jpg) repeat;
 }
 
-.registration-form{
+form{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -10,41 +10,35 @@ body{
     width: 350px;
 }
 
-.registration-form p{
+form p{
     font-size: 20px;
     margin: 10px 0;
     color: white;
 }
 
-.registration-form label{
-    font-size: 20px;
-    margin: 10px 0;
-    color: white;
-    padding: 10px;
-}
-
-.registration-form input{
+form input{
     font-size: 15px;
     padding: 10px 10px;
     border-radius: 15px;
     outline: none;
 }
 
-input:hover{
-     border: 1px solid #fff;
-	background: #1E90FF;
+form input:hover{
+    border: 1px solid #fff;
+    background: #1E90FF;
     color: black;
     transition: 0.5s;
 }
 
-.registration-form button{
+form .s{
     border: 2px solid #FFFF;
 	background: white;
-	padding: 5px 5px;
+	padding: 1px 1px;
 	font-size: 15px;
 	font-family: "Georgia", "Comic Sans", cursive;
-    margin: 7px;
-    width: 215px;
+    margin: 2px;
+    width: 125px;
+    height: 35px;
 	cursor: pointer;
     transition: 0.8s;
 	position: hidden;
@@ -52,7 +46,23 @@ input:hover{
     border-radius: 15px;
 }
 
-.registration-form button:hover{
+form .c{
+    border: 2px solid #FFFF;
+    background: white;
+	padding: 1px 1px;
+	font-size: 15px;
+    font-family: "Georgia", "Comic Sans", cursive;
+    margin: 5px;
+    width: 60px;
+    height: 35px;
+    cursor: pointer;
+    transition: 0.8s;
+	position: hidden;
+    color: #1E90FF;
+    border-radius: 15px;
+}
+
+form button:hover{
     border: 1px solid #fff;
 	background: #1E90FF;
 	color: #fff;

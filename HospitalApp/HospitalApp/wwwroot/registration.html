@@ -16,9 +16,12 @@
         <form action="http://localhost:50324/addPatient" method="post">
             <p>Username:</p>
             <input type="text" name="username" placeholder="Username" id="username">
+            <p style="color: red;" id="error1" class="p2" hidden="true">Username already in use!</p>
+            <p style="color: red;" id="error2" class="p2" hidden="true">Username cannot be empty!</p>
 
             <p>Password:</p>
             <input type="password" name="username" placeholder="Password" id="password">
+            <p style="color: red;" id="error3" class="p2" hidden="true">Password cannot be empty!</p>
 
             <p>Confirm Password:</p>
             <input type="password" name="username" placeholder="Password" id="confirmPassword">
@@ -29,19 +32,25 @@
             <p>Last Name:</p>
             <input type="text" name="username" placeholder="Last name" id="lastname">
 
+            <p>Address:</p>
+            <input type="text" name="address" id="address">
+
+            <p>Phone Number:</p>
+            <input type="text" name="phone" id="phone">
+
             <p>Age:</p>
             <input type="text" name="username" placeholder="Age" id="age">
             
             <p>Gender:</p>
             
             <div>
-                <input type="checkbox" value="Male"> 
+                <input type="checkbox" value="Male" class="gender-list" id="male"> 
                 <label>Male</label>
-                <input type="checkbox" value="Female">
+                <input type="checkbox" value="Female" class="gender-list" id="female">
                 <label>Female</label> </br>    
             </div>
             </br>
-            <button type="submit" id="register">Registration</button>
+            <button type="submit" id="register">Register</button>
         </form>
     </div>
 

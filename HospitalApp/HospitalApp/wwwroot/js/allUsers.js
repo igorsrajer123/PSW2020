@@ -2,9 +2,7 @@
     authenticateUser();
 });
 
-
 function getAllUsers(user){
-
     $.ajax({
         url: 'http://localhost:50324/getAllUsers',
         type: 'GET',
@@ -20,10 +18,11 @@ function getAllUsers(user){
 
             for(var i = 0; i < allUsers.length; i++){
              
-                    usersTable.append("<tr><td>" + allUsers[i].username +  
-                                    "</td><td>" + allUsers[i].password + 
+                    usersTable.append("<tr><td>" + allUsers[i].username +   
                                     "</td><td>" + allUsers[i].firstName +
                                     "</td><td>" + allUsers[i].lastName +
+                                    "</td><td>" + allUsers[i].address +
+                                    "</td><td>" + allUsers[i].phoneNumber +
                                     "</td><td>" + allUsers[i].role +
                                     "</td><td>" + allUsers[i].isDeleted + 
                                     "</td></tr>");
@@ -35,13 +34,16 @@ function getAllUsers(user){
 }
 
 function authenticateUser(){
-
     $.ajax({
-        url: 'http://localhost:50324/getUser',
+        url: 'http://localhost:50324/getSession',
         type: 'GET',
         complete: function(data){
             var myUser = data.responseJSON;
-            
+            if(myUser == undefined){
+                alert("Cannot access this page!");
+                window.location.href = "../index.html";
+            }
+
             getAllUsers(myUser);
         }
     });

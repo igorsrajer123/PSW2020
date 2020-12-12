@@ -39,7 +39,11 @@ namespace HospitalApp.Services
 
         public PatientDto Add(Patient patient)
         {
-            if (patient == null)
+            if (patient == null || patient.Password == null)
+                return null;
+
+            Patient existingPatient = _dbContext.Patients.SingleOrDefault(p => p.Username == patient.Username);
+            if (existingPatient != null)
                 return null;
 
             patient.Role = "Patient";

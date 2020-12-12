@@ -1,11 +1,7 @@
 ﻿using HospitalApp.Contracts;
+using HospitalApp.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HospitalApp.Controllers
 {
@@ -26,6 +22,17 @@ namespace HospitalApp.Controllers
         public IActionResult GetAll()
         {
             return Ok(_userService.GetAll());
+        }
+
+        [Authorize(Roles = "Administrator, Patient")]
+        [HttpPut]
+        [Route("/updateUser/{id}")]
+        public IActionResult UpdateById(int id, User user)
+        {
+            if(_userService.UpdateById(id, user) == null)
+                return NotFound();
+
+            return Ok(user);
         }
     }
 }

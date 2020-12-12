@@ -1,4 +1,5 @@
-﻿using HospitalApp.Models;
+﻿using HospitalApp.Dtos;
+using HospitalApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ namespace HospitalApp.Contracts
 {
     public interface IUserService
     {
-        List<User> GetAll();
+        List<UserDto> GetAll();
+
+        UserDto UpdateById(int id, User user);
     }
 }

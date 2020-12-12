@@ -1,14 +1,5 @@
 ﻿$(document).ready(function(){
-
-    $.ajax({
-        method: 'GET',
-        url: 'http://localhost:50324/getUser',
-        complete: function (data) {
-            welcomeMessage(data.responseJSON);
-            userOptions(data.responseJSON);
-            redirectUser(data.responseJSON);
-        }
-    });
+    getCurrentUser();
 });
 
 function welcomeMessage(user){
@@ -56,5 +47,17 @@ function redirectUser(user){
         }else {
             window.location.href = "appointments.html";
         }   
+    });
+}
+
+function getCurrentUser(){
+    $.ajax({
+        method: 'GET',
+        url: 'http://localhost:50324/getSession',
+        complete: function (data) {
+            welcomeMessage(data.responseJSON);
+            userOptions(data.responseJSON);
+            redirectUser(data.responseJSON);
+        }
     });
 }

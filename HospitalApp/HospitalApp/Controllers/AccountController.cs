@@ -2,20 +2,16 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace HospitalApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : Controller
+    public class AccountController : ControllerBase
     {
         private MyDbContext _dbContext;
 
@@ -52,20 +48,29 @@ namespace HospitalApp.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(null));
+            HttpContext.Response.Cookies.Delete(".AspNetCore.Cookies");
             return Ok();
         }
 
         [HttpGet]
-        [Route("/getUser")]
-        public IActionResult GetCurrentUser()
+        [Route("/getSession")]
+        public IActionResult GetCurrentSession()
         {
            if(HttpContext.Session.GetString("SessionUser") == null)
                 return Ok();
-            else
-            {
-                var info = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser"));
-                return Ok(info);
-            }
+
+           return ExtractSessionUser();
+        }
+
+        public IActionResult ExtractSessionUser()
+        {
+            User sessionUser = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser"));
+
+            if (sessionUser == null)
+                return Ok();
+
+            User user = _dbContext.Users.SingleOrDefault(u => u.Id == sessionUser.Id);
+            return Ok(user);
         }
     }
 }

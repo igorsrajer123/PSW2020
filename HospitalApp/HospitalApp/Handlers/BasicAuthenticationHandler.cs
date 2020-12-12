@@ -29,10 +29,10 @@ namespace HospitalApp.Handlers
 
             AuthenticationTicket ticket = GiveUserAuthorizations();
 
-            if (ticket != null)
-                return Task.FromResult(AuthenticateResult.Success(ticket));
-            else
+            if (ticket == null)
                 return Task.FromResult(AuthenticateResult.Fail("Authorization failed!"));
+            
+            return Task.FromResult(AuthenticateResult.Success(ticket));    
         }
 
         private User GetAuthenticatedUser()
@@ -52,21 +52,17 @@ namespace HospitalApp.Handlers
         {
             User user = GetAuthenticatedUser();
 
-            if (user != null)
-            {
-                var identity = new ClaimsIdentity(new[] {
+            if (user == null)
+                return null;
+
+            var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim(ClaimTypes.Role, user.Role)
                 });
-                var principal = new ClaimsPrincipal(identity);
-                var ticket = new AuthenticationTicket(principal, Scheme.Name);
+            var principal = new ClaimsPrincipal(identity);
+            var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-                return ticket;
-            }
-            else
-            {
-                return null;
-            }
+            return ticket;
         }
     }
 }
