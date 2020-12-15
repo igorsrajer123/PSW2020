@@ -1,12 +1,11 @@
 ﻿using HospitalApp.Adapters;
+using HospitalApp.DateTimeLogic;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
 using HospitalApp.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HospitalApp.Controllers
 {
@@ -15,6 +14,7 @@ namespace HospitalApp.Controllers
     public class DoctorController : Controller
     {
         private IDoctorService _doctorService;
+        private readonly DateLogic _dt = new DateLogic();
 
         public DoctorController(IDoctorService doctorService)
         {
@@ -76,6 +76,13 @@ namespace HospitalApp.Controllers
                 return NotFound();
 
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("/getDate")]
+        public IActionResult GetDate()
+        {
+            return Ok(_dt.GetWorkingHoursString());
         }
     }
 }

@@ -26,10 +26,18 @@ namespace HospitalApp.Controllers
         {
             User myUser = _dbContext.Users.FirstOrDefault(b => b.Username == username);
 
+            JsonConvert.SerializeObject(myUser, Formatting.Indented, new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            });
+
             if (myUser != null && myUser.Password == password)
             {
-                HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(myUser));
-                
+                HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(myUser, Formatting.Indented, new JsonSerializerSettings
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects
+                }));
+
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name, myUser.Username),
                     new Claim(ClaimTypes.Role, myUser.Role)

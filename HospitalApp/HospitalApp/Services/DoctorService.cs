@@ -2,11 +2,10 @@
 using HospitalApp.Dtos;
 using HospitalApp.Models;
 using HospitalApp.Repositories;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using HospitalApp.DateTimeLogic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace HospitalApp.Services
 {
@@ -25,7 +24,7 @@ namespace HospitalApp.Services
 
             _dbContext.Doctors.ToList().ForEach(doctor => myDoctors.Add(DoctorAdapter.DoctorToDoctorDto(doctor)));
 
-            return myDoctors;
+            return myDoctors; 
         }
 
         public DoctorDto GetById(int id)
@@ -87,7 +86,7 @@ namespace HospitalApp.Services
             doctor.LastName = doctorDto.LastName;
             doctor.IsDeleted = doctorDto.IsDeleted;
             doctor.Type = doctorDto.Type;
-            doctor.Examinations = doctorDto.Examinations;
+            doctor.Appointments = doctorDto.Appointments;
 
             _dbContext.SaveChanges();
 

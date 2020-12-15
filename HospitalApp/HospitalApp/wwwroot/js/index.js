@@ -21,13 +21,16 @@ function userOptions(user){
         $("#logout").hide();
         $("#profile").hide();
         $("#users").hide();
+        $("#pickPractitioner").hide();
     }else if(user.role == "Patient"){
         $("#appointment").show();
         $("#logout").show();
         $("#users").hide();
         $("#login").hide();
         $("#register").hide();
+        $("#pickPractitioner").show();
     }else {
+        $("#pickPractitioner").hide();
         $("#appointment").hide();
         $("#logout").show();
         $("#users").show();
@@ -37,16 +40,21 @@ function userOptions(user){
 }
 
 function redirectUser(user){
-
     $("#appointment").click(function(event){
         event.preventDefault();
 
         if(user == undefined){
             alert("Please login first!");
             window.location.href = "login.html";
-        }else {
-            window.location.href = "appointments.html";
-        }   
+        }
+        if(user.role == "Patient")
+            window.location.href = "chooseAppointment.html"; 
+    });
+
+    $("#pickPractitioner").click(function(event){
+        event.preventDefault();
+
+        window.location.href="chooseDoctor.html";
     });
 }
 

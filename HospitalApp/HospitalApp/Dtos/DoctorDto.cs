@@ -16,8 +16,12 @@ namespace HospitalApp.Dtos
 
         public DoctorType Type { get; set; }
 
-        public List<Examination> Examinations { get; set; }
+        public List<Appointment> Appointments { get; set; }
+
+        public List<Patient> Patients { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public string[] WorkingDays { get; set; }
     }
 }

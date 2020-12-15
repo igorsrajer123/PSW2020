@@ -3,3 +3,26 @@ body{
     margin: 0;
     background: url(1.jpg) no-repeat;
 }
+
+button{
+    display: block;
+    margin: 20px 20px 20px 20px;
+    border: 2px solid #FFFF;
+    background: rgb(255, 255, 255);
+    padding: 5px 5px;
+    font-size: 17px;
+    font-family: "Georgia", "Comic Sans", cursive;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.8s;
+    position: hidden;
+    color: #1E90FF;
+}
+
+button:hover{
+    border: 1px solid #fff;
+	background: #1E90FF;
+	color: #fff;
+}
+
+

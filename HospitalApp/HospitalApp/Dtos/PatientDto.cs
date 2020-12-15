@@ -16,7 +16,9 @@ namespace HospitalApp.Dtos
 
         public bool IsBlocked { get; set; }
 
-        public virtual List<Examination> Examinations { get; set; }
+        public List<Appointment> Appointments { get; set; }
+
+        public Doctor GeneralPractitioner { get; set; }
 
         public Administrator BlockedBy { get; set; }
 

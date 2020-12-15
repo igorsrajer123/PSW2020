@@ -57,12 +57,43 @@ namespace HospitalApp.Services
 
         public PatientDto DeleteById(int id)
         {
-            throw new NotImplementedException();
+            Patient patient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == id);
+
+            if (patient == null)
+                return null;
+
+            patient.IsDeleted = true;
+            return PatientAdapter.PatientToPatientDto(patient);
         }
 
         public PatientDto UpdateById(int id, PatientDto patientDto)
         {
             throw new NotImplementedException();
+        }
+
+        public PatientDto SetGeneralPractitioner(int patientId, int doctorId)
+        {
+            Patient patient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == patientId);
+            Doctor myDoctor = _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == doctorId);
+
+            if (patient == null || myDoctor == null)
+                return null;
+
+            patient.GeneralPractitioner = myDoctor;
+            _dbContext.SaveChanges();
+            PatientDto patientDto = PatientAdapter.PatientToPatientDto(patient);
+
+            return patientDto;
+        }
+
+        public DoctorDto GetGeneralPractitioner(int patientId)
+        {
+            Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
+
+            if (patient == null)
+                return null;
+
+            return DoctorAdapter.DoctorToDoctorDto(patient.GeneralPractitioner);
         }
     }
 }

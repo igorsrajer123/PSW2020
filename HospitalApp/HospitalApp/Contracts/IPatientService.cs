@@ -11,12 +11,16 @@ namespace HospitalApp.Contracts
     {
         List<PatientDto> GetAll();
 
-        PatientDto GetById(int id);
+        PatientDto GetById(int patientId);
 
         PatientDto Add(Patient patient);
 
-        PatientDto DeleteById(int id);
+        PatientDto DeleteById(int patientId);
 
-        PatientDto UpdateById(int id, PatientDto patientDto);
+        PatientDto UpdateById(int patientId, PatientDto patientDto);
+
+        PatientDto SetGeneralPractitioner(int patientId, int doctorId);
+
+        DoctorDto GetGeneralPractitioner(int patientId);
     }
 }

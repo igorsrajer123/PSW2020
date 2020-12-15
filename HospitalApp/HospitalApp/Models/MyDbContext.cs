@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using HospitalApp.DateTimeLogic;
+using System;
 
 namespace HospitalApp.Models
 {
@@ -12,9 +14,11 @@ namespace HospitalApp.Models
 
         public DbSet<Administrator> Administrators { get; set; }
 
-        public DbSet<Examination> Examinations { get; set; }
+        public DbSet<Appointment> Examinations { get; set; }
 
         public DbSet<Feedback> Feedbacks { get; set; }
+
+        private readonly DateLogic _dt = new DateLogic();
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         { 
@@ -30,7 +34,9 @@ namespace HospitalApp.Models
             );
 
             modelBuilder.Entity<Doctor>().HasData(
-                new Doctor { Id = 1, FirstName = "Misa", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Examinations = null, IsDeleted = false}
+                new Doctor { Id = 1, FirstName = "Misa", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.GetWorkingHoursString()},
+                new Doctor { Id = 2, FirstName = "Igor", LastName = "Mijatovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.GetWorkingHoursString() },
+                new Doctor { Id = 3, FirstName = "Srdjan", LastName = "Tepavcevic", Type = DoctorType.Specialist, Appointments = null, IsDeleted = false, WorkingDays = _dt.GetWorkingHoursString() }
                 );
 
             modelBuilder.Entity<Patient>().HasData(
@@ -40,11 +46,21 @@ namespace HospitalApp.Models
                 );
 
             modelBuilder.Entity<Doctor>()
-                        .HasMany(e => e.Examinations)
+                        .Property(w => w.WorkingDays)
+                        .HasConversion(
+                            v => string.Join(',', v),
+                            v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
+
+            modelBuilder.Entity<Doctor>()
+                        .HasMany(e => e.Appointments)
                         .WithOne(d => d.Doctor);
 
+            modelBuilder.Entity<Doctor>()
+                        .HasMany(p => p.Patients)
+                        .WithOne(g => g.GeneralPractitioner);
+
             modelBuilder.Entity<Patient>()
-                        .HasMany(e => e.Examinations)
+                        .HasMany(e => e.Appointments)
                         .WithOne(p => p.Patient);
 
             modelBuilder.Entity<Administrator>()

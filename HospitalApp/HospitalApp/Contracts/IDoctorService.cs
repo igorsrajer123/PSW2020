@@ -16,7 +16,7 @@ namespace HospitalApp.Repositories
 
         List<DoctorDto> GetByType(DoctorType type);
 
-        new DoctorDto Add(DoctorDto doctorDto);
+        DoctorDto Add(DoctorDto doctorDto);
 
         new DoctorDto DeleteById(int id);
 

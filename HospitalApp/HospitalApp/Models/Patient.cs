@@ -17,12 +17,16 @@ namespace HospitalApp.Models
 
         public bool IsBlocked { get; set; }
 
-        public virtual List<Examination> Examinations { get; set; }
+        public virtual List<Appointment> Appointments { get; set; }
 
         public int? AdministratorId { get; set; }
 
         public virtual Administrator? BlockedBy { get; set; }
 
         public virtual Feedback? Feedback { get; set; }
+
+        public int? GeneralPractitionerId { get; set; }
+
+        public virtual Doctor GeneralPractitioner { get; set; }
     }
 }

@@ -22,8 +22,9 @@ namespace HospitalApp.Adapters
                 Gender = patientDto.Gender,
                 IsBlocked = patientDto.IsBlocked,
                 BlockedBy = patientDto.BlockedBy,
-                Examinations = patientDto.Examinations,
-                Feedback = patientDto.Feedback
+                Appointments = patientDto.Appointments,
+                Feedback = patientDto.Feedback,
+                GeneralPractitioner = patientDto.GeneralPractitioner
             };
 
             return patient;
@@ -42,8 +43,9 @@ namespace HospitalApp.Adapters
                 Gender = patient.Gender,
                 IsBlocked = patient.IsBlocked,
                 BlockedBy = patient.BlockedBy,
-                Examinations = patient.Examinations,
-                Feedback = patient.Feedback
+                Appointments = patient.Appointments,
+                Feedback = patient.Feedback,
+                GeneralPractitioner = patient.GeneralPractitioner
             };
 
             return patientDto;

@@ -27,7 +27,7 @@ function getAllUsers(user){
                                     "</td><td>" + allUsers[i].isDeleted + 
                                     "</td></tr>");
 
-                $("#table").append(usersTable);
+                    $("#table").append(usersTable);
             }
         }
     });

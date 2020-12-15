@@ -17,8 +17,10 @@ namespace HospitalApp.Adapters
                 FirstName = doctorDto.FirstName,
                 LastName = doctorDto.LastName,
                 Type = doctorDto.Type,
-                Examinations = doctorDto.Examinations,
-                IsDeleted = doctorDto.IsDeleted
+                Appointments = doctorDto.Appointments,
+                IsDeleted = doctorDto.IsDeleted,
+                Patients = doctorDto.Patients,
+                WorkingDays = doctorDto.WorkingDays
             };
 
             return doctor;
@@ -32,8 +34,10 @@ namespace HospitalApp.Adapters
                 FirstName = doctor.FirstName,
                 LastName = doctor.LastName,
                 Type = doctor.Type,
-                Examinations = doctor.Examinations,
-                IsDeleted = doctor.IsDeleted
+                Appointments = doctor.Appointments,
+                IsDeleted = doctor.IsDeleted,
+                Patients = doctor.Patients,
+                WorkingDays = doctor.WorkingDays
             };
 
             return doctorDto;

@@ -202,4 +202,7 @@ C:\Users\Super User\Desktop\PSW2020-master\HospitalApp\HospitalApp\obj\Debug\net
 C:\Users\Super User\Desktop\PSW2020-master\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.pdb
 C:\Users\Super User\Desktop\PSW2020-master\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.genruntimeconfig.cache
 C:\Users\Super User\Desktop\PSW2020-master\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.csprojAssemblyReference.cache
+C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.csprojAssemblyReference.cache

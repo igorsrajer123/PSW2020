@@ -29,6 +29,10 @@ namespace HospitalApp.Models
 
         public bool IsDeleted { get; set; } 
 
-        public virtual List<Examination> Examinations { get; set; }
+        public virtual List<Appointment> Appointments { get; set; }
+
+        public virtual List<Patient> Patients { get; set; }
+
+        public string[] WorkingDays { get; set; }
     }
 }
