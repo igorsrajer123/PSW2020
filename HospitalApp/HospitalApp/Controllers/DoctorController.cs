@@ -82,7 +82,7 @@ namespace HospitalApp.Controllers
         [Route("/getDate")]
         public IActionResult GetDate()
         {
-            return Ok(_dt.GetWorkingHoursString());
+            return Ok(_dt.DiscardRandomTimesString());
         }
     }
 }

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Choose Preferences</title>
+        <link rel="stylesheet" href="css/navbarAppointments.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/patientAppointmentPreferences.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </title>
+</head>
+<body>
+    <nav>
+        <label class="logo" id="logo"></label>
+    </nav>
+
+    <div class="dates">
+        <h2><b>Choose preferred appointment date:</b></h2>
+        <p>From: <input type="text" id="datepicker1"></p>
+        <p>To: <input type="text" id="datepicker2"></p>
+
+        <h2><b>Choose by:</b></h2></br>
+        <input type="checkbox" class="check"> 
+        <label>Doctor</label>
+
+        <input type="checkbox" class="check">
+        <label>Date</label> </br> </br>  
+
+        <button id="checkForAppointment">Check for Free Appointments</button>
+    </div>
+
+</body>
+</html>

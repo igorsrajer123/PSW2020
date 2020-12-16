@@ -34,8 +34,8 @@ namespace HospitalApp.Models
             );
 
             modelBuilder.Entity<Doctor>().HasData(
-                new Doctor { Id = 1, FirstName = "Misa", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.GetWorkingHoursString()},
-                new Doctor { Id = 2, FirstName = "Igor", LastName = "Mijatovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.GetWorkingHoursString() },
+                new Doctor { Id = 1, FirstName = "Misa", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomTimesString()},
+                new Doctor { Id = 2, FirstName = "Igor", LastName = "Mijatovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomTimesString() },
                 new Doctor { Id = 3, FirstName = "Srdjan", LastName = "Tepavcevic", Type = DoctorType.Specialist, Appointments = null, IsDeleted = false, WorkingDays = _dt.GetWorkingHoursString() }
                 );
 

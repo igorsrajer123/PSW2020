@@ -48,7 +48,7 @@ function redirectUser(user){
             window.location.href = "login.html";
         }
         if(user.role == "Patient")
-            window.location.href = "chooseAppointment.html"; 
+            window.location.href = "patientAppointmentPreferences.html"; 
     });
 
     $("#pickPractitioner").click(function(event){

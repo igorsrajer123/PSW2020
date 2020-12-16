@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(4.jpg) repeat;
+}
+
+nav{
+    font-family: "Georgia";
+    background: #1E90FF;
+    height: 80px;
+}
+
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height:  80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul lI{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+.dates{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+h2{
+    color: white;
+}
+
+p{
+    font-size: 20px;
+    margin: 20px;
+    font-family: "Georgia", "Comic Sans", cursive;
+    color: white;
+}
+
+label{
+    font-size: 18px;
+    margin: 5px;
+    color: white;
+    font-family: "Georgia", "Comic Sans", cursive;
+}
+
+button{
+    margin: 10px 10px 10px 10px;
+    border: 2px solid #FFFF;
+    background: #7FFF00;
+    padding: 5px 5px;
+    font-size: 17px;
+    font-family: "Georgia", "Comic Sans", cursive;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.8s;
+    color: #1E90FF;
+    border-radius: 50px;
+    height: 32px;
+}
+
+button:hover{
+    border: 1px solid #fff;
+	background: #1E90FF;
+	color: #7FFF00;
+}
+
+
