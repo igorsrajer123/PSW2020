@@ -23,5 +23,7 @@ namespace HospitalApp.Dtos
         public Administrator BlockedBy { get; set; }
 
         public Feedback Feedback { get; set; }
+
+        public Referral Referral { get; set; }
     }
 }

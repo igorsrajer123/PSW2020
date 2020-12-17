@@ -23,5 +23,7 @@ namespace HospitalApp.Dtos
         public bool IsDeleted { get; set; }
 
         public string[] WorkingDays { get; set; }
+
+        public List<Referral> Referrals { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HospitalApp.Migrations
 {
-    public partial class Nicemigration : Migration
+    public partial class Migracija1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace HospitalApp.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     Type = table.Column<int>(type: "int", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    WorkingDays = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,7 +69,8 @@ namespace HospitalApp.Migrations
                     Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     IsBlocked = table.Column<bool>(type: "bit", nullable: false),
-                    AdministratorId = table.Column<int>(type: "int", nullable: true)
+                    AdministratorId = table.Column<int>(type: "int", nullable: true),
+                    GeneralPractitionerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -80,6 +82,12 @@ namespace HospitalApp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
+                        name: "FK_Patient_Doctor_GeneralPractitionerId",
+                        column: x => x.GeneralPractitionerId,
+                        principalTable: "Doctor",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Patient_User_Id",
                         column: x => x.Id,
                         principalTable: "User",
@@ -88,7 +96,7 @@ namespace HospitalApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Examination",
+                name: "Appointment",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -101,15 +109,15 @@ namespace HospitalApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Examination", x => x.Id);
+                    table.PrimaryKey("PK_Appointment", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Examination_Doctor_DoctorId",
+                        name: "FK_Appointment_Doctor_DoctorId",
                         column: x => x.DoctorId,
                         principalTable: "Doctor",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Examination_Patient_PatientId",
+                        name: "FK_Appointment_Patient_PatientId",
                         column: x => x.PatientId,
                         principalTable: "Patient",
                         principalColumn: "Id",
@@ -139,20 +147,50 @@ namespace HospitalApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Referral",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SpecialistId = table.Column<int>(type: "int", nullable: false),
+                    PatientId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Referral", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Referral_Doctor_SpecialistId",
+                        column: x => x.SpecialistId,
+                        principalTable: "Doctor",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Referral_Patient_PatientId",
+                        column: x => x.PatientId,
+                        principalTable: "Patient",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Doctor",
-                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Type" },
-                values: new object[] { 1, "Misa", false, "Simonovic", 1 });
+                columns: new[] { "Id", "FirstName", "IsDeleted", "LastName", "Type", "WorkingDays" },
+                values: new object[,]
+                {
+                    { 1, "Aleksandar", false, "Simonovic", 1, "" },
+                    { 2, "Dimitrije", false, "Mijatovic", 1, "" },
+                    { 3, "Srdjan", false, "Tepavcevic", 0, "" }
+                });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "Address", "FirstName", "IsDeleted", "LastName", "Password", "PhoneNumber", "Role", "Username" },
-                values: new object[] { 5, "Visnjiceva 32, Beograd", "admin", false, "administratovic", "admin", "+3811233212", "Administrator", "admin" });
-
-            migrationBuilder.InsertData(
-                table: "User",
-                columns: new[] { "Id", "Address", "FirstName", "IsDeleted", "LastName", "Password", "PhoneNumber", "Role", "Username" },
-                values: new object[] { 1, "Tomiceva 22, Zrenjanin", "Marko", false, "Simonovic", "123", "+38122555333", "Patient", "maki" });
+                values: new object[,]
+                {
+                    { 5, "Visnjiceva 32, Beograd", "admin", false, "administratovic", "admin", "+3811233212", "Administrator", "admin" },
+                    { 1, "Tomiceva 22, Zrenjanin", "Marko", false, "Simonovic", "123", "+38122555333", "Patient", "maki" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Administrator",
@@ -161,17 +199,17 @@ namespace HospitalApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Patient",
-                columns: new[] { "Id", "AdministratorId", "Age", "Gender", "IsBlocked" },
-                values: new object[] { 1, null, 15, "male", false });
+                columns: new[] { "Id", "AdministratorId", "Age", "Gender", "GeneralPractitionerId", "IsBlocked" },
+                values: new object[] { 1, null, 15, "male", 2, false });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Examination_DoctorId",
-                table: "Examination",
+                name: "IX_Appointment_DoctorId",
+                table: "Appointment",
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Examination_PatientId",
-                table: "Examination",
+                name: "IX_Appointment_PatientId",
+                table: "Appointment",
                 column: "PatientId");
 
             migrationBuilder.CreateIndex(
@@ -184,24 +222,43 @@ namespace HospitalApp.Migrations
                 name: "IX_Patient_AdministratorId",
                 table: "Patient",
                 column: "AdministratorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_GeneralPractitionerId",
+                table: "Patient",
+                column: "GeneralPractitionerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Referral_PatientId",
+                table: "Referral",
+                column: "PatientId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Referral_SpecialistId",
+                table: "Referral",
+                column: "SpecialistId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Examination");
+                name: "Appointment");
 
             migrationBuilder.DropTable(
                 name: "Feedback");
 
             migrationBuilder.DropTable(
-                name: "Doctor");
+                name: "Referral");
 
             migrationBuilder.DropTable(
                 name: "Patient");
 
             migrationBuilder.DropTable(
                 name: "Administrator");
+
+            migrationBuilder.DropTable(
+                name: "Doctor");
 
             migrationBuilder.DropTable(
                 name: "User");

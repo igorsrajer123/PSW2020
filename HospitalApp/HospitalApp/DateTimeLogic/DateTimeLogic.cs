@@ -79,7 +79,7 @@ namespace HospitalApp.DateTimeLogic
         {
             DateTime[] dt = GetWorkingHours();
             Random rnd = new Random();
-            DateTime[] discard = dt.OrderBy(x => rnd.Next()).Take(1800).ToArray();
+            DateTime[] discard = dt.OrderBy(x => rnd.Next()).Take(1200).ToArray();
 
             DateTime[] myDates = dt.Except(discard).ToArray();
 
@@ -97,30 +97,10 @@ namespace HospitalApp.DateTimeLogic
             return myDates.ToArray();
         }
 
-        public DateTime[] ChosenAppointmentDate(DateTime from, DateTime to)
+        public int GetNumber()
         {
-            List<DateTime> patientDates = new List<DateTime>();
-            DateTime[] baseDates = DiscardRandomTimes();
-
-            foreach (DateTime d in baseDates)
-                if (d >= from && d <= to)
-                    patientDates.Add(d);
-
-            return patientDates.ToArray();
-        }
-
-        public string[] ChoseAppointmentDateString(DateTime from, DateTime to)
-        {
-            List<string> patientDates = new List<string>();
-            DateTime[] baseDates = DiscardRandomTimes();
-
-            foreach (DateTime d in baseDates)
-                if (d >= from && d <= to)
-                {
-                    patientDates.Add(d.ToString("yyyy-MM-dd hh tt"));
-                }
-
-            return patientDates.ToArray();
+            DateTime[] dt = GetWorkingDays();
+            return dt.Length;
         }
     }
 }

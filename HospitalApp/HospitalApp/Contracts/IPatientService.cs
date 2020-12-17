@@ -22,5 +22,7 @@ namespace HospitalApp.Contracts
         PatientDto SetGeneralPractitioner(int patientId, int doctorId);
 
         DoctorDto GetGeneralPractitioner(int patientId);
+
+        DoctorDto GetSpecialist(int patientId);
     }
 }

@@ -34,5 +34,7 @@ namespace HospitalApp.Models
         public virtual List<Patient> Patients { get; set; }
 
         public string[] WorkingDays { get; set; }
+
+        public virtual List<Referral> Referrals { get; set; }
     }
 }

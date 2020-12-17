@@ -10,7 +10,7 @@ namespace HospitalApp.Repositories
 {
     public interface IDoctorService
     {
-        new List<DoctorDto> GetAll();
+        List<DoctorDto> GetAll();
 
         DoctorDto GetById(int id);
 

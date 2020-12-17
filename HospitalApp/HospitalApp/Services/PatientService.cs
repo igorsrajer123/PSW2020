@@ -2,6 +2,7 @@
 using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
+using HospitalApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,13 @@ namespace HospitalApp.Services
     public class PatientService : IPatientService
     {
         private MyDbContext _dbContext;
+        private IDoctorService _doctorService;
+        private IReferralService _referralService;
 
-        public PatientService(MyDbContext context)
+        public PatientService(MyDbContext context, IDoctorService doctorService, IReferralService referralService)
         {
             this._dbContext = context;
+            _doctorService = doctorService;
         }
 
         public List<PatientDto> GetAll()
@@ -46,7 +50,11 @@ namespace HospitalApp.Services
             if (existingPatient != null)
                 return null;
 
+            var rnd = new Random();
+            List<DoctorDto> generalPractitioners = _doctorService.GetByType(DoctorType.GeneralPractitioner);
+            patient.GeneralPractitionerId = generalPractitioners[rnd.Next(generalPractitioners.Count)].Id;
             patient.Role = "Patient";
+            
             _dbContext.Patients.Add(patient);
             _dbContext.SaveChanges();
 
@@ -94,6 +102,24 @@ namespace HospitalApp.Services
                 return null;
 
             return DoctorAdapter.DoctorToDoctorDto(patient.GeneralPractitioner);
+        }
+
+        public DoctorDto GetSpecialist(int patientId)
+        {
+            Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
+
+            if (patient == null)
+                return null;
+
+            if (patient.Referral == null)
+                return null;
+
+            Doctor d = _dbContext.Doctors.FirstOrDefault(doc => doc.Id == patient.Referral.SpecialistId);
+
+            if (d == null)
+                return null;
+
+            return DoctorAdapter.DoctorToDoctorDto(d);
         }
     }
 }

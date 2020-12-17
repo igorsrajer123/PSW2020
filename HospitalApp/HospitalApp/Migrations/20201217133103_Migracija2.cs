@@ -2,7 +2,7 @@
 
 namespace HospitalApp.Migrations
 {
-    public partial class WorkingHoursadded : Migration
+    public partial class Migracija2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -14,6 +14,7 @@ namespace HospitalApp.Controllers
     public class DoctorController : Controller
     {
         private IDoctorService _doctorService;
+
         private readonly DateLogic _dt = new DateLogic();
 
         public DoctorController(IDoctorService doctorService)
@@ -82,7 +83,7 @@ namespace HospitalApp.Controllers
         [Route("/getDate")]
         public IActionResult GetDate()
         {
-            return Ok(_dt.DiscardRandomTimesString());
+            return Ok(_dt.GetNumber());
         }
     }
 }

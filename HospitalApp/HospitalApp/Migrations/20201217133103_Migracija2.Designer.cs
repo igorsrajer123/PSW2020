@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20201214200046_Nice migration3")]
-    partial class Nicemigration3
+    [Migration("20201217133103_Migracija2")]
+    partial class Migracija2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,6 +73,9 @@ namespace HospitalApp.Migrations
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
+                    b.Property<string>("WorkingDays")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Doctor");
@@ -81,10 +84,29 @@ namespace HospitalApp.Migrations
                         new
                         {
                             Id = 1,
-                            FirstName = "Misa",
+                            FirstName = "Aleksandar",
                             IsDeleted = false,
                             LastName = "Simonovic",
-                            Type = 1
+                            Type = 1,
+                            WorkingDays = ""
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FirstName = "Dimitrije",
+                            IsDeleted = false,
+                            LastName = "Mijatovic",
+                            Type = 1,
+                            WorkingDays = ""
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FirstName = "Srdjan",
+                            IsDeleted = false,
+                            LastName = "Tepavcevic",
+                            Type = 0,
+                            WorkingDays = ""
                         });
                 });
 
@@ -117,6 +139,29 @@ namespace HospitalApp.Migrations
                         .IsUnique();
 
                     b.ToTable("Feedback");
+                });
+
+            modelBuilder.Entity("HospitalApp.Models.Referral", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpecialistId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId")
+                        .IsUnique();
+
+                    b.HasIndex("SpecialistId");
+
+                    b.ToTable("Referral");
                 });
 
             modelBuilder.Entity("HospitalApp.Models.User", b =>
@@ -194,10 +239,15 @@ namespace HospitalApp.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
+                    b.Property<int?>("GeneralPractitionerId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsBlocked")
                         .HasColumnType("bit");
 
                     b.HasIndex("AdministratorId");
+
+                    b.HasIndex("GeneralPractitionerId");
 
                     b.ToTable("Patient");
 
@@ -215,6 +265,7 @@ namespace HospitalApp.Migrations
                             Username = "maki",
                             Age = 15,
                             Gender = "male",
+                            GeneralPractitionerId = 2,
                             IsBlocked = false
                         });
                 });
@@ -249,6 +300,25 @@ namespace HospitalApp.Migrations
                     b.Navigation("Patient");
                 });
 
+            modelBuilder.Entity("HospitalApp.Models.Referral", b =>
+                {
+                    b.HasOne("HospitalApp.Models.Patient", "Patient")
+                        .WithOne("Referral")
+                        .HasForeignKey("HospitalApp.Models.Referral", "PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HospitalApp.Models.Doctor", "Specialist")
+                        .WithMany("Referrals")
+                        .HasForeignKey("SpecialistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
+
+                    b.Navigation("Specialist");
+                });
+
             modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
                 {
                     b.HasOne("HospitalApp.Models.User", null)
@@ -264,6 +334,10 @@ namespace HospitalApp.Migrations
                         .WithMany("BlockedUsers")
                         .HasForeignKey("AdministratorId");
 
+                    b.HasOne("HospitalApp.Models.Doctor", "GeneralPractitioner")
+                        .WithMany("Patients")
+                        .HasForeignKey("GeneralPractitionerId");
+
                     b.HasOne("HospitalApp.Models.User", null)
                         .WithOne()
                         .HasForeignKey("HospitalApp.Models.Patient", "Id")
@@ -271,11 +345,17 @@ namespace HospitalApp.Migrations
                         .IsRequired();
 
                     b.Navigation("BlockedBy");
+
+                    b.Navigation("GeneralPractitioner");
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("Patients");
+
+                    b.Navigation("Referrals");
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
@@ -288,6 +368,8 @@ namespace HospitalApp.Migrations
                     b.Navigation("Appointments");
 
                     b.Navigation("Feedback");
+
+                    b.Navigation("Referral");
                 });
 #pragma warning restore 612, 618
         }

@@ -36,11 +36,12 @@ namespace HospitalApp
             services.AddScoped<IAdministratorService, AdministratorService>();
             services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IReferralService, ReferralService>();
 
             services.AddRazorPages().WithRazorPagesRoot("/Views");
 
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(1);
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
             });
 
             services.AddControllersWithViews()

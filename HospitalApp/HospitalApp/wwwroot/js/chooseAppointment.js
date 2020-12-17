@@ -1,6 +1,9 @@
-var ID;
 window.onload = function() {
     authenticateUser();
+    changeSelection();
+    toggleTable();
+
+    $("#select select").val("none");
 }
 
 function authenticateUser(){
@@ -14,18 +17,40 @@ function authenticateUser(){
                 window.location.href = "../index.html";
             }
 
-            getDoctor(myUser.id);
+            getGeneralPractitioner(myUser.id);
+            getSpecialist(myUser.id);
         }
     });
 }
 
-function getDoctor(id){
+function getGeneralPractitioner(id){
     $.ajax({
         url: 'http://localhost:50324/getGeneralPractitioner/' + id,
         type: 'GET',
         complete: function(data){
             var doctor = data.responseJSON;
-            viewDoctorsWorkingHours(doctor);
+            $("#select").append($("<option>", {
+                value: doctor.id,
+                text: doctor.firstName + " " + doctor.lastName + " - General Practitioner"
+            }));
+        }
+    });
+}
+
+function getSpecialist(id){
+    $.ajax({
+        url: 'http://localhost:50324/getSpecialist/' + id,
+        type: 'GET',
+        complete: function(data){
+            if(data.status != 404){
+                var doctor = data.responseJSON;
+                $("#select").append($("<option>", {
+                value: doctor.id,
+                text: doctor.firstName + " " + doctor.lastName + " - Specialist"
+                }));
+            }else
+                return null;
+
         }
     });
 }
@@ -52,8 +77,8 @@ function viewDoctorsWorkingHours(doctor){
         var d3 = date.split("-");
         var ourDate = new Date(d3);
 
-        if(doctor.type == 1 && ourDate <= toDate && ourDate >= fromDate){
-           
+        if(ourDate <= toDate && ourDate >= fromDate){
+            if(doctor.type == 1){
                 table.append("<tr><td>" + doctor.firstName + " " + doctor.lastName +   
                 "</td><td>" + "General Practitioner" +
                 "</td><td>" + date +
@@ -62,7 +87,16 @@ function viewDoctorsWorkingHours(doctor){
                 "</td></tr>");
 
                 $("#table").append(table);
-           
+            }else {
+                table.append("<tr><td>" + doctor.firstName + " " + doctor.lastName +   
+                "</td><td>" + "Specialist" +
+                "</td><td>" + date +
+                "</td><td>" + time +
+                "</td><td> <button>Create Appointment</button>" +
+                "</td></tr>");
+
+                $("#table").append(table);
+            }
         }
     }
 }
@@ -73,4 +107,34 @@ function getUrlVars() {
         vars[key] = value;
     });
     return vars;
+}
+
+function changeSelection(){
+    $("#select").on("change", function(){
+        var selectedDoctor = $(this).children("option:selected").val();
+        getDoctorById(selectedDoctor);
+        $("#table").slideDown(1000);
+
+        if(selectedDoctor == "none")
+        $("#table").hide();
+    });
+}
+
+function getDoctorById(id){
+    $.ajax({
+        url: 'http://localhost:50324/getDoctorById/' + id,
+        type: 'GET',
+        complete: function(data){
+            if(data != null)
+                viewDoctorsWorkingHours(data.responseJSON);
+            else    
+                alert("Error has occurred!");
+        }
+    });
+}
+
+function toggleTable(){
+    var selected = $('#select').find(":selected").val();
+    if(selected == "none")
+        $("#table").hide();
 }

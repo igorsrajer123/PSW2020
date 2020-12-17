@@ -21,12 +21,14 @@ namespace HospitalApp.Models
 
         public int? AdministratorId { get; set; }
 
-        public virtual Administrator? BlockedBy { get; set; }
+        public virtual Administrator BlockedBy { get; set; }
 
-        public virtual Feedback? Feedback { get; set; }
+        public virtual Feedback Feedback { get; set; }
 
         public int? GeneralPractitionerId { get; set; }
 
         public virtual Doctor GeneralPractitioner { get; set; }
+
+        public virtual Referral Referral { get; set; }
     }
 }

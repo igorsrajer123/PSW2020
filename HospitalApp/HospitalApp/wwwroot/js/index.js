@@ -1,6 +1,6 @@
-﻿$(document).ready(function(){
+﻿window.onload = function(){
     getCurrentUser();
-});
+}
 
 function welcomeMessage(user){
     if (user == undefined) {

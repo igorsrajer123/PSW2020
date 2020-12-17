@@ -5,16 +5,19 @@ body{
     background: url(1.jpg) no-repeat;
 }
 
-table{
-    overflow: auto;
-    display: block;
-    position: absolute;
+div{
+    position: fixed;
     left: 50%;
     top: 60%;
     transform: translate(-50%, -50%);
+}
+
+table{
+    overflow: auto;
+    display: block;
     border-collapse: collapse;
-    width: 780px;
-    height: 700px;
+    width: 800px;
+    height: 400px;
 }
 
 tr{
@@ -73,3 +76,25 @@ button:hover{
 	background: #1E90FF;
 	color: #7FFF00;
 }
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 2px;
+    width: 20%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: inherit;
+    outline: none;
+    background-color: #F0F8FF;
+    font-family: "Rockwell", "Comic Sans", cursive;
+    height: 40px;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+

@@ -20,7 +20,8 @@ namespace HospitalApp.Adapters
                 Appointments = doctorDto.Appointments,
                 IsDeleted = doctorDto.IsDeleted,
                 Patients = doctorDto.Patients,
-                WorkingDays = doctorDto.WorkingDays
+                WorkingDays = doctorDto.WorkingDays,
+                Referrals = doctorDto.Referrals
             };
 
             return doctor;
@@ -37,7 +38,8 @@ namespace HospitalApp.Adapters
                 Appointments = doctor.Appointments,
                 IsDeleted = doctor.IsDeleted,
                 Patients = doctor.Patients,
-                WorkingDays = doctor.WorkingDays
+                WorkingDays = doctor.WorkingDays,
+                Referrals = doctor.Referrals
             };
 
             return doctorDto;
