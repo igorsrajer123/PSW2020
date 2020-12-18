@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HospitalApp.Models
+namespace HospitalApp.Dtos
 {
-    [Table("Appointment")]
-    public class Appointment
+    public class AppointmentDto
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public DateTime Date { get; set; }
@@ -18,11 +15,7 @@ namespace HospitalApp.Models
 
         public int DoctorId { get; set; }
 
-        public virtual Doctor Doctor { get; set; }
-
         public int PatientId { get; set; }
-
-        public virtual Patient Patient { get; set; }
 
         public bool IsDone { get; set; }
 

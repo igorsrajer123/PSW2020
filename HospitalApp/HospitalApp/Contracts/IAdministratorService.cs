@@ -14,9 +14,5 @@ namespace HospitalApp.Contracts
         AdministratorDto GetById(int id);
 
         AdministratorDto Add(Administrator administrator);
-
-        AdministratorDto DeleteById(int id);
-
-        AdministratorDto UpdateById(int id, AdministratorDto administratorDto);
     }
 }

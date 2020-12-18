@@ -18,8 +18,12 @@ namespace HospitalApp.Repositories
 
         DoctorDto Add(DoctorDto doctorDto);
 
-        new DoctorDto DeleteById(int id);
+        DoctorDto DeleteById(int id);
 
-        new DoctorDto UpdateById(int id, DoctorDto doctorDto);
+        DoctorDto UpdateById(int id, DoctorDto doctorDto);
+
+        DoctorDto GetGeneralPractitioner(int patientId);
+
+        DoctorDto GetSpecialist(int patientId);
     }
 }

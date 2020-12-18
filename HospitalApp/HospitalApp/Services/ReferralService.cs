@@ -27,6 +27,16 @@ namespace HospitalApp.Services
             return allReferrals;
         }
 
+        public ReferralDto GetById(int referralId)
+        {
+            Referral referral = _dbContext.Referrals.SingleOrDefault(r => r.Id == referralId);
+
+            if (referral == null)
+                return null;
+
+            return ReferralAdapter.ReferralToReferralDto(referral);
+        }
+
         public ReferralDto Add(ReferralDto referralDto)
         {
             if (referralDto == null)

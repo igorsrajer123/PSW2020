@@ -13,18 +13,18 @@ namespace HospitalApp.Adapters
         {
             Patient patient = new Patient
             {
-                Id = patientDto.Id,
+                Address = patientDto.Address,
                 FirstName = patientDto.FirstName,
                 LastName = patientDto.LastName,
-                Username = patientDto.Username,
                 IsDeleted = patientDto.IsDeleted,
+                PhoneNumber = patientDto.PhoneNumber,
+                Username = patientDto.Username,
+                Role = patientDto.Role,
                 Age = patientDto.Age,
                 Gender = patientDto.Gender,
                 IsBlocked = patientDto.IsBlocked,
-                BlockedBy = patientDto.BlockedBy,
-                Appointments = patientDto.Appointments,
-                Feedback = patientDto.Feedback,
-                GeneralPractitioner = patientDto.GeneralPractitioner
+                AdministratorId = patientDto.AdministratorId,
+                GeneralPractitionerId = patientDto.GeneralPractitionerId
             };
 
             return patient;
@@ -34,18 +34,18 @@ namespace HospitalApp.Adapters
         {
             PatientDto patientDto = new PatientDto
             {
-                Id = patient.Id,
+                Address = patient.Address,
                 FirstName = patient.FirstName,
                 LastName = patient.LastName,
-                Username = patient.Username,
                 IsDeleted = patient.IsDeleted,
+                PhoneNumber = patient.PhoneNumber,
+                Username = patient.Username,
+                Role = patient.Role,
                 Age = patient.Age,
                 Gender = patient.Gender,
                 IsBlocked = patient.IsBlocked,
-                BlockedBy = patient.BlockedBy,
-                Appointments = patient.Appointments,
-                Feedback = patient.Feedback,
-                GeneralPractitioner = patient.GeneralPractitioner
+                AdministratorId = patient.AdministratorId,
+                GeneralPractitionerId = patient.GeneralPractitionerId
             };
 
             return patientDto;

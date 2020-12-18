@@ -18,5 +18,7 @@ namespace HospitalApp.Models
         public virtual int PatientId { get; set; }
 
         public virtual Patient Patient { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

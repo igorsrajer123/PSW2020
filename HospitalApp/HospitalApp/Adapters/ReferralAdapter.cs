@@ -14,9 +14,9 @@ namespace HospitalApp.Adapters
             Referral referral = new Referral
             {
                 Id = referralDto.Id,
-                Patient = referralDto.Patient,
-                Specialist = referralDto.Specialist,
-                SpecialistId = referralDto.SpecialistId               
+                PatientId = referralDto.PatientId,
+                SpecialistId = referralDto.SpecialistId,
+                IsDeleted = referralDto.IsDeleted
             };
 
             return referral;
@@ -27,9 +27,9 @@ namespace HospitalApp.Adapters
             ReferralDto referralDto = new ReferralDto
             {
                 Id = referral.Id,
-                Patient = referral.Patient,
-                Specialist = referral.Specialist,
+                PatientId = referral.PatientId,
                 SpecialistId = referral.SpecialistId,
+                IsDeleted = referral.IsDeleted
             };
 
             return referralDto;

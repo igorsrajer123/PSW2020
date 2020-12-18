@@ -30,6 +30,16 @@ namespace HospitalApp.Controllers
             return Ok(_referralService.GetAll());
         }
 
+        [HttpGet]
+        [Route("/getReferral/{referralId}")]
+        public IActionResult GetById(int referralId)
+        {
+            if (_referralService.GetById(referralId) == null)
+                return NotFound();
+
+            return Ok(_referralService.GetById(referralId));
+        }
+
         [HttpPost]
         [Route("/addReferral")]
         public IActionResult Add(ReferralDto referralDto)

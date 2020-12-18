@@ -92,5 +92,30 @@ namespace HospitalApp.Services
 
             return DoctorAdapter.DoctorToDoctorDto(doctor);
         }
+
+        public DoctorDto GetGeneralPractitioner(int patientId)
+        {
+            Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
+
+            if (patient == null)
+                return null;
+
+            return DoctorAdapter.DoctorToDoctorDto(patient.GeneralPractitioner);
+        }
+
+        public DoctorDto GetSpecialist(int patientId)
+        {
+            Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
+
+            if (patient == null || patient.Referral == null)
+                return null;
+
+            Doctor d = _dbContext.Doctors.FirstOrDefault(doc => doc.Id == patient.Referral.SpecialistId);
+
+            if (d == null)
+                return null;
+
+            return DoctorAdapter.DoctorToDoctorDto(d);
+        }
     }
 }

@@ -15,8 +15,6 @@ namespace HospitalApp.Controllers
     {
         private IDoctorService _doctorService;
 
-        private readonly DateLogic _dt = new DateLogic();
-
         public DoctorController(IDoctorService doctorService)
         {
             _doctorService = doctorService;
@@ -80,10 +78,23 @@ namespace HospitalApp.Controllers
         }
 
         [HttpGet]
-        [Route("/getDate")]
-        public IActionResult GetDate()
+        [Route("/getGeneralPractitioner/{patientId}")]
+        public IActionResult GetGeneralPractitioner(int patientId)
         {
-            return Ok(_dt.GetNumber());
+            if (_doctorService.GetGeneralPractitioner(patientId) == null)
+                return NotFound();
+
+            return Ok(_doctorService.GetGeneralPractitioner(patientId));
+        }
+
+        [HttpGet]
+        [Route("/getSpecialist/{patientId}")]
+        public IActionResult GetSpecialist(int patientId)
+        {
+            if (_doctorService.GetSpecialist(patientId) == null)
+                return NotFound();
+
+            return Ok(_doctorService.GetSpecialist(patientId));
         }
     }
 }

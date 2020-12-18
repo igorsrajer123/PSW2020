@@ -49,36 +49,5 @@ namespace HospitalApp.Services
 
             return adminDto;
         }
-
-        public AdministratorDto DeleteById(int id)
-        {
-            Administrator admin = _dbContext.Administrators.SingleOrDefault(admin => admin.Id == id);
-
-            if (admin == null)
-                return null;
-
-            admin.IsDeleted = true;
-            _dbContext.SaveChanges();
-
-            return AdministratorAdapter.AdministratoToAdministratorDto(admin);
-        }
-
-        public AdministratorDto UpdateById(int id, AdministratorDto administratorDto)
-        {
-            Administrator admin = _dbContext.Administrators.SingleOrDefault(admin => admin.Id == id);
-
-            if (admin == null)
-                return null;
-
-            admin.FirstName = administratorDto.FirstName;
-            admin.LastName = administratorDto.LastName;
-            admin.IsDeleted = administratorDto.IsDeleted;
-            admin.Username = administratorDto.Username;
-            admin.BlockedUsers = administratorDto.BlockedUsers;
-
-            _dbContext.SaveChanges();
-
-            return AdministratorAdapter.AdministratoToAdministratorDto(admin);
-        }
     }
 }

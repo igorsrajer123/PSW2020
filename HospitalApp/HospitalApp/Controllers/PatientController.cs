@@ -61,26 +61,6 @@ namespace HospitalApp.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        [Route("/getGeneralPractitioner/{patientId}")]
-        public IActionResult GetGeneralPractitioner(int patientId)
-        {
-            if (_patientService.GetGeneralPractitioner(patientId) == null)
-                return NotFound();
-
-            return Ok(_patientService.GetGeneralPractitioner(patientId));
-        }
-
-        [HttpGet]
-        [Route("/getSpecialist/{patientId}")]
-        public IActionResult GetSpecialist(int patientId)
-        {
-            if (_patientService.GetSpecialist(patientId) == null)
-                return NotFound();
-
-            return Ok(_patientService.GetSpecialist(patientId));
-        }
-
         [HttpDelete]
         [Route("/deletePatient/{id}")]
         public IActionResult DeleteById(int id)

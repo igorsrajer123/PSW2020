@@ -17,12 +17,6 @@ namespace HospitalApp.Contracts
 
         PatientDto DeleteById(int patientId);
 
-        PatientDto UpdateById(int patientId, PatientDto patientDto);
-
         PatientDto SetGeneralPractitioner(int patientId, int doctorId);
-
-        DoctorDto GetGeneralPractitioner(int patientId);
-
-        DoctorDto GetSpecialist(int patientId);
     }
 }

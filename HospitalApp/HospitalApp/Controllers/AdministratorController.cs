@@ -47,25 +47,5 @@ namespace HospitalApp.Controllers
 
             return Ok();
         }
-
-        [HttpDelete]
-        [Route("/deleteAdmin/{id}")]
-        public IActionResult Delete(int id)
-        {
-            if (_administratorService.DeleteById(id) == null)
-                return NotFound();
-
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("/updateAdmin/{id}")]
-        public IActionResult Update(int id, AdministratorDto administratorDto)
-        {
-            if (_administratorService.UpdateById(id, administratorDto) == null)
-                return NotFound();
-
-            return Ok();
-        }
     }
 }

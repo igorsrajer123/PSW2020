@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Dtos
 {
-    public class ReferralDto
+    public class FeedbackDto
     {
         public int Id { get; set; }
 
+        public string Text { get; set; }
+
+        public DateTime Date { get; set; }
+
         public int PatientId { get; set; }
 
-        public int SpecialistId { get; set; }
+        public bool IsVisible { get; set; }
 
         public bool IsDeleted { get; set; }
     }

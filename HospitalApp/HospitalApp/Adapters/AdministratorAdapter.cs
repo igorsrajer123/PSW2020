@@ -14,11 +14,13 @@ namespace HospitalApp.Adapters
             Administrator administrator = new Administrator
             {
                 Id = administratorDto.Id,
+                Address = administratorDto.Address,
                 FirstName = administratorDto.FirstName,
                 LastName = administratorDto.LastName,
-                Username = administratorDto.Username,
                 IsDeleted = administratorDto.IsDeleted,
-                BlockedUsers = administratorDto.BlockedUsers
+                PhoneNumber = administratorDto.PhoneNumber,
+                Username = administratorDto.Username,
+                Role = administratorDto.Role
             };
 
             return administrator;
@@ -32,8 +34,10 @@ namespace HospitalApp.Adapters
                 FirstName = administrator.FirstName,
                 LastName = administrator.LastName,
                 Username = administrator.Username,
+                Address = administrator.Address,
                 IsDeleted = administrator.IsDeleted,
-                BlockedUsers = administrator.BlockedUsers
+                Role = administrator.Role,
+                PhoneNumber = administrator.PhoneNumber
             };
 
             return administratorDto;

@@ -10,6 +10,8 @@ namespace HospitalApp.Contracts
     {
         List<ReferralDto> GetAll();
 
+        ReferralDto GetById(int referralId);
+
         ReferralDto Add(ReferralDto referralDto);
     }
 }

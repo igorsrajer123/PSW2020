@@ -14,7 +14,6 @@ namespace HospitalApp.Services
     {
         private MyDbContext _dbContext;
         private IDoctorService _doctorService;
-        private IReferralService _referralService;
 
         public PatientService(MyDbContext context, IDoctorService doctorService, IReferralService referralService)
         {
@@ -74,11 +73,6 @@ namespace HospitalApp.Services
             return PatientAdapter.PatientToPatientDto(patient);
         }
 
-        public PatientDto UpdateById(int id, PatientDto patientDto)
-        {
-            throw new NotImplementedException();
-        }
-
         public PatientDto SetGeneralPractitioner(int patientId, int doctorId)
         {
             Patient patient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == patientId);
@@ -92,34 +86,6 @@ namespace HospitalApp.Services
             PatientDto patientDto = PatientAdapter.PatientToPatientDto(patient);
 
             return patientDto;
-        }
-
-        public DoctorDto GetGeneralPractitioner(int patientId)
-        {
-            Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
-
-            if (patient == null)
-                return null;
-
-            return DoctorAdapter.DoctorToDoctorDto(patient.GeneralPractitioner);
-        }
-
-        public DoctorDto GetSpecialist(int patientId)
-        {
-            Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
-
-            if (patient == null)
-                return null;
-
-            if (patient.Referral == null)
-                return null;
-
-            Doctor d = _dbContext.Doctors.FirstOrDefault(doc => doc.Id == patient.Referral.SpecialistId);
-
-            if (d == null)
-                return null;
-
-            return DoctorAdapter.DoctorToDoctorDto(d);
         }
     }
 }
