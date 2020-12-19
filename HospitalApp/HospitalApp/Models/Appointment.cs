@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Models
 {
+    public enum AppointmentStatus
+    {
+        Done,
+        Active,
+        Cancelled
+    }
+
     [Table("Appointment")]
     public class Appointment
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public string Time { get; set; }
 
@@ -24,8 +31,6 @@ namespace HospitalApp.Models
 
         public virtual Patient Patient { get; set; }
 
-        public bool IsDone { get; set; }
-
-        public bool IsCancelled { get; set; }
+        public AppointmentStatus Status { get; set; }
     }
 }

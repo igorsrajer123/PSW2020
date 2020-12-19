@@ -25,24 +25,17 @@ namespace HospitalApp.DateTimeLogic
             List<DateTime> myHours = new List<DateTime>();
 
             for (DateTime date = dt[0]; date <= dt[dt.Length - 1]; date = date.AddHours(1))
-            {
                 if (date.TimeOfDay < TimeSpan.Parse("17:00") && date.TimeOfDay >= TimeSpan.Parse("10:00"))
                     myHours.Add(date);
-            }
-
 
             return myHours.ToArray();
         }
 
         public DateTime[] DiscardRandomTimes()
         {
-            DateTime[] dt = GetWorkingHours();
             Random rnd = new Random();
-            DateTime[] discard = dt.OrderBy(x => rnd.Next()).Take(1200).ToArray();
-
-            DateTime[] myDates = dt.Except(discard).ToArray();
-
-            return myDates;
+      
+            return GetWorkingHours().Except(GetWorkingHours().OrderBy(x => rnd.Next()).Take(1200).ToArray()).ToArray();
         }
 
         public string[] DiscardRandomTimesString()

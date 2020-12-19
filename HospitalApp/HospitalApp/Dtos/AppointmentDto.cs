@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace HospitalApp.Dtos
     {
         public int Id { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public string Time { get; set; }
 
@@ -17,8 +18,6 @@ namespace HospitalApp.Dtos
 
         public int PatientId { get; set; }
 
-        public bool IsDone { get; set; }
-
-        public bool IsCancelled { get; set; }
+        public AppointmentStatus Status { get; set; }
     }
 }

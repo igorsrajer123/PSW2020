@@ -50,7 +50,6 @@ function getSpecialist(id){
                 }));
             }else
                 return null;
-
         }
     });
 }
@@ -79,11 +78,11 @@ function viewDoctorsWorkingHours(doctor){
 
         if(ourDate <= toDate && ourDate >= fromDate){
             if(doctor.type == 1){
-                table.append("<tr><td>" + doctor.firstName + " " + doctor.lastName +   
+                table.append("<tr id='" + doctor.id + "'><td>" + doctor.firstName + " " + doctor.lastName +   
                 "</td><td>" + "General Practitioner" +
                 "</td><td>" + date +
                 "</td><td>" + time +
-                "</td><td> <button>Create Appointment</button>" +
+                "</td><td> <button id='" + doctor.id + "'>Create Appointment</button>" +
                 "</td></tr>");
 
                 $("#table").append(table);
@@ -92,13 +91,14 @@ function viewDoctorsWorkingHours(doctor){
                 "</td><td>" + "Specialist" +
                 "</td><td>" + date +
                 "</td><td>" + time +
-                "</td><td> <button>Create Appointment</button>" +
+                "</td><td> <button id='" + doctor.id + "'>Create Appointment</button>" +
                 "</td></tr>");
 
                 $("#table").append(table);
             }
         }
     }
+    createNewAppointment(doctor.id);
 }
 
 function getUrlVars() {
@@ -137,4 +137,49 @@ function toggleTable(){
     var selected = $('#select').find(":selected").val();
     if(selected == "none")
         $("#table").hide();
+}
+
+function createNewAppointment(doctorId){
+    $("button[id='" + doctorId + "']").click(function(){
+        if (!confirm("Are you sure you want to make this appointment?"))
+            return null;
+        else{
+            var currentRow = $(this).closest("tr");
+
+            var date = currentRow.find("td:eq(2)").text();
+            var time = currentRow.find("td:eq(3)").text();
+    
+            $.ajax({
+                url: 'http://localhost:50324/getSession',
+                type: 'GET',
+                complete: function(data){
+                    var myUser = data.responseJSON;
+    
+                    var data = {
+                        "date": date,
+                        "time": time,
+                        "appointmentStatus": 0,
+                        "doctorId": doctorId,
+                        "patientId": myUser.id
+                }
+        
+                    var transformedData = JSON.stringify(data);
+    
+                    $.ajax({
+                        url: 'http://localhost:50324/addAppointment',
+                        type: 'POST',
+                        data: transformedData,
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        complete: function(data) {
+                            if (data.status == 200) 
+                                window.location.href = "index.html";
+                            else
+                                alert(data.status);
+                        }
+                    });
+                }
+            });
+        }    
+    });
 }

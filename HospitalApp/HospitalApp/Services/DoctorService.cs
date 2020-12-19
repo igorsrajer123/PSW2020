@@ -15,7 +15,7 @@ namespace HospitalApp.Services
 
         public DoctorService(MyDbContext context)
         {
-            this._dbContext = context;
+            _dbContext = context;
         }
 
         public List<DoctorDto> GetAll()
@@ -86,7 +86,7 @@ namespace HospitalApp.Services
             doctor.LastName = doctorDto.LastName;
             doctor.IsDeleted = doctorDto.IsDeleted;
             doctor.Type = doctorDto.Type;
-            doctor.Appointments = doctorDto.Appointments;
+            doctor.Appointments = doctorDto.Appointments.Select(x => new Appointment() { Id = x.Id }).ToList();
 
             _dbContext.SaveChanges();
 

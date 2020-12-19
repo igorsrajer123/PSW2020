@@ -10,7 +10,6 @@ function getAllUsers(user){
             "Authorization": "Basic " + btoa(user.username + ":" + user.password)
           },
         complete: function(data){
-
             var allUsers = data.responseJSON;
 
             var usersTable = $("#table tbody");

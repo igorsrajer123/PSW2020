@@ -14,7 +14,7 @@ namespace HospitalApp.Dtos
 
         public bool IsBlocked { get; set; }
 
-        public List<Appointment> Appointments { get; set; }
+        public List<AppointmentDto> Appointments { get; set; }
 
         public int? GeneralPractitionerId { get; set; }
 

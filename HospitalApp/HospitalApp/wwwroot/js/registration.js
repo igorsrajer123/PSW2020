@@ -24,8 +24,6 @@ function registration(){
         "gender": getCheckedGender()
     }
 
-    console.log($("#age").val());
-
     var transformedData = JSON.stringify(data);
 
     $.ajax({

@@ -17,8 +17,7 @@ namespace HospitalApp.Adapters
                 Date = appointmentDto.Date,
                 DoctorId = appointmentDto.DoctorId,
                 Time = appointmentDto.Time,
-                IsCancelled = appointmentDto.IsCancelled,
-                IsDone = appointmentDto.IsDone,
+                Status = appointmentDto.Status,
                 PatientId = appointmentDto.PatientId
             };
 
@@ -32,8 +31,7 @@ namespace HospitalApp.Adapters
                 Id = appointment.Id,
                 Date = appointment.Date,
                 Time = appointment.Time,
-                IsDone = appointment.IsDone,
-                IsCancelled = appointment.IsCancelled,
+                Status = appointment.Status,
                 PatientId = appointment.PatientId,
                 DoctorId = appointment.DoctorId
             };

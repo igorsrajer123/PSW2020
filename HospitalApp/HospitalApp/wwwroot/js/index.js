@@ -22,6 +22,7 @@ function userOptions(user){
         $("#profile").hide();
         $("#users").hide();
         $("#pickPractitioner").hide();
+        $("#viewAppointments").hide();
     }else if(user.role == "Patient"){
         $("#appointment").show();
         $("#logout").show();
@@ -29,6 +30,7 @@ function userOptions(user){
         $("#login").hide();
         $("#register").hide();
         $("#pickPractitioner").show();
+        $("#viewAppointments").show();
     }else {
         $("#pickPractitioner").hide();
         $("#appointment").hide();
@@ -36,6 +38,7 @@ function userOptions(user){
         $("#users").show();
         $("#login").hide();
         $("#register").hide();
+        $("#viewAppointments").hide();
     }
 }
 
@@ -55,6 +58,12 @@ function redirectUser(user){
         event.preventDefault();
 
         window.location.href="chooseDoctor.html";
+    });
+
+    $("#viewAppointments").click(function(event){
+        event.preventDefault();
+
+        window.location.href="patientAppointments.html";
     });
 }
 

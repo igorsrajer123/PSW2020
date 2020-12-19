@@ -14,7 +14,7 @@ namespace HospitalApp.Models
 
         public DbSet<Administrator> Administrators { get; set; }
 
-        public DbSet<Appointment> Examinations { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
         public DbSet<Feedback> Feedbacks { get; set; }
 

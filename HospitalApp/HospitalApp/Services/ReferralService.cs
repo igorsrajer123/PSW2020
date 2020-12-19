@@ -43,13 +43,11 @@ namespace HospitalApp.Services
                 return null;
 
             Referral referral = ReferralAdapter.ReferralDtoToReferral(referralDto);
-            int doctorId = referralDto.SpecialistId;
-            int patientId = referralDto.PatientId;
 
-            Doctor doctor2 = _dbContext.Doctors.SingleOrDefault(d => d.Id == doctorId);
-            doctor2.Referrals.Add(referral);
+            Doctor doctor = _dbContext.Doctors.SingleOrDefault(d => d.Id == referralDto.SpecialistId);
+            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == referralDto.PatientId);
 
-            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == patientId);
+            doctor.Referrals.Add(referral);
             patient.Referral = null;
             patient.Referral = referral;
 
