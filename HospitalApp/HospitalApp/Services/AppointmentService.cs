@@ -79,8 +79,9 @@ namespace HospitalApp.Services
 
             appointment.Status = AppointmentStatus.Cancelled;
             string appointmentFullDate = appointment.Date + " " + appointment.Time;
-            doctor.WorkingDays.ToList().Add(appointmentFullDate);
-            doctor.WorkingDays = doctor.WorkingDays.ToArray();
+            List<string> myDates = doctor.WorkingDays.ToList();
+            myDates.Add(appointmentFullDate);
+            doctor.WorkingDays = myDates.ToArray();
 
             _dbContext.SaveChanges();
 

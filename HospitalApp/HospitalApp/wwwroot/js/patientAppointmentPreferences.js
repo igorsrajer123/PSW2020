@@ -51,7 +51,10 @@ function setFinalDate(){
 function redirect(){
     $("#checkForAppointment").click(function(event){
         event.preventDefault();
-        window.location.href="chooseAppointment.html?from=" + $("#datepicker1").val() +"&to=" + $("#datepicker2").val();
+        if($("#doctor").is(':checked'))
+            window.location.href="chooseAppointment.html?from=" + $("#datepicker1").val() +"&to=" + $("#datepicker2").val() + "&doctor=true";
+        else
+            window.location.href="chooseAppointment.html?from=" + $("#datepicker1").val() +"&to=" + $("#datepicker2").val() + "&doctor=false";
     });
 }
 

@@ -48,6 +48,7 @@ function getPatientAppointments(patientId){
                                     "</td></tr>");
 
                     $("#table").append(appointmentsTable);
+                    cancelAppointment(appointments[i].id);
 
                 }else{
                     appointmentsTable.append("<tr><td>" + appointments[i].date +   
@@ -84,4 +85,24 @@ function setDoctorName(){
             }
         });
     }
+}
+
+function cancelAppointment(appointmentId){
+    $("#" + appointmentId).click(function(event){
+        if(!confirm("Are you sure you want to cancel this appointment?"))
+            return null;
+        else
+            $.ajax({
+                url: 'http://localhost:50324/cancelAppointment/' + appointmentId,
+                type: 'PUT',
+                complete: function(data){
+                    if(data.status != 200)
+                        alert("Something went wrong!")
+                    else{
+                        alert("Appointment successfully cancelled!");
+                        window.location.href = "index.html";
+                    }
+                }
+            });
+    });
 }
