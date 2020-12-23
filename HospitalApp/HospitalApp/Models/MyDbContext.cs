@@ -38,7 +38,8 @@ namespace HospitalApp.Models
             modelBuilder.Entity<Doctor>().HasData(
                 new Doctor { Id = 1, FirstName = "Aleksandar", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomTimesString()},
                 new Doctor { Id = 2, FirstName = "Dimitrije", LastName = "Mijatovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomTimesString()},
-                new Doctor { Id = 3, FirstName = "Srdjan", LastName = "Tepavcevic", Type = DoctorType.Specialist, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomTimesString() }
+                new Doctor { Id = 3, FirstName = "Srdjan", LastName = "Tepavcevic", Type = DoctorType.Specialist, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomTimesString() },
+                new Doctor { Id = 4, FirstName = "Neven", LastName = "Milakovic", Type = DoctorType.Specialist, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomTimesString() }
                 );
 
             modelBuilder.Entity<Patient>().HasData(

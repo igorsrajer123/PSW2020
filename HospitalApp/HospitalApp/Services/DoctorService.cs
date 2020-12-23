@@ -107,7 +107,7 @@ namespace HospitalApp.Services
         {
             Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
 
-            if (patient == null || patient.Referral == null)
+            if (patient == null || patient.Referral == null || patient.Referral.IsDeleted)
                 return null;
 
             Doctor d = _dbContext.Doctors.FirstOrDefault(doc => doc.Id == patient.Referral.SpecialistId);

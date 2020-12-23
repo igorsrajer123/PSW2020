@@ -47,14 +47,35 @@ namespace HospitalApp.Services
             Doctor doctor = _dbContext.Doctors.SingleOrDefault(d => d.Id == referralDto.SpecialistId);
             Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == referralDto.PatientId);
 
+            if (patient.Referral != null)
+            {
+                patient.Referral.IsDeleted = true;
+                _dbContext.Referrals.Remove(patient.Referral);
+                _dbContext.SaveChanges();
+            }
+
             doctor.Referrals.Add(referral);
-            patient.Referral = null;
             patient.Referral = referral;
 
             _dbContext.Referrals.Add(referral);
             _dbContext.SaveChanges();
 
             return referralDto;
+        }
+
+        public ReferralDto DeleteReferral(int referralId)
+        {
+            Referral referral = _dbContext.Referrals.SingleOrDefault(r => r.Id == referralId);
+
+            if (referral == null)
+                return null;
+
+            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == referral.PatientId);
+
+            patient.Referral.IsDeleted = true;
+            _dbContext.SaveChanges();
+
+            return ReferralAdapter.ReferralToReferralDto(referral);
         }
     }
 }

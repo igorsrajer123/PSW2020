@@ -13,5 +13,7 @@ namespace HospitalApp.Contracts
         ReferralDto GetById(int referralId);
 
         ReferralDto Add(ReferralDto referralDto);
+
+        ReferralDto DeleteReferral(int referralId);
     }
 }

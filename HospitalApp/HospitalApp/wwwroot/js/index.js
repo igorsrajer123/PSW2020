@@ -23,6 +23,8 @@ function userOptions(user){
         $("#users").hide();
         $("#pickPractitioner").hide();
         $("#viewAppointments").hide();
+        $("#giveFeedback").hide();
+        $("#feedbacks").hide();
     }else if(user.role == "Patient"){
         $("#appointment").show();
         $("#logout").show();
@@ -31,6 +33,8 @@ function userOptions(user){
         $("#register").hide();
         $("#pickPractitioner").show();
         $("#viewAppointments").show();
+        $("#giveFeedback").hide();
+        $("#feedbacks").hide();
     }else {
         $("#pickPractitioner").hide();
         $("#appointment").hide();
@@ -39,6 +43,8 @@ function userOptions(user){
         $("#login").hide();
         $("#register").hide();
         $("#viewAppointments").hide();
+        $("#giveFeedback").hide();
+        $("#feedbacks").show();
     }
 }
 
@@ -65,6 +71,12 @@ function redirectUser(user){
 
         window.location.href="patientAppointments.html";
     });
+
+    $("#giveFeedback").click(function(event){
+        event.preventDefault();
+
+        window.location.href="giveFeedback.html";
+    });
 }
 
 function getCurrentUser(){
@@ -75,6 +87,25 @@ function getCurrentUser(){
             welcomeMessage(data.responseJSON);
             userOptions(data.responseJSON);
             redirectUser(data.responseJSON);
+            checkForUserFeedbackOption(data.responseJSON);
+        }
+    });
+}
+
+function checkForUserFeedbackOption(user){
+    $.ajax({
+        method: 'GET',
+        url: 'http://localhost:50324/getPatientAppointments/' + user.id,
+        complete: function (data) {
+            var appointments = data.responseJSON;
+
+            for(var i = 0; i < appointments.length; i++){
+                if(appointments[i].status == 0){
+                    $("#giveFeedback").show();
+                    break;
+                }
+
+            }
         }
     });
 }

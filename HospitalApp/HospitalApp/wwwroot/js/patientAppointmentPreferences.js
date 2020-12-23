@@ -51,7 +51,10 @@ function setFinalDate(){
 function redirect(){
     $("#checkForAppointment").click(function(event){
         event.preventDefault();
-        if($("#doctor").is(':checked'))
+
+        if(!$("#doctor").is(":checked") && !$("#date").is(":checked"))
+            $("#error1").show();
+        else if($("#doctor").is(':checked'))
             window.location.href="chooseAppointment.html?from=" + $("#datepicker1").val() +"&to=" + $("#datepicker2").val() + "&doctor=true";
         else
             window.location.href="chooseAppointment.html?from=" + $("#datepicker1").val() +"&to=" + $("#datepicker2").val() + "&doctor=false";

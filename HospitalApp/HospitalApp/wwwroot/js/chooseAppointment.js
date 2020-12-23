@@ -23,6 +23,23 @@ function authenticateUser(){
     });
 }
 
+function changeSelection(){
+    $("#select").on("change", function(){
+        var selectedDoctor = $(this).children("option:selected").val();
+        getDoctorById(selectedDoctor);
+        $("#table").slideDown(1000);
+
+        if(selectedDoctor == "none")
+            $("#table").hide();
+    });
+}
+
+function toggleTable(){
+    var selected = $('#select').find(":selected").val();
+    if(selected == "none")
+        $("#table").hide();
+}
+
 function getGeneralPractitioner(id){
     $.ajax({
         url: 'http://localhost:50324/getGeneralPractitioner/' + id,
@@ -64,7 +81,6 @@ function viewDoctorsWorkingHours(doctor){
     var fromDate = new Date(d1);
     var toDate = new Date(d2);
 
-    createNewAppointment(doctor.id);
     createTable(doctor, fromDate, toDate);
     
     var rowCount = $("#table tr").length; 
@@ -79,12 +95,20 @@ function viewDoctorsWorkingHours(doctor){
 
 function prioritizeDoctor(doctor, fromDate, toDate){
     alert("Prio doctor!");
-        ourFromDate = new Date();
-        ourFromDate.setDate(fromDate.getDate() - 7);
-        ourToDate = new Date();
-        ourToDate.setDate(toDate.getDate() +7);
 
-        createTable(doctor, ourFromDate, ourToDate);  
+    ourFromDate = new Date();
+    ourFromDate.setDate(fromDate.getDate() - 7);
+    ourToDate = new Date();
+    ourToDate.setDate(toDate.getDate() + 7);
+
+    createTable(doctor, ourFromDate, ourToDate);  
+
+    
+    if($("#table tr").length == 1){
+        $("#error1").show();
+        $("#table").hide();
+    }else
+        $("#error1").hide();
 }
 
 function prioritizeDate(doctor, fromDate, toDate){
@@ -94,53 +118,61 @@ function prioritizeDate(doctor, fromDate, toDate){
             url: 'http://localhost:50324/getDoctorByType/' + doctor.type,
             type: 'GET',
             complete: function(data){
-                var list = data.responseJSON;
-
-                var freeAppointments = new Array();
-                for(var i = 0; i < list.length; i++){
-                    freeAppointments.push.apply(freeAppointments, list[i].workingDays);
-                }
-
+                var doctorList = data.responseJSON;
                 var table = $("#table tbody");
                 table.empty();
                 
-                for(var i = 0; i < freeAppointments.length; i++){
-                    var parts = freeAppointments[i].split(" ");
-                    var date = parts[0];
-                    var time = parts[1] + " " + parts[2];
+                var possibleTableRows = 0;
+                var counter = 0;
+                for(var i = 0; i < doctorList.length; i++){
+                    possibleTableRows =  possibleTableRows + doctorList[i].workingDays.length;
+                    for(var j = 0; j < doctorList[i].workingDays.length; j++){
+                        var parts = doctorList[i].workingDays[j].split(" ");
+                        var date = parts[0];
+                        var time = parts[1] + " " + parts[2];
 
-                    var d3 = date.split("-");
-                    var ourDate = new Date(d3);
-
-                    if(ourDate <= toDate && ourDate >= fromDate){
-                        if(doctor.type == 1){
-                            table.append("<tr id='" + doctor.id + "'><td>" + doctor.firstName + " " + doctor.lastName +   
-                            "</td><td>" + "General Practitioner" +
-                            "</td><td>" + date +
-                            "</td><td>" + time +
-                            "</td><td> <button id='" + doctor.id + "'>Create Appointment</button>" +
-                            "</td></tr>");
-
-                            $("#table").append(table);
-                        }else {
-                            table.append("<tr><td>" + doctor.firstName + " " + doctor.lastName +   
-                            "</td><td>" + "Specialist" +
-                            "</td><td>" + date +
-                            "</td><td>" + time +
-                            "</td><td> <button id='" + doctor.id + "'>Create Appointment</button>" +
-                            "</td></tr>");
-
-                            $("#table").append(table);
-                        }
+                        var d3 = date.split("-");
+                        var ourDate = new Date(d3);
+            
+                        if(ourDate <= toDate && ourDate >= fromDate){
+                            if(doctor.type == 1){
+                                table.append("<tr id='" + doctorList[i].id + "'><td>" + doctorList[i].firstName + " " + doctorList[i].lastName +   
+                                "</td><td>" + "General Practitioner" +
+                                "</td><td>" + date +
+                                "</td><td>" + time +
+                                "</td><td> <button id='" + doctorList[i].id + "'>Create Appointment</button>" +
+                                "</td></tr>");
+            
+                                $("#table").append(table);
+                                createNewAppointment(doctorList[i].id);
+                            }else {
+                                table.append("<tr><td>" + doctorList[i].firstName + " " + doctorList[i].lastName +   
+                                "</td><td>" + "Specialist" +
+                                "</td><td>" + date +
+                                "</td><td>" + time +
+                                "</td><td> <button id='" + doctorList[i].id + "'>Create Appointment</button>" +
+                                "</td></tr>");
+    
+                                $("#table").append(table);
+                                createNewAppointment(doctorList[i].id);
+                            }
+                        }else
+                            counter++;
                     }
                 }
+                if(counter >= possibleTableRows){
+                    $("#error1").show();
+                    $("#table").hide();
+                }else
+                    $("#error1").hide();
             }
         });
 }
 
 function createTable(doctor, ourFromDate, ourToDate){
     var lista = doctor.workingDays;
-    
+    $("#error1").hide();
+
     var table = $("#table tbody");
     table.empty();
 
@@ -174,6 +206,7 @@ function createTable(doctor, ourFromDate, ourToDate){
             }
         }
     }
+    createNewAppointment(doctor.id);
 }
 
 function getUrlVars() {
@@ -182,17 +215,6 @@ function getUrlVars() {
         vars[key] = value;
     });
     return vars;
-}
-
-function changeSelection(){
-    $("#select").on("change", function(){
-        var selectedDoctor = $(this).children("option:selected").val();
-        getDoctorById(selectedDoctor);
-        $("#table").slideDown(1000);
-
-        if(selectedDoctor == "none")
-            $("#table").hide();
-    });
 }
 
 function getDoctorById(id){
@@ -206,12 +228,6 @@ function getDoctorById(id){
                 alert("Error has occurred!");
         }
     });
-}
-
-function toggleTable(){
-    var selected = $('#select').find(":selected").val();
-    if(selected == "none")
-        $("#table").hide();
 }
 
 function createNewAppointment(doctorId){

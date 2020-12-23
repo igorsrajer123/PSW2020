@@ -15,7 +15,7 @@ namespace HospitalApp.Services
 
         public AdministratorService(MyDbContext context)
         {
-            this._dbContext = context;
+            _dbContext = context;
         }
 
         public List<AdministratorDto> GetAll()

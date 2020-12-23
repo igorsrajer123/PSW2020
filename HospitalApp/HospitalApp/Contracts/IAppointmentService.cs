@@ -15,5 +15,7 @@ namespace HospitalApp.Contracts
         public List<AppointmentDto> GetPatientAppointments(int patientId);
 
         public AppointmentDto CancelAppointment(int appointmentId);
+
+        public AppointmentDto AppointmentDone(int appointmentId);
     }
 }

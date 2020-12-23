@@ -14,6 +14,7 @@ function authenticateUser(){
             }
             
             getPatientAppointments(myUser.id);
+            appointmentsDone(myUser.id);
         }
     });
 }
@@ -44,7 +45,7 @@ function getPatientAppointments(patientId){
                                     "</td><td>" + appointments[i].time +
                                     "</td><td>" + appointments[i].doctorId +
                                     "</td><td>" + "Active" +
-                                    "</td><td><button id='" + appointments[i].id + "'> Cancel Appointment</button>" + 
+                                    "</td><td><button title='Appointment can be cancelled no later than 48 hours before its date' id='" + appointments[i].id + "'> Cancel Appointment</button>" + 
                                     "</td></tr>");
 
                     $("#table").append(appointmentsTable);
@@ -61,6 +62,10 @@ function getPatientAppointments(patientId){
                     $("#table").append(appointmentsTable);
                 }
             }
+
+            if($("#table tr").length == 1)
+                $("#table").hide();
+                
             setDoctorName();
         }
     });
@@ -97,12 +102,31 @@ function cancelAppointment(appointmentId){
                 type: 'PUT',
                 complete: function(data){
                     if(data.status != 200)
-                        alert("Something went wrong!")
+                        alert("Appointment is in less than 48 hours and cannot be cancelled!")
                     else{
                         alert("Appointment successfully cancelled!");
                         window.location.href = "index.html";
                     }
                 }
             });
+    });
+}
+
+function appointmentsDone(patientId){
+    $.ajax({
+        url: 'http://localhost:50324/getPatientAppointments/' + patientId,
+        type: 'GET',
+        complete: function(data){
+            var appointments = data.responseJSON;
+
+            for(var i = 0; i < appointments.length; i++){
+                $.ajax({
+                    url: 'http://localhost:50324/appointmentDone/' + appointments[i].id,
+                    type: 'PUT',
+                    complete: function(data){
+                    }
+                });
+            }
+        }
     });
 }

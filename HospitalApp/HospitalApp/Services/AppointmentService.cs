@@ -74,14 +74,41 @@ namespace HospitalApp.Services
             Appointment appointment = _dbContext.Appointments.SingleOrDefault(a => a.Id == appointmentId);
             Doctor doctor = _dbContext.Doctors.SingleOrDefault( d => d.Id == appointment.DoctorId);
 
-            if(appointment == null || doctor == null)
+            string appointmentFullDate = appointment.Date + " " + appointment.Time;
+            DateTime dt = DateTime.Parse(appointmentFullDate);
+            if (appointment == null || doctor == null || (dt - DateTime.Now).TotalDays < 2)
                 return null;
 
             appointment.Status = AppointmentStatus.Cancelled;
-            string appointmentFullDate = appointment.Date + " " + appointment.Time;
             List<string> myDates = doctor.WorkingDays.ToList();
             myDates.Add(appointmentFullDate);
             doctor.WorkingDays = myDates.ToArray();
+
+            _dbContext.SaveChanges();
+
+            return AppointmentAdapter.AppointmentToAppointmentDto(appointment);
+        }
+
+        public AppointmentDto AppointmentDone(int appointmentId)
+        {
+            Appointment appointment = _dbContext.Appointments.SingleOrDefault(a => a.Id == appointmentId);
+
+            if (appointment == null)
+                return null;
+
+            Patient patient = appointment.Patient;
+            Referral referral = _dbContext.Referrals.SingleOrDefault(r => r.PatientId == patient.Id && r.SpecialistId == appointment.DoctorId);
+
+            string appointmentFullDate = appointment.Date + " " + appointment.Time;
+            DateTime dt = DateTime.Parse(appointmentFullDate);
+
+            if(dt < DateTime.Today)
+            {
+                if(referral != null)
+                    referral.IsDeleted = true;
+
+                appointment.Status = AppointmentStatus.Done;
+            }
 
             _dbContext.SaveChanges();
 

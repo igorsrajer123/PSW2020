@@ -12,7 +12,7 @@ namespace HospitalApp.Dtos
 
         public string Text { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public int PatientId { get; set; }
 

@@ -57,6 +57,16 @@ namespace HospitalApp.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("/appointmentDone/{appointmentId}")]
+        public IActionResult AppointmentDone(int appointmentId)
+        {
+            if (_appointmentService.AppointmentDone(appointmentId) == null)
+                return NotFound();
+
+            return Ok();
+        }
+
 
     }
 }
