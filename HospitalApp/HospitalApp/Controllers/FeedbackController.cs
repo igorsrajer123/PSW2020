@@ -70,5 +70,15 @@ namespace HospitalApp.Controllers
 
             return Ok(_feedbackService.HideFeedback(feedbackId));
         }
+
+        [HttpGet]
+        [Route("/getVisibleFeedbacks")]
+        public IActionResult GetVisibleFeedbacks()
+        {
+            if (_feedbackService.GetVisibleFeedbacks() == null)
+                return NotFound();
+
+            return Ok(_feedbackService.GetVisibleFeedbacks());
+        }
     }
 }

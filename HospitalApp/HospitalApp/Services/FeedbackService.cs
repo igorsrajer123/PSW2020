@@ -39,10 +39,14 @@ namespace HospitalApp.Services
 
         public FeedbackDto Add(FeedbackDto feedbackDto)
         {
-            if(feedbackDto == null)
+            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == feedbackDto.PatientId);
+
+            if (feedbackDto == null || patient == null)
                 return null;
 
+            _dbContext.Remove(patient.Feedback);
             Feedback feedback = FeedbackAdapter.FeedbackDtoToFeedback(feedbackDto);
+            patient.Feedback = feedback;
             _dbContext.Feedbacks.Add(feedback);
             _dbContext.SaveChanges();
 
@@ -77,6 +81,18 @@ namespace HospitalApp.Services
             _dbContext.SaveChanges();
 
             return FeedbackAdapter.FeedbackToFeedbackDto(myFeedback);
+        }
+
+        public List<FeedbackDto> GetVisibleFeedbacks()
+        {
+
+            List<FeedbackDto> myFeedbacks = new List<FeedbackDto>();
+
+            List<Feedback> visibleFeedbacks = _dbContext.Feedbacks.Where(f => f.IsVisible == true).ToList();
+
+            visibleFeedbacks.ForEach(f => myFeedbacks.Add(FeedbackAdapter.FeedbackToFeedbackDto(f)));
+
+            return myFeedbacks;
         }
     }
 }

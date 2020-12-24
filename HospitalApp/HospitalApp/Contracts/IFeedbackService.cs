@@ -17,5 +17,7 @@ namespace HospitalApp.Contracts
         public FeedbackDto HideFeedback(int feedbackId);
 
         public FeedbackDto ShowFeedback(int feedbackId);
+
+        public List<FeedbackDto> GetVisibleFeedbacks();
     }
 }

@@ -252,7 +252,7 @@ function createNewAppointment(doctorId){
                         "appointmentStatus": 0,
                         "doctorId": doctorId,
                         "patientId": myUser.id
-                }
+                    }
         
                     var transformedData = JSON.stringify(data);
     

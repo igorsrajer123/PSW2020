@@ -1,5 +1,6 @@
 ﻿window.onload = function(){
     getCurrentUser();
+    getVisibleFeedbacks();
 }
 
 function welcomeMessage(user){
@@ -106,6 +107,38 @@ function checkForUserFeedbackOption(user){
                 }
 
             }
+        }
+    });
+}
+
+function getVisibleFeedbacks(){
+    $.ajax({
+        url: 'http://localhost:50324/getVisibleFeedbacks',
+        type: 'GET',
+        complete: function(data){
+            var allFeedbacks = data.responseJSON;
+            $("#visibleFeedbacks").empty();
+            
+            for(var i = 0; i < allFeedbacks.length; i++){
+                getFeedbackPatient(allFeedbacks[i]);
+            }
+        }
+    });
+}
+
+function getFeedbackPatient(feedback){
+    $.ajax({
+        url: 'http://localhost:50324/getPatientById/' + feedback.patientId,
+        type: 'GET',
+        complete: function(data){
+            var patient = data.responseJSON;
+
+            var newDiv = document.createElement("div");
+            newDiv.innerHTML = "<p>" + patient.firstName + " " + patient.lastName + "</p>" +
+                                "<p>" + feedback.date + "</p>" + 
+                                "<textarea disabled='true'>" + feedback.text + "</textarea>";
+                
+            $("#visibleFeedbacks").append(newDiv);
         }
     });
 }
