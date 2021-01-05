@@ -21,29 +21,29 @@ namespace HospitalApp.DateTimeLogic
 
         public DateTime[] GetWorkingHours()
         {
-            DateTime[] dt = GetWorkingDays();
+            DateTime[] dateTime = GetWorkingDays();
             List<DateTime> myHours = new List<DateTime>();
 
-            for (DateTime date = dt[0]; date <= dt[dt.Length - 1]; date = date.AddHours(1))
+            for (DateTime date = dateTime[0]; date <= dateTime[dateTime.Length - 1]; date = date.AddHours(1))
                 if (date.TimeOfDay < TimeSpan.Parse("17:00") && date.TimeOfDay >= TimeSpan.Parse("10:00"))
                     myHours.Add(date);
 
             return myHours.ToArray();
         }
 
-        public DateTime[] DiscardRandomTimes()
+        public DateTime[] DiscardRandomHours()
         {
-            Random rnd = new Random();
+            Random random = new Random();
       
-            return GetWorkingHours().Except(GetWorkingHours().OrderBy(x => rnd.Next()).Take(1200).ToArray()).ToArray();
+            return GetWorkingHours().Except(GetWorkingHours().OrderBy(x => random.Next()).Take(1200).ToArray()).ToArray();
         }
 
-        public string[] DiscardRandomTimesString()
+        public string[] DiscardRandomHoursString()
         {
             List<string> myDates = new List<string>();
 
-            for (int i = 0; i < DiscardRandomTimes().Length; i++)
-                myDates.Add(DiscardRandomTimes()[i].ToString("yyyy-MM-dd hh tt"));
+            for (int i = 0; i < DiscardRandomHours().Length; i++)
+                myDates.Add(DiscardRandomHours()[i].ToString("yyyy-MM-dd hh tt"));
 
             return myDates.ToArray();
         }

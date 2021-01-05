@@ -12,17 +12,19 @@ namespace HospitalApp.Services
     public class AppointmentService : IAppointmentService
     {
         private MyDbContext _dbContext;
+        private IReferralService _referralService;
 
-        public AppointmentService(MyDbContext context)
+        public AppointmentService(MyDbContext context, IReferralService referralService)
         {
             _dbContext = context;
+            _referralService = referralService;
         }
 
         public List<AppointmentDto> GetAll()
         {
             List<AppointmentDto> myAppointments = new List<AppointmentDto>();
 
-            _dbContext.Appointments.ToList().ForEach(a => myAppointments.Add(AppointmentAdapter.AppointmentToAppointmentDto(a)));
+            _dbContext.Appointments.ToList().ForEach(appointment => myAppointments.Add(AppointmentAdapter.AppointmentToAppointmentDto(appointment)));
 
             return myAppointments;
         }
@@ -32,23 +34,12 @@ namespace HospitalApp.Services
             if (appointmentDto == null)
                 return null;
 
-            Appointment appointment = AppointmentAdapter.AppointmentDtoToAppointment(appointmentDto);
-            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == appointment.PatientId);
-            Doctor doctor = _dbContext.Doctors.SingleOrDefault(d => d.Id == appointment.DoctorId);
-            appointment.Status = AppointmentStatus.Active;
-
-            if (patient == null || doctor == null)
-                return null;
-
-            string appointmentFullDate = appointmentDto.Date + " " + appointmentDto.Time;
-
-            string myDate = doctor.WorkingDays.SingleOrDefault(d => d.Replace(" ", string.Empty) == appointmentFullDate.Replace(" ", string.Empty));
-            doctor.WorkingDays = doctor.WorkingDays.Where(w => w != myDate).ToArray();
+            Appointment myAppointment = AppointmentAdapter.AppointmentDtoToAppointment(appointmentDto);
+            myAppointment.Status = AppointmentStatus.Active;
+            _dbContext.Patients.SingleOrDefault(patient => patient.Id == myAppointment.PatientId).Appointments.Add(myAppointment);
            
-            patient.Appointments.Add(appointment);
-            doctor.Appointments.Add(appointment);
-
-            _dbContext.Appointments.Add(appointment);
+            RemoveDoctorsActiveAppointmentDate(_dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId), myAppointment);
+            _dbContext.Appointments.Add(myAppointment);
             _dbContext.SaveChanges();
 
             return appointmentDto;
@@ -56,63 +47,101 @@ namespace HospitalApp.Services
 
         public List<AppointmentDto> GetPatientAppointments(int patientId)
         {
-            Patient patient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
+            Patient myPatient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
 
-            if (patient == null || patient.Appointments == null)
+            if (myPatient == null)
                 return null;
 
-            return patient.Appointments.Select(a => new AppointmentDto() { Id = a.Id,
-                                                                           DoctorId = a.DoctorId,
-                                                                           Date = a.Date,
-                                                                           Time = a.Time,
-                                                                           PatientId = a.PatientId,
-                                                                           Status = a.Status }).ToList();
+            return myPatient.Appointments.Select(appointment => new AppointmentDto() { Id = appointment.Id,
+                                                                                       DoctorId = appointment.DoctorId,
+                                                                                       Date = appointment.Date,
+                                                                                       Time = appointment.Time,
+                                                                                       PatientId = appointment.PatientId,
+                                                                                       Status = appointment.Status }).ToList();
         }
 
         public AppointmentDto CancelAppointment(int appointmentId)
         {
-            Appointment appointment = _dbContext.Appointments.SingleOrDefault(a => a.Id == appointmentId);
-            Doctor doctor = _dbContext.Doctors.SingleOrDefault( d => d.Id == appointment.DoctorId);
+            Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
+            PatientsCancelledAppointmentsAdded(myAppointment);
 
-            string appointmentFullDate = appointment.Date + " " + appointment.Time;
-            DateTime dt = DateTime.Parse(appointmentFullDate);
-            if (appointment == null || doctor == null || (dt - DateTime.Now).TotalDays < 2)
+            if (myAppointment == null || (GetAppointmentFullDate(myAppointment) - DateTime.Now).TotalDays < 2)
                 return null;
 
-            appointment.Status = AppointmentStatus.Cancelled;
+            myAppointment.Status = AppointmentStatus.Cancelled;
+            myAppointment.CancellationDate = DateTime.Today.ToString("yyyy-MM-dd");
+            ReturnDoctorsCancelledDate(_dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId), myAppointment);
+
+            return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
+        }
+
+        public void PatientsCancelledAppointmentsAdded(Appointment appointment)
+        {
+            _dbContext.Patients.SingleOrDefault(patient => patient.Id == appointment.PatientId).CancelledAppointments++;
+            CheckIfMaliciousPatient(_dbContext.Patients.SingleOrDefault(patient => patient.Id == appointment.PatientId));
+        }
+
+        public void ReturnDoctorsCancelledDate(Doctor doctor, Appointment appointment)
+        {
             List<string> myDates = doctor.WorkingDays.ToList();
-            myDates.Add(appointmentFullDate);
+            myDates.Add(GetAppointmentFullDateString(appointment));
             doctor.WorkingDays = myDates.ToArray();
 
             _dbContext.SaveChanges();
-
-            return AppointmentAdapter.AppointmentToAppointmentDto(appointment);
         }
 
-        public AppointmentDto AppointmentDone(int appointmentId)
+        public void RemoveDoctorsActiveAppointmentDate(Doctor doctor, Appointment appointment)
         {
-            Appointment appointment = _dbContext.Appointments.SingleOrDefault(a => a.Id == appointmentId);
+            string myDate = doctor.WorkingDays.SingleOrDefault(d => d.Replace(" ", string.Empty) == GetAppointmentFullDateString(appointment).Replace(" ", string.Empty));
+            doctor.WorkingDays = doctor.WorkingDays.Where(w => w != myDate).ToArray();
+            doctor.Appointments.Add(appointment);
+        }
 
-            if (appointment == null)
+        public void CheckIfMaliciousPatient(Patient patient)
+        {  
+            if (patient.CancelledAppointments >= 3)
+                CheckLastThreeCancelledAppointments(GetPatientAppointments(patient.Id), patient);
+        }     
+        
+        public void CheckLastThreeCancelledAppointments(List<AppointmentDto> cancelledAppointments, Patient patient)
+        {
+            List<AppointmentDto> lastThree = cancelledAppointments.Skip(Math.Max(0, cancelledAppointments.Count() - 3)).ToList();
+
+            if ((Convert.ToDateTime(lastThree.Last().CancellationDate) - Convert.ToDateTime(lastThree.First().CancellationDate)).TotalDays < 30)
+                patient.IsMalicious = true;
+        }
+
+        public AppointmentDto SetAppointmentDone(int appointmentId)
+        {
+            Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
+
+            if (myAppointment == null)
                 return null;
 
-            Patient patient = appointment.Patient;
-            Referral referral = _dbContext.Referrals.SingleOrDefault(r => r.PatientId == patient.Id && r.SpecialistId == appointment.DoctorId);
-
-            string appointmentFullDate = appointment.Date + " " + appointment.Time;
-            DateTime dt = DateTime.Parse(appointmentFullDate);
-
-            if(dt < DateTime.Today)
+            if(DateTime.Parse(GetAppointmentFullDateString(myAppointment)) < DateTime.Today && myAppointment.Status != AppointmentStatus.Cancelled)
             {
-                if(referral != null)
-                    referral.IsDeleted = true;
-
-                appointment.Status = AppointmentStatus.Done;
+                SetAppointmentsReferralDeleted(myAppointment);
+                myAppointment.Status = AppointmentStatus.Done;
+                _dbContext.SaveChanges();
             }
 
-            _dbContext.SaveChanges();
+            return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
+        }
 
-            return AppointmentAdapter.AppointmentToAppointmentDto(appointment);
+        public DateTime GetAppointmentFullDate(Appointment appointment)
+        {
+            return DateTime.Parse(GetAppointmentFullDateString(appointment));
+        }
+
+        public string GetAppointmentFullDateString(Appointment appointment)
+        {
+            return appointment.Date + " " + appointment.Time;
+        }
+
+        public void SetAppointmentsReferralDeleted(Appointment appointment)
+        {
+            if (_referralService.GetAppointmentsReferral(appointment) != null)
+                ReferralAdapter.ReferralDtoToReferral(_referralService.GetAppointmentsReferral(appointment)).IsDeleted = true; 
         }
     }
 }

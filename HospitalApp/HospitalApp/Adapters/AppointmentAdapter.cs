@@ -18,7 +18,8 @@ namespace HospitalApp.Adapters
                 DoctorId = appointmentDto.DoctorId,
                 Time = appointmentDto.Time,
                 Status = appointmentDto.Status,
-                PatientId = appointmentDto.PatientId
+                PatientId = appointmentDto.PatientId,
+                CancellationDate = appointmentDto.CancellationDate
             };
 
             return appointment;
@@ -33,7 +34,8 @@ namespace HospitalApp.Adapters
                 Time = appointment.Time,
                 Status = appointment.Status,
                 PatientId = appointment.PatientId,
-                DoctorId = appointment.DoctorId
+                DoctorId = appointment.DoctorId,
+                CancellationDate = appointment.CancellationDate
             };
 
             return appointmentDto;

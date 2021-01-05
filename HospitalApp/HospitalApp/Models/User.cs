@@ -37,6 +37,8 @@ namespace HospitalApp.Models
 
         public string Role { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool IsBlocked { get; set; }
+
+        public bool IsMalicious { get; set; }
     }
 }

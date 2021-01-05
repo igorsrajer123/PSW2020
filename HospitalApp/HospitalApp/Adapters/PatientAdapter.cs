@@ -16,15 +16,15 @@ namespace HospitalApp.Adapters
                 Address = patientDto.Address,
                 FirstName = patientDto.FirstName,
                 LastName = patientDto.LastName,
-                IsDeleted = patientDto.IsDeleted,
                 PhoneNumber = patientDto.PhoneNumber,
                 Username = patientDto.Username,
                 Role = patientDto.Role,
                 Age = patientDto.Age,
                 Gender = patientDto.Gender,
                 IsBlocked = patientDto.IsBlocked,
-                AdministratorId = patientDto.AdministratorId,
-                GeneralPractitionerId = patientDto.GeneralPractitionerId
+                GeneralPractitionerId = patientDto.GeneralPractitionerId,
+                IsMalicious = patientDto.IsMalicious,
+                CancelledAppointments = patientDto.CancelledAppointments
             };
 
             return patient;
@@ -37,15 +37,15 @@ namespace HospitalApp.Adapters
                 Address = patient.Address,
                 FirstName = patient.FirstName,
                 LastName = patient.LastName,
-                IsDeleted = patient.IsDeleted,
                 PhoneNumber = patient.PhoneNumber,
                 Username = patient.Username,
                 Role = patient.Role,
                 Age = patient.Age,
                 Gender = patient.Gender,
                 IsBlocked = patient.IsBlocked,
-                AdministratorId = patient.AdministratorId,
-                GeneralPractitionerId = patient.GeneralPractitionerId
+                GeneralPractitionerId = patient.GeneralPractitionerId,
+                IsMalicious = patient.IsMalicious,
+                CancelledAppointments = patient.CancelledAppointments
             };
 
             return patientDto;

@@ -7,6 +7,5 @@ namespace HospitalApp.Models
     [Table("Administrator")]
     public class Administrator : User
     {
-        public virtual List<Patient>? BlockedUsers { get; set; }
     }
 }

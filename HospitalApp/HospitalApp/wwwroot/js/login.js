@@ -1,5 +1,6 @@
 ﻿$(document).ready(function(){
     $("#error").hide();
+    $("#error2").hide();
     $('#login').click(function (event) {
         event.preventDefault();
         login();
@@ -23,10 +24,15 @@ function login() {
                 alert("Log In Successful!");
                 window.location.href = "../index.html";
                 $("#error").hide();
-            }else
+                $("#error2").hide();
+            }else if(data.status == 400){
+                $("#error").hide();
+                $("#error2").show();
+            }else{
                 validateFields();
                 validateIfUsernameEmpty();
                 validateIfPasswordEmpty();
+            }
         }
     });
 }
@@ -66,16 +72,19 @@ function validateFields(){
 
     if(password == ""){
         $("#error").hide();
+        $("#error2").hide();
         $("#password").css("background-color","red");
     }   
         
     if(username == ""){
         $("#error").hide();
+        $("#error2").hide();
         $("#username").css("background-color","red");
     }
         
     if(username == "" && password == ""){
         $("#error").hide();
+        $("#error2").hide();
         $("#password").css("background-color","red");
         $("#username").css("background-color","red");
     }

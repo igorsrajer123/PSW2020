@@ -12,12 +12,8 @@ namespace HospitalApp.Dtos
 
         public string Gender { get; set; }
 
-        public bool IsBlocked { get; set; }
-
-        public List<AppointmentDto> Appointments { get; set; }
-
         public int? GeneralPractitionerId { get; set; }
 
-        public int? AdministratorId { get; set; }
+        public int CancelledAppointments { get; set; }
     }
 }

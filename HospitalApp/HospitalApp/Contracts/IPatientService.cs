@@ -15,8 +15,6 @@ namespace HospitalApp.Contracts
 
         PatientDto Add(Patient patient);
 
-        PatientDto DeleteById(int patientId);
-
         PatientDto SetGeneralPractitioner(int patientId, int doctorId);
     }
 }

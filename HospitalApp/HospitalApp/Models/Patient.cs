@@ -15,13 +15,7 @@ namespace HospitalApp.Models
         [MaxLength(15)]
         public string Gender { get; set; }
 
-        public bool IsBlocked { get; set; }
-
         public virtual List<Appointment> Appointments { get; set; }
-
-        public int? AdministratorId { get; set; }
-
-        public virtual Administrator BlockedBy { get; set; }
 
         public virtual Feedback Feedback { get; set; }
 
@@ -30,5 +24,7 @@ namespace HospitalApp.Models
         public virtual Doctor GeneralPractitioner { get; set; }
 
         public virtual Referral Referral { get; set; }
+
+        public int CancelledAppointments { get; set; }
     }
 }

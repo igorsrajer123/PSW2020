@@ -1,6 +1,9 @@
-﻿using HospitalApp.Models;
+﻿using HospitalApp.Adapters;
+using HospitalApp.Contracts;
+using HospitalApp.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -17,35 +20,22 @@ namespace HospitalApp.Controllers
 
         public AccountController(MyDbContext context)
         {
-            this._dbContext = context;
+            _dbContext = context;
         }
 
         [HttpPost]
         [Route("/login/{username}/{password}")]
         public IActionResult Login(string username, string password)
         {
-            User myUser = _dbContext.Users.FirstOrDefault(b => b.Username == username);
-
-            JsonConvert.SerializeObject(myUser, Formatting.Indented, new JsonSerializerSettings
-            {
-                PreserveReferencesHandling = PreserveReferencesHandling.Objects
-            });
+            User myUser = _dbContext.Users.FirstOrDefault(user => user.Username == username);
+            SerializeSessionUser(myUser);
 
             if (myUser != null && myUser.Password == password)
             {
-                HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(myUser, Formatting.Indented, new JsonSerializerSettings
-                {
-                    PreserveReferencesHandling = PreserveReferencesHandling.Objects
-                }));
+                if (myUser.IsBlocked == true)
+                    return BadRequest();
 
-                var identity = new ClaimsIdentity(new[] {
-                    new Claim(ClaimTypes.Name, myUser.Username),
-                    new Claim(ClaimTypes.Role, myUser.Role)
-                });
-                var principal = new ClaimsPrincipal(identity);
-                var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-                return Ok();
+                return Ok(SetSessionStringAndClaims(myUser));
             }
 
             return NotFound();
@@ -77,8 +67,46 @@ namespace HospitalApp.Controllers
             if (sessionUser == null)
                 return Ok();
 
-            User user = _dbContext.Users.SingleOrDefault(u => u.Id == sessionUser.Id);
-            return Ok(user);
+            User myUser = _dbContext.Users.SingleOrDefault(u => u.Id == sessionUser.Id);
+            return Ok(myUser);
+        }
+
+        public IActionResult SerializeSessionUser(User user)
+        {
+            JsonConvert.SerializeObject(user, Formatting.Indented, new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            });
+
+            return Ok();
+        }
+
+        public IActionResult SetSessionString(User user)
+        {
+            HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user, Formatting.Indented, new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            }));
+
+            return Ok();
+        }
+
+        public IActionResult SetSessionClaims(User user)
+        {
+            var identity = new ClaimsIdentity(new[] {
+                    new Claim(ClaimTypes.Name, user.Username),
+                    new Claim(ClaimTypes.Role, user.Role)
+            });
+            var principal = new ClaimsPrincipal(identity);
+            var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            return Ok();
+        }
+
+        public IActionResult SetSessionStringAndClaims(User user)
+        {
+            SetSessionClaims(user);
+            SetSessionString(user);
+            return Ok();
         }
     }
 }

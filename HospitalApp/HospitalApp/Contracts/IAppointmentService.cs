@@ -16,6 +16,6 @@ namespace HospitalApp.Contracts
 
         public AppointmentDto CancelAppointment(int appointmentId);
 
-        public AppointmentDto AppointmentDone(int appointmentId);
+        public AppointmentDto SetAppointmentDone(int appointmentId);
     }
 }

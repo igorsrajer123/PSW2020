@@ -16,12 +16,12 @@ function authenticateUser(){
             }
 
             getAllFeedbacks(myUser.id);
-            addFeedback(myUser.id);
+            addFeedback(myUser.id, myUser);
         }
     });
 }
 
-function addFeedback(userId){
+function addFeedback(userId, user){
     $("#confirm").click(function(event){
         event.preventDefault();
 
@@ -38,6 +38,9 @@ function addFeedback(userId){
         $.ajax({
             url: 'http://localhost:50324/addFeedback',
             type: 'POST',
+            headers: {
+                "Authorization": "Basic " + btoa(user.username + ":" + user.password)
+              },
             data: transformedData,
             contentType: 'application/json',
             dataType: 'json',

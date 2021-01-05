@@ -14,23 +14,25 @@ function authenticateUser(){
                 window.location.href = "../index.html";
             }
 
-            getAllFeedbacks();
+            getAllFeedbacks(myUser);
         }
     });
 }
 
-function getAllFeedbacks(){
+function getAllFeedbacks(user){
     $.ajax({
         url: 'http://localhost:50324/getAllFeedbacks',
         type: 'GET',
+        headers: {
+            "Authorization": "Basic " + btoa(user.username + ":" + user.password)
+        },
         complete: function(data){
             var allFeedbacks = data.responseJSON;
-            $("#feedbacks").empty();
 
+            $("#feedbacks").empty();
             for(var i = 0; i < allFeedbacks.length; i++){
                 getFeedbackPatient(allFeedbacks[i]);
-                getFeedbackVisibility(allFeedbacks[i].id);
-                setFeedbackVisibility(allFeedbacks[i].id);
+                getFeedbackVisibility(allFeedbacks[i].id, user);    
             }
         }
     });
@@ -54,10 +56,11 @@ function getFeedbackPatient(feedback){
     });
 }
 
-function getFeedbackVisibility(feedbackId){
+function getFeedbackVisibility(feedbackId, user){
     $.ajax({
         url: 'http://localhost:50324/getFeedbackById/' + feedbackId,
         type: 'GET',
+        async: true,
         complete: function(data){
             var feedback = data.responseJSON;
 
@@ -66,25 +69,31 @@ function getFeedbackVisibility(feedbackId){
             
             if(!feedback.isVisible)
                 $("#" + feedbackId).prop('checked', false);
+
+            setFeedbackVisibility(feedbackId, user);
         }
     });
 }
 
-function setFeedbackVisibility(feedbackId){
+function setFeedbackVisibility(feedbackId, user){
     $("#" + feedbackId).click(function(){
 
         if($("#" + feedbackId).is(":checked"))
-            setFeedbackVisible(feedbackId);
+            setFeedbackVisible(feedbackId, user);
 
         if(!$("#" + feedbackId).is(":checked"))
-            setFeedbackInvisible(feedbackId);
+            setFeedbackInvisible(feedbackId, user);
     });
 }
 
-function setFeedbackVisible(feedbackId){
+function setFeedbackVisible(feedbackId, user){
+    alert("Visible!");
     $.ajax({
         url: 'http://localhost:50324/showFeedback/' + feedbackId,
         type: 'PUT',
+        headers: {
+            "Authorization": "Basic " + btoa(user.username + ":" + user.password)
+          },
         complete: function(data){
             if(data.status == 404)
                 alert("Something went wrong!");
@@ -92,10 +101,14 @@ function setFeedbackVisible(feedbackId){
     });
 }
 
-function setFeedbackInvisible(feedbackId){
+function setFeedbackInvisible(feedbackId, user){
+    alert("Invisible!");
     $.ajax({
         url: 'http://localhost:50324/hideFeedback/' + feedbackId,
         type: 'PUT',
+        headers: {
+            "Authorization": "Basic " + btoa(user.username + ":" + user.password)
+          },
         complete: function(data){
             if(data.status == 404)
                 alert("Something went wrong!");

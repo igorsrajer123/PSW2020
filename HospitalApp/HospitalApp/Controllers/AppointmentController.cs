@@ -59,9 +59,9 @@ namespace HospitalApp.Controllers
 
         [HttpPut]
         [Route("/appointmentDone/{appointmentId}")]
-        public IActionResult AppointmentDone(int appointmentId)
+        public IActionResult SetAppointmentDone(int appointmentId)
         {
-            if (_appointmentService.AppointmentDone(appointmentId) == null)
+            if (_appointmentService.SetAppointmentDone(appointmentId) == null)
                 return NotFound();
 
             return Ok();

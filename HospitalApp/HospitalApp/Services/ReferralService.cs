@@ -29,12 +29,12 @@ namespace HospitalApp.Services
 
         public ReferralDto GetById(int referralId)
         {
-            Referral referral = _dbContext.Referrals.SingleOrDefault(r => r.Id == referralId);
+            Referral myReferral = _dbContext.Referrals.SingleOrDefault(referral => referral.Id == referralId);
 
-            if (referral == null)
+            if (myReferral == null)
                 return null;
 
-            return ReferralAdapter.ReferralToReferralDto(referral);
+            return ReferralAdapter.ReferralToReferralDto(myReferral);
         }
 
         public ReferralDto Add(ReferralDto referralDto)
@@ -43,39 +43,42 @@ namespace HospitalApp.Services
                 return null;
 
             Referral referral = ReferralAdapter.ReferralDtoToReferral(referralDto);
-
-            Doctor doctor = _dbContext.Doctors.SingleOrDefault(d => d.Id == referralDto.SpecialistId);
-            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == referralDto.PatientId);
-
-            if (patient.Referral != null)
-            {
-                patient.Referral.IsDeleted = true;
-                _dbContext.Referrals.Remove(patient.Referral);
-                _dbContext.SaveChanges();
-            }
-
-            doctor.Referrals.Add(referral);
-            patient.Referral = referral;
-
+            GivePatientReferral(_dbContext.Patients.SingleOrDefault(patient => patient.Id == referralDto.PatientId), referral);
+           
+            _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == referralDto.SpecialistId).Referrals.Add(referral);
             _dbContext.Referrals.Add(referral);
             _dbContext.SaveChanges();
 
             return referralDto;
         }
 
-        public ReferralDto DeleteReferral(int referralId)
+        public void GivePatientReferral(Patient patient, Referral referral) 
         {
-            Referral referral = _dbContext.Referrals.SingleOrDefault(r => r.Id == referralId);
+            if (patient.Referral != null)
+                RemovePatientsReferral(patient);
 
-            if (referral == null)
+            patient.Referral = referral;
+        }
+
+        public void RemovePatientsReferral(Patient patient)
+        {
+            patient.Referral.IsDeleted = true;
+            _dbContext.Referrals.Remove(patient.Referral);
+            _dbContext.SaveChanges();
+        }  
+
+        public ReferralDto GetAppointmentsReferral(Appointment appointment)
+        {
+            Referral myReferral = _dbContext.Referrals.SingleOrDefault(referral => 
+                                                        referral.PatientId == appointment.Patient.Id && 
+                                                        referral.SpecialistId == appointment.DoctorId);
+
+            if (myReferral == null)
                 return null;
 
-            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == referral.PatientId);
-
-            patient.Referral.IsDeleted = true;
-            _dbContext.SaveChanges();
-
-            return ReferralAdapter.ReferralToReferralDto(referral);
+            return ReferralAdapter.ReferralToReferralDto(_dbContext.Referrals.SingleOrDefault(referral => 
+                                                                                referral.PatientId == appointment.Patient.Id && 
+                                                                                referral.SpecialistId == appointment.DoctorId));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HospitalApp.Dtos;
+using HospitalApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,6 @@ namespace HospitalApp.Contracts
 
         ReferralDto Add(ReferralDto referralDto);
 
-        ReferralDto DeleteReferral(int referralId);
+        ReferralDto GetAppointmentsReferral(Appointment appointment);
     }
 }

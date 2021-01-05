@@ -49,15 +49,5 @@ namespace HospitalApp.Controllers
 
             return Ok();
         }
-
-        [HttpDelete]
-        [Route("/deleteReferral/{referralId}")]
-        public IActionResult DeleteReferral(int referralId)
-        {
-            if (_referralService.DeleteReferral(referralId) == null)
-                return NotFound();
-
-            return Ok();
-        }
     }
 }

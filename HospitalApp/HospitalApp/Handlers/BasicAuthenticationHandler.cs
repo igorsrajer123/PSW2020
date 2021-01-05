@@ -27,42 +27,40 @@ namespace HospitalApp.Handlers
             if (!Request.Headers.ContainsKey("Authorization"))
                 return Task.FromResult(AuthenticateResult.Fail("Authorization header was not found!"));
 
-            AuthenticationTicket ticket = GiveUserAuthorizations();
-
-            if (ticket == null)
+            if (GiveUserAuthorizations() == null)
                 return Task.FromResult(AuthenticateResult.Fail("Authorization failed!"));
-            
-            return Task.FromResult(AuthenticateResult.Success(ticket));    
+
+            System.Diagnostics.Debug.WriteLine("Authorization successfull!");
+            return Task.FromResult(AuthenticateResult.Success(GiveUserAuthorizations()));    
+        }
+        
+        private AuthenticationTicket GiveUserAuthorizations()
+        {
+            if (GetAuthenticatedUser() == null)
+                return null;
+
+            return GetUserTicket(GetAuthenticatedUser());
         }
 
         private User GetAuthenticatedUser()
-        {
-            var authenticationHeaderValue = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
-            var bytes = Convert.FromBase64String(authenticationHeaderValue.Parameter);
-            string[] credentials = Encoding.UTF8.GetString(bytes).Split(":");
-            string username = credentials[0];
-            string password = credentials[1];
-
-            User myUser = _dbContext.Users.Where(user => user.Username == username && user.Password == password).FirstOrDefault();
-
-            return myUser;
+        {  
+            return _dbContext.Users.Where(user => user.Username == GetUserCredentials()[0] && user.Password == GetUserCredentials()[1]).FirstOrDefault(); ;
         }
 
-        private AuthenticationTicket GiveUserAuthorizations()
+        private string[] GetUserCredentials()
         {
-            User user = GetAuthenticatedUser();
+            return Encoding.UTF8.GetString(Convert.FromBase64String(AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]).Parameter)).Split(":");
+        }
 
-            if (user == null)
-                return null;
-
+        private AuthenticationTicket GetUserTicket(User user)
+        {
             var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim(ClaimTypes.Role, user.Role)
                 });
             var principal = new ClaimsPrincipal(identity);
-            var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-            return ticket;
+            return new AuthenticationTicket(principal, Scheme.Name);
         }
     }
 }

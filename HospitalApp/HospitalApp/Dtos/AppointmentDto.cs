@@ -19,5 +19,7 @@ namespace HospitalApp.Dtos
         public int PatientId { get; set; }
 
         public AppointmentStatus Status { get; set; }
+
+        public string CancellationDate { get; set; }
     }
 }

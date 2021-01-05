@@ -17,10 +17,11 @@ namespace HospitalApp.Adapters
                 Address = administratorDto.Address,
                 FirstName = administratorDto.FirstName,
                 LastName = administratorDto.LastName,
-                IsDeleted = administratorDto.IsDeleted,
+                IsBlocked = administratorDto.IsBlocked,
                 PhoneNumber = administratorDto.PhoneNumber,
                 Username = administratorDto.Username,
-                Role = administratorDto.Role
+                Role = administratorDto.Role,
+                IsMalicious = administratorDto.IsMalicious
             };
 
             return administrator;
@@ -35,9 +36,10 @@ namespace HospitalApp.Adapters
                 LastName = administrator.LastName,
                 Username = administrator.Username,
                 Address = administrator.Address,
-                IsDeleted = administrator.IsDeleted,
+                IsBlocked = administrator.IsBlocked,
                 Role = administrator.Role,
-                PhoneNumber = administrator.PhoneNumber
+                PhoneNumber = administrator.PhoneNumber,
+                IsMalicious = administrator.IsMalicious
             };
 
             return administratorDto;

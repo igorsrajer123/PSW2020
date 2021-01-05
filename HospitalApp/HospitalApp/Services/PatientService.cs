@@ -15,9 +15,9 @@ namespace HospitalApp.Services
         private MyDbContext _dbContext;
         private IDoctorService _doctorService;
 
-        public PatientService(MyDbContext context, IDoctorService doctorService, IReferralService referralService)
+        public PatientService(MyDbContext context, IDoctorService doctorService)
         {
-            this._dbContext = context;
+            _dbContext = context;
             _doctorService = doctorService;
         }
 
@@ -45,47 +45,36 @@ namespace HospitalApp.Services
             if (patient == null || patient.Password == null)
                 return null;
 
-            Patient existingPatient = _dbContext.Patients.SingleOrDefault(p => p.Username == patient.Username);
-            if (existingPatient != null)
+            if (_dbContext.Patients.SingleOrDefault(p => p.Username == patient.Username) != null)
                 return null;
 
-            var rnd = new Random();
-            List<DoctorDto> generalPractitioners = _doctorService.GetByType(DoctorType.GeneralPractitioner);
-            patient.GeneralPractitionerId = generalPractitioners[rnd.Next(generalPractitioners.Count)].Id;
-            patient.Role = "Patient";
+            GiveRandomGeneralPractitioner(patient);
             
             _dbContext.Patients.Add(patient);
             _dbContext.SaveChanges();
 
-            PatientDto patientDto = PatientAdapter.PatientToPatientDto(patient);
-
-            return patientDto;
+            return PatientAdapter.PatientToPatientDto(patient);
         }
 
-        public PatientDto DeleteById(int id)
+        public void GiveRandomGeneralPractitioner(Patient patient)
         {
-            Patient patient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == id);
-
-            if (patient == null)
-                return null;
-
-            patient.IsDeleted = true;
-            return PatientAdapter.PatientToPatientDto(patient);
+            var random = new Random();
+            List<DoctorDto> generalPractitioners = _doctorService.GetByType(DoctorType.GeneralPractitioner);
+            patient.GeneralPractitionerId = generalPractitioners[random.Next(generalPractitioners.Count)].Id;
+            patient.Role = "Patient";
         }
 
         public PatientDto SetGeneralPractitioner(int patientId, int doctorId)
         {
-            Patient patient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == patientId);
-            Doctor myDoctor = _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == doctorId);
+            Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == patientId);
 
-            if (patient == null || myDoctor == null)
+            if (myPatient == null)
                 return null;
 
-            patient.GeneralPractitioner = myDoctor;
+            myPatient.GeneralPractitioner = _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == doctorId);
             _dbContext.SaveChanges();
-            PatientDto patientDto = PatientAdapter.PatientToPatientDto(patient);
 
-            return patientDto;
+            return PatientAdapter.PatientToPatientDto(myPatient);
         }
     }
 }

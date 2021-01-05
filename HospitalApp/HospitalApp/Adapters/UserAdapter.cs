@@ -18,9 +18,10 @@ namespace HospitalApp.Adapters
                 FirstName = userDto.FirstName,
                 LastName = userDto.LastName,
                 Role = userDto.Role,
-                IsDeleted = userDto.IsDeleted,
+                IsBlocked = userDto.IsBlocked,
                 Address = userDto.Address,
-                PhoneNumber = userDto.PhoneNumber
+                PhoneNumber = userDto.PhoneNumber,
+                IsMalicious = userDto.IsMalicious
             };
 
             return user;
@@ -35,9 +36,10 @@ namespace HospitalApp.Adapters
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Role = user.Role,
-                IsDeleted = user.IsDeleted,
+                IsBlocked = user.IsBlocked,
                 Address = user.Address,
-                PhoneNumber = user.PhoneNumber
+                PhoneNumber = user.PhoneNumber,
+                IsMalicious = user.IsMalicious
             };
 
             return userDto;

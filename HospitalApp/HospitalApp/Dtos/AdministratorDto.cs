@@ -8,6 +8,5 @@ namespace HospitalApp.Dtos
 {
     public class AdministratorDto : UserDto
     {
-        public List<PatientDto> BlockedUsers { get; set; }
     }
 }

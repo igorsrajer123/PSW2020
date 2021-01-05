@@ -1,6 +1,7 @@
 ﻿using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,6 +22,7 @@ namespace HospitalApp.Controllers
             _feedbackService = feedbackService;
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         [Route("/getAllFeedbacks")]
         public IActionResult GetAll()
@@ -41,6 +43,7 @@ namespace HospitalApp.Controllers
             return Ok(_feedbackService.GetById(feedbackId));
         }
 
+        [Authorize(Roles = "Patient")]
         [HttpPost]
         [Route("/addFeedback")]
         public IActionResult Add(FeedbackDto feedbackDto)
@@ -51,6 +54,7 @@ namespace HospitalApp.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPut]
         [Route("/showFeedback/{feedbackId}")]
         public IActionResult ShowFeedback(int feedbackId)
@@ -61,6 +65,7 @@ namespace HospitalApp.Controllers
             return Ok(_feedbackService.ShowFeedback(feedbackId));
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPut]
         [Route("/hideFeedback/{feedbackId}")]
         public IActionResult HideFeedback(int feedbackId)

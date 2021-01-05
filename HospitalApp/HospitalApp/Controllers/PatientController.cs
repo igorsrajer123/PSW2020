@@ -60,15 +60,5 @@ namespace HospitalApp.Controllers
 
             return Ok();
         }
-
-        [HttpDelete]
-        [Route("/deletePatient/{id}")]
-        public IActionResult DeleteById(int id)
-        {
-            if (_patientService.DeleteById(id) == null)
-                return NotFound();
-
-            return Ok();
-        }
     }
 }

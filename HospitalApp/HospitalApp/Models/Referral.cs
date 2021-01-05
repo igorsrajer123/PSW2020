@@ -9,6 +9,7 @@ namespace HospitalApp.Models
     [Table("Referral")]
     public class Referral
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int SpecialistId { get; set; }

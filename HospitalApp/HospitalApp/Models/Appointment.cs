@@ -32,5 +32,7 @@ namespace HospitalApp.Models
         public virtual Patient Patient { get; set; }
 
         public AppointmentStatus Status { get; set; }
+
+        public string CancellationDate { get; set; }
     }
 }

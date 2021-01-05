@@ -22,14 +22,14 @@ namespace HospitalApp.Services
         {
             List<FeedbackDto> myFeedbacks = new List<FeedbackDto>();
 
-            _dbContext.Feedbacks.ToList().ForEach(f => myFeedbacks.Add(FeedbackAdapter.FeedbackToFeedbackDto(f)));
+            _dbContext.Feedbacks.ToList().ForEach(feedback => myFeedbacks.Add(FeedbackAdapter.FeedbackToFeedbackDto(feedback)));
 
             return myFeedbacks;
         }
 
         public FeedbackDto GetById(int feedbackId)
         {
-            Feedback myFeedback = _dbContext.Feedbacks.SingleOrDefault(f => f.Id == feedbackId);
+            Feedback myFeedback = _dbContext.Feedbacks.SingleOrDefault(feedback => feedback.Id == feedbackId);
 
             if(myFeedback == null)
                 return null;
@@ -39,30 +39,36 @@ namespace HospitalApp.Services
 
         public FeedbackDto Add(FeedbackDto feedbackDto)
         {
-            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == feedbackDto.PatientId);
-
-            if (feedbackDto == null || patient == null)
+            if (feedbackDto == null)
                 return null;
 
-            _dbContext.Remove(patient.Feedback);
-            Feedback feedback = FeedbackAdapter.FeedbackDtoToFeedback(feedbackDto);
-            patient.Feedback = feedback;
-            _dbContext.Feedbacks.Add(feedback);
+            Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == feedbackDto.PatientId);
+            RemovePreviousFeedback(feedbackDto, myPatient);
+
+            _dbContext.Feedbacks.Add(FeedbackAdapter.FeedbackDtoToFeedback(feedbackDto));
             _dbContext.SaveChanges();
 
             return feedbackDto;
         }
 
+        public void RemovePreviousFeedback(FeedbackDto feedbackDto, Patient patient)
+        {
+            if (patient.Feedback != null)
+                _dbContext.Remove(patient.Feedback);
+
+            patient.Feedback = FeedbackAdapter.FeedbackDtoToFeedback(feedbackDto);
+        }
+
         public FeedbackDto HideFeedback(int feedbackId)
         {
             Feedback myFeedback = FeedbackAdapter.FeedbackDtoToFeedback(GetById(feedbackId));
-            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == myFeedback.PatientId);
+            Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == myFeedback.PatientId);
 
-            if (myFeedback == null || patient == null)
+            if (myFeedback == null)
                 return null;
 
             myFeedback.IsVisible = false;
-            patient.Feedback.IsVisible = false;
+            myPatient.Feedback.IsVisible = false;
             _dbContext.SaveChanges();
 
             return FeedbackAdapter.FeedbackToFeedbackDto(myFeedback);
@@ -71,13 +77,13 @@ namespace HospitalApp.Services
         public FeedbackDto ShowFeedback(int feedbackId)
         {
             Feedback myFeedback = FeedbackAdapter.FeedbackDtoToFeedback(GetById(feedbackId));
-            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == myFeedback.PatientId);
+            Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == myFeedback.PatientId);
 
-            if (myFeedback == null || patient == null)
+            if (myFeedback == null)
                 return null;
 
             myFeedback.IsVisible = true;
-            patient.Feedback.IsVisible = true;
+            myPatient.Feedback.IsVisible = true;
             _dbContext.SaveChanges();
 
             return FeedbackAdapter.FeedbackToFeedbackDto(myFeedback);
@@ -85,12 +91,10 @@ namespace HospitalApp.Services
 
         public List<FeedbackDto> GetVisibleFeedbacks()
         {
-
             List<FeedbackDto> myFeedbacks = new List<FeedbackDto>();
+            List<Feedback> visibleFeedbacks = _dbContext.Feedbacks.Where(feedback => feedback.IsVisible == true).ToList();
 
-            List<Feedback> visibleFeedbacks = _dbContext.Feedbacks.Where(f => f.IsVisible == true).ToList();
-
-            visibleFeedbacks.ForEach(f => myFeedbacks.Add(FeedbackAdapter.FeedbackToFeedbackDto(f)));
+            visibleFeedbacks.ForEach(feedback => myFeedbacks.Add(FeedbackAdapter.FeedbackToFeedbackDto(feedback)));
 
             return myFeedbacks;
         }

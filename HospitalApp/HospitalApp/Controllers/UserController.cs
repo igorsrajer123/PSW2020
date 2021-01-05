@@ -24,6 +24,13 @@ namespace HospitalApp.Controllers
             return Ok(_userService.GetAll());
         }
 
+        [HttpGet]
+        [Route("/getUserById/{userId}")]
+        public IActionResult GetById(int userId)
+        {
+            return Ok(_userService.GetById(userId));
+        }
+
         [Authorize(Roles = "Administrator, Patient")]
         [HttpPut]
         [Route("/updateUser/{id}")]
@@ -33,6 +40,17 @@ namespace HospitalApp.Controllers
                 return NotFound();
 
             return Ok(user);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPut]
+        [Route("/blockUser/{userId}")]
+        public IActionResult BlockUser(int userId)
+        {
+            if (_userService.BlockUser(userId) == null)
+                return NotFound();
+
+            return Ok();
         }
     }
 }

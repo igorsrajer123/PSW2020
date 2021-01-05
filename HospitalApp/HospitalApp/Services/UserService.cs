@@ -2,7 +2,10 @@
 using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,23 +29,50 @@ namespace HospitalApp.Services
             return myUsers;
         }
 
-        public UserDto UpdateById(int id, User user)
+        public UserDto GetById(int userId)
         {
-            User myUser = _dbContext.Users.SingleOrDefault(u => u.Id == id);
+            User myUser = _dbContext.Users.SingleOrDefault(user => user.Id == userId);
 
             if (myUser == null)
                 return null;
 
-            myUser.FirstName = user.FirstName;
-            myUser.LastName = user.LastName;
-            myUser.Password = user.Password;
-            myUser.Address = user.Address;
-            myUser.PhoneNumber = user.PhoneNumber;
-            myUser.IsDeleted = user.IsDeleted;
+            return UserAdapter.UserToUserDto(myUser);
+        }
 
-            _dbContext.SaveChanges();
+        public UserDto UpdateById(int userId, User user)
+        {
+            User myUser = _dbContext.Users.SingleOrDefault(u => u.Id == userId);
+
+            if (myUser == null)
+                return null;
+
+            SetUserData(myUser, user);
 
             return UserAdapter.UserToUserDto(myUser);
+        }
+
+        public UserDto BlockUser(int userId)
+        {
+            if (GetById(userId) == null)
+                return null;
+
+            _dbContext.Patients.SingleOrDefault(patient => patient.Id == userId).IsBlocked = true;
+            _dbContext.SaveChanges();
+
+            return GetById(userId);
+        }
+
+        public void SetUserData(User oldValues, User newValues)
+        {
+            oldValues.FirstName = newValues.FirstName;
+            oldValues.LastName = newValues.LastName;
+            oldValues.Password = newValues.Password;
+            oldValues.Address = newValues.Address;
+            oldValues.PhoneNumber = newValues.PhoneNumber;
+            oldValues.IsBlocked = newValues.IsBlocked;
+            oldValues.IsMalicious = newValues.IsMalicious;
+
+            _dbContext.SaveChanges();
         }
     }
 }

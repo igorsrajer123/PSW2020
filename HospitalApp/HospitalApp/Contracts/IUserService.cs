@@ -11,6 +11,10 @@ namespace HospitalApp.Contracts
     {
         List<UserDto> GetAll();
 
+        UserDto GetById(int userId);
+
         UserDto UpdateById(int id, User user);
+
+        UserDto BlockUser(int userId);
     }
 }
