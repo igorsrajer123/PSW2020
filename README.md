@@ -1,1 +1,1 @@
-<h1> <b> Projektovanje softvera 2020/2021 </b> </h1>
+<h1> <b> Projektovanje softvera 2020/21 </b> </h1>
