@@ -131,6 +131,10 @@
               "target": "Package",
               "version": "[3.1.10, )"
             },
+            "Microsoft.CodeCoverage": {
+              "target": "Package",
+              "version": "[16.8.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -158,6 +162,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.15.2, )"
+            },
+            "OpenCover": {
+              "target": "Package",
+              "version": "[4.7.922, )"
+            },
+            "Shouldly": {
+              "target": "Package",
+              "version": "[4.0.3, )"
             }
           },
           "imports": [

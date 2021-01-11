@@ -2,6 +2,7 @@
 using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
+using HospitalApp.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,7 @@ namespace HospitalApp.Controllers
     public class PatientController : ControllerBase
     {
         private IPatientService _patientService;
+        private IDoctorService _doctorService;
 
         public PatientController(IPatientService patientService)
         {
@@ -37,7 +39,7 @@ namespace HospitalApp.Controllers
             if (_patientService.Add(patient) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(PatientAdapter.PatientToPatientDto(patient));
         }
 
         [HttpGet]

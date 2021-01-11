@@ -47,7 +47,7 @@ namespace HospitalApp.Controllers
             if (_referralService.Add(referralDto) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(referralDto);
         }
     }
 }

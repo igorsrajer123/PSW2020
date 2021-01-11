@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Models
 {
-    public enum UserType
-    {
-        Administrator,
-        Patient
-    }
-
     [Table("User")]
     public class User
     {

@@ -2,6 +2,7 @@
 using HospitalApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace HospitalApp.Controllers
 {
@@ -39,7 +40,7 @@ namespace HospitalApp.Controllers
             if(_userService.UpdateById(id, user) == null)
                 return NotFound();
 
-            return Ok(user);
+            return Ok(_userService.UpdateById(id, user));
         }
 
         [Authorize(Roles = "Administrator")]
@@ -50,7 +51,7 @@ namespace HospitalApp.Controllers
             if (_userService.BlockUser(userId) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(_userService.BlockUser(userId));
         }
     }
 }

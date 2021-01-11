@@ -51,7 +51,7 @@ namespace HospitalApp.Controllers
             if (_feedbackService.Add(feedbackDto) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(feedbackDto);
         }
 
         [Authorize(Roles = "Administrator")]

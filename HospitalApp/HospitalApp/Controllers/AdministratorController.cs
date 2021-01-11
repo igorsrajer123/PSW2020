@@ -1,4 +1,5 @@
-﻿using HospitalApp.Contracts;
+﻿using HospitalApp.Adapters;
+using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
 using Microsoft.AspNetCore.Http;
@@ -45,7 +46,7 @@ namespace HospitalApp.Controllers
             if (_administratorService.Add(administrator) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(AdministratorAdapter.AdministratoToAdministratorDto(administrator));
         }
     }
 }
