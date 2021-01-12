@@ -53,73 +53,6 @@ namespace HospitalApp.Migrations
                     b.ToTable("Appointment");
                 });
 
-            modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LastName")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.Property<string>("WorkingDays")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Doctor");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Aleksandar",
-                            IsDeleted = false,
-                            LastName = "Simonovic",
-                            Type = 1,
-                            WorkingDays = "2021-01-04 12 PM,2021-01-06 04 PM,2021-01-08 04 PM,2021-01-06 10 AM,2021-01-17 11 AM,2021-01-19 04 PM,2021-01-22 04 PM,2021-01-21 10 AM,2021-01-27 02 PM,2021-01-30 11 AM,2021-02-12 12 PM,2021-02-06 12 PM,2021-02-03 04 PM,2021-02-12 11 AM,2021-02-18 12 PM,2021-02-28 12 PM,2021-03-13 12 PM,2021-03-07 10 AM,2021-03-01 12 PM,2021-02-15 11 AM,2021-03-02 04 PM,2021-03-24 11 AM,2021-03-16 02 PM,2021-03-28 03 PM,2021-03-08 01 PM,2021-03-30 11 AM,2021-03-31 03 PM,2021-03-31 12 PM,2021-04-01 11 AM,2021-03-31 11 AM,2021-03-28 10 AM,2021-03-24 03 PM,2021-04-17 03 PM,2021-04-21 02 PM,2021-04-15 10 AM,2021-05-03 02 PM,2021-04-26 12 PM,2021-04-19 10 AM,2021-04-12 03 PM,2021-04-28 01 PM,2021-05-02 01 PM,2021-05-17 10 AM,2021-05-26 11 AM,2021-05-15 03 PM,2021-05-28 04 PM,2021-05-29 12 PM,2021-05-22 12 PM,2021-05-24 01 PM,2021-05-21 02 PM,2021-06-03 12 PM,2021-05-25 11 AM,2021-06-11 04 PM,2021-06-07 12 PM,2021-05-31 10 AM,2021-06-24 12 PM,2021-06-07 10 AM,2021-06-22 04 PM,2021-06-26 10 AM,2021-06-26 02 PM,2021-06-23 01 PM"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FirstName = "Dimitrije",
-                            IsDeleted = false,
-                            LastName = "Mijatovic",
-                            Type = 1,
-                            WorkingDays = "2021-01-05 02 PM,2021-01-07 10 AM,2021-01-17 12 PM,2021-01-07 01 PM,2021-01-20 12 PM,2021-01-13 10 AM,2021-01-30 11 AM,2021-01-29 01 PM,2021-02-06 02 PM,2021-01-22 01 PM,2021-02-07 03 PM,2021-02-20 02 PM,2021-02-04 04 PM,2021-02-08 12 PM,2021-02-17 03 PM,2021-02-26 11 AM,2021-03-11 12 PM,2021-02-25 03 PM,2021-02-12 03 PM,2021-03-15 04 PM,2021-03-09 01 PM,2021-03-20 11 AM,2021-03-12 12 PM,2021-04-05 11 AM,2021-03-19 02 PM,2021-03-25 03 PM,2021-03-08 01 PM,2021-04-09 12 PM,2021-03-25 02 PM,2021-03-30 04 PM,2021-03-31 12 PM,2021-04-24 11 AM,2021-04-03 02 PM,2021-05-05 02 PM,2021-04-18 11 AM,2021-04-16 12 PM,2021-04-12 03 PM,2021-05-03 10 AM,2021-04-26 01 PM,2021-04-21 10 AM,2021-05-02 01 PM,2021-05-06 02 PM,2021-05-25 12 PM,2021-04-29 10 AM,2021-05-22 10 AM,2021-04-20 02 PM,2021-05-28 12 PM,2021-05-25 04 PM,2021-05-27 10 AM,2021-05-30 12 PM,2021-06-02 03 PM,2021-06-04 12 PM,2021-06-11 10 AM,2021-06-09 12 PM,2021-06-15 01 PM,2021-06-15 12 PM,2021-06-24 04 PM,2021-06-18 11 AM,2021-06-26 02 PM,2021-06-27 10 AM"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FirstName = "Srdjan",
-                            IsDeleted = false,
-                            LastName = "Tepavcevic",
-                            Type = 0,
-                            WorkingDays = "2021-01-05 02 PM,2021-01-05 12 PM,2021-01-31 12 PM,2021-01-24 04 PM,2021-01-12 03 PM,2021-01-17 02 PM,2021-01-15 12 PM,2021-01-27 01 PM,2021-01-31 04 PM,2021-02-04 01 PM,2021-01-27 12 PM,2021-02-15 12 PM,2021-02-19 10 AM,2021-02-11 02 PM,2021-02-27 11 AM,2021-02-05 12 PM,2021-03-07 10 AM,2021-03-03 01 PM,2021-02-22 03 PM,2021-02-21 11 AM,2021-03-17 11 AM,2021-02-25 11 AM,2021-03-23 11 AM,2021-02-28 04 PM,2021-03-21 12 PM,2021-04-10 01 PM,2021-03-28 12 PM,2021-04-04 01 PM,2021-04-20 12 PM,2021-03-22 01 PM,2021-03-21 02 PM,2021-04-16 11 AM,2021-04-05 11 AM,2021-04-16 12 PM,2021-04-11 03 PM,2021-04-17 02 PM,2021-04-14 12 PM,2021-04-28 01 PM,2021-04-25 11 AM,2021-05-20 10 AM,2021-05-24 11 AM,2021-04-21 04 PM,2021-04-30 12 PM,2021-05-06 10 AM,2021-05-20 02 PM,2021-05-11 12 PM,2021-05-18 04 PM,2021-05-22 11 AM,2021-05-29 12 PM,2021-06-01 12 PM,2021-06-11 11 AM,2021-05-28 01 PM,2021-06-23 12 PM,2021-06-15 04 PM,2021-06-23 04 PM,2021-06-12 04 PM,2021-06-17 03 PM,2021-06-21 04 PM,2021-07-01 11 AM,2021-06-30 03 PM"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FirstName = "Neven",
-                            IsDeleted = false,
-                            LastName = "Milakovic",
-                            Type = 0,
-                            WorkingDays = "2021-01-10 12 PM,2021-01-13 12 PM,2021-01-16 04 PM,2021-01-17 04 PM,2021-01-28 01 PM,2021-01-26 12 PM,2021-01-23 10 AM,2021-01-22 10 AM,2021-01-18 12 PM,2021-01-28 04 PM,2021-01-25 04 PM,2021-02-22 01 PM,2021-02-19 03 PM,2021-02-09 11 AM,2021-02-18 03 PM,2021-03-04 12 PM,2021-02-24 04 PM,2021-03-12 03 PM,2021-02-20 02 PM,2021-02-23 01 PM,2021-03-10 12 PM,2021-03-08 10 AM,2021-02-21 10 AM,2021-03-01 04 PM,2021-03-21 10 AM,2021-03-06 11 AM,2021-03-06 11 AM,2021-03-28 04 PM,2021-03-30 02 PM,2021-03-29 10 AM,2021-04-22 10 AM,2021-03-19 04 PM,2021-04-30 04 PM,2021-04-26 01 PM,2021-04-29 04 PM,2021-04-16 11 AM,2021-04-22 04 PM,2021-04-11 02 PM,2021-05-18 02 PM,2021-04-21 11 AM,2021-05-08 11 AM,2021-04-22 12 PM,2021-05-19 12 PM,2021-05-16 02 PM,2021-05-16 03 PM,2021-05-25 01 PM,2021-06-07 02 PM,2021-05-24 03 PM,2021-06-14 11 AM,2021-05-26 03 PM,2021-06-13 12 PM,2021-06-14 10 AM,2021-06-13 02 PM,2021-06-10 01 PM,2021-06-14 01 PM,2021-06-25 03 PM,2021-06-23 10 AM,2021-06-26 01 PM,2021-06-26 01 PM,2021-06-28 01 PM"
-                        });
-                });
-
             modelBuilder.Entity("HospitalApp.Models.Feedback", b =>
                 {
                     b.Property<int>("Id")
@@ -242,6 +175,81 @@ namespace HospitalApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
+                {
+                    b.HasBaseType("HospitalApp.Models.User");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("WorkingDays")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("Doctor");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 10,
+                            Address = "Marka Kraljevica 22",
+                            FirstName = "Aleksandar",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Simonovic",
+                            Password = "123",
+                            PhoneNumber = "555-333",
+                            Role = "Doctor",
+                            Username = "doca1",
+                            Type = 1,
+                            WorkingDays = "2021-01-12 03 PM,2021-01-15 03 PM,2021-01-30 03 PM,2021-02-04 11 AM,2021-02-05 10 AM,2021-01-27 04 PM,2021-02-07 02 PM,2021-02-08 10 AM,2021-02-01 03 PM,2021-02-14 02 PM,2021-02-13 11 AM,2021-02-21 03 PM,2021-02-26 04 PM,2021-03-23 10 AM,2021-03-14 10 AM,2021-02-25 03 PM,2021-03-06 04 PM,2021-03-19 10 AM,2021-03-14 03 PM,2021-03-27 01 PM,2021-03-17 12 PM,2021-03-13 02 PM,2021-03-14 11 AM,2021-04-08 12 PM,2021-04-13 01 PM,2021-04-18 11 AM,2021-04-25 04 PM,2021-04-19 02 PM,2021-04-27 01 PM,2021-04-23 10 AM,2021-04-26 11 AM,2021-04-20 01 PM,2021-04-29 01 PM,2021-04-23 10 AM,2021-05-24 01 PM,2021-04-28 10 AM,2021-05-24 01 PM,2021-05-10 03 PM,2021-05-17 11 AM,2021-05-19 02 PM,2021-05-09 04 PM,2021-05-21 11 AM,2021-06-01 12 PM,2021-06-05 01 PM,2021-06-05 04 PM,2021-06-09 11 AM,2021-06-12 12 PM,2021-06-23 01 PM,2021-06-24 12 PM,2021-06-23 04 PM,2021-06-29 03 PM,2021-07-07 03 PM,2021-07-08 12 PM"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Visnjiceva 2",
+                            FirstName = "Dimitrije",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Mijatovic",
+                            Password = "1234",
+                            PhoneNumber = "55-44-33",
+                            Role = "Doctor",
+                            Username = "doca2",
+                            Type = 1,
+                            WorkingDays = "2021-01-15 10 AM,2021-01-20 04 PM,2021-01-23 03 PM,2021-01-19 10 AM,2021-02-06 02 PM,2021-01-25 04 PM,2021-02-02 10 AM,2021-02-18 11 AM,2021-01-31 03 PM,2021-02-20 02 PM,2021-02-07 04 PM,2021-02-04 03 PM,2021-02-24 10 AM,2021-02-28 12 PM,2021-02-20 02 PM,2021-03-28 01 PM,2021-03-16 11 AM,2021-03-21 12 PM,2021-02-28 01 PM,2021-04-01 11 AM,2021-03-26 03 PM,2021-03-17 02 PM,2021-03-26 11 AM,2021-04-11 11 AM,2021-03-27 04 PM,2021-04-09 03 PM,2021-04-12 01 PM,2021-04-22 01 PM,2021-04-04 01 PM,2021-04-29 01 PM,2021-05-04 11 AM,2021-05-07 01 PM,2021-04-21 01 PM,2021-05-09 03 PM,2021-05-31 12 PM,2021-04-29 01 PM,2021-05-13 10 AM,2021-05-23 12 PM,2021-05-04 02 PM,2021-05-21 02 PM,2021-06-08 12 PM,2021-06-11 12 PM,2021-06-11 12 PM,2021-05-31 01 PM,2021-05-30 01 PM,2021-06-04 02 PM,2021-06-21 10 AM,2021-06-22 10 AM,2021-06-07 01 PM,2021-06-30 11 AM,2021-06-22 03 PM,2021-07-07 03 PM,2021-07-09 12 PM"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Nikole Tesle 5",
+                            FirstName = "Srdjan",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Tepavcevic",
+                            Password = "12345",
+                            PhoneNumber = "55-42-4-21",
+                            Role = "Doctor",
+                            Username = "doca3",
+                            Type = 0,
+                            WorkingDays = "2021-01-12 01 PM,2021-01-14 12 PM,2021-01-18 03 PM,2021-01-26 10 AM,2021-01-18 12 PM,2021-01-28 12 PM,2021-02-01 12 PM,2021-02-13 01 PM,2021-02-18 02 PM,2021-02-16 04 PM,2021-02-10 02 PM,2021-02-24 03 PM,2021-02-12 10 AM,2021-03-02 01 PM,2021-03-12 02 PM,2021-03-05 11 AM,2021-03-16 04 PM,2021-03-09 04 PM,2021-02-21 03 PM,2021-03-23 03 PM,2021-04-04 01 PM,2021-03-23 11 AM,2021-03-03 11 AM,2021-04-12 03 PM,2021-03-13 04 PM,2021-04-20 12 PM,2021-04-26 12 PM,2021-04-12 01 PM,2021-04-19 10 AM,2021-03-30 11 AM,2021-04-14 12 PM,2021-03-27 12 PM,2021-04-28 03 PM,2021-05-10 01 PM,2021-05-08 02 PM,2021-05-22 03 PM,2021-05-14 10 AM,2021-04-27 10 AM,2021-04-28 02 PM,2021-05-11 12 PM,2021-06-07 04 PM,2021-05-27 03 PM,2021-05-16 02 PM,2021-06-23 02 PM,2021-06-09 02 PM,2021-06-15 10 AM,2021-06-12 12 PM,2021-06-06 03 PM,2021-06-14 04 PM,2021-07-01 03 PM,2021-06-28 03 PM,2021-07-03 03 PM,2021-07-09 11 AM"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Vukasinova 69",
+                            FirstName = "Neven",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Milakovic",
+                            Password = "1234567",
+                            PhoneNumber = "7766-65-64",
+                            Role = "Doctor",
+                            Username = "doca66",
+                            Type = 0,
+                            WorkingDays = "2021-01-19 03 PM,2021-01-18 12 PM,2021-01-22 04 PM,2021-01-27 02 PM,2021-01-27 02 PM,2021-02-03 12 PM,2021-02-05 04 PM,2021-02-03 11 AM,2021-02-01 12 PM,2021-01-31 11 AM,2021-03-04 02 PM,2021-02-22 11 AM,2021-03-05 11 AM,2021-02-28 11 AM,2021-02-14 03 PM,2021-03-07 04 PM,2021-03-22 10 AM,2021-03-01 10 AM,2021-03-17 03 PM,2021-03-11 11 AM,2021-04-04 12 PM,2021-04-01 04 PM,2021-04-18 11 AM,2021-04-01 11 AM,2021-04-01 12 PM,2021-03-24 10 AM,2021-04-06 12 PM,2021-04-15 02 PM,2021-03-26 04 PM,2021-05-15 01 PM,2021-05-05 03 PM,2021-05-29 12 PM,2021-04-20 12 PM,2021-05-07 11 AM,2021-05-21 10 AM,2021-05-09 02 PM,2021-05-16 11 AM,2021-06-05 12 PM,2021-05-22 04 PM,2021-06-04 01 PM,2021-05-15 03 PM,2021-06-06 12 PM,2021-06-09 03 PM,2021-06-18 02 PM,2021-06-19 02 PM,2021-06-22 02 PM,2021-06-16 12 PM,2021-06-08 11 AM,2021-06-24 04 PM,2021-06-18 12 PM,2021-07-03 03 PM,2021-06-27 02 PM,2021-07-09 10 AM"
+                        });
+                });
+
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>
                 {
                     b.HasBaseType("HospitalApp.Models.User");
@@ -266,7 +274,7 @@ namespace HospitalApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 15,
                             Address = "Tomiceva 22, Zrenjanin",
                             FirstName = "Marko",
                             IsBlocked = false,
@@ -279,7 +287,7 @@ namespace HospitalApp.Migrations
                             Age = 15,
                             CancelledAppointments = 0,
                             Gender = "male",
-                            GeneralPractitionerId = 2
+                            GeneralPractitionerId = 11
                         });
                 });
 
@@ -337,6 +345,15 @@ namespace HospitalApp.Migrations
                     b.HasOne("HospitalApp.Models.User", null)
                         .WithOne()
                         .HasForeignKey("HospitalApp.Models.Administrator", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
+                {
+                    b.HasOne("HospitalApp.Models.User", null)
+                        .WithOne()
+                        .HasForeignKey("HospitalApp.Models.Doctor", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });

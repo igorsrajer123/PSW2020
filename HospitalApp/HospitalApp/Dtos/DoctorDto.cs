@@ -6,17 +6,9 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Dtos
 {
-    public class DoctorDto
+    public class DoctorDto : UserDto
     {
-        public int Id { get; set; }
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
         public DoctorType Type { get; set; }
-
-        public bool IsDeleted { get; set; }
 
         public string[] WorkingDays { get; set; }
     }

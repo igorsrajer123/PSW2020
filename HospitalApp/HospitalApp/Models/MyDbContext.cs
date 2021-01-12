@@ -28,7 +28,7 @@ namespace HospitalApp.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            //prvo ubaciti admina i doktore, pa tek onda pacijente zbog stranih kljuceva!
             modelBuilder.Entity<Administrator>().HasData(
                 new Administrator { Id = 5, FirstName = "admin", LastName = "administratovic", Username = "admin",
                                     Password = "admin", Role = "Administrator", Address = "Visnjiceva 32, Beograd",
@@ -36,16 +36,27 @@ namespace HospitalApp.Models
             );
 
             modelBuilder.Entity<Doctor>().HasData(
-                new Doctor { Id = 1, FirstName = "Aleksandar", LastName = "Simonovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomHoursString()},
-                new Doctor { Id = 2, FirstName = "Dimitrije", LastName = "Mijatovic", Type = DoctorType.GeneralPractitioner, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomHoursString()},
-                new Doctor { Id = 3, FirstName = "Srdjan", LastName = "Tepavcevic", Type = DoctorType.Specialist, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomHoursString() },
-                new Doctor { Id = 4, FirstName = "Neven", LastName = "Milakovic", Type = DoctorType.Specialist, Appointments = null, IsDeleted = false, WorkingDays = _dt.DiscardRandomHoursString() }
-                );
+                new Doctor { Id = 10, FirstName = "Aleksandar", LastName = "Simonovic", Address = "Marka Kraljevica 22",
+                             Type = DoctorType.GeneralPractitioner, Appointments = null, WorkingDays = _dt.DiscardRandomHoursString(),
+                             IsBlocked = false, IsMalicious = false, Password = "123", PhoneNumber = "555-333", Role = "Doctor", Username = "doca1"},
 
+                new Doctor { Id = 11, FirstName = "Dimitrije", LastName = "Mijatovic", Address = "Visnjiceva 2",
+                             Type = DoctorType.GeneralPractitioner, Appointments = null, WorkingDays = _dt.DiscardRandomHoursString(),
+                             IsBlocked = false, IsMalicious = false, Password = "1234", PhoneNumber = "55-44-33", Role = "Doctor", Username = "doca2"},
+
+                new Doctor { Id = 12, FirstName = "Srdjan", LastName = "Tepavcevic", Address = "Nikole Tesle 5",
+                             Type = DoctorType.Specialist, Appointments = null, WorkingDays = _dt.DiscardRandomHoursString(),
+                             IsBlocked = false, IsMalicious = false, Password = "12345", PhoneNumber = "55-42-4-21", Role = "Doctor", Username = "doca3"},
+
+                new Doctor { Id = 13, FirstName = "Neven", LastName = "Milakovic", Address = "Vukasinova 69",
+                            Type = DoctorType.Specialist, Appointments = null, WorkingDays = _dt.DiscardRandomHoursString(),
+                            IsBlocked = false, IsMalicious = false, Password = "1234567", PhoneNumber = "7766-65-64", Role = "Doctor", Username = "doca66"}
+            );
+            
             modelBuilder.Entity<Patient>().HasData(
-                new Patient { Id = 1, FirstName = "Marko", LastName = "Simonovic", Role = "Patient",
+                new Patient { Id = 15, FirstName = "Marko", LastName = "Simonovic", Role = "Patient",
                                 Username = "maki", Password = "123", Address = "Tomiceva 22, Zrenjanin", Age = 15, Gender = "male",
-                                PhoneNumber = "+38122555333", IsBlocked = false, GeneralPractitionerId = 2, CancelledAppointments = 0, IsMalicious = false}
+                                PhoneNumber = "+38122555333", IsBlocked = false, GeneralPractitionerId = 11, CancelledAppointments = 0, IsMalicious = false}
                 );
 
             modelBuilder.Entity<Doctor>()
@@ -64,11 +75,13 @@ namespace HospitalApp.Models
 
             modelBuilder.Entity<Referral>()
                         .HasOne(s => s.Specialist)
-                        .WithMany(r => r.Referrals);
+                        .WithMany(r => r.Referrals)
+                        .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Referral>()
                         .HasOne(p => p.Patient)
-                        .WithOne(r => r.Referral);
+                        .WithOne(r => r.Referral)
+                         .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Patient>()
                         .HasMany(e => e.Appointments)

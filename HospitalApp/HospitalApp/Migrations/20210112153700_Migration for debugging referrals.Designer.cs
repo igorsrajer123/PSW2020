@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20201217133129_Migracija3")]
-    partial class Migracija3
+    [Migration("20210112153700_Migration for debugging referrals")]
+    partial class Migrationfordebuggingreferrals
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,16 +28,19 @@ namespace HospitalApp.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CancellationDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Date")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<string>("Time")
@@ -52,64 +55,6 @@ namespace HospitalApp.Migrations
                     b.ToTable("Appointment");
                 });
 
-            modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LastName")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.Property<string>("WorkingDays")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Doctor");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Aleksandar",
-                            IsDeleted = false,
-                            LastName = "Simonovic",
-                            Type = 1,
-                            WorkingDays = "2020-12-28 10 AM,2020-12-30 02 PM,2020-12-30 03 PM,2021-01-01 11 AM,2021-01-02 02 PM,2021-01-03 03 PM,2021-01-04 10 AM,2021-01-09 01 PM,2021-01-22 10 AM,2021-01-22 01 PM,2021-01-22 02 PM,2021-01-24 02 PM,2021-01-31 10 AM,2021-02-05 01 PM,2021-02-05 02 PM,2021-02-05 03 PM,2021-02-09 11 AM,2021-02-09 01 PM,2021-02-09 04 PM,2021-02-14 01 PM,2021-02-20 11 AM,2021-02-21 04 PM,2021-02-22 10 AM,2021-02-24 01 PM,2021-02-24 03 PM,2021-03-03 10 AM,2021-03-04 10 AM,2021-03-07 03 PM,2021-03-08 04 PM,2021-03-14 02 PM,2021-03-17 10 AM,2021-03-20 01 PM,2021-03-22 03 PM,2021-03-23 11 AM,2021-03-23 01 PM,2021-03-23 03 PM,2021-03-27 04 PM,2021-03-28 11 AM,2021-03-28 12 PM,2021-03-29 10 AM,2021-04-07 10 AM,2021-04-08 12 PM,2021-04-09 02 PM,2021-04-12 01 PM,2021-04-12 02 PM,2021-04-13 12 PM,2021-04-17 01 PM,2021-04-19 01 PM,2021-04-21 12 PM,2021-04-24 01 PM,2021-04-24 02 PM,2021-05-04 12 PM,2021-05-06 12 PM,2021-05-08 11 AM,2021-05-09 01 PM,2021-05-12 10 AM,2021-05-14 04 PM,2021-05-17 10 AM,2021-05-19 11 AM,2021-05-19 03 PM,2021-05-31 01 PM,2021-05-31 02 PM,2021-06-04 11 AM,2021-06-11 04 PM,2021-06-12 03 PM"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FirstName = "Dimitrije",
-                            IsDeleted = false,
-                            LastName = "Mijatovic",
-                            Type = 1,
-                            WorkingDays = "2020-12-18 12 PM,2020-12-19 12 PM,2020-12-23 03 PM,2020-12-26 04 PM,2020-12-27 02 PM,2020-12-29 11 AM,2020-12-30 12 PM,2020-12-31 12 PM,2021-01-07 02 PM,2021-01-08 12 PM,2021-01-13 10 AM,2021-01-14 11 AM,2021-01-15 10 AM,2021-01-15 02 PM,2021-01-16 10 AM,2021-01-16 11 AM,2021-01-16 12 PM,2021-01-16 03 PM,2021-01-23 12 PM,2021-01-24 03 PM,2021-02-02 01 PM,2021-02-09 10 AM,2021-02-14 01 PM,2021-02-16 01 PM,2021-02-24 01 PM,2021-02-25 11 AM,2021-02-25 03 PM,2021-03-01 04 PM,2021-03-08 02 PM,2021-03-14 12 PM,2021-03-17 12 PM,2021-03-19 01 PM,2021-03-20 11 AM,2021-03-21 11 AM,2021-03-22 11 AM,2021-03-23 01 PM,2021-03-25 01 PM,2021-03-25 04 PM,2021-03-27 11 AM,2021-03-31 01 PM,2021-04-01 04 PM,2021-04-02 12 PM,2021-04-07 03 PM,2021-04-13 12 PM,2021-04-18 02 PM,2021-04-19 10 AM,2021-04-22 10 AM,2021-04-23 03 PM,2021-04-28 03 PM,2021-04-30 12 PM,2021-05-02 12 PM,2021-05-05 02 PM,2021-05-07 01 PM,2021-05-07 02 PM,2021-05-09 12 PM,2021-05-11 04 PM,2021-05-14 03 PM,2021-05-16 10 AM,2021-05-18 10 AM,2021-05-18 02 PM,2021-05-25 02 PM,2021-05-25 03 PM,2021-06-03 12 PM,2021-06-05 12 PM,2021-06-09 12 PM"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FirstName = "Srdjan",
-                            IsDeleted = false,
-                            LastName = "Tepavcevic",
-                            Type = 0,
-                            WorkingDays = "2020-12-19 12 PM,2020-12-25 10 AM,2020-12-26 11 AM,2020-12-26 04 PM,2020-12-27 04 PM,2020-12-31 12 PM,2021-01-10 12 PM,2021-01-10 02 PM,2021-01-10 04 PM,2021-01-11 01 PM,2021-01-14 12 PM,2021-01-20 11 AM,2021-01-22 02 PM,2021-01-24 02 PM,2021-01-25 02 PM,2021-01-25 03 PM,2021-01-29 04 PM,2021-01-30 01 PM,2021-01-30 02 PM,2021-02-01 11 AM,2021-02-05 04 PM,2021-02-10 10 AM,2021-02-11 10 AM,2021-02-15 12 PM,2021-02-24 12 PM,2021-02-24 02 PM,2021-02-27 11 AM,2021-02-27 02 PM,2021-02-28 01 PM,2021-02-28 03 PM,2021-03-01 03 PM,2021-03-04 12 PM,2021-03-06 02 PM,2021-03-07 10 AM,2021-03-09 01 PM,2021-03-18 12 PM,2021-03-21 01 PM,2021-03-25 01 PM,2021-04-05 12 PM,2021-04-09 10 AM,2021-04-09 01 PM,2021-04-12 12 PM,2021-04-13 04 PM,2021-04-18 12 PM,2021-04-21 11 AM,2021-04-22 04 PM,2021-04-23 02 PM,2021-04-27 01 PM,2021-04-28 02 PM,2021-05-02 01 PM,2021-05-11 10 AM,2021-05-11 12 PM,2021-05-12 10 AM,2021-05-14 02 PM,2021-05-15 02 PM,2021-05-15 03 PM,2021-05-21 01 PM,2021-05-24 04 PM,2021-06-02 02 PM,2021-06-02 04 PM,2021-06-05 10 AM,2021-06-07 10 AM,2021-06-09 01 PM,2021-06-11 01 PM,2021-06-14 11 AM"
-                        });
-                });
-
             modelBuilder.Entity("HospitalApp.Models.Feedback", b =>
                 {
                     b.Property<int>("Id")
@@ -117,8 +62,8 @@ namespace HospitalApp.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Date")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -147,6 +92,9 @@ namespace HospitalApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
@@ -178,7 +126,10 @@ namespace HospitalApp.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMalicious")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
@@ -216,7 +167,8 @@ namespace HospitalApp.Migrations
                             Id = 5,
                             Address = "Visnjiceva 32, Beograd",
                             FirstName = "admin",
-                            IsDeleted = false,
+                            IsBlocked = false,
+                            IsMalicious = false,
                             LastName = "administratovic",
                             Password = "admin",
                             PhoneNumber = "+3811233212",
@@ -225,14 +177,89 @@ namespace HospitalApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
+                {
+                    b.HasBaseType("HospitalApp.Models.User");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("WorkingDays")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("Doctor");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 10,
+                            Address = "Marka Kraljevica 22",
+                            FirstName = "Aleksandar",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Simonovic",
+                            Password = "123",
+                            PhoneNumber = "555-333",
+                            Role = "Doctor",
+                            Username = "doca1",
+                            Type = 1,
+                            WorkingDays = "2021-01-18 04 PM,2021-01-23 02 PM,2021-01-20 11 AM,2021-01-16 10 AM,2021-02-05 04 PM,2021-02-03 03 PM,2021-02-15 11 AM,2021-01-31 02 PM,2021-02-15 04 PM,2021-02-21 11 AM,2021-02-09 04 PM,2021-02-13 10 AM,2021-02-16 10 AM,2021-03-05 10 AM,2021-02-25 10 AM,2021-02-22 04 PM,2021-02-25 02 PM,2021-03-12 04 PM,2021-03-12 02 PM,2021-03-22 12 PM,2021-03-09 04 PM,2021-03-16 04 PM,2021-04-02 02 PM,2021-03-29 04 PM,2021-04-01 11 AM,2021-04-04 02 PM,2021-04-09 11 AM,2021-04-02 04 PM,2021-04-12 02 PM,2021-04-15 12 PM,2021-05-06 11 AM,2021-04-19 03 PM,2021-05-03 11 AM,2021-05-08 10 AM,2021-04-27 01 PM,2021-05-29 10 AM,2021-05-29 04 PM,2021-05-03 03 PM,2021-05-25 04 PM,2021-06-02 11 AM,2021-06-02 12 PM,2021-06-01 12 PM,2021-06-09 10 AM,2021-06-14 01 PM,2021-06-11 04 PM,2021-06-14 11 AM,2021-06-17 04 PM,2021-06-18 02 PM,2021-06-21 10 AM,2021-06-27 02 PM,2021-07-01 03 PM,2021-07-04 12 PM,2021-07-06 01 PM"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Visnjiceva 2",
+                            FirstName = "Dimitrije",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Mijatovic",
+                            Password = "1234",
+                            PhoneNumber = "55-44-33",
+                            Role = "Doctor",
+                            Username = "doca2",
+                            Type = 1,
+                            WorkingDays = "2021-01-13 11 AM,2021-01-13 01 PM,2021-01-25 03 PM,2021-01-21 11 AM,2021-01-22 10 AM,2021-02-01 01 PM,2021-01-24 01 PM,2021-02-08 12 PM,2021-02-08 03 PM,2021-03-02 11 AM,2021-02-04 10 AM,2021-02-08 04 PM,2021-02-08 01 PM,2021-02-27 02 PM,2021-02-21 02 PM,2021-03-31 03 PM,2021-03-07 04 PM,2021-03-23 03 PM,2021-03-24 02 PM,2021-03-12 04 PM,2021-03-16 03 PM,2021-03-30 04 PM,2021-03-25 02 PM,2021-03-28 11 AM,2021-04-12 02 PM,2021-04-28 10 AM,2021-04-10 10 AM,2021-04-03 11 AM,2021-04-27 10 AM,2021-04-03 01 PM,2021-04-18 02 PM,2021-04-28 10 AM,2021-04-27 01 PM,2021-04-21 01 PM,2021-04-24 02 PM,2021-05-14 03 PM,2021-05-19 04 PM,2021-05-14 12 PM,2021-06-03 02 PM,2021-05-16 10 AM,2021-05-26 11 AM,2021-05-15 10 AM,2021-06-04 12 PM,2021-05-26 10 AM,2021-06-13 12 PM,2021-06-08 03 PM,2021-06-17 11 AM,2021-06-17 01 PM,2021-06-26 02 PM,2021-06-19 02 PM,2021-06-20 03 PM,2021-06-30 03 PM,2021-07-05 03 PM"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Nikole Tesle 5",
+                            FirstName = "Srdjan",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Tepavcevic",
+                            Password = "12345",
+                            PhoneNumber = "55-42-4-21",
+                            Role = "Doctor",
+                            Username = "doca3",
+                            Type = 0,
+                            WorkingDays = "2021-01-12 04 PM,2021-01-16 03 PM,2021-01-19 12 PM,2021-02-02 12 PM,2021-01-17 03 PM,2021-01-27 01 PM,2021-02-02 04 PM,2021-01-22 04 PM,2021-02-06 12 PM,2021-02-11 02 PM,2021-02-03 04 PM,2021-03-01 11 AM,2021-03-10 03 PM,2021-02-12 12 PM,2021-03-10 02 PM,2021-02-28 04 PM,2021-03-15 01 PM,2021-03-13 12 PM,2021-03-11 10 AM,2021-03-29 10 AM,2021-04-28 12 PM,2021-03-08 11 AM,2021-03-08 04 PM,2021-03-23 03 PM,2021-03-24 12 PM,2021-03-29 03 PM,2021-03-30 12 PM,2021-04-22 03 PM,2021-05-01 11 AM,2021-04-07 12 PM,2021-04-21 04 PM,2021-05-07 10 AM,2021-05-07 10 AM,2021-05-17 10 AM,2021-05-13 12 PM,2021-05-27 02 PM,2021-04-29 12 PM,2021-05-25 12 PM,2021-05-30 02 PM,2021-06-03 10 AM,2021-05-13 10 AM,2021-05-27 11 AM,2021-05-27 01 PM,2021-06-04 04 PM,2021-05-31 04 PM,2021-06-12 10 AM,2021-06-16 01 PM,2021-06-04 01 PM,2021-06-18 10 AM,2021-07-02 04 PM,2021-06-30 10 AM,2021-07-06 01 PM,2021-07-07 03 PM"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Vukasinova 69",
+                            FirstName = "Neven",
+                            IsBlocked = false,
+                            IsMalicious = false,
+                            LastName = "Milakovic",
+                            Password = "1234567",
+                            PhoneNumber = "7766-65-64",
+                            Role = "Doctor",
+                            Username = "doca66",
+                            Type = 0,
+                            WorkingDays = "2021-01-12 11 AM,2021-01-17 12 PM,2021-01-24 11 AM,2021-01-30 10 AM,2021-02-15 10 AM,2021-01-29 01 PM,2021-01-24 12 PM,2021-02-11 10 AM,2021-02-09 11 AM,2021-02-20 10 AM,2021-02-17 10 AM,2021-02-25 01 PM,2021-02-01 01 PM,2021-02-11 02 PM,2021-03-20 11 AM,2021-03-13 11 AM,2021-03-18 01 PM,2021-03-08 12 PM,2021-03-13 01 PM,2021-03-31 03 PM,2021-03-24 01 PM,2021-03-27 11 AM,2021-04-02 12 PM,2021-04-12 02 PM,2021-04-15 02 PM,2021-04-29 04 PM,2021-03-24 12 PM,2021-04-25 04 PM,2021-04-08 12 PM,2021-04-20 10 AM,2021-05-04 11 AM,2021-05-02 01 PM,2021-04-13 12 PM,2021-05-14 03 PM,2021-05-02 10 AM,2021-05-27 12 PM,2021-05-23 04 PM,2021-05-30 01 PM,2021-05-18 01 PM,2021-06-05 12 PM,2021-06-08 02 PM,2021-05-28 10 AM,2021-06-07 04 PM,2021-06-03 10 AM,2021-06-06 12 PM,2021-06-11 04 PM,2021-06-09 12 PM,2021-06-19 02 PM,2021-06-25 04 PM,2021-07-02 03 PM,2021-07-02 12 PM,2021-06-30 02 PM,2021-07-04 01 PM"
+                        });
+                });
+
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>
                 {
                     b.HasBaseType("HospitalApp.Models.User");
 
-                    b.Property<int?>("AdministratorId")
+                    b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
+                    b.Property<int>("CancelledAppointments")
                         .HasColumnType("int");
 
                     b.Property<string>("Gender")
@@ -242,32 +269,9 @@ namespace HospitalApp.Migrations
                     b.Property<int?>("GeneralPractitionerId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsBlocked")
-                        .HasColumnType("bit");
-
-                    b.HasIndex("AdministratorId");
-
                     b.HasIndex("GeneralPractitionerId");
 
                     b.ToTable("Patient");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Tomiceva 22, Zrenjanin",
-                            FirstName = "Marko",
-                            IsDeleted = false,
-                            LastName = "Simonovic",
-                            Password = "123",
-                            PhoneNumber = "+38122555333",
-                            Role = "Patient",
-                            Username = "maki",
-                            Age = 15,
-                            Gender = "male",
-                            GeneralPractitionerId = 2,
-                            IsBlocked = false
-                        });
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Appointment", b =>
@@ -328,12 +332,17 @@ namespace HospitalApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("HospitalApp.Models.Doctor", b =>
+                {
+                    b.HasOne("HospitalApp.Models.User", null)
+                        .WithOne()
+                        .HasForeignKey("HospitalApp.Models.Doctor", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>
                 {
-                    b.HasOne("HospitalApp.Models.Administrator", "BlockedBy")
-                        .WithMany("BlockedUsers")
-                        .HasForeignKey("AdministratorId");
-
                     b.HasOne("HospitalApp.Models.Doctor", "GeneralPractitioner")
                         .WithMany("Patients")
                         .HasForeignKey("GeneralPractitionerId");
@@ -343,8 +352,6 @@ namespace HospitalApp.Migrations
                         .HasForeignKey("HospitalApp.Models.Patient", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
-
-                    b.Navigation("BlockedBy");
 
                     b.Navigation("GeneralPractitioner");
                 });
@@ -356,11 +363,6 @@ namespace HospitalApp.Migrations
                     b.Navigation("Patients");
 
                     b.Navigation("Referrals");
-                });
-
-            modelBuilder.Entity("HospitalApp.Models.Administrator", b =>
-                {
-                    b.Navigation("BlockedUsers");
                 });
 
             modelBuilder.Entity("HospitalApp.Models.Patient", b =>

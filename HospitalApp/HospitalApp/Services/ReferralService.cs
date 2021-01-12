@@ -2,6 +2,7 @@
 using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,8 +40,7 @@ namespace HospitalApp.Services
 
         public ReferralDto Add(ReferralDto referralDto)
         {
-            if (referralDto == null)
-                return null;
+            if (referralDto == null) return null;
 
             Referral referral = ReferralAdapter.ReferralDtoToReferral(referralDto);
             GivePatientReferral(_dbContext.Patients.SingleOrDefault(patient => patient.Id == referralDto.PatientId), referral);
@@ -73,12 +73,9 @@ namespace HospitalApp.Services
                                                         referral.PatientId == appointment.Patient.Id && 
                                                         referral.SpecialistId == appointment.DoctorId);
 
-            if (myReferral == null)
-                return null;
+            if (myReferral == null) return null;
 
-            return ReferralAdapter.ReferralToReferralDto(_dbContext.Referrals.SingleOrDefault(referral => 
-                                                                                referral.PatientId == appointment.Patient.Id && 
-                                                                                referral.SpecialistId == appointment.DoctorId));
+            return ReferralAdapter.ReferralToReferralDto(myReferral);
         }
     }
 }

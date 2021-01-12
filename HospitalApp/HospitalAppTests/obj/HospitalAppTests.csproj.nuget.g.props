@@ -24,6 +24,7 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Super User\.nuget\packages\xunit.analyzers\0.10.0</Pkgxunit_analyzers>
+    <PkgReportGenerator Condition=" '$(PkgReportGenerator)' == '' ">C:\Users\Super User\.nuget\packages\reportgenerator\4.8.4</PkgReportGenerator>
     <PkgOpenCover Condition=" '$(PkgOpenCover)' == '' ">C:\Users\Super User\.nuget\packages\opencover\4.7.922</PkgOpenCover>
   </PropertyGroup>
 </Project>

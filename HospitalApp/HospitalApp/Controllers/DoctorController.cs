@@ -57,26 +57,6 @@ namespace HospitalApp.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        [Route("/deleteDoctor/{id}")]
-        public IActionResult Delete(int id)
-        { 
-            if (_doctorService.DeleteById(id) == null)
-                return NotFound();
-
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("/updateDoctor/{id}")]
-        public IActionResult Update(int id, DoctorDto doctorDto)
-        {
-            if (_doctorService.UpdateById(id, doctorDto) == null)
-                return NotFound();
-
-            return Ok();
-        }
-
         [HttpGet]
         [Route("/getGeneralPractitioner/{patientId}")]
         public IActionResult GetGeneralPractitioner(int patientId)
@@ -95,6 +75,16 @@ namespace HospitalApp.Controllers
                 return NotFound();
 
             return Ok(_doctorService.GetSpecialist(patientId));
+        }
+
+        [HttpGet]
+        [Route("/getAllSpecialists")]
+        public IActionResult GetAllSpecialists()
+        {
+            if (_doctorService.GetAllSpecialists() == null)
+                return NotFound();
+
+            return Ok(_doctorService.GetAllSpecialists());
         }
     }
 }

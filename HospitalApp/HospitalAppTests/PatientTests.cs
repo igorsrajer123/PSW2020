@@ -1,4 +1,5 @@
-﻿using HospitalApp.Contracts;
+﻿using HospitalApp.Adapters;
+using HospitalApp.Contracts;
 using HospitalApp.Controllers;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
@@ -25,6 +26,42 @@ namespace HospitalAppTests
             ConvertToList(actionResult).ShouldBeEquivalentTo(CreatePatients());
         }
 
+        [Fact]
+        public void Get_by_id()
+        {
+            PatientDto myPatient = CreatePatients().Find(p => p.Id == 1);
+            PatientController controller = new PatientController(SetupRepository(myPatient, null).Object);
+
+            var actionResult = controller.GetById(myPatient.Id);
+
+            ConvertToObject(actionResult).ShouldBeEquivalentTo(myPatient);
+        }
+
+        [Fact]
+        public void Add_patient()
+        {
+            PatientDto myPatient = CreatePatient();
+            Patient convertedPatient = PatientAdapter.PatientDtoToPatient(myPatient);
+            PatientController controller = new PatientController(SetupRepository(myPatient, convertedPatient).Object);
+
+            var actionResult = controller.Add(convertedPatient);
+
+            ConvertToObject(actionResult).ShouldBeEquivalentTo(myPatient);
+        }
+
+        [Fact]
+        public void Set_general_practitioner()
+        {
+            PatientDto myPatient = CreatePatients().Find(p => p.Id == 1);
+            myPatient.GeneralPractitionerId = 1;
+            PatientController controller = new PatientController(SetupRepository(myPatient, null).Object);
+
+            var actionResult = controller.SetGeneralPractitioner(myPatient.Id, 1);
+
+            Assert.NotNull(ConvertToObject(actionResult));
+            //ConvertToObject(actionResult).ShouldBe(myPatient);
+        }
+
         private List<PatientDto> CreatePatients()
         {
             var patients = new List<PatientDto>();
@@ -41,7 +78,8 @@ namespace HospitalAppTests
                 LastName = "Mihic",
                 Username = "mika123",
                 PhoneNumber = "555-333",
-                Gender = "Male"
+                Gender = "Male",
+                GeneralPractitionerId = 2
             };
 
             PatientDto mitar = new PatientDto
@@ -56,7 +94,8 @@ namespace HospitalAppTests
                 LastName = "Miric",
                 Username = "mitar123",
                 PhoneNumber = "555-333",
-                Gender = "Male"
+                Gender = "Male",
+                GeneralPractitionerId = 2
             };
 
             patients.Add(mika);
@@ -115,6 +154,12 @@ namespace HospitalAppTests
                     break;
                 case "Get_by_id":
                     repository.Setup(m => m.GetById(patient.Id)).Returns(patient);
+                    break;
+                case "Add_patient":
+                    repository.Setup(m => m.Add(convertedPatient)).Returns(patient);
+                    break;
+                case "Set_general_practitioner":
+                    repository.Setup(m => m.SetGeneralPractitioner(patient.Id, 1)).Returns(patient);
                     break;
                 default:
                     Console.WriteLine("Error");

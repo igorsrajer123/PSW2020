@@ -15,38 +15,67 @@ function welcomeMessage(user){
 }
 
 function userOptions(user){
-    if(user == undefined){
-        $("#appointment").show();
-        $("#login").show();
-        $("#register").show();
-        $("#logout").hide();
-        $("#profile").hide();
-        $("#users").hide();
-        $("#pickPractitioner").hide();
-        $("#viewAppointments").hide();
-        $("#giveFeedback").hide();
-        $("#feedbacks").hide();
-    }else if(user.role == "Patient"){
-        $("#appointment").show();
-        $("#logout").show();
-        $("#users").hide();
-        $("#login").hide();
-        $("#register").hide();
-        $("#pickPractitioner").show();
-        $("#viewAppointments").show();
-        $("#giveFeedback").hide();
-        $("#feedbacks").hide();
-    }else {
-        $("#pickPractitioner").hide();
-        $("#appointment").hide();
-        $("#logout").show();
-        $("#users").show();
-        $("#login").hide();
-        $("#register").hide();
-        $("#viewAppointments").hide();
-        $("#giveFeedback").hide();
-        $("#feedbacks").show();
-    }
+    if(user == undefined)
+        showUnidentifiedUserOptions();
+    else if(user.role == "Patient")
+        showPatientOptions();
+    else if(user.role == "Administrator")
+        showAdministratorOptions();
+    else if(user.role == "Doctor")
+        showDoctorOptions();
+}
+
+function showUnidentifiedUserOptions(){
+    $("#appointment").show();
+    $("#login").show();
+    $("#register").show();
+    $("#logout").hide();
+    $("#profile").hide();
+    $("#users").hide();
+    $("#pickPractitioner").hide();
+    $("#viewAppointments").hide();
+    $("#giveFeedback").hide();
+    $("#feedbacks").hide();
+    $("#doctorsAppointments").hide();
+}
+
+function showPatientOptions(){
+    $("#appointment").show();
+    $("#logout").show();
+    $("#users").hide();
+    $("#login").hide();
+    $("#register").hide();
+    $("#pickPractitioner").show();
+    $("#viewAppointments").show();
+    $("#giveFeedback").hide();
+    $("#feedbacks").hide();
+    $("#doctorsAppointments").hide();
+}
+
+function showAdministratorOptions(){
+    $("#pickPractitioner").hide();
+    $("#appointment").hide();
+    $("#logout").show();
+    $("#users").show();
+    $("#login").hide();
+    $("#register").hide();
+    $("#viewAppointments").hide();
+    $("#giveFeedback").hide();
+    $("#feedbacks").show();
+    $("#doctorsAppointments").hide();
+}
+
+function showDoctorOptions(){
+    $("#pickPractitioner").hide();
+    $("#appointment").hide();
+    $("#logout").show();
+    $("#users").hide();
+    $("#login").hide();
+    $("#register").hide();
+    $("#viewAppointments").hide();
+    $("#giveFeedback").hide();
+    $("#feedbacks").hide();
+    $("#doctorsAppointments").show();
 }
 
 function redirectUser(user){
@@ -63,20 +92,22 @@ function redirectUser(user){
 
     $("#pickPractitioner").click(function(event){
         event.preventDefault();
-
-        window.location.href="chooseDoctor.html";
+        window.location.href = "chooseDoctor.html";
     });
 
     $("#viewAppointments").click(function(event){
         event.preventDefault();
-
-        window.location.href="patientAppointments.html";
+        window.location.href = "patientAppointments.html";
     });
 
     $("#giveFeedback").click(function(event){
         event.preventDefault();
+        window.location.href = "giveFeedback.html";
+    });
 
-        window.location.href="giveFeedback.html";
+    $("#doctorsAppointments").click(function(event){
+        event.preventDefault();
+        window.location.href = "doctorAppointments.html";
     });
 }
 
@@ -88,6 +119,7 @@ function getCurrentUser(){
             welcomeMessage(data.responseJSON);
             userOptions(data.responseJSON);
             redirectUser(data.responseJSON);
+         if(data.role == "Patient")
             checkForUserFeedbackOption(data.responseJSON);
         }
     });

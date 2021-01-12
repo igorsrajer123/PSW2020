@@ -14,20 +14,9 @@ namespace HospitalApp.Models
     }
 
     [Table("Doctor")]
-    public class Doctor
+    public class Doctor : User
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [MaxLength(25)]
-        public string FirstName { get; set; }
-
-        [MaxLength(25)]
-        public string LastName { get; set; }
-
         public DoctorType Type { get; set; }
-
-        public bool IsDeleted { get; set; } 
 
         public virtual List<Appointment> Appointments { get; set; }
 

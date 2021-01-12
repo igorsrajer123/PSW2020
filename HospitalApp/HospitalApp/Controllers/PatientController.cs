@@ -18,7 +18,6 @@ namespace HospitalApp.Controllers
     public class PatientController : ControllerBase
     {
         private IPatientService _patientService;
-        private IDoctorService _doctorService;
 
         public PatientController(IPatientService patientService)
         {
@@ -44,12 +43,12 @@ namespace HospitalApp.Controllers
 
         [HttpGet]
         [Route("/getPatientById/{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById(int patientId)
         {
-            if (_patientService.GetById(id) == null)
+            if (_patientService.GetById(patientId) == null)
                 return NotFound();
 
-            return Ok(_patientService.GetById(id));
+            return Ok(_patientService.GetById(patientId));
         }
 
         [Authorize(Roles = "Patient")]
@@ -60,7 +59,16 @@ namespace HospitalApp.Controllers
             if (_patientService.SetGeneralPractitioner(patientId, doctorId) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(_patientService.GetById(patientId));
+        }
+        [HttpGet]
+        [Route("/getAppointmentPatient/{appointmentId}")]
+        public IActionResult GetAppointmentPatient(int appointmentId)
+        {
+            if (_patientService.GetAppointmentPatient(appointmentId) == null)
+                return NotFound();
+
+            return Ok(_patientService.GetAppointmentPatient(appointmentId));
         }
     }
 }

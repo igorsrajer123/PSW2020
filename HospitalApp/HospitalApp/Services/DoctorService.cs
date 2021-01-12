@@ -59,31 +59,6 @@ namespace HospitalApp.Services
             return doctorDto;
         }
 
-        public DoctorDto DeleteById(int doctorId)
-        {
-            Doctor myDoctor = _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == doctorId);
-
-            if (myDoctor == null)
-                return null;
-
-            myDoctor.IsDeleted = true;
-            _dbContext.SaveChanges();
-
-            return DoctorAdapter.DoctorToDoctorDto(myDoctor);
-        }
-
-        public DoctorDto UpdateById(int doctorId, DoctorDto doctorDto)
-        {
-            Doctor myDoctor = _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == doctorId);
-
-            if (myDoctor == null)
-                return null;
-
-            SetDoctorData(myDoctor, doctorDto);
-
-            return DoctorAdapter.DoctorToDoctorDto(myDoctor);
-        }
-
         public DoctorDto GetGeneralPractitioner(int patientId)
         {
             Patient myPatient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
@@ -107,14 +82,14 @@ namespace HospitalApp.Services
             return DoctorAdapter.DoctorToDoctorDto(_dbContext.Doctors.FirstOrDefault(doctor => doctor.Id == myPatient.Referral.SpecialistId));
         }
 
-        public void SetDoctorData(Doctor oldValues, DoctorDto newValues)
+        public List<DoctorDto> GetAllSpecialists()
         {
-            oldValues.FirstName = newValues.FirstName;
-            oldValues.LastName = newValues.LastName;
-            oldValues.IsDeleted = newValues.IsDeleted;
-            oldValues.Type = newValues.Type;
+           List<DoctorDto> myDoctors = new List<DoctorDto>();
+           List<Doctor> doctors = _dbContext.Doctors.Where(doctor => doctor.Type == DoctorType.Specialist).ToList();
 
-            _dbContext.SaveChanges();
+           doctors.ForEach(doctor => myDoctors.Add(DoctorAdapter.DoctorToDoctorDto(doctor)));
+
+           return myDoctors;
         }
     }
 }

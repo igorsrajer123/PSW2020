@@ -16,5 +16,7 @@ namespace HospitalApp.Contracts
         PatientDto Add(Patient patient);
 
         PatientDto SetGeneralPractitioner(int patientId, int doctorId);
+
+        PatientDto GetAppointmentPatient(int appointmentId);
     }
 }

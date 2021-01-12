@@ -32,7 +32,7 @@ namespace HospitalApp.Controllers
             return Ok(_userService.GetById(userId));
         }
 
-        [Authorize(Roles = "Administrator, Patient")]
+        [Authorize(Roles = "Administrator, Patient, Doctor")]
         [HttpPut]
         [Route("/updateUser/{id}")]
         public IActionResult UpdateById(int id, User user)

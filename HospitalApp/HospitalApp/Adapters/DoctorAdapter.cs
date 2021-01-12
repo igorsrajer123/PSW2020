@@ -14,10 +14,15 @@ namespace HospitalApp.Adapters
             Doctor doctor = new Doctor
             {
                 Id = doctorDto.Id,
+                Username = doctorDto.Username,
                 FirstName = doctorDto.FirstName,
                 LastName = doctorDto.LastName,
+                IsBlocked = doctorDto.IsBlocked,
+                IsMalicious = doctorDto.IsMalicious,
+                PhoneNumber = doctorDto.PhoneNumber,
+                Role = doctorDto.Role,
+                Address = doctorDto.Address,
                 Type = doctorDto.Type,
-                IsDeleted = doctorDto.IsDeleted,
                 WorkingDays = doctorDto.WorkingDays
             };
 
@@ -29,10 +34,15 @@ namespace HospitalApp.Adapters
             DoctorDto doctorDto = new DoctorDto
             {
                 Id = doctor.Id,
+                Username = doctor.Username,
                 FirstName = doctor.FirstName,
                 LastName = doctor.LastName,
+                IsBlocked = doctor.IsBlocked,
+                IsMalicious = doctor.IsMalicious,
+                PhoneNumber = doctor.PhoneNumber,
+                Role = doctor.Role,
+                Address = doctor.Address,
                 Type = doctor.Type,
-                IsDeleted = doctor.IsDeleted,
                 WorkingDays = doctor.WorkingDays
             };
 

@@ -13,6 +13,7 @@ namespace HospitalApp.Adapters
         {
             Patient patient = new Patient
             {
+                Id = patientDto.Id,
                 Address = patientDto.Address,
                 FirstName = patientDto.FirstName,
                 LastName = patientDto.LastName,
@@ -34,6 +35,7 @@ namespace HospitalApp.Adapters
         {
             PatientDto patientDto = new PatientDto
             {
+                Id = patient.Id,
                 Address = patient.Address,
                 FirstName = patient.FirstName,
                 LastName = patient.LastName,

@@ -47,6 +47,16 @@ namespace HospitalApp.Controllers
             return Ok(_appointmentService.GetPatientAppointments(patientId));
         }
 
+        [HttpGet]
+        [Route("/getDoctorAppointments/{doctorId}")]
+        public IActionResult GetDoctorAppointments(int doctorId)
+        {
+            if (_appointmentService.GetDoctorAppointments(doctorId) == null)
+                return NotFound();
+
+            return Ok(_appointmentService.GetDoctorAppointments(doctorId));
+        }
+
         [HttpPut]
         [Route("/cancelAppointment/{appointmentId}")]
         public IActionResult CancelAppointment(int appointmentId)
@@ -66,6 +76,17 @@ namespace HospitalApp.Controllers
 
             return Ok();
         }
+
+        [HttpPut]
+        [Route("/finishAppointment/{appointmentId}")]
+        public IActionResult FinishAppointment(int appointmentId)
+        {
+            if (_appointmentService.FinishAppointment(appointmentId) == null)
+                return NotFound();
+
+            return Ok();
+        }
+
 
 
     }

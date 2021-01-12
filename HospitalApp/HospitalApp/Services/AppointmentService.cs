@@ -2,10 +2,10 @@
 using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace HospitalApp.Services
 {
@@ -31,13 +31,13 @@ namespace HospitalApp.Services
 
         public AppointmentDto Add(AppointmentDto appointmentDto)
         {
-            if (appointmentDto == null)
-                return null;
+            if (appointmentDto == null) return null;
 
             Appointment myAppointment = AppointmentAdapter.AppointmentDtoToAppointment(appointmentDto);
             myAppointment.Status = AppointmentStatus.Active;
             _dbContext.Patients.SingleOrDefault(patient => patient.Id == myAppointment.PatientId).Appointments.Add(myAppointment);
-           
+            _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId).Appointments.Add(myAppointment);
+
             RemoveDoctorsActiveAppointmentDate(_dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId), myAppointment);
             _dbContext.Appointments.Add(myAppointment);
             _dbContext.SaveChanges();
@@ -49,15 +49,36 @@ namespace HospitalApp.Services
         {
             Patient myPatient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
 
-            if (myPatient == null)
-                return null;
+            if (myPatient == null) return null;
 
-            return myPatient.Appointments.Select(appointment => new AppointmentDto() { Id = appointment.Id,
-                                                                                       DoctorId = appointment.DoctorId,
-                                                                                       Date = appointment.Date,
-                                                                                       Time = appointment.Time,
-                                                                                       PatientId = appointment.PatientId,
-                                                                                       Status = appointment.Status }).ToList();
+            return myPatient.Appointments.Select(appointment => new AppointmentDto() 
+            { 
+                Id = appointment.Id,
+                DoctorId = appointment.DoctorId,
+                Date = appointment.Date,
+                Time = appointment.Time,
+                PatientId = appointment.PatientId,
+                Status = appointment.Status,
+                CancellationDate = appointment.CancellationDate
+            }).ToList();
+        }
+
+        public List<AppointmentDto> GetDoctorAppointments(int doctorId)
+        {
+            Doctor myDoctor = _dbContext.Doctors.FirstOrDefault(doctor => doctor.Id == doctorId);
+
+            if (myDoctor == null) return null;
+
+            return myDoctor.Appointments.Select(appointment => new AppointmentDto()
+            {
+                Id = appointment.Id,
+                DoctorId = appointment.DoctorId,
+                Date = appointment.Date,
+                Time = appointment.Time,
+                PatientId = appointment.PatientId,
+                Status = appointment.Status,
+                CancellationDate = appointment.CancellationDate
+            }).ToList();
         }
 
         public AppointmentDto CancelAppointment(int appointmentId)
@@ -92,7 +113,7 @@ namespace HospitalApp.Services
 
         public void RemoveDoctorsActiveAppointmentDate(Doctor doctor, Appointment appointment)
         {
-            string myDate = doctor.WorkingDays.SingleOrDefault(d => d.Replace(" ", string.Empty) == GetAppointmentFullDateString(appointment).Replace(" ", string.Empty));
+            string myDate = doctor.WorkingDays.FirstOrDefault(d => d.Replace(" ", string.Empty) == GetAppointmentFullDateString(appointment).Replace(" ", string.Empty));
             doctor.WorkingDays = doctor.WorkingDays.Where(w => w != myDate).ToArray();
             doctor.Appointments.Add(appointment);
         }
@@ -111,12 +132,12 @@ namespace HospitalApp.Services
                 patient.IsMalicious = true;
         }
 
+        //appointment is set to "Done" when it's date expires
         public AppointmentDto SetAppointmentDone(int appointmentId)
         {
             Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
 
-            if (myAppointment == null)
-                return null;
+            if (myAppointment == null) return null;
 
             if(DateTime.Parse(GetAppointmentFullDateString(myAppointment)) < DateTime.Today && myAppointment.Status != AppointmentStatus.Cancelled)
             {
@@ -125,6 +146,20 @@ namespace HospitalApp.Services
                 _dbContext.SaveChanges();
             }
 
+            return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
+        }
+
+        //doctor can set appointment to "Done"
+        public AppointmentDto FinishAppointment(int appointmentId)
+        {
+            Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
+
+            if (myAppointment == null) return null;
+
+            SetAppointmentsReferralDeleted(myAppointment);
+            myAppointment.Status = AppointmentStatus.Done;
+            _dbContext.SaveChanges();
+        
             return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
         }
 
@@ -140,8 +175,15 @@ namespace HospitalApp.Services
 
         public void SetAppointmentsReferralDeleted(Appointment appointment)
         {
+      
             if (_referralService.GetAppointmentsReferral(appointment) != null)
-                ReferralAdapter.ReferralDtoToReferral(_referralService.GetAppointmentsReferral(appointment)).IsDeleted = true; 
+            {
+                Referral referal1 = ReferralAdapter.ReferralDtoToReferral(_referralService.GetAppointmentsReferral(appointment));
+                Referral referal2 = _dbContext.Referrals.SingleOrDefault(referral => referral.Id == refa2.Id);
+                referal2.IsDeleted = true;
+                _dbContext.SaveChanges();
+            }
+                
         }
     }
 }

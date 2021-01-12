@@ -76,5 +76,15 @@ namespace HospitalApp.Services
 
             return PatientAdapter.PatientToPatientDto(myPatient);
         }
+
+        public PatientDto GetAppointmentPatient(int appointmentId)
+        {
+            Appointment appointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
+            Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == appointment.PatientId);
+
+            if (myPatient == null) return null;
+
+            return PatientAdapter.PatientToPatientDto(myPatient);
+        }
     }
 }
