@@ -1,7 +1,7 @@
 ﻿using HospitalApp.Adapters;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
-using HospitalApp.Repositories;
+using HospitalApp.Contracts;
 using System;
 using System.Collections.Generic;
 using HospitalApp.DateTimeLogic;
@@ -31,8 +31,7 @@ namespace HospitalApp.Services
         {
             Doctor myDoctor = _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == doctorId);
 
-            if (myDoctor == null)
-                return null;
+            if (myDoctor == null) return null;
 
             return DoctorAdapter.DoctorToDoctorDto(myDoctor);
         }
@@ -49,8 +48,7 @@ namespace HospitalApp.Services
 
         public DoctorDto Add(DoctorDto doctorDto)
         {
-            if (doctorDto == null)
-                return null;
+            if (doctorDto == null) return null;
 
             Doctor doctor = DoctorAdapter.DoctorDtoToDoctor(doctorDto);
             _dbContext.Doctors.Add(doctor);

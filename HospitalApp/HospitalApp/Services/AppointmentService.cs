@@ -29,6 +29,15 @@ namespace HospitalApp.Services
             return myAppointments;
         }
 
+        public AppointmentDto GetById(int appointmentId)
+        {
+            Appointment appointment = _dbContext.Appointments.SingleOrDefault(a => a.Id == appointmentId);
+
+            if (appointment == null) return null;
+
+            return AppointmentAdapter.AppointmentToAppointmentDto(appointment);
+        }
+
         public AppointmentDto Add(AppointmentDto appointmentDto)
         {
             if (appointmentDto == null) return null;
@@ -179,7 +188,7 @@ namespace HospitalApp.Services
             if (_referralService.GetAppointmentsReferral(appointment) != null)
             {
                 Referral referal1 = ReferralAdapter.ReferralDtoToReferral(_referralService.GetAppointmentsReferral(appointment));
-                Referral referal2 = _dbContext.Referrals.SingleOrDefault(referral => referral.Id == refa2.Id);
+                Referral referal2 = _dbContext.Referrals.SingleOrDefault(referral => referral.Id == referal1.Id);
                 referal2.IsDeleted = true;
                 _dbContext.SaveChanges();
             }

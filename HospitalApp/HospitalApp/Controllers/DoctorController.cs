@@ -2,7 +2,7 @@
 using HospitalApp.DateTimeLogic;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
-using HospitalApp.Repositories;
+using HospitalApp.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace HospitalApp.Controllers
             if (_doctorService.Add(doctorDto) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(doctorDto);
         }
 
         [HttpGet]

@@ -1,0 +1,54 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:01.75]     HospitalAppTests.PatientTests.Set_general_practitioner [FAIL]
+  Failed HospitalAppTests.PatientTests.Set_general_practitioner [10 ms]
+  Error Message:
+   Assert.NotNull() Failure
+  Stack Trace:
+     at HospitalAppTests.PatientTests.Set_general_practitioner() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\PatientTests.cs:line 61
+[xUnit.net 00:00:10.62]     HospitalAppTests.ServicesTests.UserServiceTests.Block_user [FAIL]
+[xUnit.net 00:00:10.64]     HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users [FAIL]
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Block_user [44 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalApp.Services.UserService.BlockUser(Int32 userId) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\UserService.cs:line 59
+   at HospitalAppTests.ServicesTests.UserServiceTests.Block_user() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 46
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users [12 ms]
+  Error Message:
+   System.ArgumentException : An item with the same key has already been added. Key: 10
+  Stack Trace:
+     at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Create(IUpdateEntry entry)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at HospitalAppTests.ServicesTests.InMemoryDatabase.CreateUsers() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\InMemoryDatabase.cs:line 53
+   at HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 28
+Failed!  - Failed:     3, Passed:    49, Skipped:     0, Total:    52, Duration: 14 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalApp      | 47.67% | 24.11% | 57.58% |
++------------------+--------+--------+--------+
+| HospitalAppTests | 96.45% | 91.02% | 97.65% |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 72.05% | 45.16% | 72.15% |
++---------+--------+--------+--------+
+| Average | 72.06% | 57.56% | 77.61% |
++---------+--------+--------+--------+
+

@@ -1,0 +1,50 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:01.80]     HospitalAppTests.PatientTests.Set_general_practitioner [FAIL]
+  Failed HospitalAppTests.PatientTests.Set_general_practitioner [17 ms]
+  Error Message:
+   Assert.NotNull() Failure
+  Stack Trace:
+     at HospitalAppTests.PatientTests.Set_general_practitioner() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\PatientTests.cs:line 61
+[xUnit.net 00:00:11.52]     HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient [FAIL]
+  Failed HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient [10 s]
+  Error Message:
+   System.InvalidOperationException : An exception was thrown while attempting to evaluate a LINQ query parameter expression. See the inner exception for more information. To show additional information call 'DbContextOptionsBuilder.EnableSensitiveDataLogging'.
+---- System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, String& parameterName)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, Boolean generateParameter)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Linq.Expressions.ExpressionVisitor.VisitLambda[T](Expression`1 node)
+   at System.Linq.Expressions.Expression`1.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at System.Linq.Expressions.UnaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.ExtractParameters(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExtractParameters(Expression query, IParameterValues parameterValues, IDiagnosticsLogger`1 logger, Boolean parameterize, Boolean generateContextAccessors)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at HospitalApp.Services.PatientService.GetAppointmentPatient(Int32 appointmentId) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\PatientService.cs:line 81
+   at HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 54
+----- Inner Stack Trace -----
+   at lambda_method(Closure )
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, String& parameterName)
+Failed!  - Failed:     2, Passed:    62, Skipped:     0, Total:    64, Duration: 46 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+One or more errors occurred. (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.)

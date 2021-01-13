@@ -1,7 +1,6 @@
 using HospitalApp.Contracts;
 using HospitalApp.Handlers;
 using HospitalApp.Models;
-using HospitalApp.Repositories;
 using HospitalApp.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;

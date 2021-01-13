@@ -2,7 +2,6 @@
 using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
-using HospitalApp.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

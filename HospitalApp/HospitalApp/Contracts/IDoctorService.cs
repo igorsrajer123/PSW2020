@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HospitalApp.Repositories
+namespace HospitalApp.Contracts
 {
     public interface IDoctorService
     {

@@ -10,6 +10,8 @@ namespace HospitalApp.Contracts
     {
         public List<AppointmentDto> GetAll();
 
+        public AppointmentDto GetById(int appointmentId);
+
         public AppointmentDto Add(AppointmentDto appointmentDto);
 
         public List<AppointmentDto> GetPatientAppointments(int patientId);

@@ -1,0 +1,48 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:01.86]     HospitalAppTests.PatientTests.Set_general_practitioner [FAIL]
+  Failed HospitalAppTests.PatientTests.Set_general_practitioner [55 ms]
+  Error Message:
+   Assert.NotNull() Failure
+  Stack Trace:
+     at HospitalAppTests.PatientTests.Set_general_practitioner() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\PatientTests.cs:line 61
+[xUnit.net 00:00:10.38]     HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users [FAIL]
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users [1 ms]
+  Error Message:
+   System.ArgumentException : An item with the same key has already been added. Key: 5
+  Stack Trace:
+     at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Create(IUpdateEntry entry)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at HospitalAppTests.ServicesTests.UserServiceTests.CreateUsers(DbContextOptions`1 repository) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 83
+   at HospitalAppTests.ServicesTests.UserServiceTests..ctor() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 23
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+Failed!  - Failed:     2, Passed:    49, Skipped:     0, Total:    51, Duration: 14 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalApp      | 47.29% | 23.52% | 56.69% |
++------------------+--------+--------+--------+
+| HospitalAppTests | 96.9%  | 91.02% | 97.6%  |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 72%    | 44.75% | 71.34% |
++---------+--------+--------+--------+
+| Average | 72.09% | 57.27% | 77.14% |
++---------+--------+--------+--------+
+

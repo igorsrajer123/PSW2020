@@ -34,7 +34,7 @@ namespace HospitalApp.Controllers
             if (_appointmentService.Add(appointmentDto) == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(appointmentDto);
         }
 
         [HttpGet]
@@ -86,8 +86,5 @@ namespace HospitalApp.Controllers
 
             return Ok();
         }
-
-
-
     }
 }

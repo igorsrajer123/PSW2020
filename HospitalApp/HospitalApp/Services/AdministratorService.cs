@@ -31,8 +31,7 @@ namespace HospitalApp.Services
         {
             Administrator admin = _dbContext.Administrators.SingleOrDefault(admin => admin.Id == id);
 
-            if (admin == null)
-                return null;
+            if (admin == null) return null;
 
             return AdministratorAdapter.AdministratoToAdministratorDto(admin);
         }

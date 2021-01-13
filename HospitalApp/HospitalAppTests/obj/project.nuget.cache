@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r2JA05SqqiyfBDQpPHXi+3qrhsKYBAtfv3r/+pCOz9pjEx/P/3LRIAri7hTGIv/On3huOCxkXI3tAaIatJXlQQ==",
+  "dgSpecHash": "SIEs+af1HU2cfPMMHbS/p4p8P1bzBMfSwxk53Jv/af/n/dx3wyjF/RP49zJzgjMzd3EhT67ungCetakSC68fZw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Super User\\Documents\\GitRepository\\PSW\\HospitalApp\\HospitalAppTests\\HospitalAppTests.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\Super User\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.0\\microsoft.entityframeworkcore.5.0.0.nupkg.sha512",
     "C:\\Users\\Super User\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.0\\microsoft.entityframeworkcore.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Super User\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.0\\microsoft.entityframeworkcore.analyzers.5.0.0.nupkg.sha512",
+    "C:\\Users\\Super User\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.0\\microsoft.entityframeworkcore.inmemory.5.0.0.nupkg.sha512",
     "C:\\Users\\Super User\\.nuget\\packages\\microsoft.entityframeworkcore.proxies\\5.0.0\\microsoft.entityframeworkcore.proxies.5.0.0.nupkg.sha512",
     "C:\\Users\\Super User\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.0\\microsoft.entityframeworkcore.relational.5.0.0.nupkg.sha512",
     "C:\\Users\\Super User\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.0\\microsoft.entityframeworkcore.sqlserver.5.0.0.nupkg.sha512",

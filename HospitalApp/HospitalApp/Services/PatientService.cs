@@ -2,7 +2,6 @@
 using HospitalApp.Contracts;
 using HospitalApp.Dtos;
 using HospitalApp.Models;
-using HospitalApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,8 +67,7 @@ namespace HospitalApp.Services
         {
             Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == patientId);
 
-            if (myPatient == null)
-                return null;
+            if (myPatient == null) return null;
 
             myPatient.GeneralPractitioner = _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == doctorId);
             _dbContext.SaveChanges();

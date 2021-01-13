@@ -53,10 +53,11 @@ namespace HospitalApp.Services
 
         public UserDto BlockUser(int userId)
         {
-            if (GetById(userId) == null)
-                return null;
+            User myUser = _dbContext.Users.SingleOrDefault(user => user.Id == userId);
 
-            _dbContext.Patients.SingleOrDefault(patient => patient.Id == userId).IsBlocked = true;
+            if (myUser == null) return null;
+
+            myUser.IsBlocked = true;
             _dbContext.SaveChanges();
 
             return GetById(userId);
