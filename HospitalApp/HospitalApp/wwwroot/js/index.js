@@ -119,7 +119,7 @@ function getCurrentUser(){
             welcomeMessage(data.responseJSON);
             userOptions(data.responseJSON);
             redirectUser(data.responseJSON);
-         if(data.role == "Patient")
+         if(data.responseJSON.role == "Patient")
             checkForUserFeedbackOption(data.responseJSON);
         }
     });

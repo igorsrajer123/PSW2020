@@ -10,12 +10,16 @@ function authenticateUser(){
         complete: function(data){
             var myUser = data.responseJSON;
 
-            if(myUser == undefined || myUser.role == "Administrator"){
+            if(myUser == undefined || myUser.role == "Administrator" || myUser.role == "Doctor"){
                 alert("Cannot access this page!");
                 window.location.href = "../index.html";
             }
 
-            getAllFeedbacks(myUser.id);
+            if(myUser.feedback != null){
+                alert("You have already left your feedback!");
+                window.location.href = "index.html";
+            }
+            
             addFeedback(myUser.id, myUser);
         }
     });
@@ -51,23 +55,6 @@ function addFeedback(userId, user){
                     alert(data.status);
             }
         });
-    });
-}
-
-function getAllFeedbacks(userId){
-    $.ajax({
-        url: 'http://localhost:50324/getAllFeedbacks',
-        type: 'GET',
-        complete: function(data){
-            var allFeedbacks = data.responseJSON;
-
-            for(var i = 0; i < allFeedbacks.length; i++){
-                if(allFeedbacks[i].patientId == userId){
-                    alert("You have already left your feedback!");
-                    window.location.href = "index.html";
-                }
-            }
-        }
     });
 }
 

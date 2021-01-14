@@ -79,15 +79,5 @@ namespace HospitalApp.Services
 
             return DoctorAdapter.DoctorToDoctorDto(_dbContext.Doctors.FirstOrDefault(doctor => doctor.Id == myPatient.Referral.SpecialistId));
         }
-
-        public List<DoctorDto> GetAllSpecialists()
-        {
-           List<DoctorDto> myDoctors = new List<DoctorDto>();
-           List<Doctor> doctors = _dbContext.Doctors.Where(doctor => doctor.Type == DoctorType.Specialist).ToList();
-
-           doctors.ForEach(doctor => myDoctors.Add(DoctorAdapter.DoctorToDoctorDto(doctor)));
-
-           return myDoctors;
-        }
     }
 }

@@ -13,16 +13,19 @@ function authenticateUser(){
                 window.location.href = "../index.html";
             }
             
-            getPatientAppointments(myUser.id);
+            getPatientAppointments(myUser);
             appointmentsDone(myUser.id);
         }
     });
 }
 
-function getPatientAppointments(patientId){
+function getPatientAppointments(patient){
     $.ajax({
-        url: 'http://localhost:50324/getPatientAppointments/' + patientId,
+        url: 'http://localhost:50324/getPatientAppointments/' + patient.id,
         type: 'GET',
+        headers: {
+            "Authorization": "Basic " + btoa(patient.username + ":" + patient.password)
+          },
         complete: function(data){
             var appointments = data.responseJSON;
 
@@ -49,7 +52,7 @@ function getPatientAppointments(patientId){
                                     "</td></tr>");
 
                     $("#table").append(appointmentsTable);
-                    cancelAppointment(appointments[i].id);
+                    cancelAppointment(appointments[i].id, patient);
 
                 }else{
                     appointmentsTable.append("<tr><td>" + appointments[i].date +   
@@ -92,7 +95,7 @@ function setDoctorName(){
     }
 }
 
-function cancelAppointment(appointmentId){
+function cancelAppointment(appointmentId, patient){
     $("#" + appointmentId).click(function(event){
         if(!confirm("Are you sure you want to cancel this appointment?"))
             return null;
@@ -100,6 +103,9 @@ function cancelAppointment(appointmentId){
             $.ajax({
                 url: 'http://localhost:50324/cancelAppointment/' + appointmentId,
                 type: 'PUT',
+                headers: {
+                    "Authorization": "Basic " + btoa(patient.username + ":" + patient.password)
+                  },
                 complete: function(data){
                     if(data.status != 200)
                         alert("Appointment is in less than 48 hours and cannot be cancelled!")

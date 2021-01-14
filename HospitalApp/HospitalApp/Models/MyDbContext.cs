@@ -52,13 +52,13 @@ namespace HospitalApp.Models
                             Type = DoctorType.Specialist, Appointments = null, WorkingDays = _dt.DiscardRandomHoursString(),
                             IsBlocked = false, IsMalicious = false, Password = "1234567", PhoneNumber = "7766-65-64", Role = "Doctor", Username = "doca66"}
             );
-            
+            /*
             modelBuilder.Entity<Patient>().HasData(
                 new Patient { Id = 15, FirstName = "Marko", LastName = "Simonovic", Role = "Patient",
                                 Username = "maki", Password = "123", Address = "Tomiceva 22, Zrenjanin", Age = 15, Gender = "male",
                                 PhoneNumber = "+38122555333", IsBlocked = false, GeneralPractitionerId = 11, CancelledAppointments = 0, IsMalicious = false}
                 );
-
+            */
             modelBuilder.Entity<Doctor>()
                         .Property(w => w.WorkingDays)
                         .HasConversion(

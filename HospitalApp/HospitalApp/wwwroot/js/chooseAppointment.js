@@ -17,8 +17,8 @@ function authenticateUser(){
                 window.location.href = "../index.html";
             }
 
-            getGeneralPractitioner(myUser.id);
-            getSpecialist(myUser.id);
+            getGeneralPractitioner(myUser);
+            getSpecialist(myUser);
         }
     });
 }
@@ -40,10 +40,13 @@ function toggleTable(){
         $("#table").hide();
 }
 
-function getGeneralPractitioner(id){
+function getGeneralPractitioner(user){
     $.ajax({
-        url: 'http://localhost:50324/getGeneralPractitioner/' + id,
+        url: 'http://localhost:50324/getGeneralPractitioner/' + user.id,
         type: 'GET',
+        headers: {
+            "Authorization": "Basic " + btoa(user.username + ":" + user.password)
+          },
         complete: function(data){
             var doctor = data.responseJSON;
             $("#select").append($("<option>", {
@@ -54,10 +57,13 @@ function getGeneralPractitioner(id){
     });
 }
 
-function getSpecialist(id){
+function getSpecialist(user){
     $.ajax({
-        url: 'http://localhost:50324/getSpecialist/' + id,
+        url: 'http://localhost:50324/getSpecialist/' + user.id,
         type: 'GET',
+        headers: {
+            "Authorization": "Basic " + btoa(user.username + ":" + user.password)
+          },
         complete: function(data){
             if(data.status != 404){
                 var doctor = data.responseJSON;
@@ -266,7 +272,7 @@ function createNewAppointment(doctorId){
                             if (data.status == 200) 
                                 window.location.href = "index.html";
                             else
-                                alert(data.status);
+                                alert("You already have active appointment with this doctor!");
                         }
                     });
                 }

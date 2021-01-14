@@ -1,0 +1,599 @@
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.126, 404070812264, datacollector.dll, Version: 16.8.1-release-20201119-07
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.134, 404070843404, datacollector.dll, DataCollectorMain.Run: Starting data collector run with args: --port,57980,--parentprocessid,13884,--diag,C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.datacollector.21-01-14_20-11-16_87152_4.log,--tracelevel,4
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.134, 404070844674, datacollector.dll, DataCollector: Monitoring parent process with id: '13884'
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.146, 404070966468, datacollector.dll, Trying to connect to server on socket : 127.0.0.1:57980 
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.181, 404071317026, datacollector.dll, SocketCommunicationManager : SetupClientAsync : Attempting to connect to the server.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:17.192, 404071420139, datacollector.dll, Connected to the server successfully 
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:17.192, 404071421121, datacollector.dll, Using the buffer size of 16384 bytes
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.288, 404072383315, datacollector.dll, DataCollector: Start Request Processing.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.292, 404072421229, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Datacollector received message: (DataCollection.BeforeTestRunStart) -> {
+  "SettingsXml": "<RunSettings><RunConfiguration><ResultsDirectory>C:\\Users\\Super User\\Documents\\GitRepository\\PSW\\HospitalApp\\HospitalAppTests\\bin\\Debug\\netcoreapp3.1\\fine-code-coverage</ResultsDirectory><TargetPlatform>X64</TargetPlatform><TargetFrameworkVersion>.NETCoreApp,Version=v3.1</TargetFrameworkVersion><DesignMode>False</DesignMode><CollectSourceInformation>False</CollectSourceInformation><TestAdaptersPaths>C:\\Program Files\\dotnet\\sdk\\5.0.101\\Extensions</TestAdaptersPaths></RunConfiguration><LoggerRunSettings><Loggers><Logger friendlyName=\"blame\" enabled=\"True\" /><Logger friendlyName=\"Console\" uri=\"logger://microsoft/TestPlatform/ConsoleLogger/v1\" assemblyQualifiedName=\"Microsoft.VisualStudio.TestPlatform.CommandLine.Internal.ConsoleLogger, vstest.console, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" codeBase=\"C:\\Program Files\\dotnet\\sdk\\5.0.101\\vstest.console.dll\" enabled=\"True\" /></Loggers></LoggerRunSettings><DataCollectionRunSettings><DataCollectors><DataCollector friendlyName=\"blame\" enabled=\"True\"><Configuration><ResultsDirectory>C:\\Users\\Super User\\Documents\\GitRepository\\PSW\\HospitalApp\\HospitalAppTests\\bin\\Debug\\netcoreapp3.1\\fine-code-coverage</ResultsDirectory></Configuration></DataCollector></DataCollectors></DataCollectionRunSettings></RunSettings>",
+  "Sources": [
+    "C:\\Users\\Super User\\Documents\\GitRepository\\PSW\\HospitalApp\\HospitalAppTests\\bin\\Debug\\netcoreapp3.1\\HospitalAppTests.dll"
+  ]
+}
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.346, 404072963678, datacollector.dll, TestPluginCache: Update extensions started. Skip filter = False
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.347, 404072972860, datacollector.dll, TestPluginCache: Using directories for assembly resolution 'C:\Program Files\dotnet\sdk\5.0.101\Extensions'.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.347, 404072973572, datacollector.dll, TestPluginCache: Updated the available extensions to 'C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll,C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.354, 404073045470, datacollector.dll, TestPluginCache.DiscoverTestExtensions: finding test extensions in assemblies ends with: Collector.dll TPluginInfo: Microsoft.VisualStudio.TestPlatform.Common.DataCollector.DataCollectorConfig TExtension: Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.DataCollector
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.354, 404073048137, datacollector.dll, TestPluginCache.GetExtensionPaths: Filtered extension paths: C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.355, 404073048711, datacollector.dll, TestPluginCache.GetExtensionPaths: Added default extension paths: 
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.355, 404073049138, datacollector.dll, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.355, 404073056804, datacollector.dll, AssemblyResolver.ctor: Creating AssemblyResolver with searchDirectories C:\Program Files\dotnet\sdk\5.0.101\Extensions,C:\Program Files\dotnet\sdk\5.0.101
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.357, 404073074141, datacollector.dll, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using extension path.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.357, 404073075695, datacollector.dll, TestPluginCache.GetExtensionPaths: Filtered extension paths: C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.357, 404073076256, datacollector.dll, TestPluginCache.GetExtensionPaths: Added default extension paths: 
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.357, 404073076677, datacollector.dll, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.357, 404073077319, datacollector.dll, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using allExtensionPaths: C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.357, 404073078387, datacollector.dll, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\5.0.101\Extensions,C:\Program Files\dotnet\sdk\5.0.101
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.358, 404073079073, datacollector.dll, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\5.0.101\Extensions,C:\Program Files\dotnet\sdk\5.0.101
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.358, 404073084132, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.BlameDataCollector: Resolving assembly.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.360, 404073108138, datacollector.dll, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.TestPlatform.Extensions.BlameDataCollector, from path: C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+TpTrace Error: 0 : 11128, 1, 2021/01/14, 20:11:17.362, 404073121311, datacollector.dll, The type "Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector" defined in "Microsoft.TestPlatform.Extensions.BlameDataCollector.dll" does not have ExtensionUri attribute.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.363, 404073138240, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.EventLogCollector: Resolving assembly.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.365, 404073154543, datacollector.dll, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.TestPlatform.Extensions.EventLogCollector, from path: C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Error: 0 : 11128, 1, 2021/01/14, 20:11:17.369, 404073189568, datacollector.dll, The type "Microsoft.TestPlatform.Extensions.EventLogCollector.EventLogDataCollector" defined in "Microsoft.TestPlatform.Extensions.EventLogCollector.dll" does not have ExtensionUri attribute.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.369, 404073196656, datacollector.dll, TestPluginCache: Discovered the extensions using extension path 'C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll,C:\Program Files\dotnet\sdk\5.0.101\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.369, 404073197418, datacollector.dll, TestPluginCache: Discoverers are ''.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.369, 404073197879, datacollector.dll, TestPluginCache: Executors are ''.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.369, 404073198424, datacollector.dll, TestPluginCache: Executors2 are ''.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.370, 404073198865, datacollector.dll, TestPluginCache: Setting providers are ''.
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:17.370, 404073199290, datacollector.dll, TestPluginCache: Loggers are ''.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.371, 404073216095, datacollector.dll, TestPluginManager.CreateTestExtension: Attempting to load test extension: Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector
+TpTrace Error: 0 : 11128, 1, 2021/01/14, 20:11:17.372, 404073220954, datacollector.dll, The type "Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector" defined in "Microsoft.TestPlatform.Extensions.BlameDataCollector.dll" does not have ExtensionUri attribute.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.379, 404073292996, datacollector.dll, Listening on Endpoint : 127.0.0.1:57982
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.387, 404073372178, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : DataCollection started.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:17.408, 404073579130, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Datacollector received message: (DataCollection.TestHostLaunched) -> {
+  "ProcessId": 14952
+}
+TpTrace Information: 0 : 11128, 6, 2021/01/14, 20:11:17.827, 404077778031, datacollector.dll, Using the buffer size of 16384 bytes
+TpTrace Information: 0 : 11128, 6, 2021/01/14, 20:11:17.828, 404077779293, datacollector.dll, Accepted Client request and set the flag
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.849, 404097996070, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.865, 404098153217, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.869, 404098188730, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_all_doctors - 24d12a6b-9c44-5428-e1f9-cae246b10a6b' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.871, 404098208850, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.871, 404098215940, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.871, 404098217662, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdministratorTests.Add_administrator - 7f748d34-e94c-c6c5-0a64-9f754f2677f4' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.872, 404098227733, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.873, 404098233757, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.873, 404098235203, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Set_appointment_done - 8522899b-53e4-2641-ab14-8fd35fbec524' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.875, 404098255128, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.876, 404098261533, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.877, 404098274023, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.FeedbackAdapterTests.Feedback_dto_to_feedback - 6142c495-4d7b-5786-701c-31a85dcbd93b' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.878, 404098283975, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.879, 404098290578, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.879, 404098292249, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AppointmentAdapterTests.Appointment_dto_to_appointment - 8af9d0cb-41a9-493a-cff3-7977db21399f' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.880, 404098302503, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.881, 404098308839, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.881, 404098310374, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.DoctorAdapterTests.Doctor_to_doctor_dto - 4c007ef8-4d0d-19ef-81a6-339460658534' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.891, 404098413316, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.896, 404098463265, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.902, 404098522322, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.DoctorAdapterTests.Doctor_to_doctor_dto - 4c007ef8-4d0d-19ef-81a6-339460658534' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.915, 404098657372, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.916, 404098664424, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.916, 404098666231, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.DoctorAdapterTests.Doctor_dto_to_doctor - 687981da-99ab-cdba-d45d-69fcd44455b0' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.917, 404098677888, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.918, 404098684206, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.918, 404098686262, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AppointmentAdapterTests.Appointment_dto_to_appointment - 8af9d0cb-41a9-493a-cff3-7977db21399f' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.920, 404098699157, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.920, 404098705925, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.920, 404098707380, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AppointmentAdapterTests.Appointment_to_appointment_dto - 65794e4c-0939-19b0-baab-43f5a804cb18' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.921, 404098717195, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.922, 404098724741, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.922, 404098726962, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.DoctorAdapterTests.Doctor_dto_to_doctor - 687981da-99ab-cdba-d45d-69fcd44455b0' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.924, 404098739224, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.924, 404098744018, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.924, 404098745252, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.FeedbackAdapterTests.Feedback_dto_to_feedback - 6142c495-4d7b-5786-701c-31a85dcbd93b' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.925, 404098756081, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.926, 404098760569, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.926, 404098761689, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.FeedbackAdapterTests.Feedback_to_feedback_dto - 386bb5ba-e21e-cb3a-114a-033d4840635b' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.927, 404098770795, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.927, 404098774752, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.927, 404098776037, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AppointmentAdapterTests.Appointment_to_appointment_dto - 65794e4c-0939-19b0-baab-43f5a804cb18' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.928, 404098785824, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.929, 404098790010, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.929, 404098791185, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.FeedbackAdapterTests.Feedback_to_feedback_dto - 386bb5ba-e21e-cb3a-114a-033d4840635b' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.930, 404098800750, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.930, 404098807746, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.931, 404098812280, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Logout - 18550ff3-19e3-5f6c-ded9-634c16e2e20e' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.955, 404099052304, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.956, 404099058716, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.956, 404099060311, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_specialist - dd27b221-c090-c415-6578-a6f6a584dc23' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.957, 404099071818, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.957, 404099077802, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:19.958, 404099079376, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient - 043e82da-c28b-2d2a-fdff-0f4979206fbf' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.034, 404099845447, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.035, 404099852806, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.035, 404099855004, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_specialist - dd27b221-c090-c415-6578-a6f6a584dc23' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.037, 404099872198, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.038, 404099878605, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.038, 404099880476, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_by_id - b3a2da72-fa9f-83c5-bafe-8967c716c221' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.039, 404099892087, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.040, 404099898635, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.040, 404099900380, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdministratorTests.Add_administrator - 7f748d34-e94c-c6c5-0a64-9f754f2677f4' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.041, 404099912664, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.042, 404099919092, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.042, 404099920783, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdministratorTests.Get_by_id - 818cf5a3-9eb2-4cd4-c751-815ef8208023' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.043, 404099931426, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.047, 404099973782, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.047, 404099976346, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_by_id - b3a2da72-fa9f-83c5-bafe-8967c716c221' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.049, 404099988618, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.049, 404099994173, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.049, 404099995673, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_by_type - 04ba49f4-9033-cc1e-270e-6976d6427b02' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.050, 404100006412, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.051, 404100012264, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.051, 404100013956, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdministratorTests.Get_by_id - 818cf5a3-9eb2-4cd4-c751-815ef8208023' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.052, 404100025415, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.053, 404100031337, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.053, 404100032875, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdministratorTests.Get_all_administrators - 73887ed9-6c40-b8bf-bb63-ed40329cb308' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.054, 404100042972, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.055, 404100048554, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.055, 404100050035, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_by_type - 04ba49f4-9033-cc1e-270e-6976d6427b02' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.056, 404100061085, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.056, 404100067172, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.057, 404100068641, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_general_practitioner - 5d8cef12-c5ef-7468-ede1-a6bc1eeab040' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.058, 404100079366, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.058, 404100085681, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.058, 404100087376, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdministratorTests.Get_all_administrators - 73887ed9-6c40-b8bf-bb63-ed40329cb308' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.060, 404100099910, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.060, 404100105868, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.060, 404100107458, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_general_practitioner - 5d8cef12-c5ef-7468-ede1-a6bc1eeab040' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.062, 404100119501, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.062, 404100125030, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.062, 404100126404, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Add_doctor - 04351644-6d2d-6bdd-399b-63292ad7a8f1' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.070, 404100202381, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.070, 404100206805, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.070, 404100207967, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Get_all_users - d991e93b-2641-222c-8e9d-c040d1698a5f' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.081, 404100312928, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.082, 404100319713, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.082, 404100321344, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Add_doctor - 04351644-6d2d-6bdd-399b-63292ad7a8f1' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.083, 404100334624, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.084, 404100340661, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.084, 404100341962, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_all_doctors - 7fe91098-e46a-b533-3ca4-418eb1670827' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.085, 404100352222, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.085, 404100358281, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.086, 404100359715, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DoctorTests.Get_all_doctors - 7fe91098-e46a-b533-3ca4-418eb1670827' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.087, 404100372333, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.087, 404100378348, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.088, 404100379680, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ReferralTests.Get_all_referrals - c4479262-0f10-0797-0514-f8732a791824' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.089, 404100389899, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.089, 404100395603, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.089, 404100396945, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Get_all_users - d991e93b-2641-222c-8e9d-c040d1698a5f' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.091, 404100409680, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.091, 404100416154, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.091, 404100417700, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Get_by_id - 979cf6e1-8727-4dc9-f11d-86b176850879' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.092, 404100427688, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.093, 404100433496, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.093, 404100435031, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ReferralTests.Get_all_referrals - c4479262-0f10-0797-0514-f8732a791824' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.094, 404100445423, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.095, 404100450474, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.095, 404100451637, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ReferralTests.Get_by_id - fad95f97-25af-b3db-f6c6-04625bdfaf84' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.096, 404100461238, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.096, 404100466396, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.096, 404100467553, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ReferralTests.Get_by_id - fad95f97-25af-b3db-f6c6-04625bdfaf84' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.097, 404100477298, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.098, 404100482552, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.098, 404100485000, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ReferralTests.Add_referral - 19488a02-346a-1079-8691-a3b0ac04a09f' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.099, 404100495102, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.100, 404100500760, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.100, 404100502305, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ReferralTests.Add_referral - 19488a02-346a-1079-8691-a3b0ac04a09f' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.101, 404100513923, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.102, 404100519562, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.102, 404100520818, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.PatientTests.Add_patient - 7810b612-8ed3-ca9c-7cbc-0cd6e15b20f4' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.103, 404100531728, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.103, 404100536503, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.103, 404100537810, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Get_by_id - 979cf6e1-8727-4dc9-f11d-86b176850879' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.104, 404100546022, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.105, 404100549707, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.105, 404100550647, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Block_user - 1bc3b115-f314-b652-f8db-249e56719fd4' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.105, 404100557537, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.106, 404100561476, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.106, 404100562575, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Block_user - 1bc3b115-f314-b652-f8db-249e56719fd4' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.111, 404100616497, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.112, 404100623225, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.112, 404100624862, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Update_user - ac45166a-3ceb-e3e6-d128-31a5c89946c2' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.113, 404100635911, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.114, 404100642589, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.114, 404100644393, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserTests.Update_user - ac45166a-3ceb-e3e6-d128-31a5c89946c2' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.115, 404100657320, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.116, 404100662645, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.116, 404100664085, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Appointment_done - 9abf6321-2715-235b-df9a-d6850011e713' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.117, 404100672951, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.117, 404100677885, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.118, 404100679191, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.PatientTests.Add_patient - 7810b612-8ed3-ca9c-7cbc-0cd6e15b20f4' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.119, 404100689907, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.119, 404100694763, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.119, 404100695927, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.PatientTests.Get_by_id - 1c0b0be8-3b86-66c7-2b7e-0424ef4168d0' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.120, 404100704889, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.121, 404100709639, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.121, 404100711049, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.PatientTests.Get_by_id - 1c0b0be8-3b86-66c7-2b7e-0424ef4168d0' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.122, 404100721613, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.122, 404100727096, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.122, 404100728477, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.PatientTests.Get_all_patients - 5aa4b197-3330-a9b8-1afa-93ce6ae3ced6' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.123, 404100737457, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.124, 404100742475, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.124, 404100743755, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.PatientTests.Get_all_patients - 5aa4b197-3330-a9b8-1afa-93ce6ae3ced6' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.125, 404100755702, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.126, 404100761852, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.126, 404100763439, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Get_by_id - 2d77c712-32c9-0d26-fe61-7466aa497d98' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.127, 404100773713, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.128, 404100779356, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.128, 404100780949, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Appointment_done - 9abf6321-2715-235b-df9a-d6850011e713' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.129, 404100791679, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.129, 404100797546, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.130, 404100799101, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Add_appointment - 26cc257d-61c3-cdcf-61f5-795b505d886c' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.131, 404100809126, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.131, 404100814518, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.131, 404100815960, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Add_appointment - 26cc257d-61c3-cdcf-61f5-795b505d886c' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.132, 404100826100, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.133, 404100831945, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.133, 404100833362, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Get_all_appointments - 65d59602-73db-4eb9-5b77-828391793b81' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.134, 404100843373, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.135, 404100849485, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.135, 404100851109, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Get_all_appointments - 65d59602-73db-4eb9-5b77-828391793b81' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.136, 404100862259, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.136, 404100867838, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.137, 404100869026, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Finish_appointment - bbee1f7d-08c7-ec36-137e-1cb1f72d1e91' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.138, 404100878933, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.138, 404100884384, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.138, 404100885764, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Finish_appointment - bbee1f7d-08c7-ec36-137e-1cb1f72d1e91' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.144, 404100943539, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.144, 404100947877, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.145, 404100949076, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Cancel_appointment - 354b4bfa-d227-3b12-faa0-ca54bcb2d288' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.145, 404100957344, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.146, 404100961430, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.146, 404100962647, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AppointmentTests.Cancel_appointment - 354b4bfa-d227-3b12-faa0-ca54bcb2d288' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.147, 404100972909, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.147, 404100976991, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.147, 404100978043, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.PatientAdapterTests.Patient_to_patient_dto - 426df05f-3665-7f56-292b-116ef877e35d' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.148, 404100985923, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.149, 404100989885, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.149, 404100991063, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.PatientAdapterTests.Patient_to_patient_dto - 426df05f-3665-7f56-292b-116ef877e35d' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.150, 404100999291, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.150, 404101002959, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.150, 404101004437, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.PatientAdapterTests.Patient_dto_to_patient - c09b641f-b69b-1c90-9a27-15f183f977d7' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.151, 404101014981, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.152, 404101019369, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.152, 404101020640, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.PatientAdapterTests.Patient_dto_to_patient - c09b641f-b69b-1c90-9a27-15f183f977d7' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.153, 404101033101, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.154, 404101039399, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.154, 404101040791, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserAdapterTests.User_to_user_dto - 650f46c5-a387-8d74-d341-5b33adfbbacd' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.155, 404101051634, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.155, 404101057460, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.156, 404101058768, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserAdapterTests.User_to_user_dto - 650f46c5-a387-8d74-d341-5b33adfbbacd' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.157, 404101071596, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.157, 404101077414, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.158, 404101078666, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserAdapterTests.User_dto_to_user - 1f774a41-3d5c-194b-88ad-cfb723240167' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.159, 404101090201, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.159, 404101096520, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.159, 404101098178, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.UserAdapterTests.User_dto_to_user - 1f774a41-3d5c-194b-88ad-cfb723240167' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.160, 404101108480, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.161, 404101112554, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.161, 404101113647, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.UserControllerTests.Get_by_id - 19405a20-dd8b-5e2c-b073-6e3c72dde776' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.389, 404103390334, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.389, 404103395292, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.389, 404103397077, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.ReferralAdapterTests.Referral_to_referral_dto - 7573e3fa-cfe2-20f4-0c34-d1c43c354dda' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.390, 404103405544, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.391, 404103409221, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.391, 404103410571, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Hide_feedback - 5bbfeb87-72dc-70bb-a1ad-5266104925ae' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.392, 404103419387, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.392, 404103422519, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.392, 404103424057, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.ReferralAdapterTests.Referral_to_referral_dto - 7573e3fa-cfe2-20f4-0c34-d1c43c354dda' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.393, 404103431686, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.393, 404103434392, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.393, 404103435337, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.ReferralAdapterTests.Referral_dto_to_referral - b9ce6049-b11a-f5de-6792-be8b298dcb1d' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.394, 404103441611, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.394, 404103444101, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.394, 404103445103, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.ReferralAdapterTests.Referral_dto_to_referral - b9ce6049-b11a-f5de-6792-be8b298dcb1d' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.421, 404103711017, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.421, 404103715251, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:20.421, 404103716735, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_all_administrators - b08f9e09-f752-b7ff-8f9a-e34f7def2b06' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.301, 404212516780, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.302, 404212521146, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.302, 404212523155, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_all_administrators - b08f9e09-f752-b7ff-8f9a-e34f7def2b06' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.303, 404212536306, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.304, 404212539167, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.304, 404212540453, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Get_by_id - 2d77c712-32c9-0d26-fe61-7466aa497d98' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.308, 404212583168, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.308, 404212586317, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.308, 404212587503, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_by_id - 1d416ef1-542b-37c4-e10d-c266b3ad0fe3' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.309, 404212594647, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.309, 404212597576, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.310, 404212598783, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Block_user - 52d9c248-461c-4c4f-8e40-fa1d91894551' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.310, 404212606895, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.311, 404212609919, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.311, 404212611239, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_all_doctors - 24d12a6b-9c44-5428-e1f9-cae246b10a6b' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.312, 404212620246, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.312, 404212623210, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.312, 404212624587, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_id - 44bf8833-c741-678c-9080-a66020607597' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.317, 404212677333, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.318, 404212681881, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.318, 404212683377, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient - 043e82da-c28b-2d2a-fdff-0f4979206fbf' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.319, 404212692507, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.319, 404212695482, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.319, 404212696736, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner - 30c30c73-6c56-1088-1128-e7cd0fae2e48' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.321, 404212712866, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.321, 404212716066, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.321, 404212717416, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Hide_feedback - 5bbfeb87-72dc-70bb-a1ad-5266104925ae' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.322, 404212727245, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.323, 404212730514, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.323, 404212731737, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Show_feedback - d501216a-3c3c-6a8a-e48e-cef76447ca8c' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.324, 404212738837, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.324, 404212741405, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.324, 404212742615, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Set_appointment_done - 8522899b-53e4-2641-ab14-8fd35fbec524' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.325, 404212751078, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.325, 404212753541, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.325, 404212754556, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Finish_appointment - dfb7f836-ca0c-0367-0123-c7db16b11d5e' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.337, 404212877758, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.338, 404212881341, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.338, 404212883042, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Block_user - 52d9c248-461c-4c4f-8e40-fa1d91894551' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.339, 404212890911, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.339, 404212893619, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.339, 404212894736, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Show_feedback - d501216a-3c3c-6a8a-e48e-cef76447ca8c' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.345, 404212949427, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.345, 404212952915, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.345, 404212954306, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks - bb2ea506-c09e-be12-7726-39c796467813' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.346, 404212963436, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.346, 404212966246, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.346, 404212967375, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users - fedb0e13-203f-e23b-8831-8b32b4501560' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.351, 404213010883, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.351, 404213014301, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.351, 404213015723, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks - bb2ea506-c09e-be12-7726-39c796467813' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.352, 404213024486, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.352, 404213027191, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.352, 404213028314, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id - deec3b0d-7fb4-7f88-c009-4c71bd11abf0' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.353, 404213035465, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.354, 404213038624, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.354, 404213039902, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id - deec3b0d-7fb4-7f88-c009-4c71bd11abf0' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.355, 404213048617, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.355, 404213051674, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.355, 404213052951, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_visible_feedbacks - fa631afd-0f47-93a7-3036-5c52c8bd8c5b' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.356, 404213060273, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.356, 404213063371, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.356, 404213064666, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_by_id - 1d416ef1-542b-37c4-e10d-c266b3ad0fe3' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.357, 404213072959, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.357, 404213075844, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.357, 404213077069, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AdministratorServiceTests.Add - c0c8d336-2e06-07d5-fbfe-60060497d40b' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.358, 404213084295, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.358, 404213087379, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.359, 404213088729, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AdministratorServiceTests.Add - c0c8d336-2e06-07d5-fbfe-60060497d40b' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.359, 404213096946, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.360, 404213101283, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.360, 404213102653, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Get_all_referrals - a404944e-5bbb-7d76-471a-fecd50db320f' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.362, 404213126900, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.363, 404213130494, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.363, 404213131976, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_id - 44bf8833-c741-678c-9080-a66020607597' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.364, 404213141222, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.364, 404213144362, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.364, 404213145549, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type - e6e6d57e-47da-04ed-b414-63284a6c8a2a' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.373, 404213236149, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.374, 404213239675, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.374, 404213241251, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Finish_appointment - dfb7f836-ca0c-0367-0123-c7db16b11d5e' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.380, 404213303051, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.380, 404213306709, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.380, 404213308074, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Set_appointments_referral_deleted - 94c6aea4-405e-1eeb-4e95-0e25ee1fbebe' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.381, 404213316238, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.382, 404213318977, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.382, 404213320376, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_visible_feedbacks - fa631afd-0f47-93a7-3036-5c52c8bd8c5b' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.386, 404213359834, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.386, 404213363241, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.386, 404213364651, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Get_by_id - 302e3b1c-0937-928d-c1cf-20fb754b2d78' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.395, 404213451056, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.395, 404213454335, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.395, 404213455855, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner - 30c30c73-6c56-1088-1128-e7cd0fae2e48' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.396, 404213465950, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.397, 404213468953, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.397, 404213470274, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Add - 4cff949b-f84f-71d0-dfce-071e3b9e07fb' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.397, 404213477213, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.398, 404213479701, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.398, 404213480980, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type - e6e6d57e-47da-04ed-b414-63284a6c8a2a' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.399, 404213489273, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.399, 404213491875, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.399, 404213493009, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_general_practitioner - ad529be5-2a01-4866-8ef8-e7bb3ab5dacf' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.400, 404213506904, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.401, 404213509701, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.401, 404213510898, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Set_appointments_referral_deleted - 94c6aea4-405e-1eeb-4e95-0e25ee1fbebe' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.401, 404213518145, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.402, 404213520437, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.402, 404213521483, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_patient_appointments - e3cc1b1d-a2b1-7106-b024-efa86eecc3db' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.403, 404213529466, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.403, 404213531888, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.403, 404213532994, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Get_by_id - 302e3b1c-0937-928d-c1cf-20fb754b2d78' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.404, 404213540645, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.404, 404213543106, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.404, 404213544178, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Show_feedback - cd46242d-00de-de6c-cea9-5336c21f45ae' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.405, 404213551342, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.405, 404213554019, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.405, 404213555368, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Show_feedback - cd46242d-00de-de6c-cea9-5336c21f45ae' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.411, 404213614079, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.411, 404213617099, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.411, 404213618380, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Hide_feedback - 8d9ae4be-9915-3f55-aa3f-d355c154e6b4' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.412, 404213625158, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.412, 404213627869, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.413, 404213629170, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Hide_feedback - 8d9ae4be-9915-3f55-aa3f-d355c154e6b4' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.414, 404213638793, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.414, 404213641301, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.414, 404213642455, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Get_visible_feedbacks - 78644187-683f-f6c4-016b-2b11923f914b' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.415, 404213649486, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.415, 404213651846, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.415, 404213653050, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users - fedb0e13-203f-e23b-8831-8b32b4501560' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.416, 404213661806, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.416, 404213664535, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.416, 404213665763, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Update_user - faa8c4be-bcc5-8829-0ec5-96e1af9d82a5' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.417, 404213672941, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.417, 404213675521, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.417, 404213676628, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Get_visible_feedbacks - 78644187-683f-f6c4-016b-2b11923f914b' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.418, 404213684823, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.418, 404213687245, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.418, 404213688237, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Add_feedback - c91dd890-2912-c0d3-a446-28b2c919d31a' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.419, 404213695010, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.419, 404213697496, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.420, 404213698506, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Add_feedback - c91dd890-2912-c0d3-a446-28b2c919d31a' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.420, 404213705619, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.420, 404213707998, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.421, 404213708965, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Get_all_feedbacks - db5550b1-80b3-5c34-97c7-19d901c1a134' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.421, 404213715903, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.421, 404213718481, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.422, 404213719499, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Add - 4cff949b-f84f-71d0-dfce-071e3b9e07fb' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.422, 404213728098, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.423, 404213730738, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.423, 404213731763, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Set_general_practitioner - b0b89bdb-0099-8380-3abe-468b1dab84a2' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.424, 404213738504, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.424, 404213741055, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.424, 404213742076, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.FeedbackTests.Get_all_feedbacks - db5550b1-80b3-5c34-97c7-19d901c1a134' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.425, 404213750181, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.425, 404213752999, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.425, 404213754113, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Discard_random_times_string - daba4bcd-7647-ea61-9644-3d4e59db6369' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.426, 404213761384, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.426, 404213764074, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.426, 404213765181, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_general_practitioner - ad529be5-2a01-4866-8ef8-e7bb3ab5dacf' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.432, 404213825596, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.433, 404213828855, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.433, 404213830286, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Add - 0013a868-4c2a-7ad0-1884-c4148c138267' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.433, 404213838307, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.434, 404213840867, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.434, 404213842160, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Add - 0013a868-4c2a-7ad0-1884-c4148c138267' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.435, 404213850928, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.435, 404213853402, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.435, 404213854650, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_patient_specialist - e5577891-7562-1158-dab3-9593a682c3ca' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.436, 404213861397, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.436, 404213864111, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.436, 404213865438, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_patient_appointments - e3cc1b1d-a2b1-7106-b024-efa86eecc3db' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.437, 404213873446, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.437, 404213875887, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.437, 404213877025, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_appointment_full_date - 44c5fd62-0eb4-c8af-3be5-cabc26fc9f64' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.440, 404213908348, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.441, 404213911263, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.441, 404213912607, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_appointment_full_date - 44c5fd62-0eb4-c8af-3be5-cabc26fc9f64' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.442, 404213920591, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.442, 404213923411, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.442, 404213924639, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_by_id - c3371ba5-e65f-6a50-d1ca-65a511c16af6' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.462, 404214127694, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.463, 404214130967, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.463, 404214132643, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.UserServiceTests.Update_user - faa8c4be-bcc5-8829-0ec5-96e1af9d82a5' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.464, 404214141146, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.464, 404214143884, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.464, 404214145216, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AdministratorAdapterTests.Administrator_to_administrator_dto - 89d4121a-7540-1b88-c2cd-989c13bbf9f6' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.465, 404214153299, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.465, 404214155969, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.465, 404214157231, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AdministratorAdapterTests.Administrator_to_administrator_dto - 89d4121a-7540-1b88-c2cd-989c13bbf9f6' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.466, 404214165374, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.466, 404214167901, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.467, 404214169092, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AdministratorAdapterTests.Administrator_dto_to_administrator - ef3c88e4-bfd7-07e7-eae3-2e8833fc3551' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.467, 404214176252, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.468, 404214178696, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.468, 404214179858, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.AdaptersTests.AdministratorAdapterTests.Administrator_dto_to_administrator - ef3c88e4-bfd7-07e7-eae3-2e8833fc3551' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.470, 404214207559, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.471, 404214210378, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.471, 404214211706, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_by_id - c3371ba5-e65f-6a50-d1ca-65a511c16af6' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.472, 404214219595, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.472, 404214222232, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.472, 404214223403, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_doctor_appointments - 1d7d7a7c-4342-46ab-4030-f274c330a83b' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.473, 404214231853, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.473, 404214234396, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.473, 404214235573, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Get_all_referrals - a404944e-5bbb-7d76-471a-fecd50db320f' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.480, 404214299583, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.480, 404214302777, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.480, 404214304132, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Get_appointments_referral - 5a913310-d4e0-a00d-613f-7366fc340694' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.481, 404214311523, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.481, 404214314117, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.481, 404214315297, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Set_general_practitioner - b0b89bdb-0099-8380-3abe-468b1dab84a2' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.482, 404214324326, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.482, 404214326841, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.482, 404214327995, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Get_all_patients - ca8b03fc-5c6f-4925-d9ab-2520cfb2a395' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.483, 404214337654, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.484, 404214340154, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.484, 404214341290, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.DoctorServiceTests.Get_patient_specialist - e5577891-7562-1158-dab3-9593a682c3ca' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.486, 404214367587, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.487, 404214370475, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.487, 404214371759, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Get_appointments_referral - 5a913310-d4e0-a00d-613f-7366fc340694' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.488, 404214379269, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.488, 404214381736, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.488, 404214382920, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Remove_patients_referral - 7463eb44-5280-6c8a-ab4c-ff8a7c7f0984' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.492, 404214425390, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.493, 404214428508, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.493, 404214429866, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_doctor_appointments - 1d7d7a7c-4342-46ab-4030-f274c330a83b' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.494, 404214438610, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.494, 404214441258, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.494, 404214442395, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_appointment_full_date_string - de8794e5-77fe-f122-4d66-d7d13c0fb0e2' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.496, 404214463407, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.496, 404214466251, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.496, 404214467560, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.PatientServiceTests.Get_all_patients - ca8b03fc-5c6f-4925-d9ab-2520cfb2a395' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.497, 404214477936, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.498, 404214480619, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.498, 404214481793, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Remove_patients_referral - 7463eb44-5280-6c8a-ab4c-ff8a7c7f0984' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.499, 404214489753, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.499, 404214492055, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.499, 404214493072, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Get_by_id - 174e90e5-bef4-1745-e0a5-1181450e1b91' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.501, 404214516905, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.502, 404214519752, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.502, 404214521067, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_appointment_full_date_string - de8794e5-77fe-f122-4d66-d7d13c0fb0e2' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.503, 404214529188, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.503, 404214531900, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.503, 404214533020, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_all_appointments - c18145ac-b639-01b3-266f-eb09471b6a82' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.509, 404214596482, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.510, 404214598791, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.510, 404214599749, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.ReferralServiceTests.Get_by_id - 174e90e5-bef4-1745-e0a5-1181450e1b91' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.513, 404214632915, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.513, 404214635487, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.513, 404214636592, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_all_appointments - c18145ac-b639-01b3-266f-eb09471b6a82' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.997, 404219477811, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.998, 404219480352, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:31.998, 404219481442, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.UserControllerTests.Get_by_id - 19405a20-dd8b-5e2c-b073-6e3c72dde776' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.011, 404219609817, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.011, 404219613310, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.011, 404219614688, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Logout - 18550ff3-19e3-5f6c-ded9-634c16e2e20e' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.012, 404219623500, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.012, 404219626021, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.012, 404219627042, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Login_failure - 4a19f6c1-34f9-3032-7c8b-91a3e139aa95' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.150, 404221007982, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.151, 404221010377, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.151, 404221011402, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Login_failure - 4a19f6c1-34f9-3032-7c8b-91a3e139aa95' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.151, 404221017598, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.152, 404221019294, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.152, 404221020070, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Login_success - d96c9010-be64-d07d-eccb-f02825faa78a' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.226, 404221761865, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.227, 404221769168, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.227, 404221770379, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Login_success - d96c9010-be64-d07d-eccb-f02825faa78a' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.227, 404221776923, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.228, 404221778866, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.228, 404221779733, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Get_session - 76514a3f-8aa7-5793-af17-675d056813c3' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.332, 404222822224, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.332, 404222824770, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:32.332, 404222825845, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.IntegrationTests.AccountControllerTests.Get_session - 76514a3f-8aa7-5793-af17-675d056813c3' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.957, 404249077449, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.958, 404249080630, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.958, 404249082146, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Discard_random_times_string - daba4bcd-7647-ea61-9644-3d4e59db6369' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.960, 404249100550, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.960, 404249102816, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.960, 404249103883, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Discard_random_times - 7827e354-2fa0-a197-bd56-c5269164449a' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.984, 404249346602, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.985, 404249348606, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.985, 404249349467, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Discard_random_times - 7827e354-2fa0-a197-bd56-c5269164449a' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.986, 404249360765, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.986, 404249362428, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:34.986, 404249363267, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Get_working_hours - a8646580-d3b7-28e0-c0f1-cb76a8d027a3' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.003, 404249536766, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.004, 404249539274, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.004, 404249540307, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Get_working_hours - a8646580-d3b7-28e0-c0f1-cb76a8d027a3' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.004, 404249547587, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.005, 404249549462, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.005, 404249550285, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Get_working_days - d5b1d4c2-efc2-a54d-c0a4-c8ab9bc085c2' started.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.016, 404249661181, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.016, 404249662936, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.016, 404249663784, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'HospitalAppTests.DateTimeLogicTests.Get_working_days - d5b1d4c2-efc2-a54d-c0a4-c8ab9bc085c2' completed
+TpTrace Information: 0 : 11128, 5, 2021/01/14, 20:11:35.028, 404249780009, datacollector.dll, DataCollectionTestCaseEventHandler: Test session ended
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.158, 404251087286, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Datacollector received message: (DataCollection.AfterTestRunEnd) -> false
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.160, 404251102139, datacollector.dll, Blame Collector : Session End
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.160, 404251103610, datacollector.dll, BlameCollector.CollectDumpAndAbortTesthost: Custom path to dump directory was provided via VSTEST_DUMP_PATH. Skipping attachment upload, the caller is responsible for collecting and uploading the dumps themselves.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.160, 404251105982, datacollector.dll, DataCollectionManager.CleanupPlugins: CleanupPlugins called
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:35.160, 404251107153, datacollector.dll, DataCollectionManager.CleanupPlugins: Cleaning up 1 plugins
+TpTrace Verbose: 0 : 11128, 1, 2021/01/14, 20:11:35.161, 404251110146, datacollector.dll, dataCollectorInfo.DisposeDataCollector: calling Dispose() on Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.161, 404251112007, datacollector.dll, DataCollectionManager.CleanupPlugins: CleanupPlugins finished
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.161, 404251114618, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Session End message received from server. Closing the connection.
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.162, 404251118584, datacollector.dll, Closing the connection !
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.162, 404251120051, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : DataCollection completed
+TpTrace Information: 0 : 11128, 1, 2021/01/14, 20:11:35.162, 404251121326, datacollector.dll, Program.Main: exiting datacollector process.

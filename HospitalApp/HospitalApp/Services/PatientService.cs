@@ -29,9 +29,9 @@ namespace HospitalApp.Services
             return myPatients;
         }
 
-        public PatientDto GetById(int id)
+        public PatientDto GetById(int patientId)
         {
-            Patient patient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == id);
+            Patient patient = _dbContext.Patients.SingleOrDefault(p => p.Id == patientId);
 
             if (patient == null) return null;
 

@@ -6,6 +6,7 @@ using HospitalApp.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospitalApp.Controllers
 {
@@ -57,6 +58,7 @@ namespace HospitalApp.Controllers
             return Ok(doctorDto);
         }
 
+        [Authorize(Roles = "Patient")]
         [HttpGet]
         [Route("/getGeneralPractitioner/{patientId}")]
         public IActionResult GetGeneralPractitioner(int patientId)
@@ -67,6 +69,7 @@ namespace HospitalApp.Controllers
             return Ok(_doctorService.GetGeneralPractitioner(patientId));
         }
 
+        [Authorize(Roles = "Patient")]
         [HttpGet]
         [Route("/getSpecialist/{patientId}")]
         public IActionResult GetSpecialist(int patientId)
@@ -75,16 +78,6 @@ namespace HospitalApp.Controllers
                 return NotFound();
 
             return Ok(_doctorService.GetSpecialist(patientId));
-        }
-
-        [HttpGet]
-        [Route("/getAllSpecialists")]
-        public IActionResult GetAllSpecialists()
-        {
-            if (_doctorService.GetAllSpecialists() == null)
-                return NotFound();
-
-            return Ok(_doctorService.GetAllSpecialists());
         }
     }
 }

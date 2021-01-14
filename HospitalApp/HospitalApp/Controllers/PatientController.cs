@@ -41,7 +41,7 @@ namespace HospitalApp.Controllers
         }
 
         [HttpGet]
-        [Route("/getPatientById/{id}")]
+        [Route("/getPatientById/{patientId}")]
         public IActionResult GetById(int patientId)
         {
             if (_patientService.GetById(patientId) == null)

@@ -21,7 +21,5 @@ namespace HospitalApp.Contracts
         DoctorDto GetGeneralPractitioner(int patientId);
 
         DoctorDto GetSpecialist(int patientId);
-
-        List<DoctorDto> GetAllSpecialists();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using HospitalApp.Contracts;
 using HospitalApp.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -40,6 +41,7 @@ namespace HospitalApp.Controllers
             return Ok(_referralService.GetById(referralId));
         }
 
+        [Authorize(Roles = "Doctor")]
         [HttpPost]
         [Route("/addReferral")]
         public IActionResult Add(ReferralDto referralDto)

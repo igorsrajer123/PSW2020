@@ -13,15 +13,19 @@ function authenticateUser(){
                 window.location.href = "../index.html";
             }
             
-            getDoctorAppointments(myUser.id);
+            getDoctorAppointments(myUser);
+            
         }
     });
 }
 
-function getDoctorAppointments(doctorId){
+function getDoctorAppointments(doctor){
     $.ajax({
-        url: 'http://localhost:50324/getDoctorAppointments/' + doctorId,
+        url: 'http://localhost:50324/getDoctorAppointments/' + doctor.id,
         type: 'GET',
+        headers: {
+            "Authorization": "Basic " + btoa(doctor.username + ":" + doctor.password)
+          },
         complete: function(data){
             var appointments = data.responseJSON;
 
@@ -30,9 +34,9 @@ function getDoctorAppointments(doctorId){
  
             for(var i = 0; i < appointments.length; i++){
                 if(appointments[i].status == 0)
-                    getDoneAppointmentPatient(appointmentsTable, appointments[i]);
+                    getDoneAppointmentPatient(appointmentsTable, appointments[i], doctor);
                 else if(appointments[i].status == 1)
-                    getActiveAppointmentPatient(appointmentsTable, appointments[i]);
+                    getActiveAppointmentPatient(appointmentsTable, appointments[i], doctor);
                 else
                     getCancelledAppointmentPatient(appointmentsTable, appointments[i]);
             }
@@ -40,7 +44,7 @@ function getDoctorAppointments(doctorId){
     });
 }
 
-function generateDoneAppointments(table, appointment, patient){
+function generateDoneAppointments(table, appointment, patient, doctor){
     table.append("<tr><td>" + patient.firstName + " " + patient.lastName +
                 "</td><td>" + appointment.date +   
                 "</td><td>" + appointment.time +
@@ -53,7 +57,7 @@ function generateDoneAppointments(table, appointment, patient){
 
     $("." + appointment.id).click(function(event){
         $.ajax({
-            url: 'http://localhost:50324/getAllSpecialists',
+            url: 'http://localhost:50324/getDoctorByType/' + 0,
             type: 'GET',
             complete: function(data){
                 var allSpecialists = data.responseJSON;
@@ -66,7 +70,7 @@ function generateDoneAppointments(table, appointment, patient){
                 }
         
                 var transformedData = JSON.stringify(data);
-                addReferral(transformedData, appointment);
+                addReferral(transformedData, appointment, doctor);
             }
         });
     });
@@ -84,7 +88,7 @@ function generateCancelledAppointments(table, appointment, patient){
     $("#table").append(table);
 }
 
-function generateActiveAppointments(table, appointment, patient){
+function generateActiveAppointments(table, appointment, patient, doctor){
     table.append("<tr><td>" + patient.firstName + " " + patient.lastName + 
                 "</td><td>" + appointment.date +   
                 "</td><td>" + appointment.time +
@@ -97,15 +101,18 @@ function generateActiveAppointments(table, appointment, patient){
 
     $("#" + appointment.id).click(function(event){
         event.preventDefault();
-        appointmentDone(appointment.id);
+        appointmentDone(appointment.id, doctor);
     });
 
 }
 
-function appointmentDone(appointmentId){
+function appointmentDone(appointmentId, doctor){
     $.ajax({
         url: 'http://localhost:50324/finishAppointment/' + appointmentId,
         type: 'PUT',
+        headers: {
+            "Authorization": "Basic " + btoa(doctor.username + ":" + doctor.password)
+          },
         complete: function(data){
             if(data.status == 200){
                 alert("Appointment done!");
@@ -115,25 +122,25 @@ function appointmentDone(appointmentId){
     });
 }
 
-function getDoneAppointmentPatient(table, appointment){
+function getDoneAppointmentPatient(table, appointment, doctor){
     $.ajax({
         url: 'http://localhost:50324/getAppointmentPatient/' + appointment.id,
         type: 'GET',
         complete: function(data){
             var myPatient = data.responseJSON;
-            generateDoneAppointments(table, appointment, myPatient);
+            generateDoneAppointments(table, appointment, myPatient, doctor);
             checkPatientReferral(myPatient, appointment);
         }
     });
 }
 
-function getActiveAppointmentPatient(table, appointment){
+function getActiveAppointmentPatient(table, appointment, doctor){
     $.ajax({
         url: 'http://localhost:50324/getAppointmentPatient/' + appointment.id,
         type: 'GET',
         complete: function(data){
             var myPatient = data.responseJSON;
-            generateActiveAppointments(table, appointment, myPatient);
+            generateActiveAppointments(table, appointment, myPatient, doctor);
         }
     });
 }
@@ -149,10 +156,13 @@ function getCancelledAppointmentPatient(table, appointment){
     });
 }
 
-function addReferral(data, appointment){
+function addReferral(data, appointment, doctor){
     $.ajax({
         url: 'http://localhost:50324/addReferral',
         type: 'POST',
+        headers: {
+            "Authorization": "Basic " + btoa(doctor.username + ":" + doctor.password)
+          },
         data: data,
         contentType: 'application/json',
         dataType: 'json',

@@ -47,11 +47,28 @@ namespace HospitalApp.Services
             _dbContext.Patients.SingleOrDefault(patient => patient.Id == myAppointment.PatientId).Appointments.Add(myAppointment);
             _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId).Appointments.Add(myAppointment);
 
+            if (PatientAlreadyHasAppointment(appointmentDto.PatientId, appointmentDto.DoctorId))
+                return null;
+
             RemoveDoctorsActiveAppointmentDate(_dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId), myAppointment);
             _dbContext.Appointments.Add(myAppointment);
             _dbContext.SaveChanges();
 
             return appointmentDto;
+        }
+
+        public bool PatientAlreadyHasAppointment(int patientId, int doctorId)
+        {
+            List<Appointment> appointments = _dbContext.Appointments.ToList().FindAll(a => a.PatientId == patientId);
+
+            foreach (Appointment p in appointments)
+            {
+                if (p.DoctorId == doctorId && p.Status == AppointmentStatus.Active)
+                {
+                    return true;
+                }  
+            }
+            return false;
         }
 
         public List<AppointmentDto> GetPatientAppointments(int patientId)
@@ -162,8 +179,12 @@ namespace HospitalApp.Services
         public AppointmentDto FinishAppointment(int appointmentId)
         {
             Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
+            Patient p = myAppointment.Patient;
 
             if (myAppointment == null) return null;
+
+            Appointment ap = p.Appointments.Find(a => a.Id == appointmentId);
+            ap.Status = AppointmentStatus.Done;
 
             SetAppointmentsReferralDeleted(myAppointment);
             myAppointment.Status = AppointmentStatus.Done;

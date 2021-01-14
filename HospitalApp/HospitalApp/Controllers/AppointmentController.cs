@@ -1,5 +1,6 @@
 ﻿using HospitalApp.Contracts;
 using HospitalApp.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -37,6 +38,7 @@ namespace HospitalApp.Controllers
             return Ok(appointmentDto);
         }
 
+        [Authorize(Roles = "Patient")]
         [HttpGet]
         [Route("/getPatientAppointments/{patientId}")]
         public IActionResult GetPatientAppointments(int patientId)
@@ -47,6 +49,7 @@ namespace HospitalApp.Controllers
             return Ok(_appointmentService.GetPatientAppointments(patientId));
         }
 
+        [Authorize(Roles = "Doctor")]
         [HttpGet]
         [Route("/getDoctorAppointments/{doctorId}")]
         public IActionResult GetDoctorAppointments(int doctorId)
@@ -57,6 +60,7 @@ namespace HospitalApp.Controllers
             return Ok(_appointmentService.GetDoctorAppointments(doctorId));
         }
 
+        [Authorize(Roles = "Patient")]
         [HttpPut]
         [Route("/cancelAppointment/{appointmentId}")]
         public IActionResult CancelAppointment(int appointmentId)
@@ -77,6 +81,7 @@ namespace HospitalApp.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Doctor")]
         [HttpPut]
         [Route("/finishAppointment/{appointmentId}")]
         public IActionResult FinishAppointment(int appointmentId)

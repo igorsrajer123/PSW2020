@@ -68,15 +68,18 @@ function authenticateUser(){
             PASS = myUser.password;
             ID = myUser.id;
             getAllGeneralPractitioners();
-            getDoctor();
+            getDoctor(myUser);
         }
     });
 }
 
-function getDoctor(){
+function getDoctor(myUser){
     $.ajax({
-        url: 'http://localhost:50324/getGeneralPractitioner/' + ID,
+        url: 'http://localhost:50324/getGeneralPractitioner/' + myUser.id,
         type: 'GET',
+        headers: {
+            "Authorization": "Basic " + btoa(myUser.username + ":" + myUser.password)
+          },
         complete: function(data){
             var doctor = data.responseJSON;
             var DOCTOR = doctor.id;
