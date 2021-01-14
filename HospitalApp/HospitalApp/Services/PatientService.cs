@@ -33,8 +33,7 @@ namespace HospitalApp.Services
         {
             Patient patient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == id);
 
-            if (patient == null)
-                return null;
+            if (patient == null) return null;
 
             return PatientAdapter.PatientToPatientDto(patient);
         }

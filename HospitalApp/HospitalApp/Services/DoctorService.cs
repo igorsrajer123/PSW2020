@@ -61,7 +61,7 @@ namespace HospitalApp.Services
         {
             Patient myPatient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
 
-            if (myPatient == null)
+            if (myPatient == null) 
                 return null;
 
             return DoctorAdapter.DoctorToDoctorDto(myPatient.GeneralPractitioner);

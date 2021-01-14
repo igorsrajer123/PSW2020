@@ -1,0 +1,138 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:11.42]     HospitalAppTests.ServicesTests.UserServiceTests.Get_by_id [FAIL]
+[xUnit.net 00:00:11.43]     HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient [FAIL]
+[xUnit.net 00:00:11.45]     HospitalAppTests.ServicesTests.UserServiceTests.Block_user [FAIL]
+[xUnit.net 00:00:11.46]     HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner [FAIL]
+[xUnit.net 00:00:11.46]     HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type [FAIL]
+[xUnit.net 00:00:11.48]     HospitalAppTests.ServicesTests.PatientServiceTests.Add [FAIL]
+[xUnit.net 00:00:11.48]     HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks [FAIL]
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Get_by_id [9 s]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.UserServiceTests.Get_by_id() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 43
+  Failed HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient [9 s]
+  Error Message:
+   System.InvalidOperationException : An exception was thrown while attempting to evaluate a LINQ query parameter expression. See the inner exception for more information. To show additional information call 'DbContextOptionsBuilder.EnableSensitiveDataLogging'.
+---- System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, String& parameterName)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, Boolean generateParameter)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Linq.Expressions.ExpressionVisitor.VisitLambda[T](Expression`1 node)
+   at System.Linq.Expressions.Expression`1.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at System.Linq.Expressions.UnaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.ExtractParameters(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExtractParameters(Expression query, IParameterValues parameterValues, IDiagnosticsLogger`1 logger, Boolean parameterize, Boolean generateContextAccessors)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at HospitalApp.Services.PatientService.GetAppointmentPatient(Int32 appointmentId) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\PatientService.cs:line 80
+   at HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 52
+----- Inner Stack Trace -----
+   at lambda_method(Closure )
+   at Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, String& parameterName)
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Block_user [16 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.UserServiceTests.Block_user() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 51
+  Failed HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner [39 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalApp.Adapters.PatientAdapter.PatientDtoToPatient(PatientDto patientDto) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Adapters\PatientAdapter.cs:line 14
+   at HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 71
+[xUnit.net 00:00:11.49]     HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users [FAIL]
+[xUnit.net 00:00:11.50]     HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id [FAIL]
+  Failed HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type [58 ms]
+  Error Message:
+   The collection was expected to contain a single element, but it was empty.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\DoctorServiceTests.cs:line 48
+  Failed HospitalAppTests.ServicesTests.PatientServiceTests.Add [20 ms]
+  Error Message:
+   System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+  Stack Trace:
+     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at HospitalApp.Services.PatientService.GiveRandomGeneralPractitioner(Patient patient) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\PatientService.cs:line 61
+   at HospitalApp.Services.PatientService.Add(Patient patient) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\PatientService.cs:line 49
+   at HospitalAppTests.ServicesTests.PatientServiceTests.Add() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 62
+  Failed HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks [9 s]
+  Error Message:
+   Shouldly.ShouldAssertException : feedbacks.Count
+    should be greater than or equal to
+2
+    but was
+0
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\FeedbackServiceTests.cs:line 27
+[xUnit.net 00:00:11.50]     HospitalAppTests.ServicesTests.PatientServiceTests.Set_general_practitioner [FAIL]
+[xUnit.net 00:00:11.52]     HospitalAppTests.ServicesTests.UserServiceTests.Update_user [FAIL]
+[xUnit.net 00:00:11.58]     HospitalAppTests.ServicesTests.DoctorServiceTests.Add [FAIL]
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users [45 ms]
+  Error Message:
+   Shouldly.ShouldAssertException : users.Count
+    should be greater than or equal to
+2
+    but was
+0
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.UserServiceTests.Get_all_users() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 34
+  Failed HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id [17 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\FeedbackServiceTests.cs:line 36
+  Failed HospitalAppTests.ServicesTests.PatientServiceTests.Set_general_practitioner [24 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.PatientServiceTests.Set_general_practitioner() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 45
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Update_user [37 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.UserServiceTests.Update_user() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 60
+  Failed HospitalAppTests.ServicesTests.DoctorServiceTests.Add [111 ms]
+  Error Message:
+   Assert.Equal() Failure
+Expected: 3
+Actual:   1
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.DoctorServiceTests.Add() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\DoctorServiceTests.cs:line 58
+Failed!  - Failed:    12, Passed:    53, Skipped:     0, Total:    65, Duration: 55 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalAppTests | 96.67% | 91.02% | 97.43% |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 96.67% | 91.02% | 97.43% |
++---------+--------+--------+--------+
+| Average | 96.67% | 91.02% | 97.43% |
++---------+--------+--------+--------+
+

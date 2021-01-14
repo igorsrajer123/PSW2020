@@ -184,7 +184,6 @@ namespace HospitalApp.Services
 
         public void SetAppointmentsReferralDeleted(Appointment appointment)
         {
-      
             if (_referralService.GetAppointmentsReferral(appointment) != null)
             {
                 Referral referal1 = ReferralAdapter.ReferralDtoToReferral(_referralService.GetAppointmentsReferral(appointment));

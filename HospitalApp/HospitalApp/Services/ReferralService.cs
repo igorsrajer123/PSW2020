@@ -32,8 +32,7 @@ namespace HospitalApp.Services
         {
             Referral myReferral = _dbContext.Referrals.SingleOrDefault(referral => referral.Id == referralId);
 
-            if (myReferral == null)
-                return null;
+            if (myReferral == null) return null;
 
             return ReferralAdapter.ReferralToReferralDto(myReferral);
         }
@@ -70,8 +69,8 @@ namespace HospitalApp.Services
         public ReferralDto GetAppointmentsReferral(Appointment appointment)
         {
             Referral myReferral = _dbContext.Referrals.SingleOrDefault(referral => 
-                                                        referral.PatientId == appointment.Patient.Id && 
-                                                        referral.SpecialistId == appointment.DoctorId);
+                                  referral.PatientId == appointment.Patient.Id && 
+                                  referral.SpecialistId == appointment.DoctorId);
 
             if (myReferral == null) return null;
 

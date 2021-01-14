@@ -1,0 +1,83 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:01.76]     HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks [FAIL]
+[xUnit.net 00:00:01.77]     HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id [FAIL]
+  Failed HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks [3 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalApp.Services.FeedbackService.GetAll() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\FeedbackService.cs:line 25
+   at HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_all_feedbacks() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\FeedbackServiceTests.cs:line 25
+  Failed HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id [2 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalApp.Services.FeedbackService.GetById(Int32 feedbackId) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\FeedbackService.cs:line 32
+   at HospitalAppTests.ServicesTests.FeedbackServiceTests.Get_by_id() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\FeedbackServiceTests.cs:line 33
+[xUnit.net 00:00:11.20]     HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient [FAIL]
+[xUnit.net 00:00:11.25]     HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner [FAIL]
+[xUnit.net 00:00:11.25]     HospitalAppTests.ServicesTests.UserServiceTests.Block_user [FAIL]
+[xUnit.net 00:00:11.27]     HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_by_id [FAIL]
+[xUnit.net 00:00:11.28]     HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_id [FAIL]
+  Failed HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient [9 s]
+  Error Message:
+   System.ArgumentException : An item with the same key has already been added. Key: 22
+  Stack Trace:
+     at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Create(IUpdateEntry entry)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at HospitalAppTests.ServicesTests.PatientServiceTests.CreateDoctors(MyDbContext context) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 212
+   at HospitalAppTests.ServicesTests.PatientServiceTests.Get_appointment_patient() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 79
+  Failed HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner [50 ms]
+  Error Message:
+   Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException : Attempted to update or delete an entity that does not exist in the store.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Delete(IUpdateEntry entry)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at HospitalAppTests.ServicesTests.PatientServiceTests.ClearDoctors(MyDbContext context) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 236
+   at HospitalAppTests.ServicesTests.PatientServiceTests.Set_random_general_practitioner() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\PatientServiceTests.cs:line 122
+  Failed HospitalAppTests.ServicesTests.UserServiceTests.Block_user [22 ms]
+  Error Message:
+   Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException : Attempted to update or delete an entity that does not exist in the store.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Delete(IUpdateEntry entry)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at HospitalAppTests.ServicesTests.UserServiceTests.ClearContext(MyDbContext context) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 135
+   at HospitalAppTests.ServicesTests.UserServiceTests.Block_user() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\UserServiceTests.cs:line 69
+  Failed HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_by_id [80 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_by_id() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\AdministratorServiceTests.cs:line 51
+  Failed HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_id [82 ms]
+  Error Message:
+   System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_id() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\DoctorServiceTests.cs:line 51
+Failed!  - Failed:     7, Passed:    59, Skipped:     0, Total:    66, Duration: 44 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+One or more errors occurred. (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.) (The process cannot access the file 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalApp.dll' because it is being used by another process.)

@@ -1,0 +1,33 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:11.41]     HospitalAppTests.ServicesTests.ReferralServiceTests.Get_appointments_referral [FAIL]
+  Failed HospitalAppTests.ServicesTests.ReferralServiceTests.Get_appointments_referral [187 ms]
+  Error Message:
+   Shouldly.ShouldAssertException : referral.Id
+    should be
+2
+    but was
+1
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.ReferralServiceTests.Get_appointments_referral() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\ReferralServiceTests.cs:line 76
+Failed!  - Failed:     1, Passed:    75, Skipped:     0, Total:    76, Duration: 57 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalApp      | 65.94% | 36.47% | 75.44% |
++------------------+--------+--------+--------+
+| HospitalAppTests | 98.76% | 90.78% | 98.87% |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 86.44% | 53.25% | 85.78% |
++---------+--------+--------+--------+
+| Average | 82.35% | 63.62% | 87.15% |
++---------+--------+--------+--------+
+
