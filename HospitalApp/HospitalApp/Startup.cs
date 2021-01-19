@@ -1,11 +1,12 @@
+using Grpc.Core;
 using HospitalApp.Contracts;
 using HospitalApp.Handlers;
 using HospitalApp.Models;
+using HospitalApp.Protos;
 using HospitalApp.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,7 @@ namespace HospitalApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddGrpc();
             services.AddControllers();
 
             services.AddDbContext<MyDbContext>(options =>
@@ -51,10 +53,21 @@ namespace HospitalApp
 
             services.AddAuthentication("BasicAuthentication")
                     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
+            services.AddHostedService<ClientScheduledService>();
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
+        private Server server;
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
         {
             if (env.IsDevelopment())
             {
@@ -76,7 +89,25 @@ namespace HospitalApp
             {
                 endpoints.MapControllers();
                 endpoints.MapRazorPages();
+                endpoints.MapGrpcService<ClientScheduledService>();
             });
+
+            app.UseCors("MyPolicy");
+
+            server = new Server
+            {
+                Services = { NetGrpcService.BindService(new NetGrpcServiceImpl()) },
+                Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
+            };
+            server.Start();
+
+            applicationLifetime.ApplicationStopping.Register(OnShutdown);
+        }
+
+        private void OnShutdown()
+        {
+            if (server != null)
+                server.ShutdownAsync().Wait();
         }
     }
 }

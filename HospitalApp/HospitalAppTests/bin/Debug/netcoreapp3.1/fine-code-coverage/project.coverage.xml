@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.9311" branch-rate="0.5943999999999999" version="1.9" timestamp="1610651495" lines-covered="2867" lines-valid="3079" branches-covered="151" branches-valid="254">
+<coverage line-rate="0.9344" branch-rate="0.5992000000000001" version="1.9" timestamp="1610698621" lines-covered="2867" lines-valid="3068" branches-covered="151" branches-valid="252">
   <sources>
     <source>C:\Users\Super User\</source>
   </sources>
   <packages>
-    <package name="HospitalApp" line-rate="0.8155" branch-rate="0.4606" complexity="332">
+    <package name="HospitalApp" line-rate="0.8239" branch-rate="0.46590000000000004" complexity="329">
       <classes>
         <class name="HospitalApp.Program" filename="Documents\GitRepository\PSW\HospitalApp\HospitalApp\Program.cs" line-rate="0.625" branch-rate="1" complexity="2">
           <methods>
@@ -706,7 +706,7 @@
             <line number="21" hits="9" branch="False" />
           </lines>
         </class>
-        <class name="HospitalApp.Services.DoctorService" filename="Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\DoctorService.cs" line-rate="0.7659" branch-rate="0.5" complexity="18">
+        <class name="HospitalApp.Services.DoctorService" filename="Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\DoctorService.cs" line-rate="0.878" branch-rate="0.5" complexity="17">
           <methods>
             <method name="GetAll" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -791,16 +791,6 @@
                 <line number="81" hits="1" branch="False" />
               </lines>
             </method>
-            <method name="GetAllSpecialists" signature="()" line-rate="0" branch-rate="1" complexity="1">
-              <lines>
-                <line number="84" hits="0" branch="False" />
-                <line number="85" hits="0" branch="False" />
-                <line number="86" hits="0" branch="False" />
-                <line number="88" hits="0" branch="False" />
-                <line number="90" hits="0" branch="False" />
-                <line number="91" hits="0" branch="False" />
-              </lines>
-            </method>
             <method name=".ctor" signature="(HospitalApp.Models.MyDbContext)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="16" hits="11" branch="False" />
@@ -870,12 +860,6 @@
             <line number="78" hits="0" branch="False" />
             <line number="80" hits="1" branch="False" />
             <line number="81" hits="1" branch="False" />
-            <line number="84" hits="0" branch="False" />
-            <line number="85" hits="0" branch="False" />
-            <line number="86" hits="0" branch="False" />
-            <line number="88" hits="0" branch="False" />
-            <line number="90" hits="0" branch="False" />
-            <line number="91" hits="0" branch="False" />
             <line number="16" hits="11" branch="False" />
             <line number="17" hits="11" branch="False" />
             <line number="18" hits="11" branch="False" />
@@ -2324,114 +2308,114 @@
           <methods>
             <method name="GetWorkingDays" signature="()" line-rate="1" branch-rate="1" complexity="6">
               <lines>
-                <line number="12" hits="2434" branch="False" />
-                <line number="13" hits="2434" branch="False" />
-                <line number="15" hits="21136856" branch="True" condition-coverage="100% (2/2)">
+                <line number="12" hits="2182" branch="False" />
+                <line number="13" hits="2182" branch="False" />
+                <line number="15" hits="18900484" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
                     <condition number="98" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="16" hits="10565994" branch="True" condition-coverage="100% (4/4)">
+                <line number="16" hits="9448060" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
                     <condition number="23" type="jump" coverage="100%" />
                     <condition number="40" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="17" hits="7528362" branch="False" />
-                <line number="19" hits="2434" branch="False" />
-                <line number="20" hits="2434" branch="False" />
+                <line number="17" hits="6724924" branch="False" />
+                <line number="19" hits="2182" branch="False" />
+                <line number="20" hits="2182" branch="False" />
               </lines>
             </method>
             <method name="GetWorkingHours" signature="()" line-rate="1" branch-rate="1" complexity="6">
               <lines>
-                <line number="23" hits="2433" branch="False" />
-                <line number="24" hits="2433" branch="False" />
-                <line number="25" hits="2433" branch="False" />
-                <line number="27" hits="21128172" branch="True" condition-coverage="100% (2/2)">
+                <line number="23" hits="2181" branch="False" />
+                <line number="24" hits="2181" branch="False" />
+                <line number="25" hits="2181" branch="False" />
+                <line number="27" hits="18891822" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
                     <condition number="123" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="28" hits="10561653" branch="True" condition-coverage="100% (4/4)">
+                <line number="28" hits="9443730" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
                     <condition number="46" type="jump" coverage="100%" />
                     <condition number="75" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="29" hits="3082611" branch="False" />
-                <line number="31" hits="2433" branch="False" />
-                <line number="32" hits="2433" branch="False" />
+                <line number="29" hits="2748060" branch="False" />
+                <line number="31" hits="2181" branch="False" />
+                <line number="32" hits="2181" branch="False" />
               </lines>
             </method>
             <method name="DiscardRandomHours" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="35" hits="1216" branch="False" />
-                <line number="36" hits="1216" branch="False" />
-                <line number="38" hits="1541888" branch="False" />
-                <line number="39" hits="1216" branch="False" />
+                <line number="35" hits="1090" branch="False" />
+                <line number="36" hits="1090" branch="False" />
+                <line number="38" hits="1374490" branch="False" />
+                <line number="39" hits="1090" branch="False" />
               </lines>
             </method>
             <method name="DiscardRandomHoursString" signature="()" line-rate="1" branch-rate="1" complexity="2">
               <lines>
                 <line number="42" hits="9" branch="False" />
                 <line number="43" hits="9" branch="False" />
-                <line number="45" hits="1224" branch="True" condition-coverage="100% (2/2)">
+                <line number="45" hits="1098" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
                     <condition number="57" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="46" hits="603" branch="False" />
+                <line number="46" hits="540" branch="False" />
                 <line number="48" hits="9" branch="False" />
                 <line number="49" hits="9" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="12" hits="2434" branch="False" />
-            <line number="13" hits="2434" branch="False" />
-            <line number="15" hits="21136856" branch="True" condition-coverage="100% (2/2)">
+            <line number="12" hits="2182" branch="False" />
+            <line number="13" hits="2182" branch="False" />
+            <line number="15" hits="18900484" branch="True" condition-coverage="100% (2/2)">
               <conditions>
                 <condition number="98" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="16" hits="10565994" branch="True" condition-coverage="100% (4/4)">
+            <line number="16" hits="9448060" branch="True" condition-coverage="100% (4/4)">
               <conditions>
                 <condition number="23" type="jump" coverage="100%" />
                 <condition number="40" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="17" hits="7528362" branch="False" />
-            <line number="19" hits="2434" branch="False" />
-            <line number="20" hits="2434" branch="False" />
-            <line number="23" hits="2433" branch="False" />
-            <line number="24" hits="2433" branch="False" />
-            <line number="25" hits="2433" branch="False" />
-            <line number="27" hits="21128172" branch="True" condition-coverage="100% (2/2)">
+            <line number="17" hits="6724924" branch="False" />
+            <line number="19" hits="2182" branch="False" />
+            <line number="20" hits="2182" branch="False" />
+            <line number="23" hits="2181" branch="False" />
+            <line number="24" hits="2181" branch="False" />
+            <line number="25" hits="2181" branch="False" />
+            <line number="27" hits="18891822" branch="True" condition-coverage="100% (2/2)">
               <conditions>
                 <condition number="123" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="28" hits="10561653" branch="True" condition-coverage="100% (4/4)">
+            <line number="28" hits="9443730" branch="True" condition-coverage="100% (4/4)">
               <conditions>
                 <condition number="46" type="jump" coverage="100%" />
                 <condition number="75" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="29" hits="3082611" branch="False" />
-            <line number="31" hits="2433" branch="False" />
-            <line number="32" hits="2433" branch="False" />
-            <line number="35" hits="1216" branch="False" />
-            <line number="36" hits="1216" branch="False" />
-            <line number="38" hits="1541888" branch="False" />
-            <line number="39" hits="1216" branch="False" />
+            <line number="29" hits="2748060" branch="False" />
+            <line number="31" hits="2181" branch="False" />
+            <line number="32" hits="2181" branch="False" />
+            <line number="35" hits="1090" branch="False" />
+            <line number="36" hits="1090" branch="False" />
+            <line number="38" hits="1374490" branch="False" />
+            <line number="39" hits="1090" branch="False" />
             <line number="42" hits="9" branch="False" />
             <line number="43" hits="9" branch="False" />
-            <line number="45" hits="1224" branch="True" condition-coverage="100% (2/2)">
+            <line number="45" hits="1098" branch="True" condition-coverage="100% (2/2)">
               <conditions>
                 <condition number="57" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="46" hits="603" branch="False" />
+            <line number="46" hits="540" branch="False" />
             <line number="48" hits="9" branch="False" />
             <line number="49" hits="9" branch="False" />
           </lines>
@@ -2706,320 +2690,298 @@
           <methods>
             <method name="GetAll" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="26" hits="1" branch="False" />
                 <line number="27" hits="1" branch="False" />
                 <line number="28" hits="1" branch="False" />
+                <line number="29" hits="1" branch="False" />
               </lines>
             </method>
             <method name="Add" signature="(HospitalApp.Dtos.AppointmentDto)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="33" hits="1" branch="False" />
-                <line number="34" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="34" hits="1" branch="False" />
+                <line number="35" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="35" hits="0" branch="False" />
-                <line number="37" hits="1" branch="False" />
+                <line number="36" hits="0" branch="False" />
                 <line number="38" hits="1" branch="False" />
+                <line number="39" hits="1" branch="False" />
               </lines>
             </method>
             <method name="GetPatientAppointments" signature="(System.Int32)" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="43" hits="0" branch="False" />
-                <line number="44" hits="0" branch="True" condition-coverage="0% (0/2)">
+                <line number="45" hits="0" branch="False" />
+                <line number="46" hits="0" branch="True" condition-coverage="0% (0/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="0%" />
                   </conditions>
                 </line>
-                <line number="45" hits="0" branch="False" />
                 <line number="47" hits="0" branch="False" />
-                <line number="48" hits="0" branch="False" />
+                <line number="49" hits="0" branch="False" />
+                <line number="50" hits="0" branch="False" />
               </lines>
             </method>
             <method name="GetDoctorAppointments" signature="(System.Int32)" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="53" hits="0" branch="False" />
-                <line number="54" hits="0" branch="True" condition-coverage="0% (0/2)">
+                <line number="56" hits="0" branch="False" />
+                <line number="57" hits="0" branch="True" condition-coverage="0% (0/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="0%" />
                   </conditions>
                 </line>
-                <line number="55" hits="0" branch="False" />
-                <line number="57" hits="0" branch="False" />
                 <line number="58" hits="0" branch="False" />
+                <line number="60" hits="0" branch="False" />
+                <line number="61" hits="0" branch="False" />
               </lines>
             </method>
             <method name="CancelAppointment" signature="(System.Int32)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="63" hits="1" branch="False" />
-                <line number="64" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="67" hits="1" branch="False" />
+                <line number="68" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="65" hits="0" branch="False" />
-                <line number="67" hits="1" branch="False" />
-                <line number="68" hits="1" branch="False" />
+                <line number="69" hits="0" branch="False" />
+                <line number="71" hits="1" branch="False" />
+                <line number="72" hits="1" branch="False" />
               </lines>
             </method>
             <method name="SetAppointmentDone" signature="(System.Int32)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="73" hits="1" branch="False" />
-                <line number="74" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="77" hits="1" branch="False" />
+                <line number="78" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="75" hits="0" branch="False" />
-                <line number="77" hits="1" branch="False" />
-                <line number="78" hits="1" branch="False" />
+                <line number="79" hits="0" branch="False" />
+                <line number="81" hits="1" branch="False" />
+                <line number="82" hits="1" branch="False" />
               </lines>
             </method>
             <method name="FinishAppointment" signature="(System.Int32)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="83" hits="1" branch="False" />
-                <line number="84" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="88" hits="1" branch="False" />
+                <line number="89" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="85" hits="0" branch="False" />
-                <line number="87" hits="1" branch="False" />
-                <line number="88" hits="1" branch="False" />
+                <line number="90" hits="0" branch="False" />
+                <line number="92" hits="1" branch="False" />
+                <line number="93" hits="1" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(HospitalApp.Contracts.IAppointmentService)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="5" branch="False" />
                 <line number="19" hits="5" branch="False" />
                 <line number="20" hits="5" branch="False" />
                 <line number="21" hits="5" branch="False" />
+                <line number="22" hits="5" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="26" hits="1" branch="False" />
             <line number="27" hits="1" branch="False" />
             <line number="28" hits="1" branch="False" />
-            <line number="33" hits="1" branch="False" />
-            <line number="34" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="29" hits="1" branch="False" />
+            <line number="34" hits="1" branch="False" />
+            <line number="35" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="35" hits="0" branch="False" />
-            <line number="37" hits="1" branch="False" />
+            <line number="36" hits="0" branch="False" />
             <line number="38" hits="1" branch="False" />
-            <line number="43" hits="0" branch="False" />
-            <line number="44" hits="0" branch="True" condition-coverage="0% (0/2)">
-              <conditions>
-                <condition number="18" type="jump" coverage="0%" />
-              </conditions>
-            </line>
+            <line number="39" hits="1" branch="False" />
             <line number="45" hits="0" branch="False" />
-            <line number="47" hits="0" branch="False" />
-            <line number="48" hits="0" branch="False" />
-            <line number="53" hits="0" branch="False" />
-            <line number="54" hits="0" branch="True" condition-coverage="0% (0/2)">
+            <line number="46" hits="0" branch="True" condition-coverage="0% (0/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="0%" />
               </conditions>
             </line>
-            <line number="55" hits="0" branch="False" />
-            <line number="57" hits="0" branch="False" />
+            <line number="47" hits="0" branch="False" />
+            <line number="49" hits="0" branch="False" />
+            <line number="50" hits="0" branch="False" />
+            <line number="56" hits="0" branch="False" />
+            <line number="57" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="18" type="jump" coverage="0%" />
+              </conditions>
+            </line>
             <line number="58" hits="0" branch="False" />
-            <line number="63" hits="1" branch="False" />
-            <line number="64" hits="1" branch="True" condition-coverage="50% (1/2)">
-              <conditions>
-                <condition number="18" type="jump" coverage="50%" />
-              </conditions>
-            </line>
-            <line number="65" hits="0" branch="False" />
+            <line number="60" hits="0" branch="False" />
+            <line number="61" hits="0" branch="False" />
             <line number="67" hits="1" branch="False" />
-            <line number="68" hits="1" branch="False" />
-            <line number="73" hits="1" branch="False" />
-            <line number="74" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="68" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="75" hits="0" branch="False" />
+            <line number="69" hits="0" branch="False" />
+            <line number="71" hits="1" branch="False" />
+            <line number="72" hits="1" branch="False" />
             <line number="77" hits="1" branch="False" />
-            <line number="78" hits="1" branch="False" />
-            <line number="83" hits="1" branch="False" />
-            <line number="84" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="78" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="85" hits="0" branch="False" />
-            <line number="87" hits="1" branch="False" />
+            <line number="79" hits="0" branch="False" />
+            <line number="81" hits="1" branch="False" />
+            <line number="82" hits="1" branch="False" />
             <line number="88" hits="1" branch="False" />
-            <line number="18" hits="5" branch="False" />
+            <line number="89" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="18" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="90" hits="0" branch="False" />
+            <line number="92" hits="1" branch="False" />
+            <line number="93" hits="1" branch="False" />
             <line number="19" hits="5" branch="False" />
             <line number="20" hits="5" branch="False" />
             <line number="21" hits="5" branch="False" />
+            <line number="22" hits="5" branch="False" />
           </lines>
         </class>
-        <class name="HospitalApp.Controllers.DoctorController" filename="Documents\GitRepository\PSW\HospitalApp\HospitalApp\Controllers\DoctorController.cs" line-rate="0.7297" branch-rate="0.41659999999999997" complexity="14">
+        <class name="HospitalApp.Controllers.DoctorController" filename="Documents\GitRepository\PSW\HospitalApp\HospitalApp\Controllers\DoctorController.cs" line-rate="0.8437" branch-rate="0.5" complexity="12">
           <methods>
             <method name="GetAll" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="26" hits="1" branch="False" />
                 <line number="27" hits="1" branch="False" />
                 <line number="28" hits="1" branch="False" />
+                <line number="29" hits="1" branch="False" />
               </lines>
             </method>
             <method name="GetById" signature="(System.Int32)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="33" hits="1" branch="False" />
-                <line number="34" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="34" hits="1" branch="False" />
+                <line number="35" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="35" hits="0" branch="False" />
-                <line number="37" hits="1" branch="False" />
+                <line number="36" hits="0" branch="False" />
                 <line number="38" hits="1" branch="False" />
+                <line number="39" hits="1" branch="False" />
               </lines>
             </method>
             <method name="GetByType" signature="(HospitalApp.Models.DoctorType)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="43" hits="1" branch="False" />
-                <line number="44" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="44" hits="1" branch="False" />
+                <line number="45" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="45" hits="0" branch="False" />
-                <line number="47" hits="1" branch="False" />
+                <line number="46" hits="0" branch="False" />
                 <line number="48" hits="1" branch="False" />
+                <line number="49" hits="1" branch="False" />
               </lines>
             </method>
             <method name="Add" signature="(HospitalApp.Dtos.DoctorDto)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="53" hits="1" branch="False" />
-                <line number="54" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="54" hits="1" branch="False" />
+                <line number="55" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="55" hits="0" branch="False" />
-                <line number="57" hits="1" branch="False" />
+                <line number="56" hits="0" branch="False" />
                 <line number="58" hits="1" branch="False" />
+                <line number="59" hits="1" branch="False" />
               </lines>
             </method>
             <method name="GetGeneralPractitioner" signature="(System.Int32)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="63" hits="1" branch="False" />
-                <line number="64" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="65" hits="1" branch="False" />
+                <line number="66" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="65" hits="0" branch="False" />
-                <line number="67" hits="1" branch="False" />
-                <line number="68" hits="1" branch="False" />
+                <line number="67" hits="0" branch="False" />
+                <line number="69" hits="1" branch="False" />
+                <line number="70" hits="1" branch="False" />
               </lines>
             </method>
             <method name="GetSpecialist" signature="(System.Int32)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="73" hits="1" branch="False" />
-                <line number="74" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="76" hits="1" branch="False" />
+                <line number="77" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="75" hits="0" branch="False" />
-                <line number="77" hits="1" branch="False" />
-                <line number="78" hits="1" branch="False" />
-              </lines>
-            </method>
-            <method name="GetAllSpecialists" signature="()" line-rate="0" branch-rate="0" complexity="2">
-              <lines>
-                <line number="83" hits="0" branch="False" />
-                <line number="84" hits="0" branch="True" condition-coverage="0% (0/2)">
-                  <conditions>
-                    <condition number="17" type="jump" coverage="0%" />
-                  </conditions>
-                </line>
-                <line number="85" hits="0" branch="False" />
-                <line number="87" hits="0" branch="False" />
-                <line number="88" hits="0" branch="False" />
+                <line number="78" hits="0" branch="False" />
+                <line number="80" hits="1" branch="False" />
+                <line number="81" hits="1" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(HospitalApp.Contracts.IDoctorService)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="6" branch="False" />
                 <line number="19" hits="6" branch="False" />
                 <line number="20" hits="6" branch="False" />
                 <line number="21" hits="6" branch="False" />
+                <line number="22" hits="6" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="26" hits="1" branch="False" />
             <line number="27" hits="1" branch="False" />
             <line number="28" hits="1" branch="False" />
-            <line number="33" hits="1" branch="False" />
-            <line number="34" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="29" hits="1" branch="False" />
+            <line number="34" hits="1" branch="False" />
+            <line number="35" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="35" hits="0" branch="False" />
-            <line number="37" hits="1" branch="False" />
+            <line number="36" hits="0" branch="False" />
             <line number="38" hits="1" branch="False" />
-            <line number="43" hits="1" branch="False" />
-            <line number="44" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="39" hits="1" branch="False" />
+            <line number="44" hits="1" branch="False" />
+            <line number="45" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="45" hits="0" branch="False" />
-            <line number="47" hits="1" branch="False" />
+            <line number="46" hits="0" branch="False" />
             <line number="48" hits="1" branch="False" />
-            <line number="53" hits="1" branch="False" />
-            <line number="54" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="49" hits="1" branch="False" />
+            <line number="54" hits="1" branch="False" />
+            <line number="55" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="55" hits="0" branch="False" />
-            <line number="57" hits="1" branch="False" />
+            <line number="56" hits="0" branch="False" />
             <line number="58" hits="1" branch="False" />
-            <line number="63" hits="1" branch="False" />
-            <line number="64" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="59" hits="1" branch="False" />
+            <line number="65" hits="1" branch="False" />
+            <line number="66" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="65" hits="0" branch="False" />
-            <line number="67" hits="1" branch="False" />
-            <line number="68" hits="1" branch="False" />
-            <line number="73" hits="1" branch="False" />
-            <line number="74" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="67" hits="0" branch="False" />
+            <line number="69" hits="1" branch="False" />
+            <line number="70" hits="1" branch="False" />
+            <line number="76" hits="1" branch="False" />
+            <line number="77" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="75" hits="0" branch="False" />
-            <line number="77" hits="1" branch="False" />
-            <line number="78" hits="1" branch="False" />
-            <line number="83" hits="0" branch="False" />
-            <line number="84" hits="0" branch="True" condition-coverage="0% (0/2)">
-              <conditions>
-                <condition number="17" type="jump" coverage="0%" />
-              </conditions>
-            </line>
-            <line number="85" hits="0" branch="False" />
-            <line number="87" hits="0" branch="False" />
-            <line number="88" hits="0" branch="False" />
-            <line number="18" hits="6" branch="False" />
+            <line number="78" hits="0" branch="False" />
+            <line number="80" hits="1" branch="False" />
+            <line number="81" hits="1" branch="False" />
             <line number="19" hits="6" branch="False" />
             <line number="20" hits="6" branch="False" />
             <line number="21" hits="6" branch="False" />
+            <line number="22" hits="6" branch="False" />
           </lines>
         </class>
         <class name="HospitalApp.Controllers.FeedbackController" filename="Documents\GitRepository\PSW\HospitalApp\HospitalApp\Controllers\FeedbackController.cs" line-rate="0.8234999999999999" branch-rate="0.5" complexity="13">
@@ -3292,84 +3254,84 @@
           <methods>
             <method name="GetAll" signature="()" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="26" hits="1" branch="False" />
-                <line number="27" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="27" hits="1" branch="False" />
+                <line number="28" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="17" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="28" hits="0" branch="False" />
-                <line number="30" hits="1" branch="False" />
+                <line number="29" hits="0" branch="False" />
                 <line number="31" hits="1" branch="False" />
+                <line number="32" hits="1" branch="False" />
               </lines>
             </method>
             <method name="GetById" signature="(System.Int32)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="36" hits="1" branch="False" />
-                <line number="37" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="37" hits="1" branch="False" />
+                <line number="38" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="38" hits="0" branch="False" />
-                <line number="40" hits="1" branch="False" />
+                <line number="39" hits="0" branch="False" />
                 <line number="41" hits="1" branch="False" />
+                <line number="42" hits="1" branch="False" />
               </lines>
             </method>
             <method name="Add" signature="(HospitalApp.Dtos.ReferralDto)" line-rate="0.8" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="46" hits="1" branch="False" />
-                <line number="47" hits="1" branch="True" condition-coverage="50% (1/2)">
+                <line number="48" hits="1" branch="False" />
+                <line number="49" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
                     <condition number="18" type="jump" coverage="50%" />
                   </conditions>
                 </line>
-                <line number="48" hits="0" branch="False" />
-                <line number="50" hits="1" branch="False" />
-                <line number="51" hits="1" branch="False" />
+                <line number="50" hits="0" branch="False" />
+                <line number="52" hits="1" branch="False" />
+                <line number="53" hits="1" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(HospitalApp.Contracts.IReferralService)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="3" branch="False" />
                 <line number="19" hits="3" branch="False" />
                 <line number="20" hits="3" branch="False" />
                 <line number="21" hits="3" branch="False" />
+                <line number="22" hits="3" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="26" hits="1" branch="False" />
-            <line number="27" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="27" hits="1" branch="False" />
+            <line number="28" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="17" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="28" hits="0" branch="False" />
-            <line number="30" hits="1" branch="False" />
+            <line number="29" hits="0" branch="False" />
             <line number="31" hits="1" branch="False" />
-            <line number="36" hits="1" branch="False" />
-            <line number="37" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="32" hits="1" branch="False" />
+            <line number="37" hits="1" branch="False" />
+            <line number="38" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="38" hits="0" branch="False" />
-            <line number="40" hits="1" branch="False" />
+            <line number="39" hits="0" branch="False" />
             <line number="41" hits="1" branch="False" />
-            <line number="46" hits="1" branch="False" />
-            <line number="47" hits="1" branch="True" condition-coverage="50% (1/2)">
+            <line number="42" hits="1" branch="False" />
+            <line number="48" hits="1" branch="False" />
+            <line number="49" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
                 <condition number="18" type="jump" coverage="50%" />
               </conditions>
             </line>
-            <line number="48" hits="0" branch="False" />
-            <line number="50" hits="1" branch="False" />
-            <line number="51" hits="1" branch="False" />
-            <line number="18" hits="3" branch="False" />
+            <line number="50" hits="0" branch="False" />
+            <line number="52" hits="1" branch="False" />
+            <line number="53" hits="1" branch="False" />
             <line number="19" hits="3" branch="False" />
             <line number="20" hits="3" branch="False" />
             <line number="21" hits="3" branch="False" />
+            <line number="22" hits="3" branch="False" />
           </lines>
         </class>
         <class name="HospitalApp.Controllers.UserController" filename="Documents\GitRepository\PSW\HospitalApp\HospitalApp\Controllers\UserController.cs" line-rate="0.9" branch-rate="0.5" complexity="7">
@@ -4616,63 +4578,63 @@
             </method>
             <method name="EstablishWorkingDays" signature="()" line-rate="1" branch-rate="1" complexity="6">
               <lines>
-                <line number="56" hits="274" branch="False" />
-                <line number="57" hits="274" branch="False" />
-                <line number="59" hits="2379416" branch="True" condition-coverage="100% (2/2)">
+                <line number="56" hits="246" branch="False" />
+                <line number="57" hits="246" branch="False" />
+                <line number="59" hits="2130852" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
                     <condition number="98" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="60" hits="1189434" branch="True" condition-coverage="100% (4/4)">
+                <line number="60" hits="1065180" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
                     <condition number="23" type="jump" coverage="100%" />
                     <condition number="40" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="61" hits="847482" branch="False" />
-                <line number="63" hits="274" branch="False" />
-                <line number="64" hits="274" branch="False" />
+                <line number="61" hits="758172" branch="False" />
+                <line number="63" hits="246" branch="False" />
+                <line number="64" hits="246" branch="False" />
               </lines>
             </method>
             <method name="EstablishWorkingHours" signature="()" line-rate="1" branch-rate="1" complexity="6">
               <lines>
-                <line number="67" hits="273" branch="False" />
-                <line number="68" hits="273" branch="False" />
-                <line number="69" hits="273" branch="False" />
-                <line number="71" hits="2370732" branch="True" condition-coverage="100% (2/2)">
+                <line number="67" hits="245" branch="False" />
+                <line number="68" hits="245" branch="False" />
+                <line number="69" hits="245" branch="False" />
+                <line number="71" hits="2122190" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
                     <condition number="123" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="72" hits="1185093" branch="True" condition-coverage="100% (4/4)">
+                <line number="72" hits="1060850" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
                     <condition number="46" type="jump" coverage="100%" />
                     <condition number="75" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="73" hits="345891" branch="False" />
-                <line number="75" hits="273" branch="False" />
-                <line number="76" hits="273" branch="False" />
+                <line number="73" hits="308700" branch="False" />
+                <line number="75" hits="245" branch="False" />
+                <line number="76" hits="245" branch="False" />
               </lines>
             </method>
             <method name="EstablishRandomHours" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="79" hits="136" branch="False" />
-                <line number="80" hits="136" branch="False" />
-                <line number="82" hits="172448" branch="False" />
-                <line number="83" hits="136" branch="False" />
+                <line number="79" hits="122" branch="False" />
+                <line number="80" hits="122" branch="False" />
+                <line number="82" hits="153842" branch="False" />
+                <line number="83" hits="122" branch="False" />
               </lines>
             </method>
             <method name="EstablishRandomHoursString" signature="()" line-rate="1" branch-rate="1" complexity="2">
               <lines>
                 <line number="86" hits="1" branch="False" />
                 <line number="87" hits="1" branch="False" />
-                <line number="89" hits="136" branch="True" condition-coverage="100% (2/2)">
+                <line number="89" hits="122" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
                     <condition number="57" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="90" hits="67" branch="False" />
+                <line number="90" hits="60" branch="False" />
                 <line number="92" hits="1" branch="False" />
                 <line number="93" hits="1" branch="False" />
               </lines>
@@ -4704,51 +4666,51 @@
             <line number="50" hits="1" branch="False" />
             <line number="52" hits="1" branch="False" />
             <line number="53" hits="1" branch="False" />
-            <line number="56" hits="274" branch="False" />
-            <line number="57" hits="274" branch="False" />
-            <line number="59" hits="2379416" branch="True" condition-coverage="100% (2/2)">
+            <line number="56" hits="246" branch="False" />
+            <line number="57" hits="246" branch="False" />
+            <line number="59" hits="2130852" branch="True" condition-coverage="100% (2/2)">
               <conditions>
                 <condition number="98" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="60" hits="1189434" branch="True" condition-coverage="100% (4/4)">
+            <line number="60" hits="1065180" branch="True" condition-coverage="100% (4/4)">
               <conditions>
                 <condition number="23" type="jump" coverage="100%" />
                 <condition number="40" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="61" hits="847482" branch="False" />
-            <line number="63" hits="274" branch="False" />
-            <line number="64" hits="274" branch="False" />
-            <line number="67" hits="273" branch="False" />
-            <line number="68" hits="273" branch="False" />
-            <line number="69" hits="273" branch="False" />
-            <line number="71" hits="2370732" branch="True" condition-coverage="100% (2/2)">
+            <line number="61" hits="758172" branch="False" />
+            <line number="63" hits="246" branch="False" />
+            <line number="64" hits="246" branch="False" />
+            <line number="67" hits="245" branch="False" />
+            <line number="68" hits="245" branch="False" />
+            <line number="69" hits="245" branch="False" />
+            <line number="71" hits="2122190" branch="True" condition-coverage="100% (2/2)">
               <conditions>
                 <condition number="123" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="72" hits="1185093" branch="True" condition-coverage="100% (4/4)">
+            <line number="72" hits="1060850" branch="True" condition-coverage="100% (4/4)">
               <conditions>
                 <condition number="46" type="jump" coverage="100%" />
                 <condition number="75" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="73" hits="345891" branch="False" />
-            <line number="75" hits="273" branch="False" />
-            <line number="76" hits="273" branch="False" />
-            <line number="79" hits="136" branch="False" />
-            <line number="80" hits="136" branch="False" />
-            <line number="82" hits="172448" branch="False" />
-            <line number="83" hits="136" branch="False" />
+            <line number="73" hits="308700" branch="False" />
+            <line number="75" hits="245" branch="False" />
+            <line number="76" hits="245" branch="False" />
+            <line number="79" hits="122" branch="False" />
+            <line number="80" hits="122" branch="False" />
+            <line number="82" hits="153842" branch="False" />
+            <line number="83" hits="122" branch="False" />
             <line number="86" hits="1" branch="False" />
             <line number="87" hits="1" branch="False" />
-            <line number="89" hits="136" branch="True" condition-coverage="100% (2/2)">
+            <line number="89" hits="122" branch="True" condition-coverage="100% (2/2)">
               <conditions>
                 <condition number="57" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="90" hits="67" branch="False" />
+            <line number="90" hits="60" branch="False" />
             <line number="92" hits="1" branch="False" />
             <line number="93" hits="1" branch="False" />
             <line number="13" hits="4" branch="False" />

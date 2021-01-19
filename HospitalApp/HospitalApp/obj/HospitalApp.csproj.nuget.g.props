@@ -20,10 +20,12 @@
     <Import Project="$(NuGetPackageRoot)reportgenerator\4.8.4\build\netstandard2.0\ReportGenerator.props" Condition="Exists('$(NuGetPackageRoot)reportgenerator\4.8.4\build\netstandard2.0\ReportGenerator.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\5.0.0\build\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\5.0.0\build\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codecoverage\16.8.3\build\netstandard1.0\Microsoft.CodeCoverage.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage\16.8.3\build\netstandard1.0\Microsoft.CodeCoverage.props')" />
+    <Import Project="$(NuGetPackageRoot)grpc.tools\2.34.1\build\Grpc.Tools.props" Condition="Exists('$(NuGetPackageRoot)grpc.tools\2.34.1\build\Grpc.Tools.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgReportGenerator Condition=" '$(PkgReportGenerator)' == '' ">C:\Users\Super User\.nuget\packages\reportgenerator\4.8.4</PkgReportGenerator>
     <PkgOpenCover Condition=" '$(PkgOpenCover)' == '' ">C:\Users\Super User\.nuget\packages\opencover\4.7.922</PkgOpenCover>
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\Super User\.nuget\packages\microsoft.entityframeworkcore.tools\5.0.0</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgGrpc_Tools Condition=" '$(PkgGrpc_Tools)' == '' ">C:\Users\Super User\.nuget\packages\grpc.tools\2.34.1</PkgGrpc_Tools>
   </PropertyGroup>
 </Project>

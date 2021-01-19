@@ -50,10 +50,11 @@ function generateDoneAppointments(table, appointment, patient, doctor){
                 "</td><td>" + appointment.time +
                 "</td><td>" + "Done" +
                 "</td><td><button class='" + appointment.id + "'> Give Patient a Specialist </button>" +
-                "</td><td><button> Make Prescription </button>" +
+                "</td><td><button id='" + patient.id + "'> Make Prescription </button>" +
                 "</td></tr>");
 
     $("#table").append(table);
+    makeNewPrescription(patient);
 
     $("." + appointment.id).click(function(event){
         $.ajax({
@@ -198,6 +199,13 @@ function checkPatientReferral(patient, appointment){
                 }
             }
         }
+    });
+}
+
+function makeNewPrescription(patient){
+    $("#" + patient.id).click(function(event){
+        event.preventDefault();
+        window.location.href = "makePrescription.html?firstName=" + patient.firstName +"&lastName=" + patient.lastName;
     });
 }
 
