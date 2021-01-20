@@ -20,6 +20,8 @@ namespace HospitalApp.Models
 
         public DbSet<Referral> Referrals { get; set; }
 
+        public DbSet<Medication> Medications { get; set; }
+
         private readonly DateLogic _dt = new DateLogic();
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
@@ -52,13 +54,18 @@ namespace HospitalApp.Models
                             Type = DoctorType.Specialist, Appointments = null, WorkingDays = _dt.DiscardRandomHoursString(),
                             IsBlocked = false, IsMalicious = false, Password = "1234567", PhoneNumber = "7766-65-64", Role = "Doctor", Username = "doca66"}
             );
-            /*
-            modelBuilder.Entity<Patient>().HasData(
-                new Patient { Id = 15, FirstName = "Marko", LastName = "Simonovic", Role = "Patient",
-                                Username = "maki", Password = "123", Address = "Tomiceva 22, Zrenjanin", Age = 15, Gender = "male",
-                                PhoneNumber = "+38122555333", IsBlocked = false, GeneralPractitionerId = 11, CancelledAppointments = 0, IsMalicious = false}
-                );
-            */
+
+            modelBuilder.Entity<Medication>().HasData(
+                new Medication { Id = 1, Name = "Rivotril", Quantity = 132 },
+                new Medication { Id = 2, Name = "Vicodin", Quantity = 32 },
+                new Medication { Id = 3, Name = "Xodol", Quantity = 212 },
+                new Medication { Id = 4, Name = "Norco", Quantity = 55 },
+                new Medication { Id = 5, Name = "Levoxyl", Quantity = 69 },
+                new Medication { Id = 6, Name = "Delasone", Quantity = 11 },
+                new Medication { Id = 7, Name = "Neurontin ", Quantity = 43 },
+                new Medication { Id = 8, Name = "Glucophage ", Quantity = 177 }
+            );
+           
             modelBuilder.Entity<Doctor>()
                         .Property(w => w.WorkingDays)
                         .HasConversion(

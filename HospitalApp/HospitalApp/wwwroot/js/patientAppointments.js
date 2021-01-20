@@ -25,7 +25,7 @@ function getPatientAppointments(patient){
         type: 'GET',
         headers: {
             "Authorization": "Basic " + btoa(patient.username + ":" + patient.password)
-          },
+        },
         complete: function(data){
             var appointments = data.responseJSON;
 

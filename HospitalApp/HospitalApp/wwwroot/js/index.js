@@ -37,6 +37,8 @@ function showUnidentifiedUserOptions(){
     $("#giveFeedback").hide();
     $("#feedbacks").hide();
     $("#doctorsAppointments").hide();
+    $("#orderMedications").hide();
+    $("#medications").hide();
 }
 
 function showPatientOptions(){
@@ -50,6 +52,8 @@ function showPatientOptions(){
     $("#giveFeedback").hide();
     $("#feedbacks").hide();
     $("#doctorsAppointments").hide();
+    $("#orderMedications").hide();
+    $("#medications").hide();
 }
 
 function showAdministratorOptions(){
@@ -63,6 +67,8 @@ function showAdministratorOptions(){
     $("#giveFeedback").hide();
     $("#feedbacks").show();
     $("#doctorsAppointments").hide();
+    $("#orderMedications").show();
+    $("#medications").show();
 }
 
 function showDoctorOptions(){
@@ -76,6 +82,8 @@ function showDoctorOptions(){
     $("#giveFeedback").hide();
     $("#feedbacks").hide();
     $("#doctorsAppointments").show();
+    $("#orderMedications").hide();
+    $("#medications").show();
 }
 
 function redirectUser(user){
@@ -109,6 +117,16 @@ function redirectUser(user){
         event.preventDefault();
         window.location.href = "doctorAppointments.html";
     });
+
+    $("#orderMedications").click(function(event){
+        event.preventDefault();
+        window.location.href = "orderMedications.html";
+    });
+
+    $("#medications").click(function(event){
+        event.preventDefault();
+        window.location.href = "medications.html";
+    });
 }
 
 function getCurrentUser(){
@@ -129,6 +147,9 @@ function checkForUserFeedbackOption(user){
     $.ajax({
         method: 'GET',
         url: 'http://localhost:50324/getPatientAppointments/' + user.id,
+        headers: {
+            "Authorization": "Basic " + btoa(user.username + ":" + user.password)
+          },
         complete: function (data) {
             var appointments = data.responseJSON;
 

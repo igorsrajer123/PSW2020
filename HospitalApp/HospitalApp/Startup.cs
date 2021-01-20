@@ -40,6 +40,7 @@ namespace HospitalApp
             services.AddScoped<IReferralService, ReferralService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
             services.AddScoped<IFeedbackService, FeedbackService>();
+            services.AddScoped<IMedicationService, MedicationService>();
        
             services.AddRazorPages().WithRazorPagesRoot("/Views");
 
@@ -64,10 +65,7 @@ namespace HospitalApp
             }));
         }
 
-        private Server server;
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -93,21 +91,6 @@ namespace HospitalApp
             });
 
             app.UseCors("MyPolicy");
-
-            server = new Server
-            {
-                Services = { NetGrpcService.BindService(new NetGrpcServiceImpl()) },
-                Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
-            };
-            server.Start();
-
-            applicationLifetime.ApplicationStopping.Register(OnShutdown);
-        }
-
-        private void OnShutdown()
-        {
-            if (server != null)
-                server.ShutdownAsync().Wait();
         }
     }
 }

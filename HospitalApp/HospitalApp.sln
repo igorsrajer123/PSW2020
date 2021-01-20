@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalApp", "HospitalApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalAppTests", "HospitalAppTests\HospitalAppTests.csproj", "{1898BA4D-314E-4466-973A-B4AF89224291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalAppGrpcService", "GrpcService1\HospitalAppGrpcService.csproj", "{3D8FD09D-2CBA-4D65-BE74-CF6006326298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalAppGrpcService", "GrpcService1\HospitalAppGrpcService.csproj", "{3D8FD09D-2CBA-4D65-BE74-CF6006326298}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

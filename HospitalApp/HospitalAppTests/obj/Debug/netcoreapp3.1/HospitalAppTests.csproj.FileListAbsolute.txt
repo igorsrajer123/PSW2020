@@ -547,3 +547,4 @@ C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\Grpc.Net.ClientFactory.dll
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalAppGrpcService.dll
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\HospitalAppGrpcService.pdb
+C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\WebDriver.dll

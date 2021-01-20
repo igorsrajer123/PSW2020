@@ -1,5 +1,5 @@
 window.onload = function(){
-    makePrescription();
+    getAllMedications();
 }
 
 function makePrescription(){
@@ -51,4 +51,30 @@ function getUrlVars() {
         vars[key] = value;
     });
     return vars;
+}
+
+function getAllMedications(){
+    $.ajax({
+        url: 'http://localhost:50324/getAllMedications',
+        type: 'GET',
+        complete: function(data){
+            var allMedications = data.responseJSON;
+
+            var medsTable = $("#table tbody");
+            medsTable.empty();
+
+            for(var i = 0; i < allMedications.length; i++){
+                medsTable.append("<tr><td><input type='checkbox'></td>" +
+                "<td>" + allMedications[i].name +   
+                "</td><td><input type='text'>" +
+                "</td></tr>");
+
+                $("#table").append(medsTable);
+            }
+
+            medsTable.append("<tr><td><button id='sendPrescription'>Send</button></td></tr>");
+            $("#table").append(medsTable);
+            makePrescription();
+        }
+    });
 }
