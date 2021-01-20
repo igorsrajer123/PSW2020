@@ -1,0 +1,23 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+Passed!  - Failed:     0, Passed:    71, Skipped:     0, Total:    71, Duration: 1 m - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalApp      | 62.76% | 34.7%  | 71.87% |
++------------------+--------+--------+--------+
+| HospitalAppTests | 86.97% | 88.46% | 93.02% |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 77.8%  | 51.61% | 81.06% |
++---------+--------+--------+--------+
+| Average | 74.86% | 61.58% | 82.44% |
++---------+--------+--------+--------+
+

@@ -1,0 +1,32 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:11.38]     HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_doctor_appointments [FAIL]
+  Failed HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_doctor_appointments [104 ms]
+  Error Message:
+   System.ArgumentNullException : Value cannot be null. (Parameter 'source')
+  Stack Trace:
+     at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at HospitalApp.Services.AppointmentService.GetDoctorAppointments(Int32 doctorId) in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\Services\AppointmentService.cs:line 81
+   at HospitalAppTests.ServicesTests.AppointmentServiceTests.Get_doctor_appointments() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\AppointmentServiceTests.cs:line 142
+Failed!  - Failed:     1, Passed:    82, Skipped:     0, Total:    83, Duration: 1 m 2 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalApp      | 69.78% | 41.76% | 79.01% |
++------------------+--------+--------+--------+
+| HospitalAppTests | 99.16% | 90.78% | 99.47% |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 88.63% | 56.91% | 88.43% |
++---------+--------+--------+--------+
+| Average | 84.47% | 66.27% | 89.24% |
++---------+--------+--------+--------+
+

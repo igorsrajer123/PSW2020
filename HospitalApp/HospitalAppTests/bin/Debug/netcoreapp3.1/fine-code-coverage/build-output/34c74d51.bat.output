@@ -1,0 +1,73 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+infoinfo: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+warn: Microsoft.EntityFrameworkCore.Model.Validation[10620]
+      The property 'WorkingDays.Doctor' is a collection or enumeration type with a value converter but with no value comparer. Set a value comparer to ensure the collection/enumeration elements are compared correctly.
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+info: HospitalApp.Handlers.BasicAuthenticationHandler[7]
+      BasicAuthentication was not authenticated. Failure message: Authorization header was not found!
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+Passed!  - Failed:     0, Passed:    89, Skipped:     0, Total:    89, Duration: 1 m 48 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalApp      | 82.5%  | 48.23% | 87.05% |
++------------------+--------+--------+--------+
+| HospitalAppTests | 99.35% | 90.78% | 99.5%  |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 93.48% | 61.38% | 92.92% |
++---------+--------+--------+--------+
+| Average | 90.92% | 69.5%  | 93.27% |
++---------+--------+--------+--------+
+

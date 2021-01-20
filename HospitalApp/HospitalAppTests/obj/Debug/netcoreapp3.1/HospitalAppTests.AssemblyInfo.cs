@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("HospitalApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\Super User\\Documents\\GitRepository\\PSW\\HospitalApp\\HospitalApp", "HospitalApp.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("HospitalAppGrpcService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\Super User\\Documents\\GitRepository\\PSW\\HospitalApp\\GrpcService1", "HospitalAppGrpcService.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("HospitalAppTests")]

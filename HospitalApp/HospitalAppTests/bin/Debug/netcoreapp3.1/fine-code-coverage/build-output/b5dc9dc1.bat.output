@@ -1,0 +1,39 @@
+Starting test execution, please wait...
+Logging Vstest Diagnostics in file: C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\diagnostics.log
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:14.28]     HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type [FAIL]
+[xUnit.net 00:00:14.29]     HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_all_administrators [FAIL]
+  Failed HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type [70 ms]
+  Error Message:
+   The collection was expected to contain a single element, but it was empty.
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.DoctorServiceTests.Get_by_type() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\DoctorServiceTests.cs:line 47
+  Failed HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_all_administrators [12 s]
+  Error Message:
+   Shouldly.ShouldAssertException : admins.Count
+    should be
+2
+    but was
+0
+  Stack Trace:
+     at HospitalAppTests.ServicesTests.AdministratorServiceTests.Get_all_administrators() in C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\ServicesTests\AdministratorServiceTests.cs:line 31
+Failed!  - Failed:     2, Passed:    63, Skipped:     0, Total:    65, Duration: 1 m 8 s - HospitalAppTests.dll (netcoreapp3.1)
+
+Calculating coverage result...
+  Generating report 'C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalAppTests\bin\Debug\netcoreapp3.1\fine-code-coverage\project.coverage.xml'
++------------------+--------+--------+--------+
+| Module           | Line   | Branch | Method |
++------------------+--------+--------+--------+
+| HospitalApp      | 58.93% | 30%    | 69.19% |
++------------------+--------+--------+--------+
+| HospitalAppTests | 97.74% | 91.02% | 97.43% |
++------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 80.43% | 49.19% | 80.78% |
++---------+--------+--------+--------+
+| Average | 78.33% | 60.51% | 83.31% |
++---------+--------+--------+--------+
+
