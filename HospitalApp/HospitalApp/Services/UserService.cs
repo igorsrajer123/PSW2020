@@ -33,8 +33,7 @@ namespace HospitalApp.Services
         {
             User myUser = _dbContext.Users.SingleOrDefault(user => user.Id == userId);
 
-            if (myUser == null)
-                return null;
+            if (myUser == null) return null;
 
             return UserAdapter.UserToUserDto(myUser);
         }
@@ -43,8 +42,7 @@ namespace HospitalApp.Services
         {
             User myUser = _dbContext.Users.SingleOrDefault(u => u.Id == userId);
 
-            if (myUser == null)
-                return null;
+            if (myUser == null) return null;
 
             SetUserData(myUser, user);
 

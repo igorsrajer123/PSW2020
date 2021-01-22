@@ -125,6 +125,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "DotNetSeleniumExtras.WaitHelpers": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
             "Google.Protobuf": {
               "target": "Package",
               "version": "[3.14.0, )"
@@ -209,7 +213,7 @@
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[87.0.4280.8800, )"
+              "version": "[88.0.4324.2700, )"
             },
             "Shouldly": {
               "target": "Package",

@@ -61,8 +61,7 @@ namespace HospitalApp.Services
         {
             Patient myPatient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
 
-            if (myPatient == null) 
-                return null;
+            if (myPatient == null) return null;
 
             return DoctorAdapter.DoctorToDoctorDto(myPatient.GeneralPractitioner);
         }
@@ -71,11 +70,9 @@ namespace HospitalApp.Services
         {
             Patient myPatient = _dbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
 
-            if (myPatient == null || myPatient.Referral == null || myPatient.Referral.IsDeleted)
-                return null;
+            if (myPatient == null || myPatient.Referral == null || myPatient.Referral.IsDeleted) return null;
 
-            if (_dbContext.Doctors.FirstOrDefault(doctor => doctor.Id == myPatient.Referral.SpecialistId) == null)
-                return null;
+            if (_dbContext.Doctors.FirstOrDefault(doctor => doctor.Id == myPatient.Referral.SpecialistId) == null) return null;
 
             return DoctorAdapter.DoctorToDoctorDto(_dbContext.Doctors.FirstOrDefault(doctor => doctor.Id == myPatient.Referral.SpecialistId));
         }

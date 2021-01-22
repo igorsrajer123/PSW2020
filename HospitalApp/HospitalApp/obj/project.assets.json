@@ -36,6 +36,18 @@
           "lib/netstandard2.1/DiffEngine.dll": {}
         }
       },
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.10.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
+        }
+      },
       "EmptyFiles/2.3.3": {
         "type": "package",
         "compile": {
@@ -1242,7 +1254,7 @@
           "lib/netstandard2.0/WebDriver.dll": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
+      "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -3359,6 +3371,21 @@
         "lib/netstandard2.0/DiffEngine.xml",
         "lib/netstandard2.1/DiffEngine.dll",
         "lib/netstandard2.1/DiffEngine.xml"
+      ]
+    },
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "sha512": "xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "type": "package",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
+        "dotnetseleniumextras.waithelpers.nuspec",
+        "lib/net35/SeleniumExtras.WaitHelpers.dll",
+        "lib/net40/SeleniumExtras.WaitHelpers.dll",
+        "lib/net45/SeleniumExtras.WaitHelpers.dll",
+        "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll"
       ]
     },
     "EmptyFiles/2.3.3": {
@@ -5604,10 +5631,10 @@
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
-      "sha512": "7bgZ2QNhYFofxDdlGVfUVgNJ6B785u/UeoFjEzB7O2EiggPitosPqqB/TG0KpJwvqgQTs+nNJus3rn9yNMHa1A==",
+    "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {
+      "sha512": "G6H5860X4XxgDaxGpk2WIdbo6ckhFsqJrJLZs4Oq2rAdIPiO3XQfa3J5uzBIao1U0rama2mgIKI/yDXYBezA4A==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/87.0.4280.8800",
+      "path": "selenium.webdriver.chromedriver/88.0.4324.2700",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5617,7 +5644,7 @@
         "driver/mac64/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.87.0.4280.8800.nupkg.sha512",
+        "selenium.webdriver.chromedriver.88.0.4324.2700.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
@@ -11237,6 +11264,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DotNetSeleniumExtras.WaitHelpers >= 3.11.0",
       "Google.Protobuf >= 3.14.0",
       "Grpc.AspNetCore.Server >= 2.34.0",
       "Grpc.Core >= 2.34.1",
@@ -11257,7 +11285,7 @@
       "OpenCover >= 4.7.922",
       "ReportGenerator >= 4.8.4",
       "Selenium.WebDriver >= 3.141.0",
-      "Selenium.WebDriver.ChromeDriver >= 87.0.4280.8800",
+      "Selenium.WebDriver.ChromeDriver >= 88.0.4324.2700",
       "Shouldly >= 4.0.3",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
@@ -11306,6 +11334,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "DotNetSeleniumExtras.WaitHelpers": {
+            "target": "Package",
+            "version": "[3.11.0, )"
+          },
           "Google.Protobuf": {
             "target": "Package",
             "version": "[3.14.0, )"
@@ -11390,7 +11422,7 @@
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[87.0.4280.8800, )"
+            "version": "[88.0.4324.2700, )"
           },
           "Shouldly": {
             "target": "Package",

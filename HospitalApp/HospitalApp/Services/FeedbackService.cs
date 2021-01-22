@@ -31,16 +31,14 @@ namespace HospitalApp.Services
         {
             Feedback myFeedback = _dbContext.Feedbacks.SingleOrDefault(feedback => feedback.Id == feedbackId);
 
-            if(myFeedback == null)
-                return null;
+            if(myFeedback == null) return null;
 
             return FeedbackAdapter.FeedbackToFeedbackDto(myFeedback);
         }
 
         public FeedbackDto Add(FeedbackDto feedbackDto)
         {
-            if (feedbackDto == null)
-                return null;
+            if (feedbackDto == null) return null;
 
             Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == feedbackDto.PatientId);
             RemovePreviousFeedback(feedbackDto, myPatient);
@@ -53,8 +51,7 @@ namespace HospitalApp.Services
 
         public void RemovePreviousFeedback(FeedbackDto feedbackDto, Patient patient)
         {
-            if (patient.Feedback != null)
-                _dbContext.Remove(patient.Feedback);
+            if (patient.Feedback != null) _dbContext.Remove(patient.Feedback);
 
             patient.Feedback = FeedbackAdapter.FeedbackDtoToFeedback(feedbackDto);
         }
@@ -64,8 +61,7 @@ namespace HospitalApp.Services
             Feedback myFeedback = FeedbackAdapter.FeedbackDtoToFeedback(GetById(feedbackId));
             Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == myFeedback.PatientId);
 
-            if (myFeedback == null)
-                return null;
+            if (myFeedback == null) return null;
 
             myFeedback.IsVisible = false;
             myPatient.Feedback.IsVisible = false;
@@ -79,8 +75,7 @@ namespace HospitalApp.Services
             Feedback myFeedback = FeedbackAdapter.FeedbackDtoToFeedback(GetById(feedbackId));
             Patient myPatient = _dbContext.Patients.SingleOrDefault(patient => patient.Id == myFeedback.PatientId);
 
-            if (myFeedback == null)
-                return null;
+            if (myFeedback == null) return null;
 
             myFeedback.IsVisible = true;
             myPatient.Feedback.IsVisible = true;

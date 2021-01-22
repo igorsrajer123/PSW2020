@@ -365,3 +365,4 @@ C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debu
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\obj\Debug\netcoreapp3.1\HospitalApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Super User\Documents\GitRepository\PSW\HospitalApp\HospitalApp\bin\Debug\netcoreapp3.1\SeleniumExtras.WaitHelpers.dll

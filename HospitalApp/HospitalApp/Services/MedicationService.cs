@@ -18,22 +18,10 @@ namespace HospitalApp.Services
             _dbContext = context;
         }
 
-        public List<MedicationDto> AddMedicationsToSupply(List<MedicationDto> medications)
-        {
-            List<Medication> dbMedications = _dbContext.Medications.ToList();
-            
-            foreach(Medication m in dbMedications)
-                foreach(MedicationDto m2 in medications)
-                    if (m2.Id.Equals(m.Id))
-                        m.Quantity += m2.Quantity;
-
-            _dbContext.SaveChanges();
-            return medications;
-        }
-
         public List<MedicationDto> GetAll()
         {
             List<MedicationDto> myMedications = new List<MedicationDto>();
+
             _dbContext.Medications.ToList().ForEach(medication => myMedications.Add(MedicationAdapter.MedicationToMedicationDto(medication)));
 
             return myMedications;
@@ -46,6 +34,19 @@ namespace HospitalApp.Services
             if (myMedication == null) return null;
 
             return MedicationAdapter.MedicationToMedicationDto(myMedication);
+        }
+
+        public List<MedicationDto> AddMedicationsToSupply(List<MedicationDto> medications)
+        {
+            List<Medication> dbMedications = _dbContext.Medications.ToList();
+
+            foreach (Medication m in dbMedications)
+                foreach (MedicationDto m2 in medications)
+                    if (m2.Id.Equals(m.Id))
+                        m.Quantity += m2.Quantity;
+
+            _dbContext.SaveChanges();
+            return medications;
         }
     }
 }

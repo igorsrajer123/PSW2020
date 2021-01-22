@@ -47,7 +47,7 @@ namespace HospitalApp.Services
             _dbContext.Patients.SingleOrDefault(patient => patient.Id == myAppointment.PatientId).Appointments.Add(myAppointment);
             _dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId).Appointments.Add(myAppointment);
 
-            if (PatientAlreadyHasAppointment(appointmentDto.PatientId, appointmentDto.DoctorId))
+            if (PatientAlreadyHasAppointmentWithDoctor(appointmentDto.PatientId, appointmentDto.DoctorId))
                 return null;
 
             RemoveDoctorsActiveAppointmentDate(_dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId), myAppointment);
@@ -55,20 +55,6 @@ namespace HospitalApp.Services
             _dbContext.SaveChanges();
 
             return appointmentDto;
-        }
-
-        public bool PatientAlreadyHasAppointment(int patientId, int doctorId)
-        {
-            List<Appointment> appointments = _dbContext.Appointments.ToList().FindAll(a => a.PatientId == patientId);
-
-            foreach (Appointment p in appointments)
-            {
-                if (p.DoctorId == doctorId && p.Status == AppointmentStatus.Active)
-                {
-                    return true;
-                }  
-            }
-            return false;
         }
 
         public List<AppointmentDto> GetPatientAppointments(int patientId)
@@ -112,14 +98,57 @@ namespace HospitalApp.Services
             Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
             PatientsCancelledAppointmentsAdded(myAppointment);
 
-            if (myAppointment == null || (GetAppointmentFullDate(myAppointment) - DateTime.Now).TotalDays < 2)
-                return null;
+            if (myAppointment == null || (GetAppointmentFullDate(myAppointment) - DateTime.Now).TotalDays < 2) return null;
 
             myAppointment.Status = AppointmentStatus.Cancelled;
             myAppointment.CancellationDate = DateTime.Today.ToString("yyyy-MM-dd");
             ReturnDoctorsCancelledDate(_dbContext.Doctors.SingleOrDefault(doctor => doctor.Id == myAppointment.DoctorId), myAppointment);
 
             return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
+        }
+
+        //appointment is set to "Done" when it's date expires
+        public AppointmentDto SetAppointmentDone(int appointmentId)
+        {
+            Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
+
+            if (myAppointment == null) return null;
+
+            if (DateTime.Parse(GetAppointmentFullDateString(myAppointment)) < DateTime.Today && myAppointment.Status != AppointmentStatus.Cancelled)
+            {
+                SetAppointmentStatusDone(myAppointment);
+                _dbContext.SaveChanges();
+            }
+
+            return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
+        }
+
+        //doctor can set appointment to "Done"
+        public AppointmentDto FinishAppointment(int appointmentId)
+        {
+            Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
+            Patient p = myAppointment.Patient;
+
+            if (myAppointment == null) return null;
+
+            Appointment ap = p.Appointments.Find(a => a.Id == appointmentId);
+            ap.Status = AppointmentStatus.Done;
+
+            SetAppointmentStatusDone(myAppointment);
+            _dbContext.SaveChanges();
+
+            return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
+        }
+
+        #region "Helper methods"
+        public bool PatientAlreadyHasAppointmentWithDoctor(int patientId, int doctorId)
+        {
+            List<Appointment> appointments = _dbContext.Appointments.ToList().FindAll(a => a.PatientId == patientId);
+
+            foreach (Appointment p in appointments)
+                if (p.DoctorId == doctorId && p.Status == AppointmentStatus.Active) return true;
+
+            return false;
         }
 
         public void PatientsCancelledAppointmentsAdded(Appointment appointment)
@@ -158,39 +187,10 @@ namespace HospitalApp.Services
                 patient.IsMalicious = true;
         }
 
-        //appointment is set to "Done" when it's date expires
-        public AppointmentDto SetAppointmentDone(int appointmentId)
+        private void SetAppointmentStatusDone(Appointment appointment)
         {
-            Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
-
-            if (myAppointment == null) return null;
-
-            if(DateTime.Parse(GetAppointmentFullDateString(myAppointment)) < DateTime.Today && myAppointment.Status != AppointmentStatus.Cancelled)
-            {
-                SetAppointmentsReferralDeleted(myAppointment);
-                myAppointment.Status = AppointmentStatus.Done;
-                _dbContext.SaveChanges();
-            }
-
-            return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
-        }
-
-        //doctor can set appointment to "Done"
-        public AppointmentDto FinishAppointment(int appointmentId)
-        {
-            Appointment myAppointment = _dbContext.Appointments.SingleOrDefault(appointment => appointment.Id == appointmentId);
-            Patient p = myAppointment.Patient;
-
-            if (myAppointment == null) return null;
-
-            Appointment ap = p.Appointments.Find(a => a.Id == appointmentId);
-            ap.Status = AppointmentStatus.Done;
-
-            SetAppointmentsReferralDeleted(myAppointment);
-            myAppointment.Status = AppointmentStatus.Done;
-            _dbContext.SaveChanges();
-        
-            return AppointmentAdapter.AppointmentToAppointmentDto(myAppointment);
+            SetAppointmentsReferralDeleted(appointment);
+            appointment.Status = AppointmentStatus.Done;
         }
 
         public DateTime GetAppointmentFullDate(Appointment appointment)
@@ -212,7 +212,7 @@ namespace HospitalApp.Services
                 referal2.IsDeleted = true;
                 _dbContext.SaveChanges();
             }
-                
         }
+        #endregion
     }
 }

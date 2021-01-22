@@ -5,6 +5,11 @@
     validatePassword();
 
     $("#register").click(function(event){
+        if($("#username").val() == ""){
+            alert("Username cannot be empty!");
+            $("#register").attr("disabled", true);
+        }
+
         event.preventDefault();
         registration();
     });
@@ -77,6 +82,7 @@ function getCheckedGender(){
 
 function validateUsername(){
     $("#username").on("input", function(e){
+        $("#register").attr("disabled", false);
         if(!$("#error1").is(":hidden") ||  !$("#error2").is(":hidden")){
             $("#error1").hide();
             $("#error2").hide();

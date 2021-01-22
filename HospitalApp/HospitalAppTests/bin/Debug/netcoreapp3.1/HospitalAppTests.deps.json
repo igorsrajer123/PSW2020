@@ -27,6 +27,9 @@
           "HospitalApp": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Testing": "3.1.10",
           "Microsoft.NET.Test.Sdk": "16.7.1",
+          "Selenium.WebDriver.ChromeDriver": "88.0.4324.2700",
+          "Selenium.WebDriver.MicrosoftDriver": "17.17134.0",
+          "SeleniumProxyAuth": "1.0.2",
           "coverlet.collector": "1.3.0",
           "xunit": "2.4.1",
           "xunit.extensibility.core": "2.4.1",
@@ -274,6 +277,20 @@
           "HospitalAppTests.dll": {}
         }
       },
+      "BrotliSharpLib/0.3.3": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/BrotliSharpLib.dll": {
+            "assemblyVersion": "0.3.2.0",
+            "fileVersion": "0.3.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/BrotliSharpLib.dll": {}
+        }
+      },
       "Castle.Core/4.4.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -311,6 +328,20 @@
         },
         "compile": {
           "lib/netstandard2.1/DiffEngine.dll": {}
+        }
+      },
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {
+            "assemblyVersion": "3.11.0.0",
+            "fileVersion": "3.11.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
         }
       },
       "EmptyFiles/2.3.3": {
@@ -1813,6 +1844,17 @@
         }
       },
       "OpenCover/4.7.922": {},
+      "Portable.BouncyCastle/1.8.8": {
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "assemblyVersion": "1.8.8.0",
+            "fileVersion": "1.8.8.2"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        }
+      },
       "ReportGenerator/4.8.4": {},
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1954,7 +1996,22 @@
           "lib/netstandard2.0/WebDriver.dll": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {},
+      "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {},
+      "Selenium.WebDriver.MicrosoftDriver/17.17134.0": {},
+      "SeleniumProxyAuth/1.0.2": {
+        "dependencies": {
+          "Titanium.Web.Proxy": "3.1.1344"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumProxyAuth.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumProxyAuth.dll": {}
+        }
+      },
       "Shouldly/4.0.3": {
         "dependencies": {
           "DiffEngine": "6.4.9",
@@ -3564,6 +3621,23 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "Titanium.Web.Proxy/3.1.1344": {
+        "dependencies": {
+          "BrotliSharpLib": "0.3.3",
+          "Microsoft.Win32.Registry": "5.0.0",
+          "Portable.BouncyCastle": "1.8.8",
+          "System.Security.Principal.Windows": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Titanium.Web.Proxy.dll": {
+            "assemblyVersion": "3.1.1344.0",
+            "fileVersion": "3.1.1344.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Titanium.Web.Proxy.dll": {}
+        }
+      },
       "xunit/2.4.1": {
         "dependencies": {
           "xunit.analyzers": "0.10.0",
@@ -3636,6 +3710,7 @@
       "xunit.runner.visualstudio/2.4.3": {},
       "HospitalApp/1.0.0": {
         "dependencies": {
+          "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
           "Google.Protobuf": "3.14.0",
           "Grpc.AspNetCore.Server": "2.34.0",
           "Grpc.Core": "2.34.1",
@@ -3653,7 +3728,7 @@
           "OpenCover": "4.7.922",
           "ReportGenerator": "4.8.4",
           "Selenium.WebDriver": "3.141.0",
-          "Selenium.WebDriver.ChromeDriver": "87.0.4280.8800",
+          "Selenium.WebDriver.ChromeDriver": "88.0.4324.2700",
           "Shouldly": "4.0.3",
           "xunit": "2.4.1"
         },
@@ -5096,6 +5171,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "BrotliSharpLib/0.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/z74VNg6etlQK/N1mSD5Tz2qQUZqc3RMiuv2F8Q/MOfvg4l7a6lDYhQQTPd9s9saSokh1GqUD7JTuunOiQid8w==",
+      "path": "brotlisharplib/0.3.3",
+      "hashPath": "brotlisharplib.0.3.3.nupkg.sha512"
+    },
     "Castle.Core/4.4.1": {
       "type": "package",
       "serviceable": true,
@@ -5116,6 +5198,13 @@
       "sha512": "sha512-VSZM6KtGMTtbHCYK5nXvkp7ZlholzzDtjJ0Z8lbL8zEQAsmSqodZvJfYWDbGU/SNUaNqa9OzA38T4wgga6TMpA==",
       "path": "diffengine/6.4.9",
       "hashPath": "diffengine.6.4.9.nupkg.sha512"
+    },
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "hashPath": "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512"
     },
     "EmptyFiles/2.3.3": {
       "type": "package",
@@ -5691,6 +5780,13 @@
       "path": "opencover/4.7.922",
       "hashPath": "opencover.4.7.922.nupkg.sha512"
     },
+    "Portable.BouncyCastle/1.8.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1rxdf8NfyAxLlqIEciCl/yNhmz1YiLkmp6rrF8p3/NVmyHHzPWLx8djtDvSAwhPLg64BXvsRcM3+5bP1HAUdYg==",
+      "path": "portable.bouncycastle/1.8.8",
+      "hashPath": "portable.bouncycastle.1.8.8.nupkg.sha512"
+    },
     "ReportGenerator/4.8.4": {
       "type": "package",
       "serviceable": true,
@@ -5880,12 +5976,26 @@
       "path": "selenium.webdriver/3.141.0",
       "hashPath": "selenium.webdriver.3.141.0.nupkg.sha512"
     },
-    "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
+    "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7bgZ2QNhYFofxDdlGVfUVgNJ6B785u/UeoFjEzB7O2EiggPitosPqqB/TG0KpJwvqgQTs+nNJus3rn9yNMHa1A==",
-      "path": "selenium.webdriver.chromedriver/87.0.4280.8800",
-      "hashPath": "selenium.webdriver.chromedriver.87.0.4280.8800.nupkg.sha512"
+      "sha512": "sha512-G6H5860X4XxgDaxGpk2WIdbo6ckhFsqJrJLZs4Oq2rAdIPiO3XQfa3J5uzBIao1U0rama2mgIKI/yDXYBezA4A==",
+      "path": "selenium.webdriver.chromedriver/88.0.4324.2700",
+      "hashPath": "selenium.webdriver.chromedriver.88.0.4324.2700.nupkg.sha512"
+    },
+    "Selenium.WebDriver.MicrosoftDriver/17.17134.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-22tIqQPNbFqWx32YO9XNKvWOcBu3Y98a+qb98xo3k37TkV/qPz7AbohsfaHBtizQtAqbQ5GHNM7re30uvF+amw==",
+      "path": "selenium.webdriver.microsoftdriver/17.17134.0",
+      "hashPath": "selenium.webdriver.microsoftdriver.17.17134.0.nupkg.sha512"
+    },
+    "SeleniumProxyAuth/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tULv+OCct6xdN5b+574qjQJf32VwTMYBtKmickxCa1zVRHfcY3kE+9PTz85ynhWlILZWrPkK/ZTStGkGxQ5I+Q==",
+      "path": "seleniumproxyauth/1.0.2",
+      "hashPath": "seleniumproxyauth.1.0.2.nupkg.sha512"
     },
     "Shouldly/4.0.3": {
       "type": "package",
@@ -6705,6 +6815,13 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Titanium.Web.Proxy/3.1.1344": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RikfE6rijCZYnzvgJiGKB/iAU6IXo7dBgpfW03b7Da4wkxOQ+kdQfh+ySWl74u7wUlKJTvTiv4leffX0Ujcalw==",
+      "path": "titanium.web.proxy/3.1.1344",
+      "hashPath": "titanium.web.proxy.3.1.1344.nupkg.sha512"
     },
     "xunit/2.4.1": {
       "type": "package",

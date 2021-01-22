@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "HospitalApp/1.0.0": {
         "dependencies": {
+          "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
           "Google.Protobuf": "3.14.0",
           "Grpc.AspNetCore.Server": "2.34.0",
           "Grpc.Core": "2.34.1",
@@ -44,7 +45,7 @@
           "OpenCover": "4.7.922",
           "ReportGenerator": "4.8.4",
           "Selenium.WebDriver": "3.141.0",
-          "Selenium.WebDriver.ChromeDriver": "87.0.4280.8800",
+          "Selenium.WebDriver.ChromeDriver": "88.0.4324.2700",
           "Shouldly": "4.0.3",
           "xunit": "2.4.1",
           "xunit.runner.visualstudio": "2.4.3",
@@ -346,6 +347,20 @@
         },
         "compile": {
           "lib/netstandard2.1/DiffEngine.dll": {}
+        }
+      },
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {
+            "assemblyVersion": "3.11.0.0",
+            "fileVersion": "3.11.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
         }
       },
       "EmptyFiles/2.3.3": {
@@ -1439,7 +1454,7 @@
           "lib/netstandard2.0/WebDriver.dll": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {},
+      "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {},
       "Shouldly/4.0.3": {
         "dependencies": {
           "DiffEngine": "6.4.9",
@@ -4657,6 +4672,13 @@
       "path": "diffengine/6.4.9",
       "hashPath": "diffengine.6.4.9.nupkg.sha512"
     },
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "hashPath": "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512"
+    },
     "EmptyFiles/2.3.3": {
       "type": "package",
       "serviceable": true,
@@ -5280,12 +5302,12 @@
       "path": "selenium.webdriver/3.141.0",
       "hashPath": "selenium.webdriver.3.141.0.nupkg.sha512"
     },
-    "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
+    "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7bgZ2QNhYFofxDdlGVfUVgNJ6B785u/UeoFjEzB7O2EiggPitosPqqB/TG0KpJwvqgQTs+nNJus3rn9yNMHa1A==",
-      "path": "selenium.webdriver.chromedriver/87.0.4280.8800",
-      "hashPath": "selenium.webdriver.chromedriver.87.0.4280.8800.nupkg.sha512"
+      "sha512": "sha512-G6H5860X4XxgDaxGpk2WIdbo6ckhFsqJrJLZs4Oq2rAdIPiO3XQfa3J5uzBIao1U0rama2mgIKI/yDXYBezA4A==",
+      "path": "selenium.webdriver.chromedriver/88.0.4324.2700",
+      "hashPath": "selenium.webdriver.chromedriver.88.0.4324.2700.nupkg.sha512"
     },
     "Shouldly/4.0.3": {
       "type": "package",

@@ -60,6 +60,7 @@ namespace HospitalApp.Controllers
            return ExtractSessionUser();
         }
 
+        #region "Helper methods"
         public IActionResult ExtractSessionUser()
         {
             User sessionUser = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser"));
@@ -108,5 +109,6 @@ namespace HospitalApp.Controllers
             SetSessionString(user);
             return Ok();
         }
+        #endregion
     }
 }

@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "BrotliSharpLib/0.3.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/BrotliSharpLib.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BrotliSharpLib.dll": {}
+        }
+      },
       "Castle.Core/4.4.1": {
         "type": "package",
         "dependencies": {
@@ -40,6 +52,18 @@
         },
         "runtime": {
           "lib/netstandard2.1/DiffEngine.dll": {}
+        }
+      },
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.10.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
         }
       },
       "EmptyFiles/2.3.3": {
@@ -1471,6 +1495,15 @@
       "OpenCover/4.7.922": {
         "type": "package"
       },
+      "Portable.BouncyCastle/1.8.8": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        }
+      },
       "ReportGenerator/4.8.4": {
         "type": "package",
         "build": {
@@ -1740,10 +1773,28 @@
           "lib/netstandard2.0/WebDriver.dll": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
+      "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {
         "type": "package",
         "build": {
-          "build/_._": {}
+          "build/Selenium.WebDriver.ChromeDriver.targets": {}
+        }
+      },
+      "Selenium.WebDriver.MicrosoftDriver/17.17134.0": {
+        "type": "package",
+        "build": {
+          "build/Selenium.WebDriver.MicrosoftDriver.targets": {}
+        }
+      },
+      "SeleniumProxyAuth/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Titanium.Web.Proxy": "3.1.1344"
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumProxyAuth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumProxyAuth.dll": {}
         }
       },
       "Shouldly/4.0.3": {
@@ -3733,6 +3784,21 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Titanium.Web.Proxy/3.1.1344": {
+        "type": "package",
+        "dependencies": {
+          "BrotliSharpLib": "0.3.3",
+          "Microsoft.Win32.Registry": "5.0.0",
+          "Portable.BouncyCastle": "1.8.8",
+          "System.Security.Principal.Windows": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Titanium.Web.Proxy.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Titanium.Web.Proxy.dll": {}
+        }
+      },
       "xunit/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -3816,6 +3882,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
           "Google.Protobuf": "3.14.0",
           "Grpc.AspNetCore.Server": "2.34.0",
           "Grpc.Core": "2.34.1",
@@ -3833,7 +3900,7 @@
           "OpenCover": "4.7.922",
           "ReportGenerator": "4.8.4",
           "Selenium.WebDriver": "3.141.0",
-          "Selenium.WebDriver.ChromeDriver": "87.0.4280.8800",
+          "Selenium.WebDriver.ChromeDriver": "88.0.4324.2700",
           "Shouldly": "4.0.3",
           "xunit": "2.4.1"
         },
@@ -3869,6 +3936,33 @@
     }
   },
   "libraries": {
+    "BrotliSharpLib/0.3.3": {
+      "sha512": "/z74VNg6etlQK/N1mSD5Tz2qQUZqc3RMiuv2F8Q/MOfvg4l7a6lDYhQQTPd9s9saSokh1GqUD7JTuunOiQid8w==",
+      "type": "package",
+      "path": "brotlisharplib/0.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "brotlisharplib.0.3.3.nupkg.sha512",
+        "brotlisharplib.nuspec",
+        "lib/net20/BrotliSharpLib.dll",
+        "lib/net20/BrotliSharpLib.xml",
+        "lib/net35/BrotliSharpLib.dll",
+        "lib/net35/BrotliSharpLib.xml",
+        "lib/net40/BrotliSharpLib.dll",
+        "lib/net40/BrotliSharpLib.xml",
+        "lib/net45/BrotliSharpLib.dll",
+        "lib/net45/BrotliSharpLib.xml",
+        "lib/net451/BrotliSharpLib.dll",
+        "lib/net451/BrotliSharpLib.xml",
+        "lib/netstandard1.1/BrotliSharpLib.dll",
+        "lib/netstandard1.1/BrotliSharpLib.xml",
+        "lib/netstandard1.3/BrotliSharpLib.dll",
+        "lib/netstandard1.3/BrotliSharpLib.xml",
+        "lib/netstandard2.0/BrotliSharpLib.dll",
+        "lib/netstandard2.0/BrotliSharpLib.xml"
+      ]
+    },
     "Castle.Core/4.4.1": {
       "sha512": "zanbjWC0Y05gbx4eGXkzVycOQqVOFVeCjVsDSyuao9P4mtN1w3WxxTo193NGC7j3o2u3AJRswaoC6hEbnGACnQ==",
       "type": "package",
@@ -3942,6 +4036,21 @@
         "lib/netstandard2.0/DiffEngine.xml",
         "lib/netstandard2.1/DiffEngine.dll",
         "lib/netstandard2.1/DiffEngine.xml"
+      ]
+    },
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "sha512": "xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "type": "package",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
+        "dotnetseleniumextras.waithelpers.nuspec",
+        "lib/net35/SeleniumExtras.WaitHelpers.dll",
+        "lib/net40/SeleniumExtras.WaitHelpers.dll",
+        "lib/net45/SeleniumExtras.WaitHelpers.dll",
+        "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll"
       ]
     },
     "EmptyFiles/2.3.3": {
@@ -5964,6 +6073,21 @@
         "transform/transform.ps1"
       ]
     },
+    "Portable.BouncyCastle/1.8.8": {
+      "sha512": "1rxdf8NfyAxLlqIEciCl/yNhmz1YiLkmp6rrF8p3/NVmyHHzPWLx8djtDvSAwhPLg64BXvsRcM3+5bP1HAUdYg==",
+      "type": "package",
+      "path": "portable.bouncycastle/1.8.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/BouncyCastle.Crypto.dll",
+        "lib/net40/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "portable.bouncycastle.1.8.8.nupkg.sha512",
+        "portable.bouncycastle.nuspec"
+      ]
+    },
     "ReportGenerator/4.8.4": {
       "sha512": "cbVXYiuolAgBOR/i7SX977HU2IvRy4XGRflCY1Wjnw2M92cOlAv++1PQamSF47JXZeKEMAJAGZ4SpXA8dVMkiQ==",
       "type": "package",
@@ -6673,10 +6797,10 @@
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
-      "sha512": "7bgZ2QNhYFofxDdlGVfUVgNJ6B785u/UeoFjEzB7O2EiggPitosPqqB/TG0KpJwvqgQTs+nNJus3rn9yNMHa1A==",
+    "Selenium.WebDriver.ChromeDriver/88.0.4324.2700": {
+      "sha512": "G6H5860X4XxgDaxGpk2WIdbo6ckhFsqJrJLZs4Oq2rAdIPiO3XQfa3J5uzBIao1U0rama2mgIKI/yDXYBezA4A==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/87.0.4280.8800",
+      "path": "selenium.webdriver.chromedriver/88.0.4324.2700",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6686,8 +6810,34 @@
         "driver/mac64/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.87.0.4280.8800.nupkg.sha512",
+        "selenium.webdriver.chromedriver.88.0.4324.2700.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriver.MicrosoftDriver/17.17134.0": {
+      "sha512": "22tIqQPNbFqWx32YO9XNKvWOcBu3Y98a+qb98xo3k37TkV/qPz7AbohsfaHBtizQtAqbQ5GHNM7re30uvF+amw==",
+      "type": "package",
+      "path": "selenium.webdriver.microsoftdriver/17.17134.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Selenium.WebDriver.MicrosoftDriver.targets",
+        "driver/MicrosoftWebDriver.exe",
+        "selenium.webdriver.microsoftdriver.17.17134.0.nupkg.sha512",
+        "selenium.webdriver.microsoftdriver.nuspec"
+      ]
+    },
+    "SeleniumProxyAuth/1.0.2": {
+      "sha512": "tULv+OCct6xdN5b+574qjQJf32VwTMYBtKmickxCa1zVRHfcY3kE+9PTz85ynhWlILZWrPkK/ZTStGkGxQ5I+Q==",
+      "type": "package",
+      "path": "seleniumproxyauth/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SeleniumProxyAuth.dll",
+        "selenium_logo_square_green.png",
+        "seleniumproxyauth.1.0.2.nupkg.sha512",
+        "seleniumproxyauth.nuspec"
       ]
     },
     "Shouldly/4.0.3": {
@@ -12213,6 +12363,21 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Titanium.Web.Proxy/3.1.1344": {
+      "sha512": "RikfE6rijCZYnzvgJiGKB/iAU6IXo7dBgpfW03b7Da4wkxOQ+kdQfh+ySWl74u7wUlKJTvTiv4leffX0Ujcalw==",
+      "type": "package",
+      "path": "titanium.web.proxy/3.1.1344",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Titanium.Web.Proxy.dll",
+        "lib/net461/Titanium.Web.Proxy.dll",
+        "lib/netstandard2.0/Titanium.Web.Proxy.dll",
+        "lib/netstandard2.1/Titanium.Web.Proxy.dll",
+        "titanium.web.proxy.3.1.1344.nupkg.sha512",
+        "titanium.web.proxy.nuspec"
+      ]
+    },
     "xunit/2.4.1": {
       "sha512": "XNR3Yz9QTtec16O0aKcO6+baVNpXmOnPUxDkCY97J+8krUYxPvXT1szYYEUdKk4sB8GOI2YbAjRIOm8ZnXRfzQ==",
       "type": "package",
@@ -12364,6 +12529,9 @@
       "HospitalApp >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Testing >= 3.1.10",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
+      "Selenium.WebDriver.ChromeDriver >= 88.0.4324.2700",
+      "Selenium.WebDriver.MicrosoftDriver >= 17.17134.0",
+      "SeleniumProxyAuth >= 1.0.2",
       "coverlet.collector >= 1.3.0",
       "xunit >= 2.4.1",
       "xunit.extensibility.core >= 2.4.1",
@@ -12420,6 +12588,18 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[16.7.1, )"
+          },
+          "Selenium.WebDriver.ChromeDriver": {
+            "target": "Package",
+            "version": "[88.0.4324.2700, )"
+          },
+          "Selenium.WebDriver.MicrosoftDriver": {
+            "target": "Package",
+            "version": "[17.17134.0, )"
+          },
+          "SeleniumProxyAuth": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

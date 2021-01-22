@@ -53,8 +53,7 @@ namespace HospitalApp.Services
 
         public void GivePatientReferral(Patient patient, Referral referral) 
         {
-            if (patient.Referral != null)
-                RemovePatientsReferral(patient);
+            if (patient.Referral != null) RemovePatientsReferral(patient);
 
             patient.Referral = referral;
         }
@@ -69,8 +68,8 @@ namespace HospitalApp.Services
         public ReferralDto GetAppointmentsReferral(Appointment appointment)
         {
             Referral myReferral = _dbContext.Referrals.SingleOrDefault(referral => 
-                                  referral.PatientId == appointment.Patient.Id && 
-                                  referral.SpecialistId == appointment.DoctorId);
+                                          referral.PatientId == appointment.Patient.Id && 
+                                          referral.SpecialistId == appointment.DoctorId);
 
             if (myReferral == null) return null;
 

@@ -34,7 +34,6 @@ namespace HospitalApp.DateTimeLogic
         public DateTime[] DiscardRandomHours()
         {
             Random random = new Random();
-      
             return GetWorkingHours().Except(GetWorkingHours().OrderBy(x => random.Next()).Take(1200).ToArray()).ToArray();
         }
 

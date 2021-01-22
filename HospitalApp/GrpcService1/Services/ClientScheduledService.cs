@@ -12,33 +12,17 @@ namespace HospitalApp
 {
     public class ClientScheduledService : IHostedService
     {
-        private System.Timers.Timer timer;
-        private GrpcChannel channel;
-        private SpringGrpcService.SpringGrpcServiceClient client;
+        private System.Timers.Timer _timer;
+        private GrpcChannel _channel;
+        private SpringGrpcService.SpringGrpcServiceClient _client;
 
         public ClientScheduledService() { }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-            var httpHandler = new HttpClientHandler();
-            httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-            var httpClient = new HttpClient(httpHandler);
-
-            try
-            {
-                channel = GrpcChannel.ForAddress("https://localhost:8787", new GrpcChannelOptions() { HttpClient = httpClient });
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-            }
-            
-            client = new SpringGrpcService.SpringGrpcServiceClient(channel);
-            timer = new System.Timers.Timer();
-            timer.Elapsed += new ElapsedEventHandler(SendMessage);
-            timer.Interval = 10000; // number in miliseconds  
-            timer.Enabled = true;
+            _channel = GrpcChannel.ForAddress("https://localhost:8787", new GrpcChannelOptions() { HttpClient = CreateHttpClient() });
+            _client = new SpringGrpcService.SpringGrpcServiceClient(_channel);
+            SetUpTimer();
             return Task.CompletedTask;
         }
 
@@ -46,7 +30,7 @@ namespace HospitalApp
         {
             try
             {
-                MessageResponseProto response = await client.communicateAsync(new MessageProto() { Message = "Random message from asp.net client: " + Guid.NewGuid().ToString(), RandomInteger = new Random().Next(1, 101) });
+                MessageResponseProto response = await _client.communicateAsync(new MessageProto() { Message = "Random message from asp.net client: " + Guid.NewGuid().ToString(), RandomInteger = new Random().Next(1, 101) });
                 Console.WriteLine(response.Response + " is response; status: " + response.Status);
             }
             catch (Exception exc)
@@ -57,9 +41,36 @@ namespace HospitalApp
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            channel?.ShutdownAsync();
-            timer?.Dispose();
+            _channel?.ShutdownAsync();
+            _timer?.Dispose();
             return Task.CompletedTask;
+        }
+
+        private HttpClient CreateHttpClient() 
+        {
+            SetAppContextSwitch();
+            var httpClient = new HttpClient(CreateHttpClientHandler());
+            return httpClient;
+        }
+
+        private void SetAppContextSwitch()
+        {
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+        }
+
+        private HttpClientHandler CreateHttpClientHandler()
+        {
+            var httpHandler = new HttpClientHandler();
+            httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+            return httpHandler;
+        }
+
+        private void SetUpTimer()
+        {
+            _timer = new System.Timers.Timer();
+            _timer.Elapsed += new ElapsedEventHandler(SendMessage);
+            _timer.Interval = 10000;
+            _timer.Enabled = true;
         }
     }
 }

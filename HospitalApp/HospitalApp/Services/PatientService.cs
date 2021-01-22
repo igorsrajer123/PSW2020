@@ -40,14 +40,11 @@ namespace HospitalApp.Services
 
         public PatientDto Add(Patient patient)
         {
-            if (patient == null || patient.Password == null)
-                return null;
+            if (patient == null || patient.Password == null) return null;
 
-            if (_dbContext.Patients.SingleOrDefault(p => p.Username == patient.Username) != null)
-                return null;
+            if (_dbContext.Patients.SingleOrDefault(p => p.Username == patient.Username) != null) return null;
 
             GiveRandomGeneralPractitioner(patient);
-            
             _dbContext.Patients.Add(patient);
             _dbContext.SaveChanges();
 

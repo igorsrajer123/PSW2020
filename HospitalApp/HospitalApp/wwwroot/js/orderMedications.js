@@ -25,7 +25,6 @@ function makeOrder(){
         }
         
         var transformedData = JSON.stringify(data);
-        var meds = JSON.stringify({"medications" : medications});
 
         $.ajax({
             url: 'https://localhost:8080/api/createOrder',

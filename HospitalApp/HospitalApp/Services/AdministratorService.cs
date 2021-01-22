@@ -38,15 +38,12 @@ namespace HospitalApp.Services
 
         public AdministratorDto Add(Administrator administrator)
         {
-            if (administrator == null)
-                return null;
+            if (administrator == null) return null;
 
             _dbContext.Administrators.Add(administrator);
             _dbContext.SaveChanges();
 
-            AdministratorDto adminDto = AdministratorAdapter.AdministratoToAdministratorDto(administrator);
-
-            return adminDto;
+            return AdministratorAdapter.AdministratoToAdministratorDto(administrator);
         }
     }
 }

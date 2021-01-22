@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: purple;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+}
+
+#orders{
+    width: 500px;
+    height: 300px;
+    padding: 15px 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p{
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;   
+}
+
+
+div{
+    border: solid;
+    width: 370px;
+    height: 150px;
+    margin-bottom: 10px;
+    background-color: brown;
+    display: table;
+    text-align: middle;
+    vertical-align: middle;
+}
